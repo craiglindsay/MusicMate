@@ -1,0 +1,1444 @@
+{
+ "chart": "Billboard Year-End Hot 100",
+ "year": 2019,
+ "source": "https://en.wikipedia.org/wiki/Billboard_Year-End_Hot_100_singles_of_2019",
+ "songs": [
+  {
+   "rank": 1,
+   "title": "Old Town Road",
+   "artist": "Lil Nas X featuring Billy Ray Cyrus",
+   "mbid": "a66903db-accf-42f1-be70-058803a87ba9",
+   "artist_mbids": [
+    "0b30341b-b59d-4979-8130-b66c0e475321",
+    "63e8d6f9-e247-45c9-aaf2-e079cddbdd54"
+   ],
+   "album": "7 EP",
+   "album_mbid": "7d14b372-ffe4-4a68-b87f-c85867266a0b",
+   "album_group_mbid": "c003aef3-c290-44f2-b47e-23cde7770a05",
+   "album_type": "EP",
+   "album_date": "2019-06-21"
+  },
+  {
+   "rank": 2,
+   "title": "Sunflower",
+   "artist": "Post Malone and Swae Lee",
+   "mbid": "b6df9d04-2303-4ec7-a416-367b06a026cb",
+   "artist_mbids": [
+    "b1e26560-60e5-4236-bbdb-9aa5a8d5ee19",
+    "a17ce9c3-8f6f-4dcc-a1b7-2a04ab9e31f0"
+   ],
+   "album": "Hollywood’s Bleeding",
+   "album_mbid": "1ba989a5-0b8a-4158-9e26-6ea7b4f281d5",
+   "album_group_mbid": "8c9e2ca7-fad0-427c-a963-6bd535992a38",
+   "album_type": "Album",
+   "album_date": "2019"
+  },
+  {
+   "rank": 3,
+   "title": "Without Me",
+   "artist": "Halsey",
+   "mbid": "01552e9a-11b0-4b5d-bcd5-cd15850ebd29",
+   "artist_mbids": [
+    "3377f3bb-60fc-4403-aea9-7e800612e060"
+   ],
+   "album": "Manic",
+   "album_mbid": "412e52fa-73f0-4442-876c-9c45893620eb",
+   "album_group_mbid": "50e1fb42-ac14-4487-a58d-ed5c847f701d",
+   "album_type": "Album",
+   "album_date": "2020-09-29"
+  },
+  {
+   "rank": 4,
+   "title": "Bad Guy",
+   "artist": "Billie Eilish",
+   "mbid": "694da04d-1ffc-435c-8b4b-59cc23ac8003",
+   "artist_mbids": [
+    "f4abc0b5-3f7a-4eff-8f78-ac078dbce533"
+   ],
+   "album": "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",
+   "album_mbid": "e9602130-b5a0-48da-9a95-27e3c01bef0a",
+   "album_group_mbid": "72375978-a9a1-4254-b957-85565c716b7e",
+   "album_type": "Album",
+   "album_date": "2019-03-29"
+  },
+  {
+   "rank": 5,
+   "title": "Wow",
+   "artist": "Post Malone",
+   "mbid": "f1c75389-84f4-4df6-b04c-7b399505684e",
+   "artist_mbids": [
+    "b1e26560-60e5-4236-bbdb-9aa5a8d5ee19"
+   ],
+   "album": "Hollywood’s Bleeding",
+   "album_mbid": "9e0ca5d4-b766-4338-97d9-ad0c6447c0a5",
+   "album_group_mbid": "8c9e2ca7-fad0-427c-a963-6bd535992a38",
+   "album_type": "Album",
+   "album_date": "2019-09-06"
+  },
+  {
+   "rank": 6,
+   "title": "Happier",
+   "artist": "Marshmello and Bastille",
+   "album": "Happier",
+   "album_mbid": "b97f8c10-64fd-435d-9ce2-4c4157b0a93e",
+   "album_group_mbid": "4977de41-d626-41ea-ae29-b6ebb29843eb",
+   "album_type": "Single",
+   "album_date": "2018-08-17"
+  },
+  {
+   "rank": 7,
+   "title": "7 Rings",
+   "artist": "Ariana Grande",
+   "mbid": "3d87bbda-4f72-4a18-8906-545c2da6cc26",
+   "artist_mbids": [
+    "f4fdbb4c-e4b7-47a0-b83b-d91bbfcfa387"
+   ],
+   "album": "thank u, next",
+   "album_mbid": "281d4b00-e0d3-49a4-99c3-282650181bc1",
+   "album_group_mbid": "485d3241-ef02-49a4-88df-a03eaa86d9cd",
+   "album_type": "Album",
+   "album_date": "2019-02-08"
+  },
+  {
+   "rank": 8,
+   "title": "Talk",
+   "artist": "Khalid",
+   "mbid": "c3f91845-612d-483b-9f62-ed37f5ebe05d",
+   "artist_mbids": [
+    "28737730-ec70-4da5-89c5-77ac13c5c34d",
+    "ae65c507-d9a0-4d42-9a6c-2b1f82158b9f"
+   ],
+   "album": "Free Spirit",
+   "album_mbid": "139a2674-e215-4a02-85c1-7d61dfc49b44",
+   "album_group_mbid": "8bcc3814-f19a-448b-8ed3-c56a024bfe4d",
+   "album_type": "Album",
+   "album_date": "2019-04-05"
+  },
+  {
+   "rank": 9,
+   "title": "Sicko Mode",
+   "artist": "Travis Scott",
+   "mbid": "73784600-a665-4a6c-9687-187dbefc556d",
+   "artist_mbids": [
+    "e4a51f17-a57b-47b1-b37b-f552d0f8e9e6"
+   ],
+   "album": "ASTROWORLD",
+   "album_mbid": "7454704c-a26d-471f-8d78-8828463782a6",
+   "album_group_mbid": "c0704c7d-dc5b-43cd-b372-8056a3bf7bb2",
+   "album_type": "Album",
+   "album_date": "2018-08-03"
+  },
+  {
+   "rank": 10,
+   "title": "Sucker",
+   "artist": "Jonas Brothers",
+   "mbid": "31148286-91df-454f-a309-8e16767fac61",
+   "artist_mbids": [
+    "6e019bc6-5c23-4935-94f0-4a896631d846"
+   ],
+   "album": "Happiness Begins",
+   "album_mbid": "e5767341-1afa-41b9-b999-2b6ebcb52919",
+   "album_group_mbid": "e6f63f4a-951d-4e31-8f34-4e2e16757912",
+   "album_type": "Album",
+   "album_date": "2019-06-07"
+  },
+  {
+   "rank": 11,
+   "title": "High Hopes",
+   "artist": "Panic! at the Disco",
+   "mbid": "c1296fc9-08d8-4c4b-af8b-d92da5397850",
+   "artist_mbids": [
+    "b9472588-93f3-4922-a1a2-74082cdf9ce8"
+   ],
+   "album": "Pray for the Wicked",
+   "album_mbid": "7678be5e-0a2b-4be7-8637-376aef0be17c",
+   "album_group_mbid": "bcec22a7-4338-4a71-82e8-b6e39887219c",
+   "album_type": "Album",
+   "album_date": "2018-06-22"
+  },
+  {
+   "rank": 12,
+   "title": "Thank U, Next",
+   "artist": "Ariana Grande",
+   "mbid": "274b3a7b-64bd-4af3-9af9-dd41277ddc17",
+   "artist_mbids": [
+    "f4fdbb4c-e4b7-47a0-b83b-d91bbfcfa387"
+   ],
+   "album": "thank u, next",
+   "album_mbid": "8bd4be9a-8401-4f9c-b3af-a8686d66b717",
+   "album_group_mbid": "485d3241-ef02-49a4-88df-a03eaa86d9cd",
+   "album_type": "Album",
+   "album_date": "2019-12-06"
+  },
+  {
+   "rank": 13,
+   "title": "Truth Hurts",
+   "artist": "Lizzo",
+   "mbid": "e3d04cc6-b6e8-4942-b7c5-85645a02a6bf",
+   "artist_mbids": [
+    "8fb5370b-9568-4b61-9da5-2aa12c9928db"
+   ],
+   "album": "Cuz I Love You",
+   "album_mbid": "5f1db5bd-582f-4edb-8493-7aef2647a736",
+   "album_group_mbid": "b0b9a346-658c-48b4-97ee-8cd49c19c2e6",
+   "album_type": "Album",
+   "album_date": "2019-12-13"
+  },
+  {
+   "rank": 14,
+   "title": "Dancing with a Stranger",
+   "artist": "Sam Smith and Normani",
+   "mbid": "aa243e48-c9f6-4753-8b42-b2342bb8988b",
+   "artist_mbids": [
+    "5a85c140-dcf9-4dd2-b2c8-aff0471549f3",
+    "04d93730-f81c-450c-8441-d5f5fcf98485"
+   ],
+   "album": "Love Goes",
+   "album_mbid": "e0374b24-11f6-44a6-b035-2f049dafebae",
+   "album_group_mbid": "ab5f3ccb-f0a0-4116-91f1-f15f40cf7d53",
+   "album_type": "Album",
+   "album_date": "2020-10-30"
+  },
+  {
+   "rank": 15,
+   "title": "Señorita",
+   "artist": "Shawn Mendes and Camila Cabello",
+   "mbid": "62f09fd2-144a-439a-96f9-ce93f05b48ae",
+   "artist_mbids": [
+    "b7d92248-97e3-4450-8057-6fe06738f735",
+    "01b8b5bf-06cb-45da-85fb-61ada72fcd69"
+   ],
+   "album": "Shawn Mendes",
+   "album_mbid": "b960b60c-0029-4e61-980a-7f3e2647ccf1",
+   "album_group_mbid": "41b9c230-aee1-4f02-a01c-a2abdf4d4f36",
+   "album_type": "Album",
+   "album_date": "2019-07-26"
+  },
+  {
+   "rank": 16,
+   "title": "I Don't Care",
+   "artist": "Ed Sheeran and Justin Bieber",
+   "mbid": "d2969e88-56d6-4ee2-bced-9cc20a6ea550",
+   "artist_mbids": [
+    "b8a7c51f-362c-4dcb-a259-bc6e0095f0a6",
+    "49d9e281-5c60-455c-a785-9a43519cbf54"
+   ],
+   "album": "I Don't Care",
+   "album_mbid": "c2f83425-6918-45d1-ac5b-1f014ade3a39",
+   "album_group_mbid": "687bf37a-1775-4db7-99d4-37579b22bd14",
+   "album_type": "Single",
+   "album_date": "2019-07"
+  },
+  {
+   "rank": 17,
+   "title": "Eastside",
+   "artist": "Benny Blanco, Halsey and Khalid",
+   "mbid": "787087cb-cb94-442d-98dd-2eddc59f1f84",
+   "artist_mbids": [
+    "5a6131f9-f8db-4722-b4d7-6a0c7183c590",
+    "3377f3bb-60fc-4403-aea9-7e800612e060",
+    "28737730-ec70-4da5-89c5-77ac13c5c34d"
+   ],
+   "album": "FRIENDS KEEP SECRETS",
+   "album_mbid": "3f30a5e1-212b-4fee-ba23-e2ba0394767d",
+   "album_group_mbid": "876b561c-bde5-4266-b74a-8220304e97f9",
+   "album_type": "Album",
+   "album_date": "2018-12-07"
+  },
+  {
+   "rank": 18,
+   "title": "Going Bad",
+   "artist": "Meek Mill featuring Drake",
+   "mbid": "db552013-745d-457b-bc23-94369888d6d6",
+   "artist_mbids": [
+    "31bcadcc-e1da-4cad-bec8-2f4f1d41b095",
+    "9fff2f8a-21e6-47de-a2b8-7f449929d43f"
+   ],
+   "album": "Championships",
+   "album_mbid": "c5cc4c1c-7a10-4457-a916-776de96029d1",
+   "album_group_mbid": "ed2044c6-15a8-4f13-95bb-4d9fa39e6d36",
+   "album_type": "Album",
+   "album_date": "2018-11-30"
+  },
+  {
+   "rank": 19,
+   "title": "Shallow",
+   "artist": "Lady Gaga and Bradley Cooper",
+   "mbid": "e8191687-56bf-4e69-860f-a898735ec268",
+   "artist_mbids": [
+    "650e7db6-b795-4eb5-a702-5ea2fc46c848",
+    "cbe7746f-d4b4-4f0d-a435-1aa181d97b1b"
+   ],
+   "album": "A Star Is Born Soundtrack",
+   "album_mbid": "30260343-85f4-44cf-a963-f867306657d0",
+   "album_group_mbid": "86ada260-4985-4616-90e4-ee1c7e65d93b",
+   "album_type": "Album / Soundtrack",
+   "album_date": "2018-10-05"
+  },
+  {
+   "rank": 20,
+   "title": "Better",
+   "artist": "Khalid",
+   "mbid": "28e56bf8-01af-40e9-9733-6ddcec8300d9",
+   "artist_mbids": [
+    "28737730-ec70-4da5-89c5-77ac13c5c34d"
+   ],
+   "album": "Free Spirit",
+   "album_mbid": "139a2674-e215-4a02-85c1-7d61dfc49b44",
+   "album_group_mbid": "8bcc3814-f19a-448b-8ed3-c56a024bfe4d",
+   "album_type": "Album",
+   "album_date": "2019-04-05"
+  },
+  {
+   "rank": 21,
+   "title": "No Guidance",
+   "artist": "Chris Brown featuring Drake",
+   "mbid": "73fa99d7-300f-4779-9156-c683f7df82d1",
+   "artist_mbids": [
+    "c234fa42-e6a6-443e-937e-2f4b073538a3",
+    "9fff2f8a-21e6-47de-a2b8-7f449929d43f"
+   ],
+   "album": "Indigo",
+   "album_mbid": "7b927525-0fc4-41bc-ad6d-fda297709ab0",
+   "album_group_mbid": "087b3a7d-d532-44d9-b37a-84427677ddcd",
+   "album_type": "Album",
+   "album_date": "2019-06-28"
+  },
+  {
+   "rank": 22,
+   "title": "Girls Like You",
+   "artist": "Maroon 5 featuring Cardi B",
+   "mbid": "3081e627-25aa-4152-838c-416be4a9de3e",
+   "artist_mbids": [
+    "0ab49580-c84f-44d4-875f-d83760ea2cfe",
+    "2f3c4d70-0462-40da-bba3-0aec5772c556"
+   ],
+   "album": "Red Pill Blues",
+   "album_mbid": "9be0391b-5daf-42fb-84dc-5305b0075347",
+   "album_group_mbid": "f3611515-4150-49a1-82cd-26938f0d5bc3",
+   "album_type": "Album",
+   "album_date": "2017-11-03"
+  },
+  {
+   "rank": 23,
+   "title": "Sweet but Psycho",
+   "artist": "Ava Max",
+   "mbid": "745cc4a1-b551-44d1-9d47-cc6ef7ad97b9",
+   "artist_mbids": [
+    "add5f522-25df-41c4-815e-0ca9f60b83e4"
+   ],
+   "album": "Heaven & Hell",
+   "album_mbid": "b84c687f-9177-4303-afb8-ee86744c52bc",
+   "album_group_mbid": "dab43958-f33f-481b-901d-d4ba5fea4935",
+   "album_type": "Album",
+   "album_date": "2020-11-19"
+  },
+  {
+   "rank": 24,
+   "title": "Suge",
+   "artist": "DaBaby",
+   "mbid": "c2f85f3b-7e61-4495-be2f-c853bb26c915",
+   "artist_mbids": [
+    "87ae83df-6173-40cc-a0f2-bad543faa6aa"
+   ],
+   "album": "Baby on Baby",
+   "album_mbid": "6b2f50ad-354d-432a-bda5-ab7a1105e641",
+   "album_group_mbid": "24f72bcd-f983-44e0-8ec8-5a8af471452f",
+   "album_type": "Album",
+   "album_date": "2019-03-01"
+  },
+  {
+   "rank": 25,
+   "title": "Middle Child",
+   "artist": "J. Cole",
+   "mbid": "3f6861eb-7173-43e3-bd3b-242ab94fcde2",
+   "artist_mbids": [
+    "875203e1-8e58-4b86-8dcb-7190faf411c5"
+   ],
+   "album": "MIDDLE CHILD",
+   "album_mbid": "fee1a9f6-2e96-48ee-bcae-1311ba5118f9",
+   "album_group_mbid": "d263c57b-400b-4553-9fc2-b329497c6488",
+   "album_type": "Single",
+   "album_date": "2019-01-26"
+  },
+  {
+   "rank": 26,
+   "title": "Drip Too Hard",
+   "artist": "Lil Baby and Gunna",
+   "mbid": "14983d93-0458-4064-a0ff-3248d57e6908",
+   "artist_mbids": [
+    "d42a5768-ada1-4fb6-85fd-f61aba6264e0",
+    "100b8734-f4f0-4536-9960-47f7c59d1b4c"
+   ],
+   "album": "Drip Too Hard",
+   "album_mbid": "180b7971-ac37-43e2-a9f2-0b66b363c8a8",
+   "album_group_mbid": "0372ea79-1de2-4bf1-abbc-9287f1692f6d",
+   "album_type": "Single",
+   "album_date": "2018-09-12"
+  },
+  {
+   "rank": 27,
+   "title": "Someone You Loved",
+   "artist": "Lewis Capaldi",
+   "mbid": "cc95aec7-4a2e-4b66-bf41-e60f3bff1378",
+   "artist_mbids": [
+    "526aab94-697f-44a9-b630-41d1c0505953"
+   ],
+   "album": "Divinely Uninspired to a Hellish Extent",
+   "album_mbid": "032e8a9c-d90f-4b02-9745-da584afd4d0a",
+   "album_group_mbid": "f1849099-2dfa-42b8-a3fc-a8248938578f",
+   "album_type": "Album",
+   "album_date": "2019-11-22"
+  },
+  {
+   "rank": 28,
+   "title": "Ransom",
+   "artist": "Lil Tecca",
+   "mbid": "2d8763dd-6c07-4737-9b65-e02ee6924851",
+   "artist_mbids": [
+    "e6fdf3f9-8077-4126-b0cf-94da9a8b627e"
+   ],
+   "album": "We Love You Tecca",
+   "album_mbid": "fde5cc6b-0bcd-47a7-a9ae-68a22d5a4fdf",
+   "album_group_mbid": "2bf0d6e9-2527-4ac3-9536-2df9dd593949",
+   "album_type": "Album / Mixtape/Street",
+   "album_date": "2019-08-30"
+  },
+  {
+   "rank": 29,
+   "title": "If I Can't Have You",
+   "artist": "Shawn Mendes",
+   "mbid": "6dd2d92e-90f0-4f23-aab6-87316a653b4f",
+   "artist_mbids": [
+    "b7d92248-97e3-4450-8057-6fe06738f735"
+   ],
+   "album": "Shawn Mendes",
+   "album_mbid": "7e7d660f-a4ff-4bd6-bfb9-d5ecc1e7d128",
+   "album_group_mbid": "41b9c230-aee1-4f02-a01c-a2abdf4d4f36",
+   "album_type": "Album",
+   "album_date": "2018-05-25"
+  },
+  {
+   "rank": 30,
+   "title": "Goodbyes",
+   "artist": "Post Malone featuring Young Thug",
+   "mbid": "c8162486-f1a6-4673-88a2-e70c2112c221",
+   "artist_mbids": [
+    "b1e26560-60e5-4236-bbdb-9aa5a8d5ee19",
+    "800760de-bdf8-43a2-8fe0-44a2401a5515"
+   ],
+   "album": "Hollywood’s Bleeding",
+   "album_mbid": "a469e741-04b1-415f-a36f-d55b60f30067",
+   "album_group_mbid": "8c9e2ca7-fad0-427c-a963-6bd535992a38",
+   "album_type": "Album",
+   "album_date": "2019-09-06"
+  },
+  {
+   "rank": 31,
+   "title": "Zeze",
+   "artist": "Kodak Black featuring Travis Scott and Offset",
+   "mbid": "330e0416-4dac-48f4-9444-bb6a248d3ce3",
+   "artist_mbids": [
+    "5ec1ecc6-4535-4911-a27a-e26343f4a189",
+    "e4a51f17-a57b-47b1-b37b-f552d0f8e9e6",
+    "92631c53-91ed-48f5-a09d-a104ba69cdc7"
+   ],
+   "album": "Dying to Live",
+   "album_mbid": "366fac5f-fe36-4a06-9d42-d2c759545c50",
+   "album_group_mbid": "cb5cbfa5-e068-4b1b-9628-86a6f823bc8c",
+   "album_type": "Album",
+   "album_date": "2018-12-14"
+  },
+  {
+   "rank": 32,
+   "title": "Better Now",
+   "artist": "Post Malone",
+   "mbid": "6d75e581-54a5-4e7c-a22c-8a31c274406c",
+   "artist_mbids": [
+    "b1e26560-60e5-4236-bbdb-9aa5a8d5ee19"
+   ],
+   "album": "beerbongs & bentleys",
+   "album_mbid": "09668cde-446d-4237-ac26-1a85a6c29fc0",
+   "album_group_mbid": "a6045fe5-c283-4778-995c-04d953fe73e1",
+   "album_type": "Album",
+   "album_date": "2018-04-27"
+  },
+  {
+   "rank": 33,
+   "title": "Youngblood",
+   "artist": "5 Seconds of Summer",
+   "mbid": "079cab5d-0ae6-4524-81f9-5235a284ec49",
+   "artist_mbids": [
+    "830e5c4e-6b7d-431d-86ab-00c751281dc5"
+   ],
+   "album": "Youngblood",
+   "album_mbid": "bc910f8e-023f-4f13-bf81-af70be6ff790",
+   "album_group_mbid": "61d86c4c-0901-4ee1-8021-7226fb2b8e05",
+   "album_type": "Album",
+   "album_date": "2018-06-15"
+  },
+  {
+   "rank": 34,
+   "title": "Money in the Grave",
+   "artist": "Drake featuring Rick Ross",
+   "mbid": "63b31e5c-df3f-4900-9d86-ebf31f753102",
+   "artist_mbids": [
+    "9fff2f8a-21e6-47de-a2b8-7f449929d43f",
+    "13bcb2bb-db37-4397-baf5-e0f085be2d64"
+   ],
+   "album": "The Best in the World Pack",
+   "album_mbid": "cb922a2e-a3cc-453e-9988-47951c2527f3",
+   "album_group_mbid": "fa068606-3e4a-4e77-8890-d4259cb9ff83",
+   "album_type": "Single",
+   "album_date": "2019-06-15"
+  },
+  {
+   "rank": 35,
+   "title": "Speechless",
+   "artist": "Dan + Shay",
+   "mbid": "7230a157-87d2-4242-868a-9b1d3253e392",
+   "artist_mbids": [
+    "33cf3954-10af-4dcb-985f-9420d1fa4168"
+   ],
+   "album": "Dan + Shay",
+   "album_mbid": "75fbe637-3566-4f3a-9255-bdf82765748a",
+   "album_group_mbid": "46139fa3-9ed5-4236-8b20-5f8ed0d6cde8",
+   "album_type": "Album",
+   "album_date": "2018"
+  },
+  {
+   "rank": 36,
+   "title": "Break Up with Your Girlfriend, I'm Bored",
+   "artist": "Ariana Grande",
+   "mbid": "f434698a-04e9-4768-89af-e7afb483aa94",
+   "artist_mbids": [
+    "f4fdbb4c-e4b7-47a0-b83b-d91bbfcfa387"
+   ],
+   "album": "thank u, next",
+   "album_mbid": "f3c1f76d-d436-4402-8888-1fdcf9e6cba8",
+   "album_group_mbid": "485d3241-ef02-49a4-88df-a03eaa86d9cd",
+   "album_type": "Album",
+   "album_date": "2019-02-07"
+  },
+  {
+   "rank": 37,
+   "title": "Please Me",
+   "artist": "Cardi B and Bruno Mars",
+   "mbid": "fe4c55b2-1a6e-48b2-991a-1fbe2be9eaf1",
+   "artist_mbids": [
+    "2f3c4d70-0462-40da-bba3-0aec5772c556",
+    "afb680f2-b6eb-4cd7-a70b-a63b25c763d5"
+   ],
+   "album": "Please Me",
+   "album_mbid": "54bc4b83-b5d0-4198-9c4e-04d7052eac04",
+   "album_group_mbid": "7d77da6a-e1ae-4b55-a9ac-b25f561d0fa7",
+   "album_type": "Single",
+   "album_date": "2019-02-15"
+  },
+  {
+   "rank": 38,
+   "title": "Money",
+   "artist": "Cardi B",
+   "mbid": "554be879-81c1-4202-9c45-286af561182f",
+   "artist_mbids": [
+    "2f3c4d70-0462-40da-bba3-0aec5772c556"
+   ],
+   "album": "Invasion of Privacy",
+   "album_mbid": "11604d82-9ebd-47fa-b581-27ac55d22983",
+   "album_group_mbid": "45c6de75-bea5-4dd9-a912-55fb9497c3fc",
+   "album_type": "Album",
+   "album_date": "2018-12-07"
+  },
+  {
+   "rank": 39,
+   "title": "You Need to Calm Down",
+   "artist": "Taylor Swift",
+   "mbid": "b930f15a-86cb-4ea6-82a4-83b6006ef482",
+   "artist_mbids": [
+    "20244d07-534f-4eff-b4d4-930878889970"
+   ],
+   "album": "Lover",
+   "album_mbid": "4c76b950-7b64-47d8-9c91-b46decd5ac4c",
+   "album_group_mbid": "30e9785b-7b50-4d29-b3d1-96fb55e3397f",
+   "album_type": "Album",
+   "album_date": "2019-11-15"
+  },
+  {
+   "rank": 40,
+   "title": "Panini",
+   "artist": "Lil Nas X",
+   "mbid": "bc244b8c-b581-4e92-b450-86c10bce6bad",
+   "artist_mbids": [
+    "0b30341b-b59d-4979-8130-b66c0e475321"
+   ],
+   "album": "7 EP",
+   "album_mbid": "7d14b372-ffe4-4a68-b87f-c85867266a0b",
+   "album_group_mbid": "c003aef3-c290-44f2-b47e-23cde7770a05",
+   "album_type": "EP",
+   "album_date": "2019-06-21"
+  },
+  {
+   "rank": 41,
+   "title": "Look Back at It",
+   "artist": "A Boogie wit da Hoodie",
+   "mbid": "c8374c1a-8c6f-4f45-9b4e-59187679b983",
+   "artist_mbids": [
+    "c1708d03-8a66-46eb-848e-fe0d233ffb39"
+   ],
+   "album": "Hoodie SZN",
+   "album_mbid": "02e47ff2-eb5c-46d8-853c-4ec634b8176f",
+   "album_group_mbid": "24fc1380-80ec-4fca-a453-3d77cf174557",
+   "album_type": "Album",
+   "album_date": "2018-12-21"
+  },
+  {
+   "rank": 42,
+   "title": "A Lot",
+   "artist": "21 Savage",
+   "mbid": "4d4219b0-cd63-4d14-80df-cf0404fdb9a7",
+   "artist_mbids": [
+    "37b2cb82-ef79-4d46-a184-a549450aa231"
+   ],
+   "album": "i am > i was",
+   "album_mbid": "26fe890e-cd54-45b2-bb5f-da7cfcf35d57",
+   "album_group_mbid": "f56fbad2-66bc-4c51-b744-1349835e7a7c",
+   "album_type": "Album",
+   "album_date": "2018-12-21"
+  },
+  {
+   "rank": 43,
+   "title": "Me!",
+   "artist": "Taylor Swift featuring Brendon Urie",
+   "mbid": "cded34f6-25db-453c-88fd-688795dd7efc",
+   "artist_mbids": [
+    "20244d07-534f-4eff-b4d4-930878889970"
+   ],
+   "album": "Lover",
+   "album_mbid": "9f5dd701-f6c3-46d5-bb55-73e8bbbcac17",
+   "album_group_mbid": "30e9785b-7b50-4d29-b3d1-96fb55e3397f",
+   "album_type": "Album",
+   "album_date": "2019-08-23"
+  },
+  {
+   "rank": 44,
+   "title": "Mia",
+   "artist": "Bad Bunny featuring Drake",
+   "mbid": "9611378b-f76b-4795-b61d-da9e0ee07850",
+   "artist_mbids": [
+    "89aa5ecb-59ad-46f5-b3eb-2d424e941f19",
+    "9fff2f8a-21e6-47de-a2b8-7f449929d43f"
+   ],
+   "album": "X 100PRE",
+   "album_mbid": "691a36e6-8cd9-4066-820e-2f261a8bca97",
+   "album_group_mbid": "68f8c63d-3e54-4f26-8ce3-41a7bc1ca7fd",
+   "album_type": "Album",
+   "album_date": "2018-12-24"
+  },
+  {
+   "rank": 45,
+   "title": "Pop Out",
+   "artist": "Polo G featuring Lil Tjay",
+   "mbid": "a90d60b3-e647-4460-8258-e319f00c8e5d",
+   "artist_mbids": [
+    "7e1e5648-1d6a-4248-975a-98603e781848",
+    "d44b92db-dd49-4636-abe8-7c381f90b7aa"
+   ],
+   "album": "Die a Legend",
+   "album_mbid": "b5445569-209e-4849-b828-12875886be23",
+   "album_group_mbid": "2917ebe8-8dc5-44a3-b04d-de2bc16de4c0",
+   "album_type": "Album",
+   "album_date": "2019-06-07"
+  },
+  {
+   "rank": 46,
+   "title": "Beautiful Crazy",
+   "artist": "Luke Combs",
+   "mbid": "3b1894a2-7988-48fa-91d4-ae036272ef38",
+   "artist_mbids": [
+    "c20ee61f-071f-4e65-9c81-45ee931a54ce"
+   ],
+   "album": "This One’s for You Too",
+   "album_mbid": "eb7d062c-c4ad-4823-8ef0-7a13411e0bdc",
+   "album_group_mbid": "c2418821-b690-4cb8-9944-592386299150",
+   "album_type": "Album",
+   "album_date": "2018-06-01"
+  },
+  {
+   "rank": 47,
+   "title": "Thotiana",
+   "artist": "Blueface",
+   "mbid": "710f99d3-fa5d-4ab0-917d-374358e034c2",
+   "artist_mbids": [
+    "664bd251-a22c-4ab9-a4f7-25da4b14f9fc"
+   ],
+   "album": "Famous Cryp (Reloaded)",
+   "album_mbid": "059ab91f-467b-4a89-8e0d-2bb3a281b421",
+   "album_group_mbid": "a1a96729-730e-4752-97c9-037fb7fb6d8d",
+   "album_type": "Album",
+   "album_date": "2020-07-24"
+  },
+  {
+   "rank": 48,
+   "title": "Lucid Dreams",
+   "artist": "Juice Wrld",
+   "mbid": "19c232bc-1960-4df2-bbc9-7742b7180a7f",
+   "artist_mbids": [
+    "4e4ebde4-0c56-4dec-844b-6c73adcdd92d"
+   ],
+   "album": "Goodbye & Good Riddance",
+   "album_mbid": "b5e11c79-05b9-4b5e-99cc-b83f333051cb",
+   "album_group_mbid": "8bd7dded-24ea-488c-a3e3-3c7158ea12ee",
+   "album_type": "Album",
+   "album_date": "2018-12-10"
+  },
+  {
+   "rank": 49,
+   "title": "Mo Bamba",
+   "artist": "Sheck Wes",
+   "mbid": "25dfa760-3eed-4fdf-9f57-23c3d3a78f4e",
+   "artist_mbids": [
+    "07ab04d4-bdbc-4c93-bfb2-457693a4ff94"
+   ],
+   "album": "MUDBOY",
+   "album_mbid": "1deab31f-e0a7-416e-b7ec-f8dcaf53c2a2",
+   "album_group_mbid": "5ffb8574-d60c-4f72-88c0-36ffe1d39387",
+   "album_type": "Album",
+   "album_date": ""
+  },
+  {
+   "rank": 50,
+   "title": "Beautiful People",
+   "artist": "Ed Sheeran featuring Khalid",
+   "mbid": "611ffa00-29c1-46bc-843e-2f2168101ec8",
+   "artist_mbids": [
+    "b8a7c51f-362c-4dcb-a259-bc6e0095f0a6",
+    "28737730-ec70-4da5-89c5-77ac13c5c34d"
+   ],
+   "album": "No.6 Collaborations Project",
+   "album_mbid": "503ddbc4-4564-42fd-8443-0e2b6fbf325a",
+   "album_group_mbid": "852e109b-d04d-4bc2-a4b0-f0d1817480ec",
+   "album_type": "Album",
+   "album_date": "2019-07-12"
+  },
+  {
+   "rank": 51,
+   "title": "Wake Up in the Sky",
+   "artist": "Gucci Mane, Bruno Mars and Kodak Black",
+   "mbid": "7a4eb25f-ffe0-4065-b9d6-ff343e822901",
+   "artist_mbids": [
+    "36494952-f434-45d8-a958-8b4acdbcf8a8",
+    "afb680f2-b6eb-4cd7-a70b-a63b25c763d5",
+    "5ec1ecc6-4535-4911-a27a-e26343f4a189"
+   ],
+   "album": "Evil Genius",
+   "album_mbid": "03df4db8-d281-47af-acbe-e21e38ad8806",
+   "album_group_mbid": "05facc7c-1296-46fa-8bb6-9df145e3d254",
+   "album_type": "Album",
+   "album_date": "2018-12-07"
+  },
+  {
+   "rank": 52,
+   "title": "Whiskey Glasses",
+   "artist": "Morgan Wallen",
+   "mbid": "fac61a09-4c85-4583-8786-ad7c41b00c48",
+   "artist_mbids": [
+    "2077273e-eaa1-4f49-903c-f286ededecb9"
+   ],
+   "album": "If I Know Me",
+   "album_mbid": "121227a2-bc54-46aa-8867-186cb13e6948",
+   "album_group_mbid": "5b5816e5-54a9-49c1-ad3a-cd6161d18436",
+   "album_type": "Album",
+   "album_date": "2018-06-02"
+  },
+  {
+   "rank": 53,
+   "title": "God's Country",
+   "artist": "Blake Shelton",
+   "album": "Fully Loaded: God’s Country",
+   "album_mbid": "afd1ca2d-8939-416a-8c52-0a2db51d15bd",
+   "album_group_mbid": "93d35e4d-1e87-4e8f-b200-c4f89ac6389b",
+   "album_type": "Album / Compilation",
+   "album_date": "2019-12-13"
+  },
+  {
+   "rank": 54,
+   "title": "Be Alright",
+   "artist": "Dean Lewis",
+   "mbid": "8b544538-97e4-4286-8c06-d158f93bf427",
+   "artist_mbids": [
+    "21e9df94-3c2c-4c15-b069-fefa58bcd650"
+   ],
+   "album": "A Place We Knew",
+   "album_mbid": "0d5b28c0-a7bd-45d5-a332-537cb90df1ae",
+   "album_group_mbid": "c9654f8a-f0d4-49e8-bb08-ef6eb9542430",
+   "album_type": "Album",
+   "album_date": "2019-03-22"
+  },
+  {
+   "rank": 55,
+   "title": "Pure Water",
+   "artist": "Mustard and Migos",
+   "mbid": "775b2382-638a-4bf8-bc72-1e838cd16fd5",
+   "artist_mbids": [
+    "0612bcce-e351-40be-b3d7-2bb5e1c23479",
+    "0221734a-35a8-40f7-b5c5-2f61a200bc7c"
+   ],
+   "album": "Perfect Ten",
+   "album_mbid": "4d955c24-7a71-4532-b6c9-9506c756e226",
+   "album_group_mbid": "fcb882f1-cf5e-4de1-9207-d47012e748b7",
+   "album_type": "Album",
+   "album_date": "2019-06-28"
+  },
+  {
+   "rank": 56,
+   "title": "The Git Up",
+   "artist": "Blanco Brown",
+   "mbid": "717f83f2-602b-4df3-b7f3-0647ad2f9956",
+   "artist_mbids": [
+    "46b04bfe-70da-428e-9b7d-1f444f3446a4"
+   ],
+   "album": "Honeysuckle & Lightning Bugs",
+   "album_mbid": "1dcb7c89-5286-4ade-b47b-1d5d91508f01",
+   "album_group_mbid": "3cae62d2-2a3d-40e4-9d0c-9372981ce3cd",
+   "album_type": "Album",
+   "album_date": "2019-10-10"
+  },
+  {
+   "rank": 57,
+   "title": "Taki Taki",
+   "artist": "DJ Snake featuring Selena Gomez, Ozuna and Cardi B",
+   "mbid": "8465396e-65c0-4979-89a8-c7417e83156d",
+   "artist_mbids": [
+    "31445b1e-96f3-4c7f-84ec-dd02e647e690",
+    "e4bc69e2-a064-4f93-ada1-f7f209cc1cc3",
+    "f2651b63-a44d-4d1d-ba64-d981d971ecd1",
+    "2f3c4d70-0462-40da-bba3-0aec5772c556"
+   ],
+   "album": "Carte Blanche",
+   "album_mbid": "43717da6-ea8f-4396-b29b-53a77701ca06",
+   "album_group_mbid": "8cd49547-ec41-47e9-84f5-e707a604dc75",
+   "album_type": "Album",
+   "album_date": "2019"
+  },
+  {
+   "rank": 58,
+   "title": "Close to Me",
+   "artist": "Ellie Goulding and Diplo featuring Swae Lee",
+   "mbid": "c2b91459-c9a5-470c-858a-078288d33f37",
+   "artist_mbids": [
+    "33ca19f4-18c8-4411-98df-ac23890ce9f5",
+    "a56bd8f9-8ef8-4d63-89a4-794ed1360dd2",
+    "a17ce9c3-8f6f-4dcc-a1b7-2a04ab9e31f0"
+   ],
+   "album": "Brightest Blue",
+   "album_mbid": "3c1bd70e-44d7-47b1-84cb-3769f4978588",
+   "album_group_mbid": "bf7d9159-387d-4c60-8262-d7c018df6833",
+   "album_type": "Album",
+   "album_date": "2020-07-17"
+  },
+  {
+   "rank": 59,
+   "title": "Envy Me",
+   "artist": "Calboy",
+   "mbid": "4c13c951-2c72-4f02-a0d2-33768e997281",
+   "artist_mbids": [
+    "2d4a0012-7364-40e5-b57f-ad2d4f51a30a"
+   ],
+   "album": "Wildboy",
+   "album_mbid": "90ec94e1-ae94-4be0-b05f-d562d3758c4a",
+   "album_group_mbid": "c44a430d-7e07-42d9-abc1-dddf7e7f21ff",
+   "album_type": "Album",
+   "album_date": ""
+  },
+  {
+   "rank": 60,
+   "title": "You Say",
+   "artist": "Lauren Daigle",
+   "mbid": "e8128e69-1c24-4e0f-8e31-6a4087299ba4",
+   "artist_mbids": [
+    "920c7a88-f8f3-482f-96ef-810c6442fc3e"
+   ],
+   "album": "Look Up Child",
+   "album_mbid": "9f931832-2b99-4bd1-8e00-9876d09bf4d2",
+   "album_group_mbid": "ed2bd705-f873-4053-906e-4d410fcd0972",
+   "album_type": "Album",
+   "album_date": "2018-09-07"
+  },
+  {
+   "rank": 61,
+   "title": "Hey Look Ma, I Made It",
+   "artist": "Panic! at the Disco",
+   "mbid": "057c8042-8030-4070-b01b-b11b00817a0d",
+   "artist_mbids": [
+    "b9472588-93f3-4922-a1a2-74082cdf9ce8"
+   ],
+   "album": "Pray for the Wicked",
+   "album_mbid": "7678be5e-0a2b-4be7-8637-376aef0be17c",
+   "album_group_mbid": "bcec22a7-4338-4a71-82e8-b6e39887219c",
+   "album_type": "Album",
+   "album_date": "2018-06-22"
+  },
+  {
+   "rank": 62,
+   "title": "Circles",
+   "artist": "Post Malone",
+   "mbid": "9d0a9e5c-a765-40ab-837e-99b0bb197f6c",
+   "artist_mbids": [
+    "b1e26560-60e5-4236-bbdb-9aa5a8d5ee19"
+   ],
+   "album": "Hollywood’s Bleeding",
+   "album_mbid": "1ba989a5-0b8a-4158-9e26-6ea7b4f281d5",
+   "album_group_mbid": "8c9e2ca7-fad0-427c-a963-6bd535992a38",
+   "album_type": "Album",
+   "album_date": "2019"
+  },
+  {
+   "rank": 63,
+   "title": "Beer Never Broke My Heart",
+   "artist": "Luke Combs",
+   "mbid": "f93ab292-594b-4bdd-93dd-7abc8c905314",
+   "artist_mbids": [
+    "c20ee61f-071f-4e65-9c81-45ee931a54ce"
+   ],
+   "album": "What You See Is What You Get",
+   "album_mbid": "0a839c3e-848b-4cf3-8ffa-90afd1cafe41",
+   "album_group_mbid": "e9fc93bc-1a36-4725-9f7c-10d920b7cbed",
+   "album_type": "Album",
+   "album_date": "2019-11-08"
+  },
+  {
+   "rank": 64,
+   "title": "The London",
+   "artist": "Young Thug, J. Cole and Travis Scott",
+   "mbid": "94853b83-5992-4744-a87b-d949b31cf775",
+   "artist_mbids": [
+    "800760de-bdf8-43a2-8fe0-44a2401a5515",
+    "875203e1-8e58-4b86-8dcb-7190faf411c5",
+    "e4a51f17-a57b-47b1-b37b-f552d0f8e9e6"
+   ],
+   "album": "So Much Fun",
+   "album_mbid": "87173167-795b-475d-a6b4-d0c92b78eb23",
+   "album_group_mbid": "24942280-2605-4e49-a507-67136d22a0b4",
+   "album_type": "Album",
+   "album_date": "2019-12-20"
+  },
+  {
+   "rank": 65,
+   "title": "Con Calma",
+   "artist": "Daddy Yankee and Katy Perry featuring Snow",
+   "mbid": "f7804162-6ca7-4f8e-8bdf-029b6636f29e",
+   "artist_mbids": [
+    "2f522f5c-111c-4ce8-8bd0-d82e97c227ad",
+    "70cb4669-ad7a-4d5c-b99e-7582df393cc7"
+   ],
+   "album": "Con calma",
+   "album_mbid": "ae696ec6-636a-4d04-9b47-2dfce8d6168a",
+   "album_group_mbid": "dfd2a3ec-c2db-428a-9451-65ed4794eb74",
+   "album_type": "Single",
+   "album_date": "2019-01-24"
+  },
+  {
+   "rank": 66,
+   "title": "Murder on My Mind",
+   "artist": "YNW Melly",
+   "mbid": "fdb154f1-7019-476e-bfa9-b077e1cb1942",
+   "artist_mbids": [
+    "59d6cea7-3771-4ce6-8c02-395ac5ba927a"
+   ],
+   "album": "I Am You",
+   "album_mbid": "62c72ddb-a7f0-477d-8c19-6d5be136c4af",
+   "album_group_mbid": "dcb5b738-d698-4d53-95ce-ff7f5828bfe6",
+   "album_type": "Album / Mixtape/Street",
+   "album_date": "2018-08-03"
+  },
+  {
+   "rank": 67,
+   "title": "When the Party's Over",
+   "artist": "Billie Eilish",
+   "mbid": "ff1654d5-1862-4149-96ec-cd0d0539173a",
+   "artist_mbids": [
+    "f69b3d9f-ccfa-4183-a079-c8c154876f58"
+   ],
+   "album": "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",
+   "album_mbid": "6789dd53-0ec6-410c-9c71-c4a75c12d214",
+   "album_group_mbid": "72375978-a9a1-4254-b957-85565c716b7e",
+   "album_type": "Album",
+   "album_date": "2019-03-29"
+  },
+  {
+   "rank": 68,
+   "title": "Act Up",
+   "artist": "City Girls",
+   "mbid": "d6ebc3b9-7ad9-400f-8d46-ff7c1e76e2dd",
+   "artist_mbids": [
+    "bf850027-1cc0-4519-8ee6-a08b492a4867"
+   ],
+   "album": "Girl Code",
+   "album_mbid": "439b5851-ed27-4ddb-8b55-614f83d893ca",
+   "album_group_mbid": "38d6b237-354f-4da8-b373-93c6d7c91ead",
+   "album_type": "Album",
+   "album_date": "2018-11-16"
+  },
+  {
+   "rank": 69,
+   "title": "I Like It",
+   "artist": "Cardi B, Bad Bunny and J Balvin",
+   "mbid": "e6e2b27b-2de0-445d-b4a8-bc722c3ebcfe",
+   "artist_mbids": [
+    "2f3c4d70-0462-40da-bba3-0aec5772c556",
+    "89aa5ecb-59ad-46f5-b3eb-2d424e941f19",
+    "5bdeb32d-56a5-4b6d-a768-264101fa0a0a"
+   ],
+   "album": "Invasion of Privacy",
+   "album_mbid": "11604d82-9ebd-47fa-b581-27ac55d22983",
+   "album_group_mbid": "45c6de75-bea5-4dd9-a912-55fb9497c3fc",
+   "album_type": "Album",
+   "album_date": "2018-12-07"
+  },
+  {
+   "rank": 70,
+   "title": "Trampoline",
+   "artist": "Shaed",
+   "mbid": "2d040649-f6d8-420a-a215-191cf34dc64b",
+   "artist_mbids": [
+    "f9777ea6-02fd-4ba1-8266-cd619f3937fd",
+    "985f7e6f-0a7e-4de7-b9ec-a5dac63cb2f7"
+   ],
+   "album": "High Dive",
+   "album_mbid": "dd0728b6-13b1-4a2f-b8e1-7d7587d89ec0",
+   "album_group_mbid": "9db5a146-829e-4d1f-98cd-81ed390203f1",
+   "album_type": "Album",
+   "album_date": "2021-05-14"
+  },
+  {
+   "rank": 71,
+   "title": "Leave Me Alone",
+   "artist": "Flipp Dinero",
+   "mbid": "ad4f29b8-c40e-470c-98ff-91ee966fa058",
+   "artist_mbids": [
+    "ab0a4c4f-3e0d-4681-b480-c05575a4919a"
+   ],
+   "album": "LOVE FOR GUALA",
+   "album_mbid": "7c5ce154-8f18-4a8a-8038-a1d8197c9472",
+   "album_group_mbid": "a3dcbf42-0c88-416d-b72c-c73a3dd07967",
+   "album_type": "Album",
+   "album_date": "2019-11-22"
+  },
+  {
+   "rank": 72,
+   "title": "Breathin",
+   "artist": "Ariana Grande",
+   "mbid": "ebbda164-fca5-476b-ad1a-26083d64ecf2",
+   "artist_mbids": [
+    "f4fdbb4c-e4b7-47a0-b83b-d91bbfcfa387"
+   ],
+   "album": "Sweetener",
+   "album_mbid": "cbe4f5a0-c8f5-44a0-8b6c-e4cb5fa297b9",
+   "album_group_mbid": "58afd5f5-a3cb-43c4-a0dc-fd15fbfe33bf",
+   "album_type": "Album",
+   "album_date": "2018-10-24"
+  },
+  {
+   "rank": 73,
+   "title": "Bury a Friend",
+   "artist": "Billie Eilish",
+   "mbid": "4d82c5eb-9cfe-4dd6-b147-b57cc17a809d",
+   "artist_mbids": [
+    "f4abc0b5-3f7a-4eff-8f78-ac078dbce533"
+   ],
+   "album": "WHEN WE ALL FALL ASLEEP, WHERE DO WE GO?",
+   "album_mbid": "27fa99cb-c166-4e0d-91d5-00feaa09202e",
+   "album_group_mbid": "72375978-a9a1-4254-b957-85565c716b7e",
+   "album_type": "Album",
+   "album_date": "2019-03-29"
+  },
+  {
+   "rank": 74,
+   "title": "Close Friends",
+   "artist": "Lil Baby",
+   "mbid": "d3290ee1-9e64-4f0d-a9f7-97ef42b9708a",
+   "artist_mbids": [
+    "d42a5768-ada1-4fb6-85fd-f61aba6264e0"
+   ],
+   "album": "What You Know 'Bout Love",
+   "album_mbid": "2b284da0-082b-466b-9b20-ee30d6397f8c",
+   "album_group_mbid": "4fd48d9f-4961-467b-8e56-c520f55d8323",
+   "album_type": "Album",
+   "album_date": ""
+  },
+  {
+   "rank": 75,
+   "title": "Baby Shark",
+   "artist": "Pinkfong",
+   "mbid": "88383c15-26f1-464e-9d47-768dc62c4937",
+   "artist_mbids": [
+    "1af169ca-2cbd-4280-adcf-23963301448e"
+   ],
+   "album": "Animal Songs",
+   "album_mbid": "e1e297f3-943e-4107-892a-a2f206998661",
+   "album_group_mbid": "6b040f7f-3167-40b2-9213-dc19bc549846",
+   "album_type": "Album",
+   "album_date": "2017-07-27"
+  },
+  {
+   "rank": 76,
+   "title": "My Type",
+   "artist": "Saweetie",
+   "mbid": "747cc6ac-fe53-4a9a-8e2f-7a99b2b1bef3",
+   "artist_mbids": [
+    "72d424d0-c349-4164-ae3e-8e5274f97b98"
+   ],
+   "album": "ICY",
+   "album_mbid": "89a5a771-1698-4286-8dc9-0c061c365c27",
+   "album_group_mbid": "2e3bb52d-58fe-40ea-9e64-d75b4c0abdb7",
+   "album_type": "EP",
+   "album_date": "2019-03-29"
+  },
+  {
+   "rank": 77,
+   "title": "Worth It",
+   "artist": "YK Osiris",
+   "mbid": "b286186b-0689-4236-a57b-3fbe7ef8d3bc",
+   "artist_mbids": [
+    "cf96bc6b-8f85-4d4e-b4a6-63f74f4802d1"
+   ],
+   "album": "The Golden Child",
+   "album_mbid": "0b8218e9-8bd6-4c08-9ab3-7eaac4cb63b8",
+   "album_group_mbid": "da5b1ad6-2cf5-4d10-8cd0-57f70759e2ca",
+   "album_type": "Album",
+   "album_date": "2019-10-11"
+  },
+  {
+   "rank": 78,
+   "title": "Only Human",
+   "artist": "Jonas Brothers",
+   "mbid": "829ddfad-aad2-466a-a8c4-a60d67bba865",
+   "artist_mbids": [
+    "6e019bc6-5c23-4935-94f0-4a896631d846"
+   ],
+   "album": "Happiness Begins",
+   "album_mbid": "e5767341-1afa-41b9-b999-2b6ebcb52919",
+   "album_group_mbid": "e6f63f4a-951d-4e31-8f34-4e2e16757912",
+   "album_type": "Album",
+   "album_date": "2019-06-07"
+  },
+  {
+   "rank": 79,
+   "title": "Knockin' Boots",
+   "artist": "Luke Bryan",
+   "mbid": "62729b79-45de-4e00-9ffe-7f3990ae9ff2",
+   "artist_mbids": [
+    "aab35942-f176-4f77-bbf9-1d6aa98ccf3f"
+   ],
+   "album": "Born Here Live Here Die Here",
+   "album_mbid": "a8c4c11c-aad6-4c60-8180-b2fe2a2a558b",
+   "album_group_mbid": "3bf470b9-f943-4c19-9232-06670129b89b",
+   "album_type": "Album",
+   "album_date": "2020-08-07"
+  },
+  {
+   "rank": 80,
+   "title": "Trip",
+   "artist": "Ella Mai",
+   "mbid": "6b16cc43-7752-4eb3-ad55-fc04505f4b34",
+   "artist_mbids": [
+    "89d42b97-8042-4c14-a596-a2ccaef5fc4c"
+   ],
+   "album": "Ella Mai",
+   "album_mbid": "b87c2b80-305a-4b2d-a3e4-418024bd42ed",
+   "album_group_mbid": "ecddee91-bdd9-4dde-93d9-45789e0f3d75",
+   "album_type": "Album",
+   "album_date": "2018-10-12"
+  },
+  {
+   "rank": 81,
+   "title": "Rumor",
+   "artist": "Lee Brice",
+   "mbid": "8d9c5da7-09a9-4b76-b6d9-23b314399416",
+   "artist_mbids": [
+    "48a6d065-1fda-4280-ae39-df1394d419cd"
+   ],
+   "album": "Lee Brice",
+   "album_mbid": "935a70ad-2187-45ba-9c94-5d1177481fca",
+   "album_group_mbid": "1262bff7-0435-4063-9e83-987b616bac15",
+   "album_type": "Album",
+   "album_date": "2017-11-03"
+  },
+  {
+   "rank": 82,
+   "title": "Swervin",
+   "artist": "A Boogie wit da Hoodie featuring 6ix9ine",
+   "mbid": "636bc674-079f-4399-853e-4acace5767b1",
+   "artist_mbids": [
+    "c1708d03-8a66-46eb-848e-fe0d233ffb39",
+    "2282c539-05a2-477c-82b7-fe40798d37f3"
+   ],
+   "album": "Hoodie SZN",
+   "album_mbid": "8dc4c09b-e698-4592-a75a-6d14769c379e",
+   "album_group_mbid": "24fc1380-80ec-4fca-a453-3d77cf174557",
+   "album_type": "Album",
+   "album_date": "2018-12-21"
+  },
+  {
+   "rank": 83,
+   "title": "How Do You Sleep?",
+   "artist": "Sam Smith",
+   "mbid": "b6f9b2e1-4be7-4145-9736-3531150c344b",
+   "artist_mbids": [
+    "5a85c140-dcf9-4dd2-b2c8-aff0471549f3"
+   ],
+   "album": "Love Goes",
+   "album_mbid": "e0374b24-11f6-44a6-b035-2f049dafebae",
+   "album_group_mbid": "ab5f3ccb-f0a0-4116-91f1-f15f40cf7d53",
+   "album_type": "Album",
+   "album_date": "2020-10-30"
+  },
+  {
+   "rank": 84,
+   "title": "Baby",
+   "artist": "Lil Baby and DaBaby",
+   "mbid": "ca9b6a30-a33c-4202-8518-646a30a20452",
+   "artist_mbids": [
+    "d42a5768-ada1-4fb6-85fd-f61aba6264e0",
+    "87ae83df-6173-40cc-a0f2-bad543faa6aa"
+   ],
+   "album": "Baby",
+   "album_mbid": "7d29b1ca-b51a-4743-9e1e-a39445a6f8fb",
+   "album_group_mbid": "d87d89fa-48dd-42c3-b25d-750aceaae660",
+   "album_type": "Single",
+   "album_date": "2019-07-17"
+  },
+  {
+   "rank": 85,
+   "title": "Look What God Gave Her",
+   "artist": "Thomas Rhett",
+   "mbid": "f07c7c8e-3f9b-4e11-b2cf-b9e59e211746",
+   "artist_mbids": [
+    "bca8bfc0-9d5b-449b-b713-914596f88d56"
+   ],
+   "album": "Center Point Road",
+   "album_mbid": "1029d36e-43ae-4b3f-975c-d0ba6602be99",
+   "album_group_mbid": "247641c1-fee2-4342-816e-037d61845f72",
+   "album_type": "Album",
+   "album_date": "2019-05-31"
+  },
+  {
+   "rank": 86,
+   "title": "Good as You",
+   "artist": "Kane Brown",
+   "mbid": "4b621228-2e91-4203-809b-16c02cd9be4d",
+   "artist_mbids": [
+    "a62e299b-4707-4ff5-ad53-d80b2b03319d"
+   ],
+   "album": "Experiment",
+   "album_mbid": "d0352af5-c394-47b5-b0b1-1ba0b985879f",
+   "album_group_mbid": "eb40eee2-24b4-423f-a993-096a9fbcf1ea",
+   "album_type": "Album",
+   "album_date": "2018-11-09"
+  },
+  {
+   "rank": 87,
+   "title": "Clout",
+   "artist": "Offset featuring Cardi B",
+   "mbid": "78f5d7d5-0467-4284-92ba-c606fc5061d5",
+   "artist_mbids": [
+    "92631c53-91ed-48f5-a09d-a104ba69cdc7",
+    "2f3c4d70-0462-40da-bba3-0aec5772c556"
+   ],
+   "album": "FATHER OF 4",
+   "album_mbid": "06be3c9d-2595-4c94-a754-6f99e9ba5d95",
+   "album_group_mbid": "0039fce1-5e68-4b0c-969a-bbba42191541",
+   "album_type": "Album",
+   "album_date": "2019-02-22"
+  },
+  {
+   "rank": 88,
+   "title": "Love Lies",
+   "artist": "Khalid and Normani",
+   "mbid": "d4dced1e-f587-451c-af09-19c7e9d1c310",
+   "artist_mbids": [
+    "28737730-ec70-4da5-89c5-77ac13c5c34d",
+    "04d93730-f81c-450c-8441-d5f5fcf98485"
+   ],
+   "album": "Love, Simon: Original Motion Picture Soundtrack",
+   "album_mbid": "541c3808-cc33-4803-a0c2-b1c0ba37e6b8",
+   "album_group_mbid": "aae7d356-805c-4c6b-808c-c105fb1826b7",
+   "album_type": "Album / Soundtrack",
+   "album_date": "2018-03-26"
+  },
+  {
+   "rank": 89,
+   "title": "One Thing Right",
+   "artist": "Marshmello and Kane Brown",
+   "mbid": "47fd8f25-3d73-4ab2-bb52-a3d3ddc7c728",
+   "artist_mbids": [
+    "301b45a4-b8b9-410e-8344-4b4eaf96691a",
+    "a62e299b-4707-4ff5-ad53-d80b2b03319d"
+   ],
+   "album": "One Thing Right",
+   "album_mbid": "8aa516b3-ab00-4b68-ac56-478d8d067b89",
+   "album_group_mbid": "fdcea4c6-7ae4-40fd-8837-9e7b60ba0bca",
+   "album_type": "Single",
+   "album_date": "2024"
+  },
+  {
+   "rank": 90,
+   "title": "Cash Shit",
+   "artist": "Megan Thee Stallion featuring DaBaby",
+   "mbid": "b35af733-3ab5-4154-8cc8-c49ede9481b0",
+   "artist_mbids": [
+    "ee27b2d8-648c-4a9d-a68c-e55066959975",
+    "87ae83df-6173-40cc-a0f2-bad543faa6aa"
+   ],
+   "album": "Fever",
+   "album_mbid": "90e3fefb-01d8-4179-9e50-7a1d97b5c9c6",
+   "album_group_mbid": "a98f1c25-bf88-41b2-9a62-b9df57bd555c",
+   "album_type": "Album / Mixtape/Street",
+   "album_date": "2019-05-16"
+  },
+  {
+   "rank": 91,
+   "title": "Tequila",
+   "artist": "Dan + Shay",
+   "mbid": "9703cf42-53d5-42e1-8159-93ff890eec3e",
+   "artist_mbids": [
+    "33cf3954-10af-4dcb-985f-9420d1fa4168"
+   ],
+   "album": "Dan + Shay",
+   "album_mbid": "75fbe637-3566-4f3a-9255-bdf82765748a",
+   "album_group_mbid": "46139fa3-9ed5-4236-8b20-5f8ed0d6cde8",
+   "album_type": "Album",
+   "album_date": "2018"
+  },
+  {
+   "rank": 92,
+   "title": "Shotta Flow",
+   "artist": "NLE Choppa",
+   "mbid": "286c68bb-66a8-4b8b-b850-1a3c72762af7",
+   "artist_mbids": [
+    "2873b450-13c6-4ca1-8ca3-646c25af3202"
+   ],
+   "album": "Top Shotta",
+   "album_mbid": "178081d7-fb79-45e0-b1cb-adc2041a9abb",
+   "album_group_mbid": "179e480c-852f-4e65-9422-b1332a9243af",
+   "album_type": "Album",
+   "album_date": "2020-08-07"
+  },
+  {
+   "rank": 93,
+   "title": "Hot Girl Summer",
+   "artist": "Megan Thee Stallion featuring Nicki Minaj and Ty Dolla Sign",
+   "mbid": "167ac082-54e5-4ac8-8226-220cc39d6027",
+   "artist_mbids": [
+    "ee27b2d8-648c-4a9d-a68c-e55066959975",
+    "1036b808-f58c-4a3e-b461-a2c4492ecf1b",
+    "7bd66c18-cb33-49aa-9279-140acedbdb49"
+   ],
+   "album": "Hot Girl Summer",
+   "album_mbid": "9cabc38d-9af3-4fd1-9114-6c301758a50d",
+   "album_group_mbid": "5444941b-2da9-49a3-9b8a-0edd2a7cc04b",
+   "album_type": "Single",
+   "album_date": "2019-08-08"
+  },
+  {
+   "rank": 94,
+   "title": "Talk You Out of It",
+   "artist": "Florida Georgia Line",
+   "mbid": "0051dafd-d42c-4809-9769-e65470ab3690",
+   "artist_mbids": [
+    "c16817df-0160-490d-a437-c128cbca9218"
+   ],
+   "album": "Can’t Say I Ain’t Country",
+   "album_mbid": "73133878-e7e5-4812-8695-7a95677a7f7c",
+   "album_group_mbid": "db6d9914-cb2e-423b-9623-052aae4d27bf",
+   "album_type": "Album",
+   "album_date": "2019-02-15"
+  },
+  {
+   "rank": 95,
+   "title": "Beautiful",
+   "artist": "Bazzi featuring Camila Cabello",
+   "mbid": "b62293fa-5e4f-4e9e-81c0-530362313de1",
+   "artist_mbids": [
+    "edf81f9b-d3f0-4d57-9636-d08e851b1640",
+    "01b8b5bf-06cb-45da-85fb-61ada72fcd69"
+   ],
+   "album": "COSMIC",
+   "album_mbid": "bee91394-15b3-40e9-b23a-bab47b1d3722",
+   "album_group_mbid": "b7345c4b-1cf6-46f5-a5dc-192363a3a721",
+   "album_type": "Album",
+   "album_date": "2018-04-12"
+  },
+  {
+   "rank": 96,
+   "title": "Eyes on You",
+   "artist": "Chase Rice",
+   "mbid": "050ca7bc-7cba-459a-bbd0-10bba97847f0",
+   "artist_mbids": [
+    "79c478c4-9bd7-42f1-8d26-f3c45ac49258"
+   ],
+   "album": "Lambs & Lions",
+   "album_mbid": "4e5db705-3a7e-4df9-959e-eb703e45284b",
+   "album_group_mbid": "2a2b37e3-0e5c-4630-ae5a-5a748ea872d8",
+   "album_type": "Album",
+   "album_date": "2017-09-17"
+  },
+  {
+   "rank": 97,
+   "title": "All to Myself",
+   "artist": "Dan + Shay",
+   "mbid": "e8d126c1-d46c-438c-be92-ed3406e91d24",
+   "artist_mbids": [
+    "33cf3954-10af-4dcb-985f-9420d1fa4168"
+   ],
+   "album": "Dan + Shay",
+   "album_mbid": "75fbe637-3566-4f3a-9255-bdf82765748a",
+   "album_group_mbid": "46139fa3-9ed5-4236-8b20-5f8ed0d6cde8",
+   "album_type": "Album",
+   "album_date": "2018"
+  },
+  {
+   "rank": 98,
+   "title": "Boyfriend",
+   "artist": "Ariana Grande and Social House",
+   "mbid": "772e0eb4-4e99-4949-8696-a199706083ad",
+   "artist_mbids": [
+    "f4fdbb4c-e4b7-47a0-b83b-d91bbfcfa387",
+    "ab17eba6-ea50-4062-b462-301245db5beb"
+   ],
+   "album": "Everything Changed…",
+   "album_mbid": "2ca12621-9b8b-4694-8df6-56ed5d9c6a96",
+   "album_group_mbid": "dea86220-ccf4-4e96-b77d-8b3c32874ee4",
+   "album_type": "EP",
+   "album_date": "2019-08-09"
+  },
+  {
+   "rank": 99,
+   "title": "Walk Me Home",
+   "artist": "Pink",
+   "mbid": "55816604-7736-4a63-a728-2b1fe6c9fabe",
+   "artist_mbids": [
+    "f4d5cc07-3bc9-4836-9b15-88a08359bc63"
+   ],
+   "album": "Hurts 2B Human",
+   "album_mbid": "4a99604c-e03a-4182-bbe2-94cd1498dbf1",
+   "album_group_mbid": "0e2b2011-6528-4380-93ed-64bc11dee0d5",
+   "album_type": "Album",
+   "album_date": "2019-04-26"
+  },
+  {
+   "rank": 100,
+   "title": "Robbery",
+   "artist": "Juice Wrld",
+   "mbid": "f13e6235-1579-452c-ba1e-f4d365abc7f1",
+   "artist_mbids": [
+    "4e4ebde4-0c56-4dec-844b-6c73adcdd92d"
+   ],
+   "album": "Death Race for Love",
+   "album_mbid": "ad6c3796-a0d9-4db0-8132-64223205100d",
+   "album_group_mbid": "e856dbb8-18c3-45f5-abe3-0983c64372cc",
+   "album_type": "Album",
+   "album_date": "2019-03-08"
+  }
+ ]
+}

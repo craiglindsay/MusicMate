@@ -1,0 +1,101 @@
+rank	title	artist	album	album_type	album_date	album_group_mbid	album_mbid	recording_mbid
+1	Rolling in the Deep	Adele	21	Album	2011-02-22	e4174758-d333-4a8e-a31f-dd0edd51518e	7fb66278-4cff-3fe8-9ed5-4e95cdee3bbb	1a13c710-4b7e-4701-8968-cd61f2e58110
+2	Party Rock Anthem	LMFAO featuring Lauren Bennett and GoonRock	Sorry For Party Rocking	Album	2011-07-18	3be839a3-1d35-4846-aa64-9d1532648799	fb477a91-1e88-4356-81fa-66e0799f5d29	b33dc514-c9b4-4751-82bf-68fbedfc91b6
+3	Firework	Katy Perry	Teenage Dream	Album	2010-08-24	e6f683c9-fc85-412c-a352-d6e411fc2603	e7d98581-cb23-43ed-ac32-d1dc1bd44eb3	9846e3f4-7bb9-49be-8e91-837a5ee5cefb
+4	E.T.	Katy Perry featuring Kanye West	Teenage Dream	Album	2010-08-24	e6f683c9-fc85-412c-a352-d6e411fc2603	e7d98581-cb23-43ed-ac32-d1dc1bd44eb3	a0ad9828-ff96-42d0-b7a5-d0e85ec001c2
+5	Give Me Everything	Pitbull featuring Ne-Yo, Afrojack and Nayer	Planet Pit	Album	2011-06-17	2c7c65e2-c14c-471a-88b4-c9837b09449c	916531b7-18cb-4364-8238-98148a4613bd	748b6681-c103-4a6f-bb8f-769e620d2121
+6	Grenade	Bruno Mars	Doo-Wops & Hooligans	Album	2010-10-04	b3d1fbf7-dd1c-4119-a16e-58c2feb5bcb0	3d2b148e-8c0a-42b6-baae-c3ee7322a569	2ef0762b-b19d-4355-b19a-7af087497599
+7	Fuck You (Forget You)	CeeLo Green	The Lady Killer	Album	2010-11-09	765e2a73-96d5-49ce-8bf9-c0641d8bceda	e84467e8-1f3e-4c58-91d1-9b37c1500b7e	bc99ae9e-4111-457d-8a32-78452d2e7623
+8	Super Bass	Nicki Minaj	Pink Friday (deluxe edition)	Album	2010-11-22	c91d9596-dfa8-482d-b3ab-706e937fd3ec	ccb895ef-ea98-45ea-ad35-5782b3b0472d	df6b866c-a056-42f2-9cf9-135aa3fbdad4
+9	Moves like Jagger	Maroon 5 featuring Christina Aguilera	Hands All Over	Album	2010-09-20	a097ca51-85d5-4109-8e0f-55189a70cb9b	8ea87814-ed49-4e5e-a00f-0c6b12297ea1	c832691f-fe0c-448a-bf22-54e28335627e
+10	Just Can't Get Enough	The Black Eyed Peas	The Beginning	Album	2010-12-01	9511757c-4fac-4ec2-847e-c8cb9fbf1132	eff0a6aa-b02b-4760-a01b-be1e46fcc1aa	feefa377-561f-4bfb-b88f-f46bdf29065c
+11	On the Floor	Jennifer Lopez featuring Pitbull	Love?	Album	2011-04-29	193702aa-54dd-46dd-922e-faa38026bafe	6321bcdb-18d2-4575-bad5-b9af7b35c7de	8592f038-2352-4fc3-bfc5-8d55d8be57f7
+12	S&M	Rihanna	Loud	Album	2010-08-18	7c6de97d-bf6a-4793-82f5-f142baed33e6	c43043ff-a16d-4c74-a7cb-a278bf4d4c5c	7ab8ad48-37c5-45b0-93fe-fa94fd1761b3
+13	Pumped Up Kicks	Foster the People	Torches	Album	2012-07-25	535748f7-5b3d-4a2a-8f9c-bd8baa587239	cdfb4417-57e4-42e6-9e62-a43364399d46	4d7879e0-8dc3-4efd-8879-2bb5f01a477a
+14	Last Friday Night (T.G.I.F.)	Katy Perry	Teenage Dream	Album	2010-08-24	e6f683c9-fc85-412c-a352-d6e411fc2603	e7d98581-cb23-43ed-ac32-d1dc1bd44eb3	a2b6d3f6-2ab5-4522-9a40-e589fb8f6e02
+15	Just the Way You Are	Bruno Mars	Doo-Wops & Hooligans	Album	2010-10-04	b3d1fbf7-dd1c-4119-a16e-58c2feb5bcb0	33030768-eed0-404a-bd5e-af6950546211	2c03feb2-af77-483f-982e-8d82d3ffd03f
+16	Tonight (I'm Lovin' You)	Enrique Iglesias featuring Ludacris and DJ Frank E	Euphoria	Album	2011-03-21	7e5977ba-b8b7-4c05-9d8d-b28a4c51273b	7b41d4e5-5c7b-4110-9c49-18cdd126a8f6	2f709ac7-762a-420b-9749-aa19697863bf
+17	Raise Your Glass	Pink	Greatest Hits…So Far!!!	Album / Compilation	2010-11-12	36ca37e2-eb11-469c-b776-3a9af0a07114	991e7a49-bcc1-4b7c-8cc1-044da28fe986	97c92945-98d8-4104-92bc-c4225d5c7178
+18	Born This Way	Lady Gaga	Born This Way	Album	2011-05-23	2e3b231b-ab9f-4d85-950a-48708a1cc2fb	b695de30-91da-4cd4-8491-5740a4bbb6fb	f9f55fdf-2c9c-4ac5-8796-f913d5342001
+19	Fuckin' Perfect	Pink	Greatest Hits…So Far!!!	Album / Compilation	2010-11-12	36ca37e2-eb11-469c-b776-3a9af0a07114	991e7a49-bcc1-4b7c-8cc1-044da28fe986	5f11e9aa-626f-421c-9238-dbb5abb0c558
+20	What's My Name?	Rihanna featuring Drake	Loud	Album	2010-08-18	7c6de97d-bf6a-4793-82f5-f142baed33e6	c43043ff-a16d-4c74-a7cb-a278bf4d4c5c	9f383da8-0d8f-4f15-b882-df01126025c7
+21	Look at Me Now	Chris Brown featuring Lil Wayne and Busta Rhymes	F.A.M.E.	Album	2011-03-22	b2168fe2-85a4-474b-8f75-09d7b7b48959	187be14a-3664-4017-ae4c-92992ef9b9ef	ae6b88bb-39aa-479d-99cd-cbda7406d5c4
+22	Down on Me	Jeremih featuring 50 Cent	All About You	Album	2010-09-29	80fc690e-9573-4255-9910-bb37a878c662	b53f8fc2-c050-4ad0-b7ba-378e68b9e188	dc3cb5f5-ebff-480f-a07c-f1a496349ad3
+23	How to Love	Lil Wayne	Tha Carter IV (deluxe edition)	Album	2011-08-29	75fb59d5-4880-4f39-a447-5e0f81bf4448	e624157f-c27a-4c72-84c5-f2f0216475ef	d2148af1-284e-45e5-a0a7-523d99453b95
+24	Someone Like You	Adele	21	Album	2011-02-22	e4174758-d333-4a8e-a31f-dd0edd51518e	7fb66278-4cff-3fe8-9ed5-4e95cdee3bbb	028efe7f-cdfb-4135-846f-848f2fff15b1
+25	Good Life	OneRepublic	Waking Up	Album	2009-11-17	fcb3b72d-67b4-4e4a-9c91-354eca76a3dd	4fe254d3-63b3-4aae-bb67-d594e4af0f70	e3373f9d-3122-49c4-b1fd-c5147b3fd016
+26	The Lazy Song	Bruno Mars	Doo-Wops & Hooligans	Album	2010-10-04	b3d1fbf7-dd1c-4119-a16e-58c2feb5bcb0	33030768-eed0-404a-bd5e-af6950546211	55b9fb00-4390-4549-a692-5993bc524e70
+27	Till the World Ends	Britney Spears	Femme Fatale	Album	2011-03-29	a7e9d7d2-3c60-472f-b2ba-829de5034179	994f8ea0-503c-4ff9-9e7c-2ab7300fea46	c0a6ef98-6284-48d4-9e44-fd38bcbae5ad
+28	The Show Goes On	Lupe Fiasco	Lasers	Album	2011-03-08	b6929844-43d3-4cef-a96b-c575dad67153	b1fe7b90-696d-4935-b878-0634d19dc14f	77931a77-a8c0-43f9-9071-46d005c69510
+29	The Edge of Glory	Lady Gaga	Born This Way	Album	2011-05-23	2e3b231b-ab9f-4d85-950a-48708a1cc2fb	b695de30-91da-4cd4-8491-5740a4bbb6fb	36119119-c128-4c87-bdc8-83af13021534
+30	We R Who We R	Kesha	Cannibal	EP	2010-11-19	50e0ea65-4106-4ff6-9389-8f092f268772	b4001538-d0d0-447a-bdcf-f2531402fa4a	c0b99507-81df-4aa7-b160-b1c32ff1f31a
+31	Black and Yellow	Wiz Khalifa	Rolling Papers	Album	2011-03-28	78c4271f-a733-41e3-85bc-5cc7f38bc8dc	1a15a2aa-6cab-4345-be16-c1573d2a67d3	f5ceb8f5-9575-4d93-b3f9-a39aa3069882
+32	Tonight Tonight	Hot Chelle Rae	Whatever	Album	2011-11-29	98aae2a3-1bcf-4e9f-baaa-1b3187318c39	362900b0-e046-4c34-beb1-eb2ecd3bff64	9d0dffbe-3240-4770-b001-77f1409d7271
+33	Blow	Kesha	Cannibal	EP	2010-11-19	50e0ea65-4106-4ff6-9389-8f092f268772	b4001538-d0d0-447a-bdcf-f2531402fa4a	086112a4-d0f5-4ebb-b445-9c2ed3bf7b1c
+34	Lighters	Bad Meets Evil featuring Bruno Mars	Hell: The Sequel (Deluxe Edition)	EP	2011-06-14	9efeec82-2b28-4a43-99a3-d8907014b8f0	d6a97fe0-d34f-474e-bc98-c21719ed5fe6	0a2f926b-fc6c-4123-a3ab-a0493286eeab
+35	If I Die Young	The Band Perry	The Band Perry	Album	2010-10-12	f95bffe5-32de-44b2-b8db-32915d86ce4a	c9dd9a51-d8e3-4b67-b23f-7be2a272a023	5f103d13-2508-4b0b-b6ea-10d0cb413f20
+36	Stereo Hearts	Gym Class Heroes featuring Adam Levine	The Papercut Chronicles II	Album	2011-11-15	d3b2709c-6535-47a4-9ec9-d826ba9276cb	09cec8c8-4969-4fc6-9534-8238b4af2d22	14707c5e-1b13-4e51-987c-68c90b15ff59
+37	The Time (Dirty Bit)	The Black Eyed Peas	The Beginning	Album	2010-12-01	9511757c-4fac-4ec2-847e-c8cb9fbf1132	eff0a6aa-b02b-4760-a01b-be1e46fcc1aa	1faefabe-1811-4c8a-acd0-13b0feb0897a
+38	Coming Home	Diddy – Dirty Money featuring Skylar Grey	Last Train To Paris	Album		74eb2032-5312-4fc4-969e-2aec09fb9cc8	55e0c68a-a2bb-4a9b-b7af-8b03ec2cd1f9	d7045b6f-b411-48d6-9b25-cb7c8e5bd2ea
+39	Hey Baby (Drop It to the Floor)	Pitbull featuring T-Pain	Planet Pit	Album	2011-06-17	2c7c65e2-c14c-471a-88b4-c9837b09449c	12e17071-cb71-4842-a8dd-7f80932fa48a	2d99cdb3-230e-4a1f-86f0-7c9859b47c2f
+40	Only Girl (In the World)	Rihanna	Loud	Album	2010-11-16	7c6de97d-bf6a-4793-82f5-f142baed33e6	b415d412-e9c6-4e72-bc11-9c2e2e60326a	e6d894a9-8593-4b90-966a-9ce743365c3e
+41	6 Foot 7 Foot	Lil Wayne featuring Cory Gunz	Tha Carter IV (deluxe edition)	Album	2011-08-29	75fb59d5-4880-4f39-a447-5e0f81bf4448	e624157f-c27a-4c72-84c5-f2f0216475ef	7e07053e-d904-4f7c-bba4-51edc87e0960
+42	Just a Kiss	Lady Antebellum	Own the Night	Album	2011-09-13	6665318a-6c4a-4fec-80f4-d6a31ec2f57b	52f7c719-9fff-4544-bf2f-8588a98c1098	e3537888-c49d-4f38-a531-8a2516da1d24
+43	Dirt Road Anthem	Jason Aldean	My Kinda Party	Album	2010-11-02	e25c26bb-57e8-4c9f-9b66-8dbba5648e3a	91b48d70-bce1-4806-880c-a2b1488ac877	1f1f1d47-4ec1-4ce5-a681-6ca08d11c079
+44	Dynamite	Taio Cruz	Rokstarr	Album	2009-10-12	f4fc9067-305b-412e-b507-c01ab34f4c2c	0af227dc-2e0f-47df-8731-43a69f248b8e	9f8086b3-6840-4d93-9a1f-902d86654dad
+45	No Hands	Waka Flocka Flame featuring Wale and Roscoe Dash	Flockaveli	Album	2010-10-01	0c8b2d79-2dd9-4fee-ac15-66d0d7b58395	158ccfae-625d-4ae9-bd7c-13b533d490e4	7d2abe26-7733-4bb7-bc34-32895f1eb8d7
+46	I Wanna Go	Britney Spears	Femme Fatale	Album	2011-03-29	a7e9d7d2-3c60-472f-b2ba-829de5034179	994f8ea0-503c-4ff9-9e7c-2ab7300fea46	113b6fbc-8a9a-40f1-ae9f-538ba2a93ae7
+47	I'm on One	DJ Khaled featuring Drake, Rick Ross and Lil Wayne	We the Best Forever	Album	2011-07-19	fbcf99f6-ec6f-4048-bc41-e099be84796c	f101be67-672f-4758-8ba4-2abcf0356bc9	46ad6352-3475-4561-a09b-86be41315fdc
+48	You Make Me Feel...	Cobra Starship featuring Sabi	Night Shades	Album	2011-08-29	819f31f4-cc1c-4d03-9b51-2445d70f5abe	331757e7-ee6d-4001-9e05-c3f53680b51f	8b83cc37-a6ea-458a-98a5-e5cf5270de80
+49	Yeah 3x	Chris Brown	F.A.M.E.	Album	2011-03-18	b2168fe2-85a4-474b-8f75-09d7b7b48959	9a8500e9-dad0-4404-806b-c0b761ffda5b	180d4c71-b8d5-41ca-b29f-ea950508ca89
+50	Moment 4 Life	Nicki Minaj featuring Drake	Pink Friday (deluxe edition)	Album	2010-11-22	c91d9596-dfa8-482d-b3ab-706e937fd3ec	ccb895ef-ea98-45ea-ad35-5782b3b0472d	4fbe060d-7f40-49c2-b085-ffe67b368d2d
+51	I Need a Doctor	Dr. Dre featuring Eminem and Skylar Grey	I Need a Doctor	Single	2011-02-01	683e3f34-d2c2-4216-bccf-4634918591f2	1427ffed-2216-45bf-b18d-7c4bcd6619ff	2c939a2e-040c-4488-a8f1-7f40d335bf9d
+52	Just a Dream	Nelly	5.0	Album	2010-11-16	e4e0a213-db82-4559-b1c8-c745142ed69f	780c6aee-e3e9-4389-b750-4220832b3e3e	9d3dced0-3b54-4a1f-a9b4-8a4dadf74f6a
+53	Motivation	Kelly Rowland featuring Lil Wayne	Here I Am	Album	2011-07-26	bb1d8eea-8519-4504-93a4-2baaae1622de	161f0bde-ed2b-43f8-84ea-2f9139f8542e	eb0afe4e-52d4-4ad0-b5ed-177e947c6bfc
+54	Stereo Love	Edward Maya featuring Vika Jigulina	The Stereo Love Show	Album	2013-03-12	77463b07-3eaf-4cca-9514-1c0201037034	274bb5ba-461e-4231-af7d-861c3ae8d14b	19eadf0b-92c9-4b67-ba19-8cd75f89a68b
+55	Jar of Hearts	Christina Perri	Lovestrong.	Album	2011-05-10	b104f901-89c5-4ddc-b0ae-ad11850f2b3d	2194785d-ea14-458a-aa2e-dee5b5ced909	5e00974d-b75a-429f-b01a-2b9283f3fb31
+56	Roll Up	Wiz Khalifa	Rolling Papers	Album	2011-03-28	78c4271f-a733-41e3-85bc-5cc7f38bc8dc	1a15a2aa-6cab-4345-be16-c1573d2a67d3	2767b5b4-f80d-4cb4-b9c4-7a864a80bc88
+57	Sexy and I Know It	LMFAO	Sorry for Party Rocking	Album	2011-06-21	3be839a3-1d35-4846-aa64-9d1532648799	e8e6b5cd-94b0-4c25-a4b5-33aac18d77c1	c8200a2c-fbae-4c01-be04-94818a069364
+58	Rocketeer	Far East Movement featuring Ryan Tedder	Free Wired	Album	2010-10-12	365f99a0-04be-48cc-8a73-5145d33e53df	b78bc262-0bea-4a4e-accb-3cd1b9d4be70	62905012-79bd-4865-9364-b9b0babce2be
+59	All of the Lights	Kanye West	My Beautiful Dark Twisted Fantasy	Album	2010-11-22	5d6e21e1-deb5-428e-bb42-c2a567f3619b	cd7d8c81-d519-4149-8cd0-ade722ad19b9	a4c4457b-577e-4fac-b820-713bb91dbb6c
+60	Hold It Against Me	Britney Spears	Femme Fatale	Album	2011-03-29	a7e9d7d2-3c60-472f-b2ba-829de5034179	994f8ea0-503c-4ff9-9e7c-2ab7300fea46	4b6ad952-257a-4f39-99bb-ed30e6036fd8
+61	More	Usher	Raymond v Raymond	Album	2010-03-30	47cf1c09-974a-4558-9a81-fbf1ecd17376	c1e1ef69-2c9f-4029-bcbc-f339798c40c0	61a7c7a8-c047-4da5-855a-1e91c0d7d4f6
+62	What the Hell	Avril Lavigne	Goodbye Lullaby	Album	2011-03-08	4ddf87cb-29c0-42ef-bb64-c57d617a8b4a	5164e679-ddec-4f18-bf5d-8af07eac0391	42abdd93-709c-4ff6-98b3-90e2cf2bd058
+63	Written in the Stars	Tinie Tempah featuring Eric Turner	Disc-Overy	Album	2010-05-31	c0e67d54-8a96-4b9c-967b-6ed362344e32	d86dbe0d-49b1-4b00-93f4-19e86019fa4c	a4a25040-fbee-49ce-8a35-d4a659392791
+64	Bottoms Up	Trey Songz featuring Nicki Minaj	Passion, Pain & Pleasure	Album	2010-09-14	1a36fd5a-7c86-4d58-a7d8-3c88e6efd76e	6bc5fce5-2fbf-4ba1-818d-bc3996110dde	6a49e678-2526-4755-80d5-902f5c11ad24
+65	DJ Got Us Fallin' in Love	Usher featuring Pitbull	Raymond v Raymond	Album	2010-08-24	47cf1c09-974a-4558-9a81-fbf1ecd17376	ecf9a18d-8cec-33ce-a1d7-e7f5ae55c3e6	85ee744a-c3d1-4684-868f-6cd403f2352d
+66	For the First Time	The Script	Science & Faith	Album	2010-09-13	041cab75-7395-4bf5-9e69-66f62e5aa830	c81d454c-be71-456c-8bf0-523e78718f2b	2c77bedf-3ed2-4bf8-b50f-096df9268d4f
+67	Honey Bee	Blake Shelton	Red River Blue	Album	2011-07-12	b7157e51-8547-4d7f-97ca-fb9f4aaa5097	bdadbb9c-bc6b-449b-99b1-849407a62019	59f976e7-02c5-41ce-b374-c4a4194f21d7
+68	Don't You Wanna Stay	Jason Aldean featuring Kelly Clarkson	My Kinda Party	Album	2010-11-02	e25c26bb-57e8-4c9f-9b66-8dbba5648e3a	c7a535e3-a483-495f-8ef7-2e40970a7d14	2f8418df-b198-42c2-8970-f2e1bb5efffc
+69	We Found Love	Rihanna featuring Calvin Harris	Talk That Talk	Album	2011-11-21	15818ec5-bf34-47de-a4e5-260f98828d64	2ea8e08a-cb0f-4766-bfb1-0f8de5734bdf	11294597-b4ac-4717-8e95-f99d665c1ece
+70	Pretty Girl Rock	Keri Hilson	No Boys Allowed	Album	2010-12-21	601df670-c973-4ea1-bec7-dd5cea9fcba4	1291afbf-25ea-4b07-8dab-7720694abadd	629cefc7-8210-4b14-9a88-1db928751a6f
+71	Yoü and I	Lady Gaga	Born This Way	Album	2011-05-23	2e3b231b-ab9f-4d85-950a-48708a1cc2fb	b695de30-91da-4cd4-8491-5740a4bbb6fb	6949d85d-ffb2-4ab0-9370-52e07b288a39
+72	Like a G6	Far East Movement featuring The Cataracs and Dev	Free Wired	Album	2010-10-12	365f99a0-04be-48cc-8a73-5145d33e53df	b78bc262-0bea-4a4e-accb-3cd1b9d4be70	d90dfee4-f50e-4dbb-9396-d8ae3b52bfff
+73	Without You	David Guetta featuring Usher	Nothing But the Beat Ultimate	Album	2011-08-24	a2709bdb-e16e-4f71-b1aa-cc68119fb782	ec467779-96e6-45a6-95af-b41f94915df0	bedaee7e-3788-4eab-a1b8-0ab0bbbcde38
+74	Back to December	Taylor Swift	Speak Now (Big Machine Radio release special)	Album	2025-06-06	ba1259eb-d41e-41c5-a70c-0e6fa73e6708	8d5a5f18-9359-4a79-89b7-a471d3d5f05e	42bdaa08-bbd4-4741-8725-18da146bc761
+75	Teenage Dream	Katy Perry	Teenage Dream	Album	2010-08-24	e6f683c9-fc85-412c-a352-d6e411fc2603	e7d98581-cb23-43ed-ac32-d1dc1bd44eb3	8cf81f4a-05fd-4688-bb8c-eb59df2026a0
+76	Crazy Girl	Eli Young Band	Life At Best	Album	2011-08-16	3b6e1a4f-22da-4738-a629-2b889fa7edae	63632cc0-370c-4f9e-90e1-cb8c0e88b8a0	e6cd0449-8ddc-4ba2-8cb1-9b200d274598
+77	Cheers (Drink to That)	Rihanna	Loud	Album	2010-08-18	7c6de97d-bf6a-4793-82f5-f142baed33e6	c43043ff-a16d-4c74-a7cb-a278bf4d4c5c	3d39b502-4bfd-487e-8651-ccd83f74fae6
+78	Who Says	Selena Gomez & the Scene	When the Sun Goes Down	Album	2011-10-31	4e5b294b-c166-4d24-81cf-4b6ee5af3e75	4d92bda4-3aef-4a43-ab94-25b82126a976	39f38b5e-45d6-410c-b3f2-324667ab09f1
+79	Barefoot Blue Jean Night	Jake Owen	Barefoot Blue Jean Night	Album	2011-08-26	dd4d693d-0a52-408e-ab07-0cf81c7ea275	3748e503-d3ef-4ada-af01-808bd674f7c9	c11c536c-eade-4b81-8b42-ca3221b654a1
+80	Knee Deep	Zac Brown Band featuring Jimmy Buffett	You Get What You Give	Album	2010-09-20	1823c4e1-52a1-40d2-b276-5439bc34dbcc	04c55d24-2ea9-492b-85c2-e6d11236b01a	d8f28fb7-ad10-4e56-a4e3-952fb680d94e
+81	Country Girl (Shake It for Me)	Luke Bryan	Tailgates & Tanlines	Album	2011-08-09	23fffff0-5311-4b9f-b131-150a7ab60a55	8daf2bfc-9341-4f14-98ef-eaadfc139ebd	5429f043-5f2b-4613-af54-4cf5a1fbaa21
+82	Remind Me	Brad Paisley and Carrie Underwood	This Is Country Music	Album	2011-05-23	aab2c6e6-ee96-472c-8859-334e8a6ffbad	84c560d2-afba-4584-9ca9-97d56b545390	7919c130-1d30-40fd-aca9-b0ed821b3726
+83	In the Dark	Dev	The Night the Sun Came Up	Album	2011-09-02	787ba429-0383-4e62-a3c0-accb673150f7	1ed6f059-4621-45af-a6fd-46bcf6b55736	ed7752d4-048f-43fa-ab50-6029524df669
+84	Backseat	New Boyz featuring The Cataracs and Dev	Too Cool to Care	Album	2011-05-13	ae27025c-037a-495b-a468-56b26edfe1d9	30d084d5-b131-466c-9b41-8d03d85c3446	4ee9fe19-b9a3-4556-b368-7411d67f4847
+85	Headlines	Drake	Take Care	Album	2011-11-15	47809021-4515-4215-beea-db3f5dfb6267	129c3821-2931-4c01-b2c8-9cc96461399d	a9dbaf4c-ea48-48c7-bbe3-c3657d4f3e01
+86	Best Thing I Never Had	Beyoncé	4	Album	2011-06-28	40eaa07b-7542-48e7-887c-b5e686964a7a	eaee05d8-1766-495c-9be2-52eaf4c8d236	a804dfd1-25ba-46b1-9abf-cbda30bf7a0c
+87	Don't Wanna Go Home	Jason Derulo	Future History	Album	2011-09-16	047885e0-3072-410e-8860-825235ab5d29	17868011-5a27-448c-aad0-56f09e12aa7a	ee037edf-3172-46be-8714-898ba7f5f5ec
+88	Where Them Girls At	David Guetta featuring Flo Rida and Nicki Minaj	Nothing But the Beat Ultimate	Album	2011-08-24	a2709bdb-e16e-4f71-b1aa-cc68119fb782	ec467779-96e6-45a6-95af-b41f94915df0	deff6902-9046-4fc3-a34d-e80e956a5777
+89	She Ain't You	Chris Brown	F.A.M.E.	Album	2011-03-18	b2168fe2-85a4-474b-8f75-09d7b7b48959	9a8500e9-dad0-4404-806b-c0b761ffda5b	ff2ee8bc-577a-4bff-a0ac-85b1f19b3b05
+90	Take a Back Road	Rodney Atkins	Take a Back Road	Album	2011-10-04	22337c24-ba10-4601-af1f-ef0956fdc863	988d2358-7d37-4849-8913-bf6e5d154024	79f1350e-8f61-4ee8-972a-e11777a19091
+91	Please Don't Go	Mike Posner	31 Minutes to Takeoff	Album	2010-08-10	4933ec10-b654-411c-a6bc-960b1dd1167e	f97f3437-1bab-44e0-9307-5b075eb679b3	525e7f25-7485-467d-891e-39b0a37d88bd
+92	Sure Thing	Miguel	All I Want Is You	Album	2010-11-30	dce781cd-2fc8-470b-ad6e-e526c9451074	e187359c-f47b-4dd8-9172-565be0893c10	f7eb64ad-8148-4c96-9d53-5096176fa8ab
+93	Price Tag	Jessie J featuring B.o.B	Who You Are	Album	2011-11-14	fa1c7a04-10e0-407d-8101-9a73254b6150	cba0ba07-43ef-48ef-8ee9-528833ddfbed	f2fc389e-9a64-4173-8755-763e451cafaa
+94	God Gave Me You	Blake Shelton	Red River Blue	Album	2011-07-12	b7157e51-8547-4d7f-97ca-fb9f4aaa5097	bdadbb9c-bc6b-449b-99b1-849407a62019	71c2eea1-6a0a-4336-b822-cf020e743cb9
+95	She Will	Lil Wayne featuring Drake	Tha Carter IV (deluxe edition)	Album	2011-08-29	75fb59d5-4880-4f39-a447-5e0f81bf4448	e624157f-c27a-4c72-84c5-f2f0216475ef	9ce9a47d-2cd7-42f4-9b8b-27bb2c40b31d
+96	Are You Gonna Kiss Me or Not	Thompson Square	Thompson Square	Album	2011-02-08	10787990-dede-41f6-a196-45ed02f11d7d	1865c7f4-3ef8-4615-a55f-2c244fbf71e9	0d8d9304-da36-4f74-8e21-12f62233fb5f
+97	Animal	Neon Trees	Habits	Album	2010-03-16	02e054f2-23f1-4e54-bf6a-53dd8ff1b7ba	aa83fd02-10ab-45c4-8fa2-99e66fa222ff	db32c1ea-3664-4c25-996d-6e9679c1bf9a
+98	You and Tequila	Kenny Chesney featuring Grace Potter	Hemingway’s Whiskey (deluxe edition)	Album	2010	6a56fa23-f927-4275-8505-164bb06e5214	da854bdc-d92f-4629-b53f-067f8ce9d069	792f49bc-8ad8-42a2-8fd5-47a26d9e831d
+99	Colder Weather	Zac Brown Band	You Get What You Give	Album	2010-09-20	1823c4e1-52a1-40d2-b276-5439bc34dbcc	04c55d24-2ea9-492b-85c2-e6d11236b01a	47527da6-0e60-44e9-b0a2-d0f99dc0ae1e
+100	My Last	Big Sean featuring Chris Brown	Finally Famous	Album	2011-06-28	2f29a348-dfa8-4d2f-95a6-34c5cb57949a	f3fbbef2-a548-422d-9c82-b28d1e2cba1d	a3c1a4e6-d146-43a6-b763-4b790556b279

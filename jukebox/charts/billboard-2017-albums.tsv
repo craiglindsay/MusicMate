@@ -1,0 +1,101 @@
+rank	title	artist	album	album_type	album_date	album_group_mbid	album_mbid	recording_mbid
+1	Shape of You	Ed Sheeran	÷	Album	2017-03-03	e05f9927-e24b-41c5-928d-d0e008a12444	df0f7be5-e879-41b1-8584-18b13468c911	d7500dd6-b815-4299-88c6-3fbda358f1fc
+2	Despacito (Remix)	Luis Fonsi and Daddy Yankee featuring Justin Bieber	VIDA	Album	2019-02-01	d03545cc-046c-4b8e-b942-8cd1001fe4b5	e556ef79-8e49-4a34-bf47-9765edde02fc	9ba26ca8-9dbc-4136-8541-2b25bcc6df1e
+3	That's What I Like	Bruno Mars	24K Magic	Album	2016-11-18	80ea43b7-2c32-4a79-9fb0-8ff1761ebe09	39209fa8-4352-485c-ac03-a68f92b80b00	881e6040-095a-449d-8c34-e8b3fca38cbd
+4	Humble	Kendrick Lamar	DAMN.	Album	2017-04-14	b88655ba-7469-48b8-a296-b9011ab73ef3	2a74f401-f412-4fec-b059-c287d69801e2	398bf241-7d57-4993-860b-1f9ef496c97f
+5	Something Just Like This	The Chainsmokers and Coldplay	Memories…Do Not Open	Album	2017-04-07	b4deecbb-2b7d-42ac-b7df-9ae7439d532b	d0fcf5b0-5e8e-4eb6-9f50-f17eb3144a47	6fdd95d6-9837-4d95-91f4-b123d0696a2a
+6	Bad and Boujee	Migos featuring Lil Uzi Vert	Culture	Album	2017-01-27	5611e7a8-3b0d-48a1-820e-45b94229f653	acbe9ece-9cc3-441c-8535-7e24d68d3cf0	ddddc128-276a-43b2-95bd-75c01144c691
+7	Closer	The Chainsmokers featuring Halsey	Collage	EP	2016-11-04	9626b2c8-40d5-4557-91f3-0070e3cf43dc	891925d6-0ed1-494e-85a7-989069988d19	fb7963d0-d06f-45ca-a647-2b00a963179f
+8	Body Like a Back Road	Sam Hunt	SOUTHSIDE	Album	2020-04-03	71d93b61-121a-4dda-b321-ec2671355584	36d5b65f-e1cc-4af0-8161-a934acb3777e	19a57520-a314-4656-bc2f-8be8d014dd13
+9	Believer	Imagine Dragons	Evolve	Album	2017-06-23	8341c952-694d-4866-870e-df48c9e10f17	735c4aaa-b56a-4586-a9ef-8b6074e8b710	839a1658-53f7-4b2a-86d9-3e52d929d5a2
+10	Congratulations	Post Malone featuring Quavo	Stoney (Complete Edition)	Album	2016-12-09	3843ba6a-0b1e-48c0-bc86-2f64e6d9525c	db5f4519-8daf-41c4-b6b6-839ce4581b36	a614fca3-0339-49a8-9348-175acae56bdb
+11	Say You Won't Let Go	James Arthur	Back From the Edge	Album	2016-10-28	a1ba915a-94a3-4725-a5cc-5abd475bd65c	92345852-a903-43c3-8f53-0fcc3998d4fd	2a5d3fc2-7ff6-4482-b109-33170603e520
+12	I'm the One	DJ Khaled featuring Justin Bieber, Quavo, Chance the Rapper and Lil Wayne	Grateful	Album	2017-06-23	da04aa2d-134a-4b5b-ae10-cda5321773fe	f926c81b-2fed-45eb-a5a3-ce00c621cb2d	6459dae2-bcfc-4283-b5f9-d94d08e4e133
+13	XO Tour Llif3	Lil Uzi Vert	Luv Is Rage 2	Album	2017-11-17	0218232d-4b51-4315-a830-8fb91bd6e2c4	e12e30da-de50-43d4-b385-78eb31ed8692	82a56563-aa5f-4b8a-9c5b-fa193d9246c7
+14	Mask Off	Future	FUTURE	Album	2017-02-17	98c84b94-3445-4dcc-ad01-9e5e3e1271e2	ee884f13-5cef-4ea1-954c-2925cf8594e2	09a613f7-5f9d-414a-9c4a-5c318dfe6b9a
+15	Unforgettable	French Montana featuring Swae Lee	Jungle Rules	Album	2017-07-14	6a071572-1d4c-48af-969f-97a6b70c27cb	1c0b9be4-3482-4882-bf1c-9ee8cd6191d0	8565aecc-8f67-4d64-abcc-9754df8549cd
+16	24K Magic	Bruno Mars	24K Magic	Album	2016-11-18	80ea43b7-2c32-4a79-9fb0-8ff1761ebe09	39209fa8-4352-485c-ac03-a68f92b80b00	716f0fa1-c526-4995-a8ad-ff57c44bf9b1
+17	Stay	Zedd and Alessia Cara	The Pains of Growing	Album	2018-11-30	9cc0e15e-2428-41f0-9e15-044f94beaa3d	b0169351-7a12-4ca9-865f-698600196ad8	015021a9-2621-4593-b82d-f1f28bdf440a
+18	Wild Thoughts	DJ Khaled featuring Rihanna and Bryson Tiller	Grateful	Album	2017-06-23	da04aa2d-134a-4b5b-ae10-cda5321773fe	be25996d-edfc-4b3b-a91d-91e99b13726f	a494c1f9-42e7-4806-a755-d75c8e68b46a
+19	Black Beatles	Rae Sremmurd featuring Gucci Mane	SremmLife 2	Album	2016-08-12	c9a9adc7-3c09-4bec-948c-4cccb3e6bfdc	5097f58d-af45-471a-a9c0-67005ac4f0f0	42ed33bb-248d-4c15-af8e-94383ec832b8
+20	Starboy	The Weeknd featuring Daft Punk	Starboy	Album	2016-11-28	ceaa5c39-91c7-4c8a-886c-85b11fa8a1f6	a4686ebb-5075-4370-815b-602e653841ac	ebd8f597-6191-44c1-a40f-c511e31d7842
+21	Location	Khalid	American Teen	Album	2017-03-03	c7a0a7e9-3ae4-4791-8e55-c79590032cdf	6376e6f9-4617-4ff3-84f8-617e853a80e4	fa99a2b9-0382-42f1-bfe9-197816e8895a
+22	Attention	Charlie Puth	Voicenotes	Album	2018-05-11	b2cc73b2-0b80-4f59-8782-244b086830e2	1d906de8-a701-4c5f-9663-f74fdd8ffe53	19b6d048-f981-40e9-8235-a5acf969e5df
+23	There's Nothing Holdin' Me Back	Shawn Mendes	Illuminate	Album	2016-09-23	3d59017f-bb26-4095-8a78-c9d372cc64f4	7d707c87-9429-487e-8f1e-92c7f710f43a	04409767-e55b-4551-bc4f-7d8c5ea6265e
+24	Bodak Yellow	Cardi B	Invasion of Privacy	Album	2018-12-07	45c6de75-bea5-4dd9-a912-55fb9497c3fc	11604d82-9ebd-47fa-b581-27ac55d22983	86a85eb4-0203-48f8-a413-8602fe7b391c
+25	Redbone	Childish Gambino	Awaken, My Love!	Album	2016	fd817615-3d43-4f07-9509-d0a46b2bc278	2017e952-42c9-41e0-9e39-69d5aa7b17a6	7408f11c-6c4e-41e5-b81b-6a15bf6cb268
+26	I Don't Wanna Live Forever	Zayn and Taylor Swift	Fifty Shades Darker: Original Motion Picture Soundtrack	Album / Soundtrack	2017-02-10	bcbf4c73-9f53-4f0d-9df1-d478b6469d92	78fa52f0-7493-40ad-852f-f74fdd3e606e	
+27	It Ain't Me	Kygo and Selena Gomez	Kids in Love	Album	2017-11-03	7e77a230-faed-4d31-8c97-6cbfaeb9a4e1	b9385ec6-2fd4-4993-b0ea-e59911b26de1	65771c02-9096-46ee-a105-277853520279
+28	iSpy	Kyle featuring Lil Yachty	Light of Mine	Album	2018-07-20	1d7d062e-c3a5-4c96-b476-8a82eb1d3b91	8560d920-723d-4c51-91b9-284ece6f0f55	fad5f68b-3b91-4ec1-aba1-d17fc25463d3
+29	Issues	Julia Michaels	Nervous System	EP	2017-07-28	476f2b56-82ce-4853-bbda-aebaa5d48647	8789d848-8534-47ea-b5f6-027e44c2fe23	040e5dc9-9d6c-4d24-9f6f-29e13cd0bcb0
+30	Scars to Your Beautiful	Alessia Cara	Know‐It‐All	Album	2015-11-13	a3a64704-39a5-4c5b-87b9-ff35d56fc9cb	4ca0eee2-4869-49cc-872a-209440aee923	6a8875d3-3bb5-4c5b-9498-e5f2ae6dd1d1
+31	1-800-273-8255	Logic featuring Alessia Cara and Khalid	Everybody	Album	2017-05-05	ff1dd5f4-374d-44d4-9906-21ea57327df4	e564d1eb-ac43-464d-bf64-286cb3e36cdb	f9e961f9-36b9-4202-8a46-f649c7ef75d3
+32	Slow Hands	Niall Horan	Flicker	Album	2017-10-20	8302299c-97ad-47c8-af85-0d5cdbb8f78a	1f9bb6f2-1997-45c8-b604-b35e7a8986ae	ee10f155-f60f-4be5-a18d-03eac609e263
+33	Love on the Brain	Rihanna	ANTI	Album	2016-01-28	0c482acd-35a2-466b-b833-ef5f2f1297d4	3904d771-52cf-4a98-b91b-7db890613edd	85465eb1-f250-4f7f-845e-856ef8e16297
+34	I Feel It Coming	The Weeknd featuring Daft Punk	Starboy	Album	2016-11-28	ceaa5c39-91c7-4c8a-886c-85b11fa8a1f6	a4686ebb-5075-4370-815b-602e653841ac	911e4813-56ea-4490-8fcd-cc3dcd0ae7ca
+35	Bounce Back	Big Sean	I Decided.	Album	2017-02-17	140b2254-247b-43b2-a495-ff50bcbad55c	3f162b76-8555-4b34-84a2-49239cedd368	eeb93bc3-e9fb-412a-b7e3-8cff9a5fbf5d
+36	Strip That Down	Liam Payne featuring Quavo	LP1	Album	2019-12-06	0aa9c4a2-c890-487c-8e74-c1895f521c37	66c4700a-5e6d-4773-933f-ffe19b6923ad	7ff5e2ae-050f-43be-913a-93304fa9d1b8
+37	Fake Love	Drake	More Life	Album / Mixtape/Street	2017-03-18	d039390b-2452-4a5c-9b2b-32e5e80f15e0	4360c85f-0c62-4983-9463-d18aee8b945a	22b82553-fd97-448e-a8d2-2c98a6b233c1
+38	Don't Wanna Know	Maroon 5 featuring Kendrick Lamar	Red Pill Blues	Album	2017-11-03	f3611515-4150-49a1-82cd-26938f0d5bc3	9be0391b-5daf-42fb-84dc-5305b0075347	3b3aa886-8c9b-442d-aa59-3fc34fb9139b
+39	Look What You Made Me Do	Taylor Swift	reputation	Album	2017-12-29	f060c8fd-bec9-426e-800e-8efc040a71e6	a1163d3a-4ae3-4d85-8e2e-7f41776a0eae	d06c9d0f-2dbf-4272-9c0d-6d182ca41c67
+40	Castle on the Hill	Ed Sheeran	÷	Album	2017-03-03	e05f9927-e24b-41c5-928d-d0e008a12444	df0f7be5-e879-41b1-8584-18b13468c911	5780b6fb-066f-4147-ac0e-0d8c8e812e02
+41	Bad Things	Machine Gun Kelly and Camila Cabello	bloom	Album	2017-12-22	90df11a9-0a27-47cf-b3cf-1fe55c189cff	84767bbc-5ed5-4a8d-96ad-2f67bd272f76	89e80e57-7c83-4573-9acd-7503a264f296
+42	Paris	The Chainsmokers	Memories…Do Not Open	Album	2017-04-07	b4deecbb-2b7d-42ac-b7df-9ae7439d532b	33a2649d-f311-4e99-a344-0291547d1724	9843a5ce-2164-4c09-a133-80eeb5430592
+43	Side to Side	Ariana Grande featuring Nicki Minaj	Dangerous Woman	Album	2016-05-20	dfd582da-ab2e-4009-9365-405bf1ad2c49	8e0d8ed7-f954-4de6-97fd-574e12550796	14fb66cd-15ad-42b5-ab73-989b17f3e2f0
+44	Rockabye	Clean Bandit featuring Sean Paul and Anne-Marie	What Is Love?	Album	2018-11-30	b78e8b34-ee38-4f60-8908-4744d6401966	edbc6316-75f4-4d5f-9220-d9cb7a6cb4bf	13f7ba19-553d-444a-81c1-e7fea9739bc9
+45	Feel It Still	Portugal. The Man	Woodstock	Album	2017-06-16	d18f6a72-abf4-4dc0-9bef-89c31d8ee877	2daa32af-d8c6-41d7-abf9-92765b58a879	6728f2b7-dec1-4098-8c91-362db1d0ff31
+46	Let Me Love You	DJ Snake featuring Justin Bieber	Encore	Album	2016-08-05	5c631dec-2278-4dbb-80c0-a8649aff0d8c	02edfa2e-6022-4e2f-9fe5-b6b542466b70	8c162756-e8ae-4dd9-945b-23193a81d745
+47	Sorry Not Sorry	Demi Lovato	Tell Me You Love Me (deluxe)	Album	2017-09-29	467b4946-5057-4d0a-8e5a-cb01a6131a39	af90429f-ea58-4bda-9aca-bbc453534699	cd9f6898-7444-4ae6-acce-f6f02455bb2e
+48	Bank Account	21 Savage	Issa Album	Album	2017-07-07	2d15bceb-173e-4649-91aa-e4f389d8f836	2143fb2d-dfc1-46fa-b946-816162c968dc	1d8be937-3bf8-49f3-a1ec-cf8210e77435
+49	Can't Stop the Feeling!	Justin Timberlake	Trolls: Original Motion Picture Soundtrack	Album / Soundtrack	2016-09-23	54422b9c-a694-40c3-9b5c-9501aefdda14	050e95ce-0dfc-45c6-8daf-c98dc5c77702	52ded6b5-72f5-4e6d-aaf5-493a3e993850
+50	Mi Gente	J Balvin and Willy William featuring Beyoncé	Vibras	Album	2018-09-28	a769ee52-f9e4-406e-980f-ade1d9ca64a9	10e79270-54f2-4450-b322-8f860e8df893	4b226146-ce82-4451-bdbd-eb2b3a40c193
+51	Thunder	Imagine Dragons	Evolve	Album	2017-06-23	8341c952-694d-4866-870e-df48c9e10f17	735c4aaa-b56a-4586-a9ef-8b6074e8b710	2199bf89-2583-4368-8f85-3b0bb8f994d4
+52	T-shirt	Migos	Culture	Album	2017-04-07	5611e7a8-3b0d-48a1-820e-45b94229f653	61833a5f-2e13-4ff8-a60f-4f42179a8ff1	a5044dca-ef71-4795-9c76-a995e5e15d5b
+53	Rake It Up	Yo Gotti featuring Nicki Minaj	I Still Am	Album	2017-10-27	8f12f4c2-f626-4a4d-971d-57c2402bd1ae	9963e9da-93ae-4227-a066-804b3b11bac6	cd0549ed-505d-4260-ba34-47bcdcca0fe2
+54	Mercy	Shawn Mendes	Illuminate (Deluxe)	Album	2016-09-23	3d59017f-bb26-4095-8a78-c9d372cc64f4	50f33857-ff6c-442f-a3be-a7bd4a719bb3	5800b091-57cb-49b4-9d55-dd68cc9e9126
+55	Tunnel Vision	Kodak Black	Painting Pictures	Album	2017-03-31	e8fbb50c-1bc5-4f0d-b336-28046155e093	27d3864b-7d33-4742-ae4c-05dd7e391da2	0a2cafe2-bb34-4558-96b6-18e0056dd703
+56	Rockstar	Post Malone featuring 21 Savage	beerbongs & bentleys	Album	2018-04-27	a6045fe5-c283-4778-995c-04d953fe73e1	09668cde-446d-4237-ac26-1a85a6c29fc0	2f87fb1d-d756-4a00-94d7-5d74ada282fd
+57	In Case You Didn't Know	Brett Young	Brett Young	Album	2021-02-12	6570766b-6e50-446d-a67e-ff0d857fca18	e4d55bfc-1bde-4530-8a70-08ed5ffbd7e5	912c53f3-2cb5-4f0a-93b3-c14f3d1be137
+58	Heathens	Twenty One Pilots	Suicide Squad: The Album (collector’s edition)	Album / Soundtrack	2016-08-04	ce3b8474-969e-4b4c-ba02-421c68bd65dc	7d730404-82a6-468d-8ebd-3609661af251	3bf798f4-b3fa-4a0b-a7bb-655af72429b2
+59	Now or Never	Halsey	hopeless fountain kingdom	Album	2017-06-02	69eb9696-35c8-4463-aff5-952526213ce8	bd90856d-5b7d-4e8b-b200-347a0e977f4b	024d8daa-7d45-4ea0-a9d4-fd6e3da392e8
+60	Caroline	Aminé	Good for You	Album	2017-07-28	cc54fa37-7b6b-4631-9131-7d2decf40741	f5b33c74-d2ca-4acc-b425-4b39e5af6c74	71fc4450-d338-4bea-91e2-3e889292a9bb
+61	Rolex	Ayo & Teo	Rolex	Single	2017-03-15	fc8e0a26-dc4f-47fb-ab68-0a22fab733ef	943391c1-0925-4b65-a88e-49cb9fa4a001	89edcb78-b342-4ab3-b13e-d27142fde664
+62	DNA	Kendrick Lamar	DAMN.	Album	2017-04-14	b88655ba-7469-48b8-a296-b9011ab73ef3	2a74f401-f412-4fec-b059-c287d69801e2	898059a0-753c-4943-9604-d3c0e2929d81
+63	Juju on That Beat (TZ Anthem)	Zay Hilfigerrr & Zayion McCall	Juju on That Beat (TZ Anthem)	Single		7df6fd9a-8c26-493e-978c-c13ac0afc379	028bf0f4-950b-4c6b-aa9f-5a6369e84fb7	9d4a831c-0960-4dae-9a8a-c3a4b1e20ef7
+64	Swang	Rae Sremmurd	SremmLife 2	Album	2016-08-12	c9a9adc7-3c09-4bec-948c-4cccb3e6bfdc	5097f58d-af45-471a-a9c0-67005ac4f0f0	f2196610-8ea6-489f-b3dc-41b252f2e7dd
+65	Passionfruit	Drake	More Life	Album / Mixtape/Street	2017-03-18	d039390b-2452-4a5c-9b2b-32e5e80f15e0	4360c85f-0c62-4983-9463-d18aee8b945a	78c2466b-7940-40d0-8b89-7c1d57aca98e
+66	Loyalty	Kendrick Lamar featuring Rihanna	DAMN.	Album	2017-04-14	b88655ba-7469-48b8-a296-b9011ab73ef3	81ad6e82-8e70-4805-8866-42e246c6f68c	47dc1ca1-2002-4070-ad2e-3ebe9401473d
+67	Praying	Kesha	Rainbow	Album	2017-08-11	07ed12d0-57e2-4624-a3c0-37562c538319	f8647a3a-6df4-4be9-a4ac-2d04f1c1e333	
+68	Goosebumps	Travis Scott	Birds in the Trap Sing McKnight	Album	2016-11-04	2d87c53b-5e6b-40c6-9c37-d7fe7bec08bd	3231f92c-6dc3-4e07-945d-652deaea418a	05b394e8-3b2c-4cc4-9a2c-cbe2814d362c
+69	Cold	Maroon 5 featuring Future	Red Pill Blues	Album	2017-11-03	f3611515-4150-49a1-82cd-26938f0d5bc3	9be0391b-5daf-42fb-84dc-5305b0075347	4fa4bb9d-4492-41f0-87c7-2860279ccca4
+70	Broccoli	DRAM featuring Lil Yachty	Big Baby D.R.A.M.	Album	2017-12-01	fd52ee06-4eec-4d6f-9ffb-8f0790850b18	77739737-5337-4b28-bd1e-6386addc56ad	8d7edcba-7098-4c7e-bb32-157689ac0c52
+71	Slide	Calvin Harris featuring Frank Ocean and Migos	Funk Wav Bounces, Vol. 1	Album	2017-06-30	654730cb-92d6-41ed-b298-ae890899e543	944342c9-9749-4837-8713-2d278004f201	de9eb1df-07a2-41b2-9e40-32d78f2b9c09
+72	What Ifs	Kane Brown featuring Lauren Alaina	Kane Brown	Album	2016-12-02	d305ff2d-b66a-4f6b-93e9-96d42909617c	17aed07a-81c9-42e3-b9db-1b7a0ca85eb5	6f7e8bc4-f040-47b6-bd7f-6e00f95bb8e9
+73	Chained to the Rhythm	Katy Perry featuring Skip Marley	Witness (deluxe)	Album	2017-06-09	bded1701-baf2-4066-b76a-49384de006b6	289cf9a5-326b-4ffb-b20b-8ceb18ff9d34	86b58169-4fa0-4142-8bac-bc77116598d1
+74	Feels	Calvin Harris featuring Pharrell Williams, Katy Perry and Big Sean	Funk Wav Bounces, Vol. 1	Album	2017-06-30	654730cb-92d6-41ed-b298-ae890899e543	c4f23854-c9ca-4924-bcab-6b29fcd59bde	df933ba2-3377-4ab4-a648-36c7d3fc1679
+75	All Time Low	Jon Bellion	The Human Condition	Album	2016-06-10	75f30bf9-2ccd-47c1-851d-e56963695504	530caf5a-0185-4c31-b141-07fbf041e452	52534f30-d1c6-4313-b7e5-d58a171c7036
+76	Hurricane	Luke Combs	This One's for You	Album	2017	c2418821-b690-4cb8-9944-592386299150	764871d8-3301-45e4-aa2a-53dba65c8f9c	a6f2f24c-05e9-46b1-80db-a3a57ca9de97
+77	Too Good at Goodbyes	Sam Smith	The Thrill of It All	Album	2017-11-03	b09b9056-bb1c-41ca-9d3a-0be3b2b73064	c864d315-c095-4623-919b-0e58943874da	5222dabb-7d8a-46ee-bfd6-77c9f0256ed5
+78	Young Dumb & Broke	Khalid	American Teen	Album	2017-03-03	c7a0a7e9-3ae4-4791-8e55-c79590032cdf	708b41d0-6044-499f-939e-b487df390e41	ce0c4f75-d7bf-49aa-95fe-832781a376bf
+79	Magnolia	Playboi Carti	Playboi Carti	Album / Mixtape/Street	2017-04-14	8821f75c-6469-4aec-a357-c48e872fd83a	0d70a1d7-5465-4fa6-8520-9891527fbe6e	75a38235-5db3-4545-bd4c-e4de9baee068
+80	Love Galore	SZA featuring Travis Scott	Ctrl	Album	2017-06-09	8f892c1b-0709-4cf4-9711-493892a9eb9b	7ffe5c0f-99a5-4a53-affc-75ae8241bbf0	056fbf4a-a354-447f-91a9-39e0fb823a64
+81	Drowning	A Boogie wit da Hoodie featuring Kodak Black	The Bigger Artist	Album	2017-09-29	3de92085-2ba2-4361-9234-600fa6c4f317	65e83db9-0b89-4636-82a8-8a4a21c90063	26faf43c-cc72-423e-afec-4b9e00d8e2a6
+82	Starving	Hailee Steinfeld and Grey featuring Zedd	Haiz	EP	2016-08-19	c1f38e59-d2c1-49b5-a514-aa8e31d6138e	4d9b0735-d5ce-481f-a90b-7adf9f988b13	74525917-df3e-4f58-9f3f-9548b52014e9
+83	Both	Gucci Mane featuring Drake	The Return of East Atlanta Santa	Album	2016-12-16	d6ba0209-93e8-4435-bca3-6a495a3965af	1bb059bb-47a5-4adc-a16e-ef1b30bc9610	bf3ec338-29c0-4e57-be66-7d72234e3d6d
+84	What About Us	P!nk	Beautiful Trauma	Album	2017-10-13	d4e5b10a-3f86-4960-8413-a56b8106a6fb	ff17e287-aac5-48da-96b9-43c1a6791149	38bd40c9-9739-4070-be6e-48da1e65c16c
+85	Swalla	Jason Derulo featuring Nicki Minaj and Ty Dolla Sign	Swalla	Single	2017-02-24	83f57f0c-59a6-4e8d-b450-cb7c0c1df9ac	b09b3c1a-9a87-4e7b-ac3c-887eb4209d51	4fec037c-6684-4624-935e-4829b1b4f1e1
+86	Slippery	Migos featuring Gucci Mane	Culture	Album	2017-04-07	5611e7a8-3b0d-48a1-820e-45b94229f653	61833a5f-2e13-4ff8-a60f-4f42179a8ff1	7c5c7542-c3d5-437e-811f-eb4ef323960d
+87	Sign of the Times	Harry Styles	Harry Styles	Album	2017-05-12	05e6b686-b590-472a-9924-e623b223cb6d	685de01a-ff29-4539-bd5c-4d9cc6fcd61f	3125b023-6a45-4a68-98ec-a88634866983
+88	Water Under the Bridge	Adele	25	Album	2015-11-20	5537624c-3d2f-4f5c-8099-df916082c85c	b2dbd919-229f-41df-a6bf-eaa042c1a550	ade2f0f3-39bf-46ad-a44d-7fc4a8069db7
+89	Malibu	Miley Cyrus	Younger Now	Album	2017-09-29	4653937e-af72-401d-a8d1-dde3091e0282	89306cc1-29ac-4a62-9f4b-81dad9b8045b	5b4b8074-349b-4a62-bcbd-f063700f64d5
+90	Down	Marian Hill	ACT ONE	Album	2016-06-20	bb9bb0b5-e19a-4d25-a333-2732a9461e79	ea2a31a9-79a6-4183-81ef-8d3b88fe6cc8	7e5c7f21-5259-4fcb-a4f7-9abb7f755c8f
+91	No Promises	Cheat Codes featuring Demi Lovato	No Promises	Single	2017-03-31	e0210b8a-453f-4b13-bb92-d6feeb91524f	284651de-f62a-4d41-acec-d6cf18df626a	fafda913-cf9d-453f-a458-53f449c0a75a
+92	Treat You Better	Shawn Mendes	Illuminate (Deluxe)	Album	2016-09-23	3d59017f-bb26-4095-8a78-c9d372cc64f4	50f33857-ff6c-442f-a3be-a7bd4a719bb3	2445f788-914f-4893-9a6d-5de91d7db4f9
+93	I Get the Bag	Gucci Mane featuring Migos	Mr. Davis	Album	2017-10-13	d5c520e0-62ca-40f3-b3fd-c316e96d8738	122f87ec-3128-4ff9-8b9e-4c9b7f192ba4	3ca88426-4d34-43b6-97d3-3c40bfd3f2f1
+94	Small Town Boy	Dustin Lynch	Current Mood	Album	2017-09-08	6d9a2a4f-061f-48cc-b44b-cb55d9707382	fcc3a7dd-6c58-42e5-ab1a-0bfb7a83bcef	ee3471b9-9942-48eb-92fd-ef8870ef98cc
+95	Everyday We Lit	YFN Lucci featuring PnB Rock	Long Live Nut	EP	2017-03-03	41eaa90d-eab1-4243-b9b7-f6de313534ac	8953b45e-70d0-4acc-b0f9-9938ea8a1cd5	8dca53f0-9070-47a7-a0be-c318f04e3ecf
+96	Havana	Camila Cabello featuring Young Thug	Camila	Album	2018-01-12	e774d274-e3ee-434a-a5c0-4a113b3b5d8f	a44f0bd6-8ba3-4305-b645-12e78109d0fd	d782a964-71fe-4adb-af01-cd7769c32ae8
+97	What Lovers Do	Maroon 5 featuring SZA	Red Pill Blues	Album	2017-11-03	f3611515-4150-49a1-82cd-26938f0d5bc3	9be0391b-5daf-42fb-84dc-5305b0075347	4adc65a4-16ee-478e-839e-53d07d00d6ef
+98	Do Re Mi	Blackbear	Digital Druglord	Album	2017-04-21	2a3b6091-3b3e-4a8c-b397-538537bd24ab	4719b9d8-a1a5-447f-8086-447dd444b5a4	ec956a0c-5e4e-48db-b536-eed5357603f3
+99	Look at Me!	XXXTentacion	Revenge	Album / Mixtape/Street	2017-05-16	3d998f95-a8b7-48e9-acc6-5d1043d3949d	02d5a9f0-7de4-473c-83ae-6f23a78dd73d	64221d1a-a61f-4ab0-98ed-0906457dc110
+100	The Fighter	Keith Urban featuring Carrie Underwood	Ripcord	Album	2016	0516dbfb-6c53-4248-a450-9048ea427d8a	90a2e8cd-5364-4da5-ac30-07ba81f1b361	09544b8f-b7d8-424b-b9e8-14ddd9b1e26d

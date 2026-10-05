@@ -1,0 +1,101 @@
+rank	title	artist	album	album_type	album_date	album_group_mbid	album_mbid	recording_mbid
+1	Lose Control	Teddy Swims	I've Tried Everything but Therapy (Part 1)	Album	2023-09-15	9158fd07-1bce-4cb1-9997-b57892b85825	967b5c99-8c48-43b9-9ecd-afcbaba415aa	e4733d45-75fa-4bf2-a0d6-9835a67e53b7
+2	A Bar Song (Tipsy)	Shaboozey	Where I've Been, Isn't Where I'm Going	Album	2024-05-30	3d406cea-785a-4259-89c3-b7e5e6bd9df3	0809d823-911b-4e89-833e-a6aacd817bf5	a40b893c-553a-4198-8ca2-d27fc23692c6
+3	Beautiful Things	Benson Boone	Fireworks & Rollerblades	Album	2024-04-05	d68c8e19-1185-4233-aa8b-df10a402bd48	2b2822ff-c2b4-41cd-ac49-6318bd55388b	292effe0-7b50-4eee-bb16-cf470b2a503d
+4	I Had Some Help	Post Malone featuring Morgan Wallen	F‐1 Trillion: Long Bed	Album	2024-08-16	0734e110-d412-4b0e-825a-7ddc45e017cf	bd3fd4d7-f1ac-4fc5-962e-e682c7873a0a	8290f2d3-59ee-4806-8fda-5149de94f799
+5	Lovin on Me	Jack Harlow	Lovin On Me	Single	2023-11-09	7ca76200-f200-46a9-98ae-7e2a0bc7e363	c3ee9a8e-9c89-47a3-96a6-6465e08003ed	be26a5d7-6845-429c-8742-7b0fe5955e45
+6	Not Like Us	Kendrick Lamar	Not Like Us	Single	2024-05-05	564b9cea-cde5-46b5-bc66-2eb707920ee1	a3631980-cdac-4d12-854f-8ba8b95808c4	167b0a18-8923-4f64-82dd-30fb57e6216f
+7	Espresso	Sabrina Carpenter	Short n' Sweet	Album	2024-08-23	c8bea388-c195-4177-bf9b-7469f6e695a1	987ee505-c671-43ec-b927-143ac4e53dcc	48ee49e2-b4db-47fd-96de-5ec2ac542a48
+8	Million Dollar Baby	Tommy Richman	COYOTE	Album	2024-09-27	c5ecf766-241e-4cdc-94bf-a0082b83bf05	3c12738d-f978-42ca-9a89-98aaf6811975	a5dc8229-2b09-47eb-89bc-4bdf6fc83f01
+9	I Remember Everything	Zach Bryan featuring Kacey Musgraves	Zach Bryan	Album	2023-10-13	4feeb990-b122-4300-96e9-e8193f33c351	4e1605a6-497e-4f12-97a6-8a969273506c	010e7b4d-9e25-45c6-aaaa-d259f7007e99
+10	Too Sweet	Hozier	Unreal Unearth: Unaired	Album	2024-08-19	7f7d47f8-a97b-420b-b2f8-c3dfd6ca505c	6650a8e7-e55b-4baf-821c-7f82bf64d786	272be1e2-9599-4b8d-b872-5e879881d103
+11	Stick Season	Noah Kahan	Stick Season	Album	2022-10-14	14fc4370-9b90-411b-a02e-6c6d5a8799fc	ea1a212e-1881-49c8-bcd1-6a953661a5c1	236ccab4-fc8a-4e18-8e85-317340ae78b6
+12	Cruel Summer	Taylor Swift	Lover	Album	2019-11-15	30e9785b-7b50-4d29-b3d1-96fb55e3397f	4c76b950-7b64-47d8-9c91-b46decd5ac4c	7b575dfc-75a6-43f3-8be3-6994a7b65fde
+13	Greedy	Tate McRae	THINK LATER	Album	2023-12-08	6e924cee-9945-4a1b-b4c6-3445f846c01f	569aaf15-e65d-4c94-9b80-4631af82e9f0	882c925d-125e-415c-b236-c78f1b1db436
+14	Like That	Future, Metro Boomin and Kendrick Lamar	WE DON’T TRUST YOU	Album	2024-07-26	566b49e2-5642-4361-9e10-90456afa935a	a6e95a57-a30c-4edc-9b59-6a236754b7e4	d4133a55-d72a-4ced-9a4d-d8afb4bd2058
+15	Birds of a Feather	Billie Eilish	HIT ME HARD AND SOFT	Album	2024-05-22	02a544b3-0459-42c7-bd9c-047162e7b67a	a7228802-23df-4724-9055-d4b58302d713	3a7e1970-069c-4761-a6b2-9046e54406bc
+16	Please Please Please	Sabrina Carpenter	Short n’ Sweet	Album	2024-08-23	c8bea388-c195-4177-bf9b-7469f6e695a1	fef8d846-7798-416f-bbc5-febeeecdaf54	28b3c503-a01c-40a9-acff-bfc12f07e194
+17	Agora Hills	Doja Cat	Scarlet	Album	2023-09-22	77434d0b-1c5f-48c3-8694-050cb378ebd2	2dc6245a-f906-45e2-b429-7032819c485e	acc7790a-dff9-40c1-ab5c-72d601e45bba
+18	Good Luck, Babe!	Chappell Roan	Good Luck, Babe!	Single	2024-06-28	2e675c55-a634-4d7a-b99f-0a7ad368d024	57bd3060-0b77-42bb-ba36-9a79f4b29b8c	7194cfbb-36e7-48a1-b7aa-8dce21a0785a
+19	Saturn	SZA	SOS Deluxe: LANA	Album	2024-12-25	1646286a-d0ad-4288-bfab-34b0fb7b22c1	3be5ecae-9196-43a7-b308-33283be6d0b7	9b6b096f-36d8-4297-b181-ea501c4b41a2
+20	Snooze	SZA	SOS	Album	2023-05-19	1646286a-d0ad-4288-bfab-34b0fb7b22c1	79a7b5e6-7edb-489d-9481-63387f7bc197	6cf2ac53-82d4-4c6d-94ca-083cfd23db6d
+21	Paint the Town Red	Doja Cat	Scarlet	Album	2023-09-22	77434d0b-1c5f-48c3-8694-050cb378ebd2	2dc6245a-f906-45e2-b429-7032819c485e	b9e20829-1d09-456a-b649-3138e305d9ca
+22	Fortnight	Taylor Swift featuring Post Malone	THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY	Album	2024-11-29	71c3eed6-466c-4aef-ad12-65a36d19467a	ec2ad803-67ce-4ed3-9d20-29c4222a5954	a06d6b37-9cae-40a5-806d-1a3c4f8098c0
+23	Fast Car	Luke Combs	Gettin' Old	Album	2023-03-24	4dd05327-b70f-4d7b-b950-367ecdd29b66	5113b489-673d-4420-bd9d-fbc09bc6c0e2	1f9e4d06-3ff6-47f5-a512-fb1f2677d4a7
+24	Water	Tyla	TYLA +	Album	2024-10-11	7a360dbb-9773-4d5a-9a24-cce8203f1428	79b12c27-10b0-4963-8310-e6d9606a714d	df1fd341-2119-441e-a863-7d21eaa3ab94
+25	Feather	Sabrina Carpenter	emails i can’t send fwd:	Album	2023-07-07	6bbcb652-6188-4a5c-9125-b745d16e1f27	be41b641-c1e7-4683-bde9-3d072fcacf3d	99ebdae8-1057-4dff-a134-0652cf51f62b
+26	We Can't Be Friends (Wait for Your Love)	Ariana Grande	eternal sunshine	Album	2024-03-08	fb992c06-9807-4ffd-90d8-115db5d513f6	d05483fb-3660-4a79-9f51-db586847c1a6	bd4e09dc-44ef-4754-b33f-5fc3f0567c00
+27	Austin	Dasha	What Happens Now?	Album	2024-09-12	5b6cdf00-def6-4954-9322-1e9fb86707ed	63266a3c-79bc-4577-9b94-f51c385a7eca	9ebde8bc-9b6f-401e-bcb1-945ce945f492
+28	Last Night	Morgan Wallen	One Thing at a Time	Album	2023-03-03	eab1ce83-eb3d-4e70-94ff-6fddd5405e84	315dfe4c-7634-477b-b285-c0741afdb853	ba20a414-eb5f-4100-8123-7ad07c221aa4
+29	Cowgirls	Morgan Wallen featuring Ernest	One Thing at a Time	Album	2023-03-03	eab1ce83-eb3d-4e70-94ff-6fddd5405e84	0139e1fd-1ef1-4b25-8f78-8134b93b9a4a	9f8755f0-f7b7-428a-842c-2f445ae46626
+30	Pink Skies	Zach Bryan	The Great American Bar Scene	Album	2024-07-04	b81e26a6-e8d8-4e40-bcd0-d8a08ac43c5a	562972cf-a2eb-4523-a445-e0472e393250	abae80a9-e692-49a0-8f5a-cc05fc9f3a9f
+31	Thinkin' Bout Me	Morgan Wallen	One Thing at a Time	Album	2023-03-03	eab1ce83-eb3d-4e70-94ff-6fddd5405e84	0139e1fd-1ef1-4b25-8f78-8134b93b9a4a	70b25bff-ce3d-49c5-859f-70113d12e51a
+32	Texas Hold 'Em	Beyoncé	Cowboy Carter	Album	2024-03-29	fa566e7b-254a-4fab-8aa5-ebcb7592d7f2	2a2aa1bb-c082-450b-8a91-20256f485114	2d947ada-862c-452e-95a6-091edd4330ee
+33	Is It Over Now?	Taylor Swift	1989 (Taylor’s version)	Album	2023-10-27	1c4770b3-b7a3-4d44-a7a9-8e2dbb74b85a	d4b9a79b-8ae3-472e-8c7d-145555c77d02	c0206c30-8189-41fb-9855-5cac79a85264
+34	Miles on It	Marshmello and Kane Brown	The High Road	Album	2025-01-24	504358a6-55e9-44db-97d6-bacdaf318d47	49d798f2-4403-4067-98be-9f723e003bff	9da1e9d2-a677-4488-aca6-652a2aaf9302
+35	I Can Do It with a Broken Heart	Taylor Swift	THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY	Album	2024-11-29	71c3eed6-466c-4aef-ad12-65a36d19467a	ec2ad803-67ce-4ed3-9d20-29c4222a5954	940a2ac0-be80-4b48-a6cc-d1ac04a7d448
+36	Wild Ones	Jessie Murph and Jelly Roll	That Ain’t No Man That’s The Devil	Album		dee11497-7da0-4663-8596-b2e7bd0a4ee4	61e2fff1-f918-4816-80bf-a007861adb55	01e82afb-5a8c-4da8-bd19-c4446c094834
+37	Ain't No Love in Oklahoma	Luke Combs	Twisters: The Album	Album / Compilation, Soundtrack	2024-07-19	1e789e3f-3fc8-4991-8e68-938b90121ca3	bde72f5c-66d6-439c-bdd9-2f79780774af	b90c2f1e-4ad8-45a0-a4e4-20db757f2353
+38	Carnival	¥$ (Kanye West and Ty Dolla Sign) featuring Rich the Kid and Playboi Carti	VULTURES 1	Album	2024-02-09	c4d999c3-983d-4149-8580-9ccb4567a12a	b1b775c5-6d48-40e2-9802-ee524ff19381	
+39	Houdini	Eminem	The Death of Slim Shady (Coup de Grâce): Expanded Mourner’s Edition	Album	2024-09-13	3ec8da7f-a4c3-4951-a967-334321a24342	5fa308b1-e37f-42d6-920f-e29e91972edc	7bf0cb56-212f-4fdb-b68c-04d3059d68c7
+40	Wanna Be	GloRilla and Megan Thee Stallion	Ehhthang Ehhthang	Album / Mixtape/Street	2024-04-05	a9c202a0-5d4b-47a8-bce2-8e38e6c934e9	8486be76-33c8-49c8-984d-858779fc2cce	9456f763-599e-4782-b9e1-179a07499ba3
+41	Slow It Down	Benson Boone	Fireworks & Rollerblades	Album	2024-04-05	d68c8e19-1185-4233-aa8b-df10a402bd48	2b2822ff-c2b4-41cd-ac49-6318bd55388b	862d3bd7-e035-4e56-9817-7e87fb283706
+42	Redrum	21 Savage	american dream	Album	2024-01-12	17a64abf-6d31-473f-a740-38ffa548f225	de02d778-2f56-4702-bb80-a93563a375f0	4ff9e97b-f326-440a-a820-943b68f1d938
+43	Houdini	Dua Lipa	Radical Optimism	Album	2024-05-09	c358634d-b58d-4635-aca3-246cee2577f0	a14799df-30bc-4535-86e7-d1bb49c94d41	c23803fb-b260-419a-b3a9-f2d1d30b6581
+44	Yeah Glo!	GloRilla	Ehhthang Ehhthang	Album / Mixtape/Street	2024-04-05	a9c202a0-5d4b-47a8-bce2-8e38e6c934e9	8486be76-33c8-49c8-984d-858779fc2cce	fbf0b4d0-4443-4402-9346-f5b78df585ca
+45	Rich Baby Daddy	Drake featuring Sexyy Red and SZA	For All The Dogs Scary Hours Edition	Album	2023-11-17	a1552752-3b43-43b7-aeef-1f282360c993	1c64c605-808d-4a61-ad6a-074165d53915	c0e6d606-b7c8-4716-8659-3682b5c3fb45
+46	What Was I Made For?	Billie Eilish	Barbie: The Album	Album / Soundtrack	2023-07-21	866df188-ec18-448d-add1-e15e756e4f01	f1fb49f1-e2c1-4b2e-8b9f-cb35bd846f80	74c2e388-4e59-4ed1-8c97-f3fd3317323d
+47	End of Beginning	Djo	DECIDE	Album	2022-09-16	de1ae079-0167-4ea4-96c9-a7a109ba1a56	41bb52a3-7882-49a6-8b6a-1bad5d5f4fb9	74f3b043-c0b4-4590-8c10-bfc4e3a06fef
+48	Lunch	Billie Eilish	HIT ME HARD AND SOFT	Album	2024-05-22	02a544b3-0459-42c7-bd9c-047162e7b67a	a7228802-23df-4724-9055-d4b58302d713	13f11191-f67a-4f35-8b58-62410b13d6cb
+49	Never Lose Me	Flo Milli	Fine Ho, Stay	Album	2024-03-15	e71cf1ba-788b-4bfa-8baa-b64a8ec56434	dc61c8b8-b94c-4463-92d5-184cf92f232a	c9447e79-e983-40ed-aaf2-b3a3da201e43
+50	Lies Lies Lies	Morgan Wallen	I’m the Problem	Album	2025-05-16	ccd3238f-1db1-4349-90f3-6941a259f2c1	215ac4ca-0c60-43d6-9530-ad2b0576f866	87b0dc09-62a8-498d-a6c2-1ce1fde39aaa
+51	Type Shit	Future, Metro Boomin, Travis Scott, and Playboi Carti	WE DON’T TRUST YOU	Album	2024-07-26	566b49e2-5642-4361-9e10-90456afa935a	a6e95a57-a30c-4edc-9b59-6a236754b7e4	8926d38f-feac-4a3f-a1f4-591f0f25e2f4
+52	Gata Only	FloyyMenor and Cris MJ	EL COMIENZO	EP	2024-08-09	f62e624d-b714-4cee-abe7-75b3363ce104	74f88428-1e03-456a-971d-59ad1caabf82	7c99cd74-4c02-49f6-9090-bf53c49b9507
+53	Hot to Go!	Chappell Roan	The Rise and Fall of a Midwest Princess	Album	2023-09-22	eda0f5d3-44eb-42cf-bcfd-5c9f93e05c7a	d6b7b32f-0717-4e9a-aa98-129316eb28e3	e619cd9d-ee35-4e37-8ee1-51b992ab95d7
+54	All I Want for Christmas Is You	Mariah Carey	Merry Christmas	Album	1994-11-08	ea885664-bf25-3e52-8ce0-15a84aed4a83	ce96086f-197a-42fe-9505-cc67baf8686c	a6fab057-cf3a-4456-950e-d3edaf219326
+55	Get It Sexyy	Sexyy Red	In Sexyy We Trust	Album		0b2b8b06-727d-4101-8588-d4b8a7dc2c4a	0b6063d2-0c33-4de8-8d1b-9f87ffefc5cf	d02f075c-8f0c-4919-ba36-012dfccf6422
+56	Made for Me	Muni Long	Revenge	Album	2024-08-30	fd1677a7-913b-4f62-91d2-520be5078686	199b0ca4-a761-4941-8f50-c5dfe75432e4	6ef644b4-6ee5-4a66-9e5a-3ef754727a5b
+57	Vampire	Olivia Rodrigo	GUTS	Album	2023-09-08	83920a38-e749-4bbf-a7f6-8aaf77cb9475	e415e7d1-f68c-4bea-a0d9-77b214f8e4d0	0c846a8e-debd-4a63-bb93-6c57f5178b45
+58	Whatever She Wants	Bryson Tiller	Bryson Tiller	Album	2024-04-04	2f6fc99f-9bfb-4c71-ae63-d65f333ba394	8a820453-5352-4ff7-a348-9aef638613a4	1b9ad848-6f83-440f-896a-0a5cd8f33f31
+59	Rockin' Around the Christmas Tree	Brenda Lee	Merry Christmas From Brenda Lee	Album	1964-10-19	d8699075-d5d1-4b3a-8db3-f23751c4873d	4b4f8025-b7f6-4fb9-aec8-fcca05299b60	8651cca6-578a-4e47-85c0-5d8d2a2566be
+60	Pretty Little Poison	Warren Zeiders	Pretty Little Poison	Album	2023-08-18	be4a5b79-e30e-4064-a486-c38aa230f1b5	63b96915-a248-4d9f-83e1-b897fdcc8b2f	c5949090-01d2-4006-8c1d-f49f7110b250
+61	First Person Shooter	Drake featuring J. Cole	For All The Dogs Scary Hours Edition	Album	2023-11-17	a1552752-3b43-43b7-aeef-1f282360c993	1c64c605-808d-4a61-ad6a-074165d53915	b97563a6-afde-475e-9861-c3041571d394
+62	Die with a Smile	Lady Gaga and Bruno Mars	MAYHEM	Album	2025-03-07	4174e53c-90e8-4630-993f-1f7466178398	2aa39b2a-bc2c-4c5a-a76c-62a173816c32	098ed81a-fa33-4212-ac6d-2cc19dde5fef
+63	I Like the Way You Kiss Me	Artemas	yustyna	Album		8c833c11-31ec-42b5-9ed4-7a23fdb7607a	0fadde41-aab1-42de-88c2-e7ca6ee32f2e	63935ae3-fa46-4663-b83e-2a502318e691
+64	Need a Favor	Jelly Roll	Whitsitt Chapel	Album	2023-06-02	062f8aff-bebf-4ed6-9538-c026093fe5aa	fd54951d-1ed5-4f1f-8578-4b4989fc0939	37049886-837c-4f59-b51b-f8deffea01ac
+65	Save Me	Jelly Roll featuring Lainey Wilson	Whitsitt Chapel	Album	2023-06-02	062f8aff-bebf-4ed6-9538-c026093fe5aa	fd54951d-1ed5-4f1f-8578-4b4989fc0939	4c120742-bdd6-4a41-bb3a-c82ef59294be
+66	Euphoria	Kendrick Lamar	euphoria	Single	2024-04-30	9b7669e5-172c-4420-aee4-2a5c659cee3c	42b014a9-e481-4bc5-88e8-97dd1fb8f63d	7a0aad60-6778-4409-91ac-1d38ff1e1ffa
+67	Truck Bed	Hardy	the mockingbird & THE CROW	Album	2023-01-20	082002ba-ab38-4da4-8ea5-000a203dda49	fb6279fc-91dc-4a27-93e2-03864f92b96d	544ace75-89a2-4c0d-9c8b-7d6820b1a84f
+68	Jingle Bell Rock	Bobby Helms	Jingle Bell Rock / Captain Santa Claus (and His Reindeer Space Patrol)	Single	1957-11	39509f63-766a-3d6b-9d24-68199925221b	797468cd-23a2-47f4-9042-4b652ace5f6d	2a4c3584-ece7-4fd5-bfd3-3311a1b77bb9
+69	Flowers	Miley Cyrus	Endless Summer Vacation	Album	2023-03-10	a09823c3-9fe5-4529-ab5e-aceea40810e2	dc72ac37-9b42-4e7b-9782-cd398b27e359	4ddebe69-6db5-4338-97d3-299cfdc72fb2
+70	Where the Wild Things Are	Luke Combs	Gettin' Old	Album	2023-03-24	4dd05327-b70f-4d7b-b950-367ecdd29b66	5113b489-673d-4420-bd9d-fbc09bc6c0e2	8ccde464-3d42-4c97-8a1b-8a049fcd3fe8
+71	Everybody	Nicki Minaj featuring Lil Uzi Vert	Pink Friday 2	Album	2023-12-12	016d0958-01da-4d16-8da1-8328f891a3a1	83cc6484-6fe7-4a63-a9ac-6053f79c699d	53641aeb-0f34-4312-9365-ddbad1fa4c2d
+72	La Diabla	Xavi	NEXT	Album	2024-10-11	66ef9d07-d8e1-463a-9893-a81e48c8b332	6db3917f-2106-4d3a-ac7c-e4b0f327a71e	082f3971-f578-4e16-9b84-4caed2604d3f
+73	Stargazing	Myles Smith	My Mess, My Heart, My Life.	Album		88f078e5-307b-4e7d-af65-5ecb5ae11ae9	44a3ecdc-eba0-442e-b89e-baf36234af29	c2be0448-f8ad-4cc6-bf40-7e4a87b5bd88
+74	Last Christmas	Wham!	Last Christmas	Single	1984-12-03	5b24e859-1063-3e56-b91e-0c5f6a17354d	d07bf65d-7c1f-473d-bdbc-b9c80029d176	ec2b3fdb-03ed-464a-be7a-7c0877f60cc1
+75	I Am Not Okay	Jelly Roll	Beautifully Broken (Pickin’ Up the Pieces)	Album	2024-10-11	1150a54c-a22e-4706-b1ad-22995f14a15f	40004e4d-98f8-476f-915b-d9a62434e757	ba655ae8-c4af-4dd0-931e-5facae4e0939
+76	Pour Me a Drink	Post Malone featuring Blake Shelton	F-1 Trillion: Long Bed	Album	2024-08-16	0734e110-d412-4b0e-825a-7ddc45e017cf	8e5281b4-1ffc-4c6f-a8ef-36d2459bce9e	32eee669-f9fa-48ad-bbd3-d96879f45697
+77	White Horse	Chris Stapleton	Higher	Album	2023-11-10	6f6d1ee6-bd84-496f-946c-740cf494df74	87cf13c9-0d75-48dc-b9d1-cea9ca76e4f7	4ad55053-9251-48ed-929b-f150a26deab9
+78	Lil Boo Thang	Paul Russell	again sometime?	EP	2024-08-30	dbbce378-753d-4c1b-a113-91c7a95f3153	58da3e8a-113f-4280-8193-f0c1dd869931	64f6cca5-363a-4471-b89b-48c74f0a70de
+79	Good Good	Usher, Summer Walker and 21 Savage	COMING HOME	Album	2024-02-23	400673ec-4660-48f0-8387-a488dc5de505	ba3f4f22-a2a5-4e16-bc0d-a755f79abc46	cec7ecfe-7fb9-4016-b224-c037a58d3d95
+80	Act II: Date @ 8	4Batz and Drake	u made me a st4r	Album / Mixtape/Street	2024-05-03	2db61df5-c0c7-4f45-a397-52186a0e5a2e	a268f797-85d9-4f32-91c4-11a678c4b473	082812d5-8400-437e-a20d-1dceb99bb517
+81	High Road	Koe Wetzel featuring Jessie Murph	9 Lives	Album		f415f139-ca8a-46c9-9cc2-1fea344dc834	d62e36e6-86f2-45af-8bae-96acaf9c9626	12b5f063-ada1-4bcf-83cb-3a44b7786d81
+82	Monaco	Bad Bunny	nadie sabe lo que va a pasar mañana	Album	2023-10-13	4bf41242-0a5f-46a4-b676-93b081c88f71	55bd46e3-5667-4a32-8b7c-350c988c0926	bdf37074-4076-4063-bf56-2f64f407b1c1
+83	IDGAF	Drake featuring Yeat	For All The Dogs Scary Hours Edition	Album	2023-11-17	a1552752-3b43-43b7-aeef-1f282360c993	1c64c605-808d-4a61-ad6a-074165d53915	e7feb48b-d37f-4c3f-a394-db680509ef07
+84	Burn It Down	Parker McCollum	Never Enough	Album	2023-05-12	63898d73-93ed-4406-966a-694029355cbe	6d442b08-2758-4773-8d99-77e961bdb4ad	ae2a0fcc-d1f2-41b3-808f-6e6295484146
+85	FukUMean	Gunna	a Gift & a Curse	Album	2023-06-16	1e8fc06b-d501-4618-b9b1-b24101ed0eff	778ec515-7746-4882-b6c7-1d2126324296	40ec4a6c-4792-46cb-9bbc-823fa49479d1
+86	Taste	Sabrina Carpenter	Short n’ Sweet	Album	2024-08-23	c8bea388-c195-4177-bf9b-7469f6e695a1	fef8d846-7798-416f-bbc5-febeeecdaf54	9526f213-6009-4b7f-a930-80d9d9cbf5b6
+87	Where It Ends	Bailey Zimmerman	Religiously. The Album.	Album	2023-05-12	bc91595c-f5e8-4f83-8835-e460eaa3f0c6	960b6853-be43-444f-aae4-5fb3469d0096	e4c6be53-bbe1-4ff7-91bd-8746b7b11b2d
+88	FTCU	Nicki Minaj	Pink Friday 2	Album	2023-12-12	016d0958-01da-4d16-8da1-8328f891a3a1	317e2bf5-eae6-4bcc-9962-1bae492b1140	b67af002-e175-4cd8-a303-e3a02b3665de
+89	Wildflower	Billie Eilish	HIT ME HARD AND SOFT	Album	2024-05-22	02a544b3-0459-42c7-bd9c-047162e7b67a	a7228802-23df-4724-9055-d4b58302d713	5afa33bb-83f6-42c6-b789-8bfa34c48b50
+90	World on Fire	Nate Smith	NATE SMITH (DELUXE)	Album	2023-02-17	c9f99205-c314-4f64-b891-7face177d865	2e0517c1-a0d9-4888-b5ea-53fd164a5735	319f7c3a-0b05-449e-bad1-a888706360fc
+91	On My Mama	Victoria Monét	JAGUAR II	Album	2023-08-25	2c82c3a9-b669-43c2-915e-7dd9d0f5ceb7	20a04501-bd30-4589-ac3a-cf9b57db7d6b	0544826f-15ec-4c07-9c33-2700e506af75
+92	Yes, And?	Ariana Grande	eternal sunshine	Album	2024-03-10	fb992c06-9807-4ffd-90d8-115db5d513f6	534ded27-4af5-4e97-808b-1eabfed45f74	323326b7-40b4-44e9-97c7-7b364ad06927
+93	Exes	Tate McRae	THINK LATER	Album	2023-12-08	6e924cee-9945-4a1b-b4c6-3445f846c01f	569aaf15-e65d-4c94-9b80-4631af82e9f0	3a63ae2e-a153-4b58-8c83-ca0cd2fbb232
+94	A Holly Jolly Christmas	Burl Ives	Have a Holly Jolly Christmas	Album	1965-10	86966f53-0fdd-3229-8fa7-4a09dd2c249f	93385ea0-1c33-4808-9b5b-aabb2a070683	866dbbb3-f536-45d7-8bea-4077297a859f
+95	Wind Up Missin' You	Tucker Wetmore	What Not To	Album	2025-04-25	51f5b598-a5f0-4c32-a478-438d055bfee5	587dade8-cddd-4436-8299-773bdba55d45	8045a1a8-f17d-4d5a-a09d-f65020871611
+96	Bulletproof	Nate Smith	California Gold	Album	2024-11-15	7160d4b6-0cff-4861-b42a-d306467fa432	dd91c15c-0668-4fa1-be02-0dfef1121ce8	573d23fa-5c6a-4891-b29e-b21613299511
+97	Fe!n	Travis Scott featuring Playboi Carti	UTOPIA	Album	2023-08-18	eac07d92-86b1-4fa7-906d-ec3177f8ebc2	1cb0df64-733e-46b7-a65f-ce3a74cf7e1d	67b283a5-16ad-4ae9-83ea-d25e83f7f958
+98	The Painter	Cody Johnson	Leather	Album	2024-11-01	ebc84434-b577-41b8-8772-3b859b00a2f0	ea9b0865-3b9a-44dd-9984-8c28779c0656	e4a1626c-923c-49c5-8513-090e40c3c347
+99	Down Bad	Taylor Swift	THE TORTURED POETS DEPARTMENT: THE ANTHOLOGY	Album	2024-11-29	71c3eed6-466c-4aef-ad12-65a36d19467a	ec2ad803-67ce-4ed3-9d20-29c4222a5954	3bdc0830-9f84-4e10-82e7-a6fd6d0d4ebc
+100	Dance the Night	Dua Lipa	Barbie: The Album	Album / Soundtrack	2023-07-21	866df188-ec18-448d-add1-e15e756e4f01	f1fb49f1-e2c1-4b2e-8b9f-cb35bd846f80	4fbf9706-4e50-4e0d-b98b-a94c930839ae

@@ -1,0 +1,1429 @@
+{
+ "chart": "Billboard Year-End Hot 100",
+ "year": 2025,
+ "source": "https://en.wikipedia.org/wiki/Billboard_Year-End_Hot_100_singles_of_2025",
+ "songs": [
+  {
+   "rank": 1,
+   "title": "Die with a Smile",
+   "artist": "Lady Gaga and Bruno Mars",
+   "mbid": "098ed81a-fa33-4212-ac6d-2cc19dde5fef",
+   "artist_mbids": [
+    "650e7db6-b795-4eb5-a702-5ea2fc46c848",
+    "afb680f2-b6eb-4cd7-a70b-a63b25c763d5"
+   ],
+   "album": "MAYHEM",
+   "album_mbid": "2aa39b2a-bc2c-4c5a-a76c-62a173816c32",
+   "album_group_mbid": "4174e53c-90e8-4630-993f-1f7466178398",
+   "album_type": "Album",
+   "album_date": "2025-03-07"
+  },
+  {
+   "rank": 2,
+   "title": "Luther",
+   "artist": "Kendrick Lamar and SZA",
+   "mbid": "ac19684f-febb-47ae-8d5f-72a4c4c1aa3d",
+   "artist_mbids": [
+    "381086ea-f511-4aba-bdf9-71c753dc5077",
+    "272989c8-5535-492d-a25c-9f58803e027f"
+   ],
+   "album": "GNX",
+   "album_mbid": "9b68d302-2f85-4a9e-a40a-69c8d0df1433",
+   "album_group_mbid": "32cb822c-a14e-49ce-a169-f209c5f31e0f",
+   "album_type": "Album",
+   "album_date": "2024-11-22"
+  },
+  {
+   "rank": 3,
+   "title": "A Bar Song (Tipsy)",
+   "artist": "Shaboozey",
+   "mbid": "a40b893c-553a-4198-8ca2-d27fc23692c6",
+   "artist_mbids": [
+    "0b427dad-1ee5-48f1-aa4b-026680a3338e"
+   ],
+   "album": "Where I've Been, Isn't Where I'm Going",
+   "album_mbid": "0809d823-911b-4e89-833e-a6aacd817bf5",
+   "album_group_mbid": "3d406cea-785a-4259-89c3-b7e5e6bd9df3",
+   "album_type": "Album",
+   "album_date": "2024-05-30"
+  },
+  {
+   "rank": 4,
+   "title": "Lose Control",
+   "artist": "Teddy Swims",
+   "mbid": "e4733d45-75fa-4bf2-a0d6-9835a67e53b7",
+   "artist_mbids": [
+    "35feae82-8b2c-4f8f-ae7a-af5662848947"
+   ],
+   "album": "I've Tried Everything but Therapy (Part 1)",
+   "album_mbid": "967b5c99-8c48-43b9-9ecd-afcbaba415aa",
+   "album_group_mbid": "9158fd07-1bce-4cb1-9997-b57892b85825",
+   "album_type": "Album",
+   "album_date": "2023-09-15"
+  },
+  {
+   "rank": 5,
+   "title": "Birds of a Feather",
+   "artist": "Billie Eilish",
+   "mbid": "3a7e1970-069c-4761-a6b2-9046e54406bc",
+   "artist_mbids": [
+    "f4abc0b5-3f7a-4eff-8f78-ac078dbce533"
+   ],
+   "album": "HIT ME HARD AND SOFT",
+   "album_mbid": "a7228802-23df-4724-9055-d4b58302d713",
+   "album_group_mbid": "02a544b3-0459-42c7-bd9c-047162e7b67a",
+   "album_type": "Album",
+   "album_date": "2024-05-22"
+  },
+  {
+   "rank": 6,
+   "title": "Beautiful Things",
+   "artist": "Benson Boone",
+   "mbid": "292effe0-7b50-4eee-bb16-cf470b2a503d",
+   "artist_mbids": [
+    "62b914a7-d775-4bb4-bb5e-d46e7df115b5"
+   ],
+   "album": "Fireworks & Rollerblades",
+   "album_mbid": "2b2822ff-c2b4-41cd-ac49-6318bd55388b",
+   "album_group_mbid": "d68c8e19-1185-4233-aa8b-df10a402bd48",
+   "album_type": "Album",
+   "album_date": "2024-04-05"
+  },
+  {
+   "rank": 7,
+   "title": "Ordinary",
+   "artist": "Alex Warren",
+   "mbid": "18c0f758-b5da-48da-9a2c-c21804702e9d",
+   "artist_mbids": [
+    "609a2ea3-f446-4e31-8eef-9f7591afb55a"
+   ],
+   "album": "You’ll Be Alright, Kid",
+   "album_mbid": "d4018bc8-250f-4f1d-a780-bfc9e7bfba3c",
+   "album_group_mbid": "fffbc3ad-d8da-4e91-9838-46523c356d57",
+   "album_type": "Album",
+   "album_date": "2025-07-18"
+  },
+  {
+   "rank": 8,
+   "title": "I Had Some Help",
+   "artist": "Post Malone featuring Morgan Wallen",
+   "mbid": "8290f2d3-59ee-4806-8fda-5149de94f799",
+   "artist_mbids": [
+    "b1e26560-60e5-4236-bbdb-9aa5a8d5ee19",
+    "2077273e-eaa1-4f49-903c-f286ededecb9"
+   ],
+   "album": "F‐1 Trillion: Long Bed",
+   "album_mbid": "bd3fd4d7-f1ac-4fc5-962e-e682c7873a0a",
+   "album_group_mbid": "0734e110-d412-4b0e-825a-7ddc45e017cf",
+   "album_type": "Album",
+   "album_date": "2024-08-16"
+  },
+  {
+   "rank": 9,
+   "title": "APT.",
+   "artist": "Rosé and Bruno Mars",
+   "mbid": "5dcf0f17-d13b-47c1-8386-fea1f5e25875",
+   "artist_mbids": [
+    "7f233cda-eacb-4235-b681-5f7be343a1a2",
+    "afb680f2-b6eb-4cd7-a70b-a63b25c763d5"
+   ],
+   "album": "rosie",
+   "album_mbid": "213fdd75-cf27-4068-8ecd-478dd6847172",
+   "album_group_mbid": "9b64e8f7-2599-42ac-80a9-3d9abf07ae7f",
+   "album_type": "Album",
+   "album_date": "2024-12-06"
+  },
+  {
+   "rank": 10,
+   "title": "Pink Pony Club",
+   "artist": "Chappell Roan",
+   "mbid": "0add771d-876e-4183-9bdf-c4d9bd6d1891",
+   "artist_mbids": [
+    "56a55378-f155-48de-80a5-d80104221267"
+   ],
+   "album": "The Rise and Fall of a Midwest Princess",
+   "album_mbid": "d6b7b32f-0717-4e9a-aa98-129316eb28e3",
+   "album_group_mbid": "eda0f5d3-44eb-42cf-bcfd-5c9f93e05c7a",
+   "album_type": "Album",
+   "album_date": "2023-09-22"
+  },
+  {
+   "rank": 11,
+   "title": "Love Somebody",
+   "artist": "Morgan Wallen",
+   "mbid": "54413a65-2d19-4882-af75-470d153b2849",
+   "artist_mbids": [
+    "2077273e-eaa1-4f49-903c-f286ededecb9"
+   ],
+   "album": "I’m the Problem",
+   "album_mbid": "215ac4ca-0c60-43d6-9530-ad2b0576f866",
+   "album_group_mbid": "ccd3238f-1db1-4349-90f3-6941a259f2c1",
+   "album_type": "Album",
+   "album_date": "2025-05-16"
+  },
+  {
+   "rank": 12,
+   "title": "Espresso",
+   "artist": "Sabrina Carpenter",
+   "mbid": "d3efc8d3-90e7-4696-8eda-2cab5ebc050d",
+   "artist_mbids": [
+    "1882fe91-cdd9-49c9-9956-8e06a3810bd4"
+   ],
+   "album": "Short n’ Sweet",
+   "album_mbid": "fef8d846-7798-416f-bbc5-febeeecdaf54",
+   "album_group_mbid": "c8bea388-c195-4177-bf9b-7469f6e695a1",
+   "album_type": "Album",
+   "album_date": "2024-08-23"
+  },
+  {
+   "rank": 13,
+   "title": "I'm the Problem",
+   "artist": "Morgan Wallen",
+   "album": "I’m the Problem",
+   "album_mbid": "bd76e564-3512-4e48-bac1-7e3148cd57f9",
+   "album_group_mbid": "ccd3238f-1db1-4349-90f3-6941a259f2c1",
+   "album_type": "Album",
+   "album_date": "2025-05-16"
+  },
+  {
+   "rank": 14,
+   "title": "That's So True",
+   "artist": "Gracie Abrams",
+   "mbid": "a03cfbbf-6b7a-4def-8b63-1132cb3fa810",
+   "artist_mbids": [
+    "f7441bc7-d7de-4813-a2fc-31a4033d396d"
+   ],
+   "album": "The Secret of Us",
+   "album_mbid": "497975d5-179e-4088-8d78-f47847097752",
+   "album_group_mbid": "b6923fdb-2f07-49f0-9adc-3dc2275af0da",
+   "album_type": "Album",
+   "album_date": "2024-06-21"
+  },
+  {
+   "rank": 15,
+   "title": "TV Off",
+   "artist": "Kendrick Lamar featuring Lefty Gunplay",
+   "mbid": "639da52f-d42c-431f-9a4c-6cc4f589754d",
+   "artist_mbids": [
+    "381086ea-f511-4aba-bdf9-71c753dc5077",
+    "9f57f48c-706e-4dc3-9c67-a790e44ae930"
+   ],
+   "album": "GNX",
+   "album_mbid": "9b68d302-2f85-4a9e-a40a-69c8d0df1433",
+   "album_group_mbid": "32cb822c-a14e-49ce-a169-f209c5f31e0f",
+   "album_type": "Album",
+   "album_date": "2024-11-22"
+  },
+  {
+   "rank": 16,
+   "title": "Timeless",
+   "artist": "The Weeknd and Playboi Carti",
+   "mbid": "7cbac5db-bb4c-4f88-a0a3-54dbc6f4ba78",
+   "artist_mbids": [
+    "c8b03190-306c-4120-bb0b-6f2ebfc06ea9",
+    "2baf3276-ed6a-4349-8d2e-f4601e7b2167"
+   ],
+   "album": "Hurry Up Tomorrow",
+   "album_mbid": "41d7e058-d160-49f2-8d08-5afc2ec244bc",
+   "album_group_mbid": "14f83b04-2b9e-4974-9169-476f26475be3",
+   "album_type": "Album",
+   "album_date": "2025-02-05"
+  },
+  {
+   "rank": 17,
+   "title": "Not Like Us",
+   "artist": "Kendrick Lamar",
+   "mbid": "167b0a18-8923-4f64-82dd-30fb57e6216f",
+   "artist_mbids": [
+    "381086ea-f511-4aba-bdf9-71c753dc5077"
+   ],
+   "album": "Not Like Us",
+   "album_mbid": "a3631980-cdac-4d12-854f-8ba8b95808c4",
+   "album_group_mbid": "564b9cea-cde5-46b5-bc66-2eb707920ee1",
+   "album_type": "Single",
+   "album_date": "2024-05-05"
+  },
+  {
+   "rank": 18,
+   "title": "Just in Case",
+   "artist": "Morgan Wallen",
+   "mbid": "ef43a792-92ca-49ac-97c1-51ca7daa2b00",
+   "artist_mbids": [
+    "2077273e-eaa1-4f49-903c-f286ededecb9"
+   ],
+   "album": "I’m the Problem",
+   "album_mbid": "215ac4ca-0c60-43d6-9530-ad2b0576f866",
+   "album_group_mbid": "ccd3238f-1db1-4349-90f3-6941a259f2c1",
+   "album_type": "Album",
+   "album_date": "2025-05-16"
+  },
+  {
+   "rank": 19,
+   "title": "Taste",
+   "artist": "Sabrina Carpenter",
+   "mbid": "9526f213-6009-4b7f-a930-80d9d9cbf5b6",
+   "artist_mbids": [
+    "1882fe91-cdd9-49c9-9956-8e06a3810bd4"
+   ],
+   "album": "Short n’ Sweet",
+   "album_mbid": "fef8d846-7798-416f-bbc5-febeeecdaf54",
+   "album_group_mbid": "c8bea388-c195-4177-bf9b-7469f6e695a1",
+   "album_type": "Album",
+   "album_date": "2024-08-23"
+  },
+  {
+   "rank": 20,
+   "title": "Squabble Up",
+   "artist": "Kendrick Lamar",
+   "mbid": "451690ff-5d48-4724-bd69-56951dbbf733",
+   "artist_mbids": [
+    "381086ea-f511-4aba-bdf9-71c753dc5077"
+   ],
+   "album": "GNX",
+   "album_mbid": "28478f83-bb11-4b92-ade8-c5e105e31b5f",
+   "album_group_mbid": "32cb822c-a14e-49ce-a169-f209c5f31e0f",
+   "album_type": "Album",
+   "album_date": "2024-11-22"
+  },
+  {
+   "rank": 21,
+   "title": "30 for 30",
+   "artist": "SZA and Kendrick Lamar",
+   "mbid": "336a7ab5-422f-4c05-90f5-f09931daaafd",
+   "artist_mbids": [
+    "272989c8-5535-492d-a25c-9f58803e027f",
+    "381086ea-f511-4aba-bdf9-71c753dc5077"
+   ],
+   "album": "SOS Deluxe: LANA",
+   "album_mbid": "3be5ecae-9196-43a7-b308-33283be6d0b7",
+   "album_group_mbid": "1646286a-d0ad-4288-bfab-34b0fb7b22c1",
+   "album_type": "Album",
+   "album_date": "2024-12-25"
+  },
+  {
+   "rank": 22,
+   "title": "Mutt",
+   "artist": "Leon Thomas",
+   "mbid": "955962c6-7e95-4223-ba17-9103a92b624f",
+   "artist_mbids": [
+    "412ff65d-26bf-4849-ba19-d2a58030fd1a"
+   ],
+   "album": "MUTT",
+   "album_mbid": "0de34b48-a3ae-46e9-ad33-1141bf682851",
+   "album_group_mbid": "c0f2a0fe-5c87-4f81-a9fb-350507105735",
+   "album_type": "Album",
+   "album_date": "2024-09-27"
+  },
+  {
+   "rank": 23,
+   "title": "Good News",
+   "artist": "Shaboozey",
+   "mbid": "9d23b783-5a92-4cc4-82a1-cca6ebce9d4c",
+   "artist_mbids": [
+    "0b427dad-1ee5-48f1-aa4b-026680a3338e"
+   ],
+   "album": "Where I’ve Been, Isn’t Where I’m Going",
+   "album_mbid": "26dac2b0-35f8-49bc-9fff-122b688f6fa7",
+   "album_group_mbid": "3d406cea-785a-4259-89c3-b7e5e6bd9df3",
+   "album_type": "Album",
+   "album_date": "2025-04-25"
+  },
+  {
+   "rank": 24,
+   "title": "Nokia",
+   "artist": "Drake",
+   "mbid": "719f40b5-c559-44ed-8b9e-c2609815c647",
+   "artist_mbids": [
+    "9fff2f8a-21e6-47de-a2b8-7f449929d43f"
+   ],
+   "album": "$ome $exy $ongs 4 U",
+   "album_mbid": "875c2c65-faeb-402c-9478-b1fdd77155bd",
+   "album_group_mbid": "786a089a-9266-4fd3-984a-1df9e0ca34b4",
+   "album_type": "Album",
+   "album_date": "2025-02-14"
+  },
+  {
+   "rank": 25,
+   "title": "Golden",
+   "artist": "Huntrix: Ejae, Audrey Nuna and Rei Ami",
+   "album": "KPop Demon Hunters (Soundtrack from the Netflix Film)",
+   "album_mbid": "0028fe3b-409f-4236-9bd7-323076076465",
+   "album_group_mbid": "59f47b29-50dd-4335-a81b-02297c790208",
+   "album_type": "Album / Soundtrack",
+   "album_date": "2025-06-20"
+  },
+  {
+   "rank": 26,
+   "title": "Wildflower",
+   "artist": "Billie Eilish",
+   "mbid": "5afa33bb-83f6-42c6-b789-8bfa34c48b50",
+   "artist_mbids": [
+    "f4abc0b5-3f7a-4eff-8f78-ac078dbce533"
+   ],
+   "album": "HIT ME HARD AND SOFT",
+   "album_mbid": "a7228802-23df-4724-9055-d4b58302d713",
+   "album_group_mbid": "02a544b3-0459-42c7-bd9c-047162e7b67a",
+   "album_type": "Album",
+   "album_date": "2024-05-22"
+  },
+  {
+   "rank": 27,
+   "title": "What I Want",
+   "artist": "Morgan Wallen featuring Tate McRae",
+   "mbid": "49de9de3-4504-420a-a8ca-eb03a98adf6c",
+   "artist_mbids": [
+    "2077273e-eaa1-4f49-903c-f286ededecb9",
+    "f9133869-f87c-459c-9aa7-2f176cda7e06"
+   ],
+   "album": "I’m the Problem",
+   "album_mbid": "215ac4ca-0c60-43d6-9530-ad2b0576f866",
+   "album_group_mbid": "ccd3238f-1db1-4349-90f3-6941a259f2c1",
+   "album_type": "Album",
+   "album_date": "2025-05-16"
+  },
+  {
+   "rank": 28,
+   "title": "Messy",
+   "artist": "Lola Young",
+   "mbid": "0ae5ee0e-084e-458b-87ba-76cef24cfff3",
+   "artist_mbids": [
+    "43b896c5-5652-4b04-bde1-2e4224bc99b3"
+   ],
+   "album": "This Wasn’t Meant for You Anyway",
+   "album_mbid": "48351084-aeb6-4a12-a8e7-eb166df6f47f",
+   "album_group_mbid": "1f428f20-2d3b-4535-a11d-85d28aa37203",
+   "album_type": "Album",
+   "album_date": "2024-06-21"
+  },
+  {
+   "rank": 29,
+   "title": "Stargazing",
+   "artist": "Myles Smith",
+   "mbid": "c2be0448-f8ad-4cc6-bf40-7e4a87b5bd88",
+   "artist_mbids": [
+    "73d2a9d4-de5d-4bcd-9acb-ddf67dfd71ac"
+   ],
+   "album": "My Mess, My Heart, My Life.",
+   "album_mbid": "44a3ecdc-eba0-442e-b89e-baf36234af29",
+   "album_group_mbid": "88f078e5-307b-4e7d-af65-5ecb5ae11ae9",
+   "album_type": "Album",
+   "album_date": ""
+  },
+  {
+   "rank": 30,
+   "title": "Love Me Not",
+   "artist": "Ravyn Lenae",
+   "mbid": "d8759cc0-b58e-4e03-9e7a-71dd8eb8f052",
+   "artist_mbids": [
+    "94c64122-dbd4-4927-b2fa-f204b0b4b0c2"
+   ],
+   "album": "Bird’s Eye",
+   "album_mbid": "d0bd6047-15cf-4a6d-a015-8cf68cef285d",
+   "album_group_mbid": "b5779d28-c0a4-480c-9cfc-fb8944305f3e",
+   "album_type": "Album",
+   "album_date": "2024-08-09"
+  },
+  {
+   "rank": 31,
+   "title": "Good Luck, Babe!",
+   "artist": "Chappell Roan",
+   "mbid": "7194cfbb-36e7-48a1-b7aa-8dce21a0785a",
+   "artist_mbids": [
+    "56a55378-f155-48de-80a5-d80104221267"
+   ],
+   "album": "Good Luck, Babe!",
+   "album_mbid": "57bd3060-0b77-42bb-ba36-9a79f4b29b8c",
+   "album_group_mbid": "2e675c55-a634-4d7a-b99f-0a7ad368d024",
+   "album_type": "Single",
+   "album_date": "2024-06-28"
+  },
+  {
+   "rank": 32,
+   "title": "No One Noticed",
+   "artist": "The Marías",
+   "mbid": "d13a634b-9f69-4256-9415-b7e95aac101d",
+   "artist_mbids": [
+    "7a3970c9-ecd8-4eee-a267-4d8c77d97ff3"
+   ],
+   "album": "Submarine",
+   "album_mbid": "537368c9-02e4-497a-b0f4-5c146945f654",
+   "album_group_mbid": "217f8621-5905-48eb-a837-000aeb7b7500",
+   "album_type": "Album",
+   "album_date": "2024-05-31"
+  },
+  {
+   "rank": 33,
+   "title": "All the Way",
+   "artist": "BigXthaPlug featuring Bailey Zimmerman",
+   "mbid": "39b8dc3b-b9e2-47b7-aaa4-45fd10e1c4f7",
+   "artist_mbids": [
+    "d25f6294-686a-4569-b1b9-fe64bfef2519",
+    "20543896-ec2c-48c4-b6b2-507c6cbe9918"
+   ],
+   "album": "I Hope You're Happy (Commentary Version)",
+   "album_mbid": "25ec29e7-0107-4c4f-b992-6a0508e54867",
+   "album_group_mbid": "b50b2287-a73e-43d1-8bf6-4e653d2fad58",
+   "album_type": "Album",
+   "album_date": "2025-08-21"
+  },
+  {
+   "rank": 34,
+   "title": "Too Sweet",
+   "artist": "Hozier",
+   "mbid": "272be1e2-9599-4b8d-b872-5e879881d103",
+   "artist_mbids": [
+    "b4691384-50c3-4afd-9988-51d3ec5db65d"
+   ],
+   "album": "Unreal Unearth: Unaired",
+   "album_mbid": "6650a8e7-e55b-4baf-821c-7f82bf64d786",
+   "album_group_mbid": "7f7d47f8-a97b-420b-b2f8-c3dfd6ca505c",
+   "album_type": "Album",
+   "album_date": "2024-08-19"
+  },
+  {
+   "rank": 35,
+   "title": "Worst Way",
+   "artist": "Riley Green",
+   "mbid": "4452d4f5-eb7f-4f40-a90f-668dd1026f5a",
+   "artist_mbids": [
+    "d8c85c0e-ad88-47a7-a1df-b70608c2f52f"
+   ],
+   "album": "Dont Mind If I Do",
+   "album_mbid": "7b22af4d-2513-46db-b8f5-53bb809dab3d",
+   "album_group_mbid": "6d48dced-3c1f-4186-bb78-3c010a30d8dc",
+   "album_type": "Album",
+   "album_date": "2024-10-18"
+  },
+  {
+   "rank": 36,
+   "title": "Sailor Song",
+   "artist": "Gigi Perez",
+   "mbid": "4de2fca3-e37a-4399-b121-9c4a6cb298b5",
+   "artist_mbids": [
+    "8ab64ebd-200e-47af-a3fc-92540e186214"
+   ],
+   "album": "At The Beach, In Every Life",
+   "album_mbid": "501c4451-bccd-4750-a5e4-20cf5b077bec",
+   "album_group_mbid": "2bdb6f81-607d-44b5-9ee1-22f8baafbbf7",
+   "album_type": "Album",
+   "album_date": "2025-07-25"
+  },
+  {
+   "rank": 37,
+   "title": "Sorry I'm Here for Someone Else",
+   "artist": "Benson Boone",
+   "album": "American Heart",
+   "album_mbid": "c0df8104-7b49-4fa3-bcec-cb3d310aa9a5",
+   "album_group_mbid": "8e25d6da-5fd3-4f30-9735-7ac39ddb9816",
+   "album_type": "Album",
+   "album_date": "2025-06-20"
+  },
+  {
+   "rank": 38,
+   "title": "Manchild",
+   "artist": "Sabrina Carpenter",
+   "mbid": "b40bca50-273f-488f-811c-a37857916c3f",
+   "artist_mbids": [
+    "1882fe91-cdd9-49c9-9956-8e06a3810bd4"
+   ],
+   "album": "Man’s Best Friend",
+   "album_mbid": "b612d822-80f5-4c0c-a544-115d371955fb",
+   "album_group_mbid": "192a95dc-d993-4768-9f77-4496b6460400",
+   "album_type": "Album",
+   "album_date": "2025-12-24"
+  },
+  {
+   "rank": 39,
+   "title": "Anxiety",
+   "artist": "Doechii",
+   "mbid": "43d7be59-74d3-409f-a8b8-59636354e64c",
+   "artist_mbids": [
+    "9f75277c-b283-4846-ac8c-f932255cd0ac"
+   ],
+   "album": "Anxiety",
+   "album_mbid": "3cd3e43d-01f2-4fc9-90ed-08edfa9300ab",
+   "album_group_mbid": "bb13ce80-b24b-4a9f-9bca-79f8743dc167",
+   "album_type": "Single",
+   "album_date": "2025-03-05"
+  },
+  {
+   "rank": 40,
+   "title": "I Got Better",
+   "artist": "Morgan Wallen",
+   "mbid": "7c70eca6-cb2a-449d-b5c1-fd4552f0af90",
+   "artist_mbids": [
+    "2077273e-eaa1-4f49-903c-f286ededecb9"
+   ],
+   "album": "I’m the Problem",
+   "album_mbid": "215ac4ca-0c60-43d6-9530-ad2b0576f866",
+   "album_group_mbid": "ccd3238f-1db1-4349-90f3-6941a259f2c1",
+   "album_type": "Album",
+   "album_date": "2025-05-16"
+  },
+  {
+   "rank": 41,
+   "title": "Sticky",
+   "artist": "Tyler, the Creator featuring GloRilla, Sexyy Red and Lil Wayne",
+   "mbid": "682cf2a8-2909-4cd6-b6c2-1f6199c3e018",
+   "artist_mbids": [
+    "f6beac20-5dfe-4d1f-ae02-0b0a740aafd6",
+    "2a7ef045-ca10-4cb5-8fe9-1f5d38e84bc2",
+    "0953d634-b964-4f2a-b862-8de475aeaf47",
+    "ac9a487a-d9d2-4f27-bb23-0f4686488345"
+   ],
+   "album": "CHROMAKOPIA",
+   "album_mbid": "e41ee68e-eb4a-4ea6-9dbd-e9d0b9d72712",
+   "album_group_mbid": "ae229bdd-2179-440c-bc78-acf0952914d4",
+   "album_type": "Album",
+   "album_date": "2024-10-28"
+  },
+  {
+   "rank": 42,
+   "title": "Undressed",
+   "artist": "Sombr",
+   "mbid": "9a79c037-0ef6-4146-81a5-8cdd8c558b9e",
+   "artist_mbids": [
+    "502cf908-9921-48bc-bf0e-265c881c0156"
+   ],
+   "album": "I Barely Know Her",
+   "album_mbid": "6557719e-1355-43ca-9c62-b867581f6976",
+   "album_group_mbid": "38103ba1-04f5-4e4c-b2c4-b769c0ed2eee",
+   "album_type": "Album",
+   "album_date": "2025-08-22"
+  },
+  {
+   "rank": 43,
+   "title": "I Never Lie",
+   "artist": "Zach Top",
+   "mbid": "7c8597e0-37c9-4aab-b47a-5d0ee3a932a0",
+   "artist_mbids": [
+    "9939a762-5ca9-4c12-a735-0d62e21df4e3"
+   ],
+   "album": "Cold Beer & Country Music",
+   "album_mbid": "8acb7ffa-46ba-4d4c-9258-0c2125e40d09",
+   "album_group_mbid": "01cfaf0a-20fe-4c65-adc1-e9866762bb47",
+   "album_type": "Album",
+   "album_date": "2024-05-07"
+  },
+  {
+   "rank": 44,
+   "title": "Back to Friends",
+   "artist": "Sombr",
+   "mbid": "e374d8c3-da4b-42ce-84dd-26f7236907c3",
+   "artist_mbids": [
+    "502cf908-9921-48bc-bf0e-265c881c0156"
+   ],
+   "album": "I Barely Know Her",
+   "album_mbid": "a73067b2-3c56-42dd-9671-2077417ddcca",
+   "album_group_mbid": "38103ba1-04f5-4e4c-b2c4-b769c0ed2eee",
+   "album_type": "Album",
+   "album_date": "2025-08-22"
+  },
+  {
+   "rank": 45,
+   "title": "Bed Chem",
+   "artist": "Sabrina Carpenter",
+   "mbid": "e33b0965-9031-496e-814e-fe498d061bca",
+   "artist_mbids": [
+    "1882fe91-cdd9-49c9-9956-8e06a3810bd4"
+   ],
+   "album": "Short n’ Sweet",
+   "album_mbid": "fef8d846-7798-416f-bbc5-febeeecdaf54",
+   "album_group_mbid": "c8bea388-c195-4177-bf9b-7469f6e695a1",
+   "album_type": "Album",
+   "album_date": "2024-08-23"
+  },
+  {
+   "rank": 46,
+   "title": "Sports Car",
+   "artist": "Tate McRae",
+   "mbid": "7eddec06-b265-4f41-a4b3-18682068ed3d",
+   "artist_mbids": [
+    "f9133869-f87c-459c-9aa7-2f176cda7e06"
+   ],
+   "album": "SO CLOSE TO WHAT??? (deluxe)",
+   "album_mbid": "3a2726ae-34c8-4f49-a50a-c9a96cf762c1",
+   "album_group_mbid": "3607f069-61cb-4e4a-b450-863ad0cf7f95",
+   "album_type": "Album",
+   "album_date": "2025-11-21"
+  },
+  {
+   "rank": 47,
+   "title": "Mystical Magical",
+   "artist": "Benson Boone",
+   "mbid": "cd51a930-cfa5-4000-9eb7-bff8706ae4d2",
+   "artist_mbids": [
+    "62b914a7-d775-4bb4-bb5e-d46e7df115b5"
+   ],
+   "album": "American Heart",
+   "album_mbid": "c33163f3-6217-4dc8-8e88-65f623b62c9b",
+   "album_group_mbid": "8e25d6da-5fd3-4f30-9735-7ac39ddb9816",
+   "album_type": "Album",
+   "album_date": "2025-06-20"
+  },
+  {
+   "rank": 48,
+   "title": "Whatchu Kno About Me",
+   "artist": "GloRilla and Sexyy Red",
+   "mbid": "543496f0-2427-46f9-9f83-156e4d6c17a7",
+   "artist_mbids": [
+    "2a7ef045-ca10-4cb5-8fe9-1f5d38e84bc2",
+    "0953d634-b964-4f2a-b862-8de475aeaf47"
+   ],
+   "album": "GLORIOUS",
+   "album_mbid": "4bb94a09-95f7-4d66-a30f-8da6ec47376c",
+   "album_group_mbid": "1625eb15-cfd9-43b3-80bc-9219661c3a9e",
+   "album_type": "Album",
+   "album_date": "2024-10-23"
+  },
+  {
+   "rank": 49,
+   "title": "Indigo",
+   "artist": "Sam Barber featuring Avery Anna",
+   "mbid": "d140c72d-1338-4b65-ab29-4c04488dadb7",
+   "artist_mbids": [
+    "be7c80ee-1b03-4088-b20b-5915c7c5ad45",
+    "0c92f735-169d-49ba-8379-c7ae06b09033"
+   ],
+   "album": "Restless Mind",
+   "album_mbid": "62c2d00d-e3ce-4766-b6dd-6a6131fb35eb",
+   "album_group_mbid": "00330709-b128-4fcb-98d6-5822b0a63b8b",
+   "album_type": "Album",
+   "album_date": ""
+  },
+  {
+   "rank": 50,
+   "title": "Please Please Please",
+   "artist": "Sabrina Carpenter",
+   "mbid": "28b3c503-a01c-40a9-acff-bfc12f07e194",
+   "artist_mbids": [
+    "1882fe91-cdd9-49c9-9956-8e06a3810bd4"
+   ],
+   "album": "Short n’ Sweet",
+   "album_mbid": "fef8d846-7798-416f-bbc5-febeeecdaf54",
+   "album_group_mbid": "c8bea388-c195-4177-bf9b-7469f6e695a1",
+   "album_type": "Album",
+   "album_date": "2024-08-23"
+  },
+  {
+   "rank": 51,
+   "title": "DTMF",
+   "artist": "Bad Bunny",
+   "mbid": "5098d5cd-7f48-4cd7-8928-43e4f84cae0f",
+   "artist_mbids": [
+    "89aa5ecb-59ad-46f5-b3eb-2d424e941f19"
+   ],
+   "album": "DeBÍ TiRAR MáS FOToS",
+   "album_mbid": "c9e6b642-a6d9-4b22-8ec1-16c47b6143fc",
+   "album_group_mbid": "b3073a10-2d7c-484c-b387-e49ae629da3d",
+   "album_type": "Album",
+   "album_date": "2025-01-05"
+  },
+  {
+   "rank": 52,
+   "title": "Blue Strips",
+   "artist": "Jessie Murph",
+   "mbid": "afa2240d-c99f-47bb-8f38-4b1dd9d82121",
+   "artist_mbids": [
+    "007188c6-2cd6-4060-9629-151433847ddf"
+   ],
+   "album": "Sex Hysteria",
+   "album_mbid": "fd8797cd-1bf7-4225-8c50-f91f4ca844e3",
+   "album_group_mbid": "c14f1e60-0f78-462a-b18d-dfa485ece34d",
+   "album_type": "Album",
+   "album_date": "2025-11-14"
+  },
+  {
+   "rank": 53,
+   "title": "Peekaboo",
+   "artist": "Kendrick Lamar featuring AzChike",
+   "mbid": "799e8b3e-2908-4e30-9855-8155ab42ed3c",
+   "artist_mbids": [
+    "381086ea-f511-4aba-bdf9-71c753dc5077",
+    "edfe284c-3d75-45aa-9eca-25e6cef83637"
+   ],
+   "album": "GNX",
+   "album_mbid": "9b68d302-2f85-4a9e-a40a-69c8d0df1433",
+   "album_group_mbid": "32cb822c-a14e-49ce-a169-f209c5f31e0f",
+   "album_type": "Album",
+   "album_date": "2024-11-22"
+  },
+  {
+   "rank": 54,
+   "title": "Your Idol",
+   "artist": "Saja Boys: Andrew Choi, Neckwav, Danny Chung, Kevin Woo and Samuil Lee",
+   "mbid": "69800340-d7f7-48d3-ad81-2b5a46c428de",
+   "artist_mbids": [
+    "62e4d845-5a9f-462f-a909-8e480dd3c1b8",
+    "3bc0a256-bd32-46af-ba2d-5404dce176fe",
+    "d1bb2849-6d06-4815-9aab-d360bc317f54",
+    "072fa314-f544-4943-8dd5-afa37b55e696",
+    "c197848a-506b-425f-af0c-649b55ecc913",
+    "a14ef2ac-b3dc-4474-845c-03e819061c01",
+    "7ba8efd8-9cef-49dd-8399-3e90dac43fa6"
+   ],
+   "album": "KPop Demon Hunters (Soundtrack from the Netflix Film / Deluxe Version)",
+   "album_mbid": "8404f543-7672-4440-9932-cafb35ed040f",
+   "album_group_mbid": "59f47b29-50dd-4335-a81b-02297c790208",
+   "album_type": "Album / Soundtrack",
+   "album_date": "2025-09-05"
+  },
+  {
+   "rank": 55,
+   "title": "High Road",
+   "artist": "Koe Wetzel featuring Jessie Murph",
+   "mbid": "12b5f063-ada1-4bcf-83cb-3a44b7786d81",
+   "artist_mbids": [
+    "cf59723d-febb-4481-9b9b-3cb2c7f2a7e6",
+    "007188c6-2cd6-4060-9629-151433847ddf"
+   ],
+   "album": "9 Lives",
+   "album_mbid": "d62e36e6-86f2-45af-8bae-96acaf9c9626",
+   "album_group_mbid": "f415f139-ca8a-46c9-9cc2-1fea344dc834",
+   "album_type": "Album",
+   "album_date": ""
+  },
+  {
+   "rank": 56,
+   "title": "Abracadabra",
+   "artist": "Lady Gaga",
+   "mbid": "4e0e2ac4-1f5a-48a2-ba7e-6ee24f83a844",
+   "artist_mbids": [
+    "650e7db6-b795-4eb5-a702-5ea2fc46c848"
+   ],
+   "album": "MAYHEM",
+   "album_mbid": "3c49b2cb-ba22-44c0-9ce6-95a05c582525",
+   "album_group_mbid": "4174e53c-90e8-4630-993f-1f7466178398",
+   "album_type": "Album",
+   "album_date": "2025-09-03"
+  },
+  {
+   "rank": 57,
+   "title": "Who",
+   "artist": "Jimin",
+   "mbid": "ef795484-964c-48db-adff-25295fd3330d",
+   "artist_mbids": [
+    "d2582c77-6b0f-4b2f-802f-8f3cad1a5fec"
+   ],
+   "album": "MUSE",
+   "album_mbid": "d52f1522-90a5-4fc9-8f21-e48efb5346a5",
+   "album_group_mbid": "066ee758-118c-47f9-b2bd-13b07e005ade",
+   "album_type": "Album",
+   "album_date": "2024-07-19"
+  },
+  {
+   "rank": 58,
+   "title": "Burning Blue",
+   "artist": "Mariah the Scientist",
+   "mbid": "83ddb08a-17ba-4a66-98d8-93f40be9d064",
+   "artist_mbids": [
+    "5fc55ebf-21bd-4eda-954c-dd250132331e"
+   ],
+   "album": "Hearts Sold Separately",
+   "album_mbid": "349448b6-83eb-4b65-9401-a0264949601c",
+   "album_group_mbid": "8b71bd09-0ae9-4701-8930-5c026ee1ede5",
+   "album_type": "Album",
+   "album_date": "2025-08-22"
+  },
+  {
+   "rank": 59,
+   "title": "All I Want for Christmas Is You",
+   "artist": "Mariah Carey",
+   "mbid": "a6fab057-cf3a-4456-950e-d3edaf219326",
+   "artist_mbids": [
+    "494e8d09-f85b-4543-892f-a5096aed1cd4"
+   ],
+   "album": "Merry Christmas",
+   "album_mbid": "7cfa9c10-0673-4790-a7aa-aa41e1cfcb4d",
+   "album_group_mbid": "ea885664-bf25-3e52-8ce0-15a84aed4a83",
+   "album_type": "Album",
+   "album_date": "1994-11-01"
+  },
+  {
+   "rank": 60,
+   "title": "Daisies",
+   "artist": "Justin Bieber",
+   "mbid": "6be45a90-ae92-42ac-bc56-925e4454ba60",
+   "artist_mbids": [
+    "e0140a67-e4d1-4f13-8a01-364355bee46e"
+   ],
+   "album": "SWAG II",
+   "album_mbid": "3dd782d7-4cbd-446d-b0c8-c133bc3e93c8",
+   "album_group_mbid": "97279f13-990a-44fe-b729-64e4613d6497",
+   "album_type": "Album",
+   "album_date": "2025-09-05"
+  },
+  {
+   "rank": 61,
+   "title": "Soda Pop",
+   "artist": "Saja Boys: Andrew Choi, Neckwav, Danny Chung, Kevin Woo and Samuil Lee",
+   "mbid": "236ec836-75e0-46eb-8211-ee0237e15ef9",
+   "artist_mbids": [
+    "62e4d845-5a9f-462f-a909-8e480dd3c1b8",
+    "3bc0a256-bd32-46af-ba2d-5404dce176fe",
+    "d1bb2849-6d06-4815-9aab-d360bc317f54",
+    "072fa314-f544-4943-8dd5-afa37b55e696",
+    "c197848a-506b-425f-af0c-649b55ecc913",
+    "a14ef2ac-b3dc-4474-845c-03e819061c01",
+    "7ba8efd8-9cef-49dd-8399-3e90dac43fa6"
+   ],
+   "album": "KPop Demon Hunters (Soundtrack from the Netflix Film / Deluxe Version)",
+   "album_mbid": "8404f543-7672-4440-9932-cafb35ed040f",
+   "album_group_mbid": "59f47b29-50dd-4335-a81b-02297c790208",
+   "album_type": "Album / Soundtrack",
+   "album_date": "2025-09-05"
+  },
+  {
+   "rank": 62,
+   "title": "Like Him",
+   "artist": "Tyler, the Creator featuring Lola Young",
+   "mbid": "5900c293-8d3c-4731-a2da-07069fda0e93",
+   "artist_mbids": [
+    "f6beac20-5dfe-4d1f-ae02-0b0a740aafd6",
+    "43b896c5-5652-4b04-bde1-2e4224bc99b3"
+   ],
+   "album": "CHROMAKOPIA",
+   "album_mbid": "e41ee68e-eb4a-4ea6-9dbd-e9d0b9d72712",
+   "album_group_mbid": "ae229bdd-2179-440c-bc78-acf0952914d4",
+   "album_type": "Album",
+   "album_date": "2024-10-28"
+  },
+  {
+   "rank": 63,
+   "title": "Residuals",
+   "artist": "Chris Brown",
+   "mbid": "9645895c-1009-4f2f-a8da-8a3c7d39c649",
+   "artist_mbids": [
+    "c234fa42-e6a6-443e-937e-2f4b073538a3"
+   ],
+   "album": "11:11 (Deluxe)",
+   "album_mbid": "ecce9d18-817a-4f2d-9c10-b0d925c20c75",
+   "album_group_mbid": "1615473a-bdb7-48e9-96d0-f650610510bc",
+   "album_type": "Album",
+   "album_date": "2024-04-11"
+  },
+  {
+   "rank": 64,
+   "title": "Smile",
+   "artist": "Morgan Wallen",
+   "mbid": "64a0cb90-25ea-4f01-9546-797150dbad5b",
+   "artist_mbids": [
+    "2077273e-eaa1-4f49-903c-f286ededecb9"
+   ],
+   "album": "I’m the Problem",
+   "album_mbid": "215ac4ca-0c60-43d6-9530-ad2b0576f866",
+   "album_group_mbid": "ccd3238f-1db1-4349-90f3-6941a259f2c1",
+   "album_type": "Album",
+   "album_date": "2025-05-16"
+  },
+  {
+   "rank": 65,
+   "title": "Last Christmas",
+   "artist": "Wham!",
+   "mbid": "ec2b3fdb-03ed-464a-be7a-7c0877f60cc1",
+   "artist_mbids": [
+    "d570bb31-b9ca-45a4-a2d9-11b186d9c159"
+   ],
+   "album": "Last Christmas",
+   "album_mbid": "d07bf65d-7c1f-473d-bdbc-b9c80029d176",
+   "album_group_mbid": "5b24e859-1063-3e56-b91e-0c5f6a17354d",
+   "album_type": "Single",
+   "album_date": "1984-12-03"
+  },
+  {
+   "rank": 66,
+   "title": "Am I Okay?",
+   "artist": "Megan Moroney",
+   "mbid": "83d9779b-bee6-4112-9ee5-d769fdbf8ff7",
+   "artist_mbids": [
+    "9eb2030a-c311-4cbf-a8f2-c57a58aa18ce"
+   ],
+   "album": "Am I Okay? (I'll Be Fine)",
+   "album_mbid": "ab44103d-096f-4216-aff7-d1e8fbee4a54",
+   "album_group_mbid": "c1f83265-8b30-4a34-a843-ffcf01d56a75",
+   "album_type": "Album",
+   "album_date": "2024-10-04"
+  },
+  {
+   "rank": 67,
+   "title": "Rockin' Around the Christmas Tree",
+   "artist": "Brenda Lee",
+   "mbid": "3bc78b7b-df89-45d1-952d-c0a1da84392a",
+   "artist_mbids": [
+    "6ca4886a-8f77-4133-b404-46fb3908e24a"
+   ],
+   "album": "Merry Christmas From Brenda Lee",
+   "album_mbid": "4b4f8025-b7f6-4fb9-aec8-fcca05299b60",
+   "album_group_mbid": "d8699075-d5d1-4b3a-8db3-f23751c4873d",
+   "album_type": "Album",
+   "album_date": "1964-10-19"
+  },
+  {
+   "rank": 68,
+   "title": "How It's Done",
+   "artist": "Huntrix: Ejae, Audrey Nuna and Rei Ami",
+   "album": "KPop Demon Hunters (Soundtrack from the Netflix Film)",
+   "album_mbid": "0028fe3b-409f-4236-9bd7-323076076465",
+   "album_group_mbid": "59f47b29-50dd-4335-a81b-02297c790208",
+   "album_type": "Album / Soundtrack",
+   "album_date": "2025-06-20"
+  },
+  {
+   "rank": 69,
+   "title": "Happen to Me",
+   "artist": "Russell Dickerson",
+   "mbid": "aee4dab4-6131-48ae-bace-909cfa83fd61",
+   "artist_mbids": [
+    "e2529584-b250-4a22-821c-16d3d8120978"
+   ],
+   "album": "Famous Back Home",
+   "album_mbid": "4b430b8f-aa12-4fc4-bb13-e8479f4a50a1",
+   "album_group_mbid": "88f131e3-ac2f-4585-9d71-a27c1147cf08",
+   "album_type": "Album",
+   "album_date": "2025-08-22"
+  },
+  {
+   "rank": 70,
+   "title": "Baile Inolvidable",
+   "artist": "Bad Bunny",
+   "mbid": "587289b2-90f4-4aea-b3c4-8a0aee6bf661",
+   "artist_mbids": [
+    "89aa5ecb-59ad-46f5-b3eb-2d424e941f19"
+   ],
+   "album": "DeBÍ TiRAR MáS FOToS",
+   "album_mbid": "c9e6b642-a6d9-4b22-8ec1-16c47b6143fc",
+   "album_group_mbid": "b3073a10-2d7c-484c-b387-e49ae629da3d",
+   "album_type": "Album",
+   "album_date": "2025-01-05"
+  },
+  {
+   "rank": 71,
+   "title": "Weren't for the Wind",
+   "artist": "Ella Langley",
+   "mbid": "ff741395-dd83-4675-86eb-06647cd5f331",
+   "artist_mbids": [
+    "b16c0872-31a7-4db9-8569-0e3146fcecfc"
+   ],
+   "album": "hungover",
+   "album_mbid": "067fc70e-c554-4b3a-9ec6-3bf18606fd6a",
+   "album_group_mbid": "30c01972-7293-43d5-a826-54ea86b561c2",
+   "album_type": "Album",
+   "album_date": "2024-08-02"
+  },
+  {
+   "rank": 72,
+   "title": "I Ain't Comin' Back",
+   "artist": "Morgan Wallen featuring Post Malone",
+   "album": "I’m the Problem",
+   "album_mbid": "bd76e564-3512-4e48-bac1-7e3148cd57f9",
+   "album_group_mbid": "ccd3238f-1db1-4349-90f3-6941a259f2c1",
+   "album_type": "Album",
+   "album_date": "2025-05-16"
+  },
+  {
+   "rank": 73,
+   "title": "Cry for Me",
+   "artist": "The Weeknd",
+   "mbid": "811e4c06-8c44-4a2a-989a-78f03f4ec968",
+   "artist_mbids": [
+    "c8b03190-306c-4120-bb0b-6f2ebfc06ea9"
+   ],
+   "album": "Hurry Up Tomorrow",
+   "album_mbid": "41d7e058-d160-49f2-8d08-5afc2ec244bc",
+   "album_group_mbid": "14f83b04-2b9e-4974-9169-476f26475be3",
+   "album_type": "Album",
+   "album_date": "2025-02-05"
+  },
+  {
+   "rank": 74,
+   "title": "Bad Dreams",
+   "artist": "Teddy Swims",
+   "mbid": "551ad893-bbf9-4b71-8893-bb96c5b3687a",
+   "artist_mbids": [
+    "35feae82-8b2c-4f8f-ae7a-af5662848947"
+   ],
+   "album": "I've Tried Everything but Therapy (Part 2)",
+   "album_mbid": "633e6f83-5557-4598-a13e-38cbc5f056d6",
+   "album_group_mbid": "7034130b-9aef-4a12-8626-3889f14795a7",
+   "album_type": "Album",
+   "album_date": "2025-01-24"
+  },
+  {
+   "rank": 75,
+   "title": "Denial Is a River",
+   "artist": "Doechii",
+   "mbid": "9a179828-d223-47fb-b29f-ec2e0b14ab72",
+   "artist_mbids": [
+    "9f75277c-b283-4846-ac8c-f932255cd0ac"
+   ],
+   "album": "Alligator Bites Never Heal",
+   "album_mbid": "455146ad-b91d-47cc-b4c8-098edce9166a",
+   "album_group_mbid": "2b837d13-b456-4c0c-98d6-afe4aeda417b",
+   "album_type": "Album / Mixtape/Street",
+   "album_date": "2024-08-30"
+  },
+  {
+   "rank": 76,
+   "title": "BMF",
+   "artist": "SZA",
+   "mbid": "ed76cd3e-1204-4f72-a179-6ac931cf6020",
+   "artist_mbids": [
+    "272989c8-5535-492d-a25c-9f58803e027f"
+   ],
+   "album": "SOS Deluxe: LANA",
+   "album_mbid": "3be5ecae-9196-43a7-b308-33283be6d0b7",
+   "album_group_mbid": "1646286a-d0ad-4288-bfab-34b0fb7b22c1",
+   "album_type": "Album",
+   "album_date": "2024-12-25"
+  },
+  {
+   "rank": 77,
+   "title": "Eoo",
+   "artist": "Bad Bunny",
+   "mbid": "d57ffa1d-4670-4627-a2ff-b4d39e282a85",
+   "artist_mbids": [
+    "89aa5ecb-59ad-46f5-b3eb-2d424e941f19"
+   ],
+   "album": "DeBÍ TiRAR MáS FOToS",
+   "album_mbid": "c9e6b642-a6d9-4b22-8ec1-16c47b6143fc",
+   "album_group_mbid": "b3073a10-2d7c-484c-b387-e49ae629da3d",
+   "album_type": "Album",
+   "album_date": "2025-01-05"
+  },
+  {
+   "rank": 78,
+   "title": "I'm Gonna Love You",
+   "artist": "Cody Johnson and Carrie Underwood",
+   "album": "Leather",
+   "album_mbid": "7dabd311-a8c0-427c-909a-aa6b7997c7dd",
+   "album_group_mbid": "ebc84434-b577-41b8-8772-3b859b00a2f0",
+   "album_type": "Album",
+   "album_date": "2023-11-03"
+  },
+  {
+   "rank": 79,
+   "title": "I Am Not Okay",
+   "artist": "Jelly Roll",
+   "mbid": "ba655ae8-c4af-4dd0-931e-5facae4e0939",
+   "artist_mbids": [
+    "ab5a7a60-1b71-4e5b-b622-e0ae2ce84c32"
+   ],
+   "album": "Beautifully Broken (Pickin’ Up the Pieces)",
+   "album_mbid": "40004e4d-98f8-476f-915b-d9a62434e757",
+   "album_group_mbid": "1150a54c-a22e-4706-b1ad-22995f14a15f",
+   "album_type": "Album",
+   "album_date": "2024-10-11"
+  },
+  {
+   "rank": 80,
+   "title": "Backup Plan",
+   "artist": "Bailey Zimmerman and Luke Combs",
+   "mbid": "f030e2bf-7e49-470c-a3e4-1553ff620dd5",
+   "artist_mbids": [
+    "20543896-ec2c-48c4-b6b2-507c6cbe9918",
+    "c20ee61f-071f-4e65-9c81-45ee931a54ce"
+   ],
+   "album": "Different Night Same Rodeo",
+   "album_mbid": "eac48981-1c32-4dfc-b129-96bb7826ce38",
+   "album_group_mbid": "5687075c-bab2-4e39-90fc-88cd057aa44c",
+   "album_type": "Album",
+   "album_date": "2025-08-08"
+  },
+  {
+   "rank": 81,
+   "title": "Jingle Bell Rock",
+   "artist": "Bobby Helms",
+   "mbid": "2a4c3584-ece7-4fd5-bfd3-3311a1b77bb9",
+   "artist_mbids": [
+    "502b3244-0f7d-470c-99e9-b17fe6bcaabf"
+   ],
+   "album": "Jingle Bell Rock / Captain Santa Claus (and His Reindeer Space Patrol)",
+   "album_mbid": "797468cd-23a2-47f4-9042-4b652ace5f6d",
+   "album_group_mbid": "39509f63-766a-3d6b-9d24-68199925221b",
+   "album_type": "Single",
+   "album_date": "1957-11"
+  },
+  {
+   "rank": 82,
+   "title": "Revolving Door",
+   "artist": "Tate McRae",
+   "mbid": "a0306258-e12b-41ee-a060-553795f2fd4c",
+   "artist_mbids": [
+    "f9133869-f87c-459c-9aa7-2f176cda7e06"
+   ],
+   "album": "SO CLOSE TO WHAT??? (deluxe)",
+   "album_mbid": "3a2726ae-34c8-4f49-a50a-c9a96cf762c1",
+   "album_group_mbid": "3607f069-61cb-4e4a-b450-863ad0cf7f95",
+   "album_type": "Album",
+   "album_date": "2025-11-21"
+  },
+  {
+   "rank": 83,
+   "title": "What It Sounds Like",
+   "artist": "Huntrix: Ejae, Audrey Nuna and Rei Ami",
+   "mbid": "0cde34b0-4622-47e5-9f95-b6adabf4e925",
+   "artist_mbids": [
+    "dc7fd424-6ba4-45cc-b407-7716c7bb3605",
+    "0f0a0c02-0aa6-4fc0-aad0-bb2e9d5bcbbb",
+    "7b54e5e4-82f7-4dfe-9cd8-fc8d9f6815e3",
+    "59adde12-dd9d-40c6-9906-bd4357633915",
+    "7ba8efd8-9cef-49dd-8399-3e90dac43fa6"
+   ],
+   "album": "KPop Demon Hunters (Soundtrack from the Netflix Film / Deluxe Version)",
+   "album_mbid": "8404f543-7672-4440-9932-cafb35ed040f",
+   "album_group_mbid": "59f47b29-50dd-4335-a81b-02297c790208",
+   "album_type": "Album / Soundtrack",
+   "album_date": "2025-09-05"
+  },
+  {
+   "rank": 84,
+   "title": "Hard Fought Hallelujah",
+   "artist": "Brandon Lake and Jelly Roll",
+   "mbid": "e5fbcd64-ac4a-4d86-aa83-015bba98a4b8",
+   "artist_mbids": [
+    "9031aa68-f624-44d6-ab83-9a6ccb125aa2",
+    "ab5a7a60-1b71-4e5b-b622-e0ae2ce84c32"
+   ],
+   "album": "King of Hearts (Full Deck Deluxe)",
+   "album_mbid": "f575fb7f-f610-4ff5-9f5b-f43ed82f3837",
+   "album_group_mbid": "aea8a733-18d5-4126-a4db-aa48e98391f8",
+   "album_type": "Album",
+   "album_date": "2025-06-16"
+  },
+  {
+   "rank": 85,
+   "title": "Somebody Loves Me",
+   "artist": "PartyNextDoor and Drake",
+   "mbid": "3dde1f24-24ca-4290-bc80-8ff2d8b3cf9e",
+   "artist_mbids": [
+    "f23ef341-33bd-47c1-b83c-846a78581f05",
+    "9fff2f8a-21e6-47de-a2b8-7f449929d43f"
+   ],
+   "album": "$ome $exy $ongs 4 U",
+   "album_mbid": "875c2c65-faeb-402c-9478-b1fdd77155bd",
+   "album_group_mbid": "786a089a-9266-4fd3-984a-1df9e0ca34b4",
+   "album_type": "Album",
+   "album_date": "2025-02-14"
+  },
+  {
+   "rank": 86,
+   "title": "Liar",
+   "artist": "Jelly Roll",
+   "mbid": "d5ae603d-b5b5-40e9-aebe-7332cd82c122",
+   "artist_mbids": [
+    "ab5a7a60-1b71-4e5b-b622-e0ae2ce84c32"
+   ],
+   "album": "Beautifully Broken (Pickin’ Up the Pieces)",
+   "album_mbid": "40004e4d-98f8-476f-915b-d9a62434e757",
+   "album_group_mbid": "1150a54c-a22e-4706-b1ad-22995f14a15f",
+   "album_type": "Album",
+   "album_date": "2024-10-11"
+  },
+  {
+   "rank": 87,
+   "title": "Tu Boda",
+   "artist": "Óscar Maydon and Fuerza Regida",
+   "mbid": "0a695810-b7a2-4be3-ba21-ad49c0e8ddf4",
+   "artist_mbids": [
+    "00cf7ec3-56a7-4bd9-9f1b-1a151b0b2faf",
+    "e665ce26-6ce9-4c42-8f6a-7a361a0ba328"
+   ],
+   "album": "rico o muerto, vol. 1",
+   "album_mbid": "3c8c8ef9-0790-4830-87c9-ceb660908824",
+   "album_group_mbid": "0fb8de01-87f9-457f-887d-807c164ca7f0",
+   "album_type": "Album",
+   "album_date": "2025-06-06"
+  },
+  {
+   "rank": 88,
+   "title": "After All the Bars Are Closed",
+   "artist": "Thomas Rhett",
+   "mbid": "c5c40331-9195-41f7-ab95-38592acbb7e4",
+   "artist_mbids": [
+    "bca8bfc0-9d5b-449b-b713-914596f88d56"
+   ],
+   "album": "About a Woman",
+   "album_mbid": "2762d843-249e-4649-814d-d099ded98310",
+   "album_group_mbid": "1500a027-5654-4a3a-9daa-29ea76328807",
+   "album_type": "Album",
+   "album_date": "2024-08-23"
+  },
+  {
+   "rank": 89,
+   "title": "Nuevayol",
+   "artist": "Bad Bunny",
+   "mbid": "c5eee37f-9f97-48c9-b2e9-ffd20a6bb06e",
+   "artist_mbids": [
+    "89aa5ecb-59ad-46f5-b3eb-2d424e941f19"
+   ],
+   "album": "DeBÍ TiRAR MáS FOToS",
+   "album_mbid": "c9e6b642-a6d9-4b22-8ec1-16c47b6143fc",
+   "album_group_mbid": "b3073a10-2d7c-484c-b387-e49ae629da3d",
+   "album_type": "Album",
+   "album_date": "2025-01-05"
+  },
+  {
+   "rank": 90,
+   "title": "20 Cigarettes",
+   "artist": "Morgan Wallen",
+   "mbid": "d538298c-67a9-42ee-836e-b23b3f5e271a",
+   "artist_mbids": [
+    "2077273e-eaa1-4f49-903c-f286ededecb9"
+   ],
+   "album": "I’m the Problem",
+   "album_mbid": "215ac4ca-0c60-43d6-9530-ad2b0576f866",
+   "album_group_mbid": "ccd3238f-1db1-4349-90f3-6941a259f2c1",
+   "album_type": "Album",
+   "album_date": "2025-05-16"
+  },
+  {
+   "rank": 91,
+   "title": "Rather Lie",
+   "artist": "Playboi Carti and the Weeknd",
+   "mbid": "30d69496-b52e-4961-b74f-12d53aec2a13",
+   "artist_mbids": [
+    "2baf3276-ed6a-4349-8d2e-f4601e7b2167",
+    "c8b03190-306c-4120-bb0b-6f2ebfc06ea9"
+   ],
+   "album": "MUSIC - SORRY 4 DA WAIT",
+   "album_mbid": "e81009e1-5cf8-4344-95bf-02356374421c",
+   "album_group_mbid": "fa4bbf26-8f97-48d6-add2-4e7c028d39af",
+   "album_type": "Album",
+   "album_date": "2025-03-25"
+  },
+  {
+   "rank": 92,
+   "title": "Free",
+   "artist": "Ejae and Andrew Choi",
+   "mbid": "3144d854-f015-4dc6-b7bd-060f140beae7",
+   "artist_mbids": [
+    "7d5ca377-aedc-4d9e-ad95-1f592e7af627",
+    "b774ed72-9208-4df6-b48c-1370e71e3d70",
+    "0f0a0c02-0aa6-4fc0-aad0-bb2e9d5bcbbb",
+    "3bc0a256-bd32-46af-ba2d-5404dce176fe",
+    "7ba8efd8-9cef-49dd-8399-3e90dac43fa6"
+   ],
+   "album": "KPop Demon Hunters (Soundtrack from the Netflix Film / Deluxe Version)",
+   "album_mbid": "8404f543-7672-4440-9932-cafb35ed040f",
+   "album_group_mbid": "59f47b29-50dd-4335-a81b-02297c790208",
+   "album_type": "Album / Soundtrack",
+   "album_date": "2025-09-05"
+  },
+  {
+   "rank": 93,
+   "title": "Takedown",
+   "artist": "Huntrix: Ejae, Audrey Nuna and Rei Ami",
+   "mbid": "1d5300eb-2990-481f-b795-dc1da22267f6",
+   "artist_mbids": [
+    "dc7fd424-6ba4-45cc-b407-7716c7bb3605",
+    "0f0a0c02-0aa6-4fc0-aad0-bb2e9d5bcbbb",
+    "7b54e5e4-82f7-4dfe-9cd8-fc8d9f6815e3",
+    "59adde12-dd9d-40c6-9906-bd4357633915",
+    "7ba8efd8-9cef-49dd-8399-3e90dac43fa6"
+   ],
+   "album": "KPop Demon Hunters (Soundtrack from the Netflix Film / Deluxe Version)",
+   "album_mbid": "8404f543-7672-4440-9932-cafb35ed040f",
+   "album_group_mbid": "59f47b29-50dd-4335-a81b-02297c790208",
+   "album_type": "Album / Soundtrack",
+   "album_date": "2025-09-05"
+  },
+  {
+   "rank": 94,
+   "title": "Heart of a Woman",
+   "artist": "Summer Walker",
+   "mbid": "1e6ee694-d022-4488-a925-4d5114a8ab34",
+   "artist_mbids": [
+    "9167f739-da47-4495-9d63-9c13b40114ac"
+   ],
+   "album": "Finally Over It (Cocktail Hour)",
+   "album_mbid": "a89fe750-d7a4-4e27-8115-f08d183235a4",
+   "album_group_mbid": "fb69d698-6822-4b62-8883-872087067761",
+   "album_type": "Album",
+   "album_date": "2025-11-18"
+  },
+  {
+   "rank": 95,
+   "title": "House Again",
+   "artist": "Hudson Westbrook",
+   "mbid": "fb8a9737-3fe2-4d62-8d6b-d50714fe783a",
+   "artist_mbids": [
+    "5b511be8-fd02-4de2-a017-7f5d06db53e4"
+   ],
+   "album": "Texas Forever",
+   "album_mbid": "d4b6faca-31cb-44ee-b66c-0f018fc926c2",
+   "album_group_mbid": "f7cb2670-3c3c-4926-809e-422e8edae0b9",
+   "album_type": "Album",
+   "album_date": "2025-07-25"
+  },
+  {
+   "rank": 96,
+   "title": "Dark Thoughts",
+   "artist": "Lil Tecca",
+   "mbid": "f64e6dea-b276-4c2d-96e6-b56afc7eded7",
+   "artist_mbids": [
+    "e6fdf3f9-8077-4126-b0cf-94da9a8b627e"
+   ],
+   "album": "DOPAMINE : THE RUSH",
+   "album_mbid": "ef5808ba-2bd7-452d-937f-20b7f48510fb",
+   "album_group_mbid": "f961c7ad-1da9-4827-bbef-eebd355e7cd2",
+   "album_type": "Album",
+   "album_date": "2025-06-14"
+  },
+  {
+   "rank": 97,
+   "title": "No Pole",
+   "artist": "Don Toliver",
+   "mbid": "c44742a1-ef4a-4493-84d6-969ef837d125",
+   "artist_mbids": [
+    "a0723a3c-4135-438e-85c5-012712144ede"
+   ],
+   "album": "Bedroom Music 2026",
+   "album_mbid": "fe025773-6824-4162-8aff-c415838d4e68",
+   "album_group_mbid": "cbcdf059-ad1d-4ed1-9b8b-5092f0b38a08",
+   "album_type": "Album",
+   "album_date": "2026-03-28"
+  },
+  {
+   "rank": 98,
+   "title": "Folded",
+   "artist": "Kehlani",
+   "mbid": "9ea37476-fc29-4f78-802a-0b8ef1f4649b",
+   "artist_mbids": [
+    "3260ce89-5eb0-4c6a-89c7-379c0dfc2ab9"
+   ],
+   "album": "Kehlani (uncut edition)",
+   "album_mbid": "1aff212d-6dc6-4990-bac6-748e6d574c65",
+   "album_group_mbid": "a49bd5e7-5a9b-4cbd-84ab-90b3fd6b4c09",
+   "album_type": "Album",
+   "album_date": "2026-04"
+  },
+  {
+   "rank": 99,
+   "title": "Superman",
+   "artist": "Morgan Wallen",
+   "mbid": "6466a922-18e1-4ce5-b1cb-6ada866280e3",
+   "artist_mbids": [
+    "2077273e-eaa1-4f49-903c-f286ededecb9"
+   ],
+   "album": "I’m the Problem",
+   "album_mbid": "215ac4ca-0c60-43d6-9530-ad2b0576f866",
+   "album_group_mbid": "ccd3238f-1db1-4349-90f3-6941a259f2c1",
+   "album_type": "Album",
+   "album_date": "2025-05-16"
+  },
+  {
+   "rank": 100,
+   "title": "Loco",
+   "artist": "Netón Vega",
+   "mbid": "7905ea03-b0f6-46e5-977f-2b5e1690e8ff",
+   "artist_mbids": [
+    "dc1c4d9b-80ab-452b-b316-f201915b29db"
+   ],
+   "album": "Mi Vida Mi Muerte",
+   "album_mbid": "d01288dc-e769-42cc-8b59-0ed2f1da1d92",
+   "album_group_mbid": "f009711e-22ac-4ff3-b224-298c12e9a6d4",
+   "album_type": "Album",
+   "album_date": "2025-02-14"
+  }
+ ]
+}

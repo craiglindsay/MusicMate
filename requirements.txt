@@ -1,0 +1,8 @@
+# Jukebox app + library toolchain. Python 3.13.
+# pip install -r requirements.txt
+fastapi==0.141.1
+uvicorn==0.52.4
+pydantic==2.13.5
+mutagen==1.48.1
+pillow==12.3.0
+numpy==2.5.2

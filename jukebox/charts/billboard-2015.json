@@ -1,0 +1,1446 @@
+{
+ "chart": "Billboard Year-End Hot 100",
+ "year": 2015,
+ "source": "https://en.wikipedia.org/wiki/Billboard_Year-End_Hot_100_singles_of_2015",
+ "songs": [
+  {
+   "rank": 1,
+   "title": "Uptown Funk",
+   "artist": "Mark Ronson featuring Bruno Mars",
+   "mbid": "38e06968-af06-44ea-9eba-a1a275832767",
+   "artist_mbids": [
+    "c3c82bdc-d9e7-4836-9746-c24ead47ca19",
+    "afb680f2-b6eb-4cd7-a70b-a63b25c763d5"
+   ],
+   "album": "Uptown Special",
+   "album_mbid": "3235f865-d795-43f1-b1e1-0f55cdd69e2e",
+   "album_group_mbid": "13045772-371a-470a-95da-44b7e3488224",
+   "album_type": "Album",
+   "album_date": "2015-01-13"
+  },
+  {
+   "rank": 2,
+   "title": "Thinking Out Loud",
+   "artist": "Ed Sheeran",
+   "mbid": "cb2cc207-8125-445c-9ef9-6ea44eee959a",
+   "artist_mbids": [
+    "b8a7c51f-362c-4dcb-a259-bc6e0095f0a6"
+   ],
+   "album": "x (Wembley Edition)",
+   "album_mbid": "05773733-dd07-43fc-b146-8115be617b84",
+   "album_group_mbid": "c24e5416-cd2e-4cff-851b-5faa78db98a2",
+   "album_type": "Album",
+   "album_date": "2014-06-23"
+  },
+  {
+   "rank": 3,
+   "title": "See You Again",
+   "artist": "Wiz Khalifa featuring Charlie Puth",
+   "mbid": "c6cf4924-75b7-40b3-8d66-f50ff8aec30e",
+   "artist_mbids": [
+    "f5dfa020-ad69-41cd-b3d4-fd7af0414e94",
+    "525f1f1c-03f0-4bc8-8dfd-e7521f87631b"
+   ],
+   "album": "Furious 7: Original Motion Picture Soundtrack",
+   "album_mbid": "14990156-9a2f-47d3-9af6-b5d4725dc47d",
+   "album_group_mbid": "9cfacb1d-9b60-4090-bd3d-bf9efefba493",
+   "album_type": "Album / Soundtrack",
+   "album_date": "2015-03-17"
+  },
+  {
+   "rank": 4,
+   "title": "Trap Queen",
+   "artist": "Fetty Wap",
+   "mbid": "39fc36c2-fcc2-46f5-8e9c-46c2eb3296ed",
+   "artist_mbids": [
+    "e3492ea0-5997-4241-a7bf-2fd7fb1bfad1"
+   ],
+   "album": "Fetty Wap",
+   "album_mbid": "84c88227-95b0-4345-bf83-31d5d039dc65",
+   "album_group_mbid": "b795b26b-5c11-48f9-b82b-8371dd316504",
+   "album_type": "Album",
+   "album_date": "2015-09-25"
+  },
+  {
+   "rank": 5,
+   "title": "Sugar",
+   "artist": "Maroon 5",
+   "mbid": "ea4a91be-8a34-47de-8bcd-f5a75aec048c",
+   "artist_mbids": [
+    "0ab49580-c84f-44d4-875f-d83760ea2cfe"
+   ],
+   "album": "V",
+   "album_mbid": "21b873e8-3933-46fa-8197-d62603754735",
+   "album_group_mbid": "3622c71c-c674-46bc-8fc2-24d182f7684a",
+   "album_type": "Album",
+   "album_date": "2014-09-02"
+  },
+  {
+   "rank": 6,
+   "title": "Shut Up and Dance",
+   "artist": "Walk the Moon",
+   "mbid": "9656e1b2-87c1-4208-8a33-fa814961fc9e",
+   "artist_mbids": [
+    "d4aad415-9cd0-4845-9b05-0416fdcc9fc4"
+   ],
+   "album": "Talking Is Hard",
+   "album_mbid": "6a31f271-4e25-4287-95f6-278716c5927d",
+   "album_group_mbid": "08769001-ef8d-48cc-ad2f-14eaaaf8ec7f",
+   "album_type": "Album",
+   "album_date": "2014-12-02"
+  },
+  {
+   "rank": 7,
+   "title": "Blank Space",
+   "artist": "Taylor Swift",
+   "mbid": "c3fe7791-0a91-4f0a-a89b-b056f38d3cde",
+   "artist_mbids": [
+    "20244d07-534f-4eff-b4d4-930878889970"
+   ],
+   "album": "1989 D.L.X.",
+   "album_mbid": "e223f526-bbd9-4aa3-a5fb-5618291e80a6",
+   "album_group_mbid": "4d9ec1c2-58ec-48a4-aa0a-916718adead0",
+   "album_type": "Album",
+   "album_date": "2014-10-27"
+  },
+  {
+   "rank": 8,
+   "title": "Watch Me",
+   "artist": "Silentó",
+   "mbid": "c62ac967-178f-4b38-a7d1-509359da6c13",
+   "artist_mbids": [
+    "636736ef-df33-48ed-bdbc-e8f8d1f964b3"
+   ],
+   "album": "Watch Me (Whip / Nae Nae)",
+   "album_mbid": "2af1d185-3f6d-45e7-b5e3-a2faaac9878d",
+   "album_group_mbid": "a9176d62-a0ae-4aa5-9d96-489e54dd100c",
+   "album_type": "Single",
+   "album_date": "2015-05-06"
+  },
+  {
+   "rank": 9,
+   "title": "Earned It",
+   "artist": "The Weeknd",
+   "mbid": "39fc6173-b249-4f1b-9a30-9983c62d69cd",
+   "artist_mbids": [
+    "c8b03190-306c-4120-bb0b-6f2ebfc06ea9"
+   ],
+   "album": "Beauty Behind the Madness",
+   "album_mbid": "c0dac034-d47f-425f-9ab7-5e64adc8cca3",
+   "album_group_mbid": "a85b8aff-fcbc-4431-95ba-d8c20bbfb77e",
+   "album_type": "Album",
+   "album_date": "2015"
+  },
+  {
+   "rank": 10,
+   "title": "The Hills",
+   "artist": "The Weeknd",
+   "mbid": "ee458835-f356-4b20-b6ac-03bc2f7f3d9e",
+   "artist_mbids": [
+    "c8b03190-306c-4120-bb0b-6f2ebfc06ea9"
+   ],
+   "album": "Beauty Behind the Madness",
+   "album_mbid": "c0dac034-d47f-425f-9ab7-5e64adc8cca3",
+   "album_group_mbid": "a85b8aff-fcbc-4431-95ba-d8c20bbfb77e",
+   "album_type": "Album",
+   "album_date": "2015"
+  },
+  {
+   "rank": 11,
+   "title": "Cheerleader (Felix Jaehn Remix)",
+   "artist": "OMI",
+   "mbid": "0454fb52-1c92-4340-9b1e-ff1c21066828",
+   "artist_mbids": [
+    "33e6ded6-22cc-447e-aefa-9a7a6ba81b6b"
+   ],
+   "album": "Me 4 U",
+   "album_mbid": "60e0f96a-aec6-416c-b93f-712f800264c6",
+   "album_group_mbid": "c4d28f71-d365-4fcc-a8d8-64f46c3081f6",
+   "album_type": "Album",
+   "album_date": "2015-10-16"
+  },
+  {
+   "rank": 12,
+   "title": "Can't Feel My Face",
+   "artist": "The Weeknd",
+   "mbid": "08b815da-5d60-4807-a605-f6af03d5471d",
+   "artist_mbids": [
+    "c8b03190-306c-4120-bb0b-6f2ebfc06ea9"
+   ],
+   "album": "Beauty Behind the Madness",
+   "album_mbid": "7dbabcda-76de-4937-a56d-20952eb1a7b6",
+   "album_group_mbid": "a85b8aff-fcbc-4431-95ba-d8c20bbfb77e",
+   "album_type": "Album",
+   "album_date": "2015-08-28"
+  },
+  {
+   "rank": 13,
+   "title": "Love Me Like You Do",
+   "artist": "Ellie Goulding",
+   "mbid": "a0d55631-bcb2-4bd7-8ad2-f981e2b081a7",
+   "artist_mbids": [
+    "33ca19f4-18c8-4411-98df-ac23890ce9f5"
+   ],
+   "album": "Delirium",
+   "album_mbid": "b1e3c31c-b043-40cb-90bb-08acbf8bcb61",
+   "album_group_mbid": "06d2399d-4b6b-4fff-8570-8fa31c73d9bd",
+   "album_type": "Album",
+   "album_date": "2015-11-06"
+  },
+  {
+   "rank": 14,
+   "title": "Take Me to Church",
+   "artist": "Hozier",
+   "mbid": "8a4569f5-263c-467a-8d1f-9896f82b840a",
+   "artist_mbids": [
+    "b4691384-50c3-4afd-9988-51d3ec5db65d"
+   ],
+   "album": "Hozier",
+   "album_mbid": "1b537bb8-74c9-4882-9b44-100f8f8e919e",
+   "album_group_mbid": "06af18b0-1f97-4282-8a4d-af53ae8d9377",
+   "album_type": "Album",
+   "album_date": "2014-10-07"
+  },
+  {
+   "rank": 15,
+   "title": "Bad Blood",
+   "artist": "Taylor Swift featuring Kendrick Lamar",
+   "mbid": "914f6a27-fce4-4a75-9267-049b51a1b086",
+   "artist_mbids": [
+    "20244d07-534f-4eff-b4d4-930878889970"
+   ],
+   "album": "1989 D.L.X.",
+   "album_mbid": "e223f526-bbd9-4aa3-a5fb-5618291e80a6",
+   "album_group_mbid": "4d9ec1c2-58ec-48a4-aa0a-916718adead0",
+   "album_type": "Album",
+   "album_date": "2014-10-27"
+  },
+  {
+   "rank": 16,
+   "title": "Lean On",
+   "artist": "Major Lazer and DJ Snake featuring MØ",
+   "mbid": "c3888dd0-c1ce-45b3-9425-48375394fe7f",
+   "artist_mbids": [
+    "75be165a-ad83-4d12-bd28-f589a15c479f",
+    "31445b1e-96f3-4c7f-84ec-dd02e647e690",
+    "3ab2ee23-1c2f-458c-9c8c-ca4844729120"
+   ],
+   "album": "Peace Is the Mission",
+   "album_mbid": "32f032a0-2759-44eb-b9ca-fa26a0161dc3",
+   "album_group_mbid": "9adbc8fd-b77d-4e99-8951-8c43cfe4897b",
+   "album_type": "Album",
+   "album_date": "2015-05-29"
+  },
+  {
+   "rank": 17,
+   "title": "Want to Want Me",
+   "artist": "Jason Derulo",
+   "mbid": "83451080-bcfe-4825-bef7-ed953c7fa162",
+   "artist_mbids": [
+    "6de0f914-3e60-4418-be3b-42e0feb6eb4d"
+   ],
+   "album": "Everything Is 4",
+   "album_mbid": "a6c52dce-48e7-461a-a44a-3d39a9a451e8",
+   "album_group_mbid": "74ab9e2d-93dd-47df-b168-1d93ff382097",
+   "album_type": "Album",
+   "album_date": "2015-06-01"
+  },
+  {
+   "rank": 18,
+   "title": "Shake It Off",
+   "artist": "Taylor Swift",
+   "mbid": "59fc5ddf-a1d9-4746-902d-71fb5a9a78c2",
+   "artist_mbids": [
+    "20244d07-534f-4eff-b4d4-930878889970"
+   ],
+   "album": "1989 D.L.X.",
+   "album_mbid": "e223f526-bbd9-4aa3-a5fb-5618291e80a6",
+   "album_group_mbid": "4d9ec1c2-58ec-48a4-aa0a-916718adead0",
+   "album_type": "Album",
+   "album_date": "2014-10-27"
+  },
+  {
+   "rank": 19,
+   "title": "Where Are Ü Now",
+   "artist": "Jack Ü featuring Justin Bieber",
+   "mbid": "c08b0227-b1c5-4426-af53-67baa1732894",
+   "artist_mbids": [
+    "8a40cfa4-e190-4133-a9af-e668c7d5f6f3",
+    "e0140a67-e4d1-4f13-8a01-364355bee46e"
+   ],
+   "album": "Purpose",
+   "album_mbid": "b92609ef-405d-4697-b84b-ef0edca7732b",
+   "album_group_mbid": "2660de3c-56db-4bd1-bf99-e162c68e5712",
+   "album_type": "Album",
+   "album_date": "2015-11-13"
+  },
+  {
+   "rank": 20,
+   "title": "Fight Song",
+   "artist": "Rachel Platten",
+   "mbid": "68bea014-b25c-45f2-8a87-e6270f9802b5",
+   "artist_mbids": [
+    "070c2401-1474-477d-b377-3e5827992fbf"
+   ],
+   "album": "Wildfire",
+   "album_mbid": "32780203-3fb7-4139-881c-b46f6c9d13cb",
+   "album_group_mbid": "12d18d6f-0afb-4b7d-9086-d49f350400df",
+   "album_type": "Album",
+   "album_date": "2016-01-01"
+  },
+  {
+   "rank": 21,
+   "title": "679",
+   "artist": "Fetty Wap featuring Remy Boyz",
+   "mbid": "bdd1ffe5-fbbf-45d1-9a98-df772a02c6b8",
+   "artist_mbids": [
+    "e3492ea0-5997-4241-a7bf-2fd7fb1bfad1",
+    "5bb2d44b-cc7a-4f41-8f0b-e62626d0c4b9"
+   ],
+   "album": "Fetty Wap",
+   "album_mbid": "84c88227-95b0-4345-bf83-31d5d039dc65",
+   "album_group_mbid": "b795b26b-5c11-48f9-b82b-8371dd316504",
+   "album_type": "Album",
+   "album_date": "2015-09-25"
+  },
+  {
+   "rank": 22,
+   "title": "Lips Are Movin",
+   "artist": "Meghan Trainor",
+   "mbid": "18b7683b-e085-44d6-a4db-358d6284f51f",
+   "artist_mbids": [
+    "b2029169-2574-4305-820f-252a5fde3697"
+   ],
+   "album": "Title",
+   "album_mbid": "4b167a67-11b4-4c95-b3e3-7314990c563f",
+   "album_group_mbid": "e041d145-a199-4ea9-8aba-4988eb4586d7",
+   "album_type": "Album",
+   "album_date": "2015-01-16"
+  },
+  {
+   "rank": 23,
+   "title": "Worth It",
+   "artist": "Fifth Harmony featuring Kid Ink",
+   "mbid": "d51ada29-a76c-4fc0-8c7c-14333461367b",
+   "artist_mbids": [
+    "e565610b-9a8f-451d-b594-ea658d76f725",
+    "60614320-9caf-4ae4-bded-7140672fdf8a"
+   ],
+   "album": "Reflection",
+   "album_mbid": "556e4e17-78eb-4b36-80a0-ad11417510eb",
+   "album_group_mbid": "b6caee11-8635-4876-baf8-2658f121dbe2",
+   "album_type": "Album",
+   "album_date": "2015-02-03"
+  },
+  {
+   "rank": 24,
+   "title": "Post to Be",
+   "artist": "Omarion featuring Chris Brown and Jhené Aiko",
+   "mbid": "c6e843b2-e94f-47b9-bd64-aee20b1bd044",
+   "artist_mbids": [
+    "3ca09fae-fdee-4771-bab9-244708515a98",
+    "c234fa42-e6a6-443e-937e-2f4b073538a3",
+    "ceb3f5b7-9f1a-430f-afbe-976fdcf30482"
+   ],
+   "album": "Sex Playlist",
+   "album_mbid": "12e75669-31df-412e-b0a1-f5f952f4d66d",
+   "album_group_mbid": "c1d5a619-8ab9-4c9b-bb2a-da7c54f0a111",
+   "album_type": "Album",
+   "album_date": "2014-07-01"
+  },
+  {
+   "rank": 25,
+   "title": "Honey, I'm Good.",
+   "artist": "Andy Grammer",
+   "mbid": "489405f4-d583-49a1-bb83-3fd53202bdb0",
+   "artist_mbids": [
+    "9e60ea29-9607-4f7d-aa96-2092ef41f0d3"
+   ],
+   "album": "Magazines or Novels",
+   "album_mbid": "34cda38d-3d70-407f-aed7-d50264716318",
+   "album_group_mbid": "413af822-7dcc-40d5-a4ef-3cbf507ecb07",
+   "album_type": "Album",
+   "album_date": "2014-08-05"
+  },
+  {
+   "rank": 26,
+   "title": "I'm Not the Only One",
+   "artist": "Sam Smith",
+   "mbid": "a53cbef3-0faa-4ee7-9d07-ffb41f8ef122",
+   "artist_mbids": [
+    "5a85c140-dcf9-4dd2-b2c8-aff0471549f3"
+   ],
+   "album": "In the Lonely Hour",
+   "album_mbid": "62b21290-3097-4931-94cf-f3b5d4e09c78",
+   "album_group_mbid": "c8d660d1-4181-4a5b-9507-346970dffe96",
+   "album_type": "Album",
+   "album_date": "2014-05-23"
+  },
+  {
+   "rank": 27,
+   "title": "Good for You",
+   "artist": "Selena Gomez featuring ASAP Rocky",
+   "mbid": "2dd146c9-85f7-48ec-9973-af1f7c6534ad",
+   "artist_mbids": [
+    "e4bc69e2-a064-4f93-ada1-f7f209cc1cc3",
+    "25b7b584-d952-4662-a8b9-dd8cdfbfeb64"
+   ],
+   "album": "Revival",
+   "album_mbid": "cff85413-05e4-430a-825b-8580ecde2650",
+   "album_group_mbid": "3afd46b3-90bd-402c-af55-8f893f373807",
+   "album_type": "Album",
+   "album_date": "2015-10-09"
+  },
+  {
+   "rank": 28,
+   "title": "All About That Bass",
+   "artist": "Meghan Trainor",
+   "mbid": "a2e79449-8755-4d40-85b4-dd05e40768d0",
+   "artist_mbids": [
+    "b2029169-2574-4305-820f-252a5fde3697"
+   ],
+   "album": "Title",
+   "album_mbid": "4b167a67-11b4-4c95-b3e3-7314990c563f",
+   "album_group_mbid": "e041d145-a199-4ea9-8aba-4988eb4586d7",
+   "album_type": "Album",
+   "album_date": "2015-01-16"
+  },
+  {
+   "rank": 29,
+   "title": "Style",
+   "artist": "Taylor Swift",
+   "mbid": "4459f042-afff-4fa3-b5e5-e10d9782992d",
+   "artist_mbids": [
+    "20244d07-534f-4eff-b4d4-930878889970"
+   ],
+   "album": "1989 D.L.X.",
+   "album_mbid": "e223f526-bbd9-4aa3-a5fb-5618291e80a6",
+   "album_group_mbid": "4d9ec1c2-58ec-48a4-aa0a-916718adead0",
+   "album_type": "Album",
+   "album_date": "2014-10-27"
+  },
+  {
+   "rank": 30,
+   "title": "Hotline Bling",
+   "artist": "Drake",
+   "mbid": "e288e33a-5c40-4b9f-98f6-0062be760e4a",
+   "artist_mbids": [
+    "9fff2f8a-21e6-47de-a2b8-7f449929d43f"
+   ],
+   "album": "Views",
+   "album_mbid": "5dea9c0e-cadd-4edf-86ff-aa35f63fb7d4",
+   "album_group_mbid": "4aaaa715-df17-43b8-987e-04b54ec4a697",
+   "album_type": "Album",
+   "album_date": "2016-05-06"
+  },
+  {
+   "rank": 31,
+   "title": "Hey Mama",
+   "artist": "David Guetta featuring Nicki Minaj, Bebe Rexha and Afrojack",
+   "mbid": "c8dd831e-aed1-4bb2-849a-ae22ad8ef5a0",
+   "artist_mbids": [
+    "302bd7b9-d012-4360-897a-93b00c855680",
+    "1036b808-f58c-4a3e-b461-a2c4492ecf1b",
+    "db8fad3a-e131-47a1-8782-c2ee93708cdd",
+    "a3ee920f-4e7f-4993-8aca-4b8538cfaa4a"
+   ],
+   "album": "Listen",
+   "album_mbid": "fc5c4518-cc1d-4459-8724-359e4e5f5f98",
+   "album_group_mbid": "57115279-ee5f-4f7e-a484-148f55fa09ad",
+   "album_type": "Album",
+   "album_date": "2014-11-24"
+  },
+  {
+   "rank": 32,
+   "title": "G.D.F.R.",
+   "artist": "Flo Rida featuring Sage the Gemini and Lookas",
+   "mbid": "df7ca079-8206-4a67-8c73-b30f9858d7f8",
+   "artist_mbids": [
+    "4593d49a-7f67-46ba-9ec0-126bd676286f",
+    "c211af3d-65e0-46a7-ac49-6c84837a0d16",
+    "e13db9d5-8d0f-4861-9328-4fe93603fef7"
+   ],
+   "album": "My House",
+   "album_mbid": "956181d8-235d-4d20-bd74-7ebae1e4c356",
+   "album_group_mbid": "0756be21-846b-47ae-ad3d-bb923b824087",
+   "album_type": "EP",
+   "album_date": "2015-04-07"
+  },
+  {
+   "rank": 33,
+   "title": "What Do You Mean?",
+   "artist": "Justin Bieber",
+   "mbid": "77af5f95-4c6f-4bb9-805a-85088a9c27fd",
+   "artist_mbids": [
+    "e0140a67-e4d1-4f13-8a01-364355bee46e"
+   ],
+   "album": "Purpose",
+   "album_mbid": "b92609ef-405d-4697-b84b-ef0edca7732b",
+   "album_group_mbid": "2660de3c-56db-4bd1-bf99-e162c68e5712",
+   "album_type": "Album",
+   "album_date": "2015-11-13"
+  },
+  {
+   "rank": 34,
+   "title": "Photograph",
+   "artist": "Ed Sheeran",
+   "mbid": "7dcbc1be-4257-4d64-b915-045dfb23ae88",
+   "artist_mbids": [
+    "b8a7c51f-362c-4dcb-a259-bc6e0095f0a6"
+   ],
+   "album": "x (Wembley Edition)",
+   "album_mbid": "05773733-dd07-43fc-b146-8115be617b84",
+   "album_group_mbid": "c24e5416-cd2e-4cff-851b-5faa78db98a2",
+   "album_type": "Album",
+   "album_date": "2014-06-23"
+  },
+  {
+   "rank": 35,
+   "title": "Hello",
+   "artist": "Adele",
+   "mbid": "0a8e8d55-4b83-4f8a-9732-fbb5ded9f344",
+   "artist_mbids": [
+    "cc2c9c3c-b7bc-4b8b-84d8-4fbd8779e493"
+   ],
+   "album": "25",
+   "album_mbid": "b2dbd919-229f-41df-a6bf-eaa042c1a550",
+   "album_group_mbid": "5537624c-3d2f-4f5c-8099-df916082c85c",
+   "album_type": "Album",
+   "album_date": "2015-11-20"
+  },
+  {
+   "rank": 36,
+   "title": "Stitches",
+   "artist": "Shawn Mendes",
+   "mbid": "8efe2cd3-2adc-4abf-b06c-536208ca71fa",
+   "artist_mbids": [
+    "b7d92248-97e3-4450-8057-6fe06738f735"
+   ],
+   "album": "Handwritten (Revisited)",
+   "album_mbid": "06c805db-0b43-401c-b5cd-c3fc42fe29b5",
+   "album_group_mbid": "d0efb4c9-0578-49e7-bb3f-c64f98871009",
+   "album_type": "Album",
+   "album_date": "2015-11-20"
+  },
+  {
+   "rank": 37,
+   "title": "Talking Body",
+   "artist": "Tove Lo",
+   "mbid": "ba0aff15-7701-4c77-a6cd-6e0b151801c6",
+   "artist_mbids": [
+    "56756959-1e78-429c-b897-e1d056cb0225"
+   ],
+   "album": "Queen of the Clouds",
+   "album_mbid": "3d9f2f0b-c541-4cf9-97c4-3bcda9207710",
+   "album_group_mbid": "91d3a3b7-1814-4088-84b9-5740c1e3efd9",
+   "album_type": "Album",
+   "album_date": "2014-10-14"
+  },
+  {
+   "rank": 38,
+   "title": "Jealous",
+   "artist": "Nick Jonas",
+   "mbid": "c3f8ac07-1b9f-4b65-ae0b-3c9fa35e65e2",
+   "artist_mbids": [
+    "943e3724-27e7-4e23-9b1c-cc5d46b5bcc7"
+   ],
+   "album": "Nick Jonas",
+   "album_mbid": "c61abaa2-0a1f-430f-91f3-be196b503a20",
+   "album_group_mbid": "bbc52b68-5d22-4164-8196-373ca92ba55d",
+   "album_type": "Album",
+   "album_date": "2014-11-10"
+  },
+  {
+   "rank": 39,
+   "title": "Time of Our Lives",
+   "artist": "Pitbull and Ne-Yo",
+   "mbid": "a485e725-7ee6-4283-84f6-1aa6cdabaf20",
+   "artist_mbids": [
+    "d262ea27-3ffe-40f7-b922-85c42d625e67",
+    "a4a01f5d-18e7-4571-8c3a-76ec0e24e2d7"
+   ],
+   "album": "Non-Fiction",
+   "album_mbid": "01dd56e9-af45-4d30-8cd1-b4c4bb58a00f",
+   "album_group_mbid": "8349df6b-5900-4993-866d-b185d8bf8bbf",
+   "album_type": "Album",
+   "album_date": "2015-01-27"
+  },
+  {
+   "rank": 40,
+   "title": "Locked Away",
+   "artist": "R. City featuring Adam Levine",
+   "mbid": "9a6ecc3a-5607-475a-856b-b43428ffb861",
+   "artist_mbids": [
+    "759d57ae-ac3a-4b42-b965-314617a75e4f",
+    "a1421d73-1a21-484b-97ad-77c9a5676daf"
+   ],
+   "album": "What Dreams Are Made Of",
+   "album_mbid": "46c2538d-47be-4ead-9e42-f6c0c531f296",
+   "album_group_mbid": "81252dc3-340b-4f57-94d6-db31f688e3b6",
+   "album_type": "Album",
+   "album_date": "2015-10-09"
+  },
+  {
+   "rank": 41,
+   "title": "Somebody",
+   "artist": "Natalie La Rose featuring Jeremih",
+   "mbid": "f7629592-96df-4a35-8820-dd712837fc97",
+   "artist_mbids": [
+    "1d638d0a-fee3-49cc-aec5-c1d30dc4997a",
+    "1c009a08-74d1-4682-bc56-8bfbe9e66b62"
+   ],
+   "album": "Somebody",
+   "album_mbid": "a03cb4f4-7239-4f25-8c15-46a869a3196b",
+   "album_group_mbid": "55cc0a1d-ae83-43f7-bbec-716619f89113",
+   "album_type": "Single",
+   "album_date": "2015-01-06"
+  },
+  {
+   "rank": 42,
+   "title": "FourFiveSeconds",
+   "artist": "Rihanna, Kanye West and Paul McCartney",
+   "mbid": "b1e7bebd-0d36-4e4e-b419-e87bd5520933",
+   "artist_mbids": [
+    "164f0d73-1234-4e2c-8743-d77bf2191051",
+    "73e5e69d-3554-40d8-8516-00cb38737a1c",
+    "ba550d0e-adac-4864-b88b-407cab5e76af"
+   ],
+   "album": "FourFiveSeconds",
+   "album_mbid": "c429c7f5-2cbd-4e0b-97f6-aac2e18b5a1c",
+   "album_group_mbid": "e9fc7d02-000b-4416-b720-7ad4d4da060c",
+   "album_type": "Single",
+   "album_date": "2015-01-24"
+  },
+  {
+   "rank": 43,
+   "title": "Centuries",
+   "artist": "Fall Out Boy",
+   "mbid": "a210a0dc-1e81-4a62-9d89-f80c43aa0de5",
+   "artist_mbids": [
+    "516cef4d-0718-4007-9939-f9b38af3f784"
+   ],
+   "album": "American Beauty/American Psycho",
+   "album_mbid": "bce64ff7-64aa-4470-86ec-dd6d8f3b4b82",
+   "album_group_mbid": "32583a8d-bc9d-4408-a144-0958110e00e5",
+   "album_type": "Album",
+   "album_date": "2015-01-20"
+  },
+  {
+   "rank": 44,
+   "title": "My Way",
+   "artist": "Fetty Wap featuring Monty",
+   "mbid": "3648b50b-d3e7-4c70-96c5-1f0c71d8eaa8",
+   "artist_mbids": [
+    "e3492ea0-5997-4241-a7bf-2fd7fb1bfad1",
+    "98c34ec8-4216-43b0-80f9-dae3eedabe63"
+   ],
+   "album": "Fetty Wap",
+   "album_mbid": "84c88227-95b0-4345-bf83-31d5d039dc65",
+   "album_group_mbid": "b795b26b-5c11-48f9-b82b-8371dd316504",
+   "album_type": "Album",
+   "album_date": "2015-09-25"
+  },
+  {
+   "rank": 45,
+   "title": "Take Your Time",
+   "artist": "Sam Hunt",
+   "mbid": "1c721171-6ecd-433f-8fac-336581fb5dba",
+   "artist_mbids": [
+    "b27229bb-5669-4e98-b4ce-0158b2451fe8"
+   ],
+   "album": "Montevallo",
+   "album_mbid": "c0539a59-bc3f-4464-b762-8dd341acb4b1",
+   "album_group_mbid": "d67689b1-d65d-4389-847d-de6396c63ec6",
+   "album_type": "Album",
+   "album_date": "2014-10-27"
+  },
+  {
+   "rank": 46,
+   "title": "Animals",
+   "artist": "Maroon 5",
+   "mbid": "7c0ed007-5118-4086-917a-fd9cfb0d338e",
+   "artist_mbids": [
+    "0ab49580-c84f-44d4-875f-d83760ea2cfe"
+   ],
+   "album": "V",
+   "album_mbid": "21b873e8-3933-46fa-8197-d62603754735",
+   "album_group_mbid": "3622c71c-c674-46bc-8fc2-24d182f7684a",
+   "album_type": "Album",
+   "album_date": "2014-09-02"
+  },
+  {
+   "rank": 47,
+   "title": "I Don't Fuck with You",
+   "artist": "Big Sean featuring E-40",
+   "mbid": "e23e3fbd-7c60-4599-9b76-4c88e2322442",
+   "artist_mbids": [
+    "942a9807-9c1a-4a0e-a285-1fde2c5be9d1"
+   ],
+   "album": "Dark Sky Paradise",
+   "album_mbid": "0ef866e5-0d08-4500-8d77-cacef8eca9fa",
+   "album_group_mbid": "3c7bea52-7c2f-4706-8c7f-d90b8178c800",
+   "album_type": "Album",
+   "album_date": "2015-02-20"
+  },
+  {
+   "rank": 48,
+   "title": "Bitch Better Have My Money",
+   "artist": "Rihanna",
+   "mbid": "4ff88cdc-940b-4a79-b285-12285df4e13d",
+   "artist_mbids": [
+    "73e5e69d-3554-40d8-8516-00cb38737a1c"
+   ],
+   "album": "Bitch Better Have My Money",
+   "album_mbid": "a70679f2-60bd-4994-b2cd-943937da5563",
+   "album_group_mbid": "150d7f40-840d-4b36-abed-1b2e642eb9e8",
+   "album_type": "Single",
+   "album_date": "2015-07-02"
+  },
+  {
+   "rank": 49,
+   "title": "Flex (Ooh, Ooh, Ooh)",
+   "artist": "Rich Homie Quan",
+   "mbid": "3740960e-8031-4da1-99dd-de1821879023",
+   "artist_mbids": [
+    "d9547d08-4c2e-47fc-9451-b8e3f889716e"
+   ],
+   "album": "Flex (Ooh, Ooh, Ooh)",
+   "album_mbid": "ec59e95a-ee8a-4654-a9a3-4ae3b69d4f9f",
+   "album_group_mbid": "e83c8585-dc08-47a2-935b-ec86e8bbb561",
+   "album_type": "Single",
+   "album_date": "2015-02-10"
+  },
+  {
+   "rank": 50,
+   "title": "Nasty Freestyle",
+   "artist": "T-Wayne",
+   "mbid": "ce204573-57e2-4ddb-bf83-9fc9a9d251fe",
+   "artist_mbids": [
+    "25f35656-dd16-426c-842c-1709a4234781"
+   ],
+   "album": "Nasty Freestyle",
+   "album_mbid": "bc7bc683-9b8b-4260-947c-ec8176447649",
+   "album_group_mbid": "890250c2-eb7c-4cf2-aed8-74350b480106",
+   "album_type": "Single",
+   "album_date": "2015-05-04"
+  },
+  {
+   "rank": 51,
+   "title": "Only",
+   "artist": "Nicki Minaj featuring Drake, Lil Wayne and Chris Brown",
+   "mbid": "d419bd6a-20fe-40ef-ae8e-ed4eacf5401d",
+   "artist_mbids": [
+    "1036b808-f58c-4a3e-b461-a2c4492ecf1b",
+    "9fff2f8a-21e6-47de-a2b8-7f449929d43f",
+    "ac9a487a-d9d2-4f27-bb23-0f4686488345",
+    "c234fa42-e6a6-443e-937e-2f4b073538a3"
+   ],
+   "album": "The Pinkprint",
+   "album_mbid": "6dae1dcf-eae0-480b-8195-632ad86a8875",
+   "album_group_mbid": "75c1375c-1311-4cd0-b5cd-182c42e357e7",
+   "album_type": "Album",
+   "album_date": "2014-12-15"
+  },
+  {
+   "rank": 52,
+   "title": "Elastic Heart",
+   "artist": "Sia",
+   "mbid": "db3bd787-cc2e-47cc-a0a6-bc05c126f4c5",
+   "artist_mbids": [
+    "2f548675-008d-4332-876c-108b0c7ab9c5"
+   ],
+   "album": "1000 Forms of Fear",
+   "album_mbid": "15e4d795-407d-420e-8c7b-bcbd0049a35e",
+   "album_group_mbid": "5628bc44-c89b-4af6-9b76-f266d09be63c",
+   "album_type": "Album",
+   "album_date": "2014-07-08"
+  },
+  {
+   "rank": 53,
+   "title": "Cool for the Summer",
+   "artist": "Demi Lovato",
+   "mbid": "24681d11-c8a2-4e3d-9e3c-0c4f442a2561",
+   "artist_mbids": [
+    "faf4cefb-036c-4c88-b93a-5b03dd0a0e6b"
+   ],
+   "album": "Confident",
+   "album_mbid": "7f0e4aa5-295a-4513-aa1e-55842284d1c3",
+   "album_group_mbid": "0df19e51-b297-4721-96b6-43d6874755b9",
+   "album_type": "Album",
+   "album_date": "2015-10-16"
+  },
+  {
+   "rank": 54,
+   "title": "Renegades",
+   "artist": "X Ambassadors",
+   "mbid": "1dcae90f-2b49-484e-9e30-3fa7d19221a4",
+   "artist_mbids": [
+    "298f4089-1948-44b5-b5e8-d5381f42362f"
+   ],
+   "album": "VHS",
+   "album_mbid": "caf46617-c3b5-4a50-b689-077f27ebc047",
+   "album_group_mbid": "68834e04-745e-4dba-a15f-4e2ac62f1ccc",
+   "album_type": "Album",
+   "album_date": "2015-06-30"
+  },
+  {
+   "rank": 55,
+   "title": "I Don't Mind",
+   "artist": "Usher featuring Juicy J",
+   "mbid": "63903314-d47c-4fd6-bb28-e6835f3fb76c",
+   "artist_mbids": [
+    "3414d446-735a-443c-931f-10634f57e5b9",
+    "c45d161f-83ce-4464-ba41-44202e6916d9"
+   ],
+   "album": "I Don’t Mind",
+   "album_mbid": "8db1e9cb-3d95-4306-981a-7765e6e6e830",
+   "album_group_mbid": "d0eb4459-d255-4d30-9ef4-41f3eb5268ff",
+   "album_type": "Single",
+   "album_date": "2014-11-21"
+  },
+  {
+   "rank": 56,
+   "title": "Love Me Harder",
+   "artist": "Ariana Grande and The Weeknd",
+   "mbid": "98552b63-1577-4866-bf62-3982499f5c0e",
+   "artist_mbids": [
+    "f4fdbb4c-e4b7-47a0-b83b-d91bbfcfa387",
+    "c8b03190-306c-4120-bb0b-6f2ebfc06ea9"
+   ],
+   "album": "My Everything",
+   "album_mbid": "e2b3357f-59c3-4f9d-9be3-aa261a2bcf5e",
+   "album_group_mbid": "17fd3576-b584-4f32-8ff0-12206d4cb66c",
+   "album_type": "Album",
+   "album_date": "2014-08-25"
+  },
+  {
+   "rank": 57,
+   "title": "Wildest Dreams",
+   "artist": "Taylor Swift",
+   "mbid": "598bc2a9-1a27-4f6a-a7cc-30649303edca",
+   "artist_mbids": [
+    "20244d07-534f-4eff-b4d4-930878889970"
+   ],
+   "album": "1989 D.L.X.",
+   "album_mbid": "e223f526-bbd9-4aa3-a5fb-5618291e80a6",
+   "album_group_mbid": "4d9ec1c2-58ec-48a4-aa0a-916718adead0",
+   "album_type": "Album",
+   "album_date": "2014-10-27"
+  },
+  {
+   "rank": 58,
+   "title": "Stay with Me",
+   "artist": "Sam Smith",
+   "mbid": "e4c0494d-5ab6-479a-a527-cfdc41f7c595",
+   "artist_mbids": [
+    "5a85c140-dcf9-4dd2-b2c8-aff0471549f3"
+   ],
+   "album": "In the Lonely Hour",
+   "album_mbid": "f43d20c0-2fa5-4bc2-9c42-c677e346e768",
+   "album_group_mbid": "c8d660d1-4181-4a5b-9507-346970dffe96",
+   "album_type": "Album",
+   "album_date": "2014-06-17"
+  },
+  {
+   "rank": 59,
+   "title": "You Know You Like It",
+   "artist": "DJ Snake and AlunaGeorge",
+   "mbid": "e112fd18-255e-4211-ba7e-c95a7bfe89ae",
+   "artist_mbids": [
+    "31445b1e-96f3-4c7f-84ec-dd02e647e690",
+    "e9da3ed5-eb9a-4f70-a0ed-4e59e380601f"
+   ],
+   "album": "You Know You Like It",
+   "album_mbid": "82912bea-163a-47bd-af08-13ae89da0e3d",
+   "album_group_mbid": "246bfecd-41f3-4ccb-8d93-326b3bc10650",
+   "album_type": "Single / Remix",
+   "album_date": "2014-10-14"
+  },
+  {
+   "rank": 60,
+   "title": "Uma Thurman",
+   "artist": "Fall Out Boy",
+   "mbid": "a6ef09c1-dd20-4ce6-b253-16a31f0c6831",
+   "artist_mbids": [
+    "516cef4d-0718-4007-9939-f9b38af3f784"
+   ],
+   "album": "American Beauty/American Psycho",
+   "album_mbid": "bce64ff7-64aa-4470-86ec-dd6d8f3b4b82",
+   "album_group_mbid": "32583a8d-bc9d-4408-a144-0958110e00e5",
+   "album_type": "Album",
+   "album_date": "2015-01-20"
+  },
+  {
+   "rank": 61,
+   "title": "7/11",
+   "artist": "Beyoncé",
+   "mbid": "f9e47e74-b21b-4adb-b47d-732006ade023",
+   "artist_mbids": [
+    "859d0860-d480-4efd-970c-c05d5f1776b8"
+   ],
+   "album": "BEYONCÉ",
+   "album_mbid": "f74c6ec2-7319-406b-9910-a6c3fe940176",
+   "album_group_mbid": "8596171e-23b2-4bdd-8f1c-11960df0ecbe",
+   "album_type": "Album",
+   "album_date": "2014-11-24"
+  },
+  {
+   "rank": 62,
+   "title": "The Heart Wants What It Wants",
+   "artist": "Selena Gomez",
+   "mbid": "e03514a9-2481-4daa-9ec2-0f859fb9e1e0",
+   "artist_mbids": [
+    "e4bc69e2-a064-4f93-ada1-f7f209cc1cc3"
+   ],
+   "album": "For You",
+   "album_mbid": "78e4c425-4ea5-4a7d-8d07-e0af921d4f0e",
+   "album_group_mbid": "794ce738-1562-4dc8-be73-7923a8961618",
+   "album_type": "Album / Compilation",
+   "album_date": "2014-11-24"
+  },
+  {
+   "rank": 63,
+   "title": "Girl Crush",
+   "artist": "Little Big Town",
+   "mbid": "a63bb0cd-652f-4db8-a5d9-b7ae2b79cfe0",
+   "artist_mbids": [
+    "76e78b58-f301-4975-8058-7f84d8360738"
+   ],
+   "album": "Pain Killer",
+   "album_mbid": "64ada4c1-2876-417f-bce1-4742d13ce0cc",
+   "album_group_mbid": "336c2bc1-6c11-467a-8bd2-75a7505b25ec",
+   "album_type": "Album",
+   "album_date": "2014"
+  },
+  {
+   "rank": 64,
+   "title": "Slow Motion",
+   "artist": "Trey Songz",
+   "mbid": "6e07fee3-c002-44f2-9e45-82bbd4b4a614",
+   "artist_mbids": [
+    "4d7304f6-7fe3-4959-9d98-01a5af84afe6"
+   ],
+   "album": "Trigga Reloaded",
+   "album_mbid": "40a66834-9db2-4435-a9c1-6d25a1414e05",
+   "album_group_mbid": "622e9aef-50c0-4ab0-bb7f-ba5f98e9b59c",
+   "album_type": "Album",
+   "album_date": "2015-07-23"
+  },
+  {
+   "rank": 65,
+   "title": "Drag Me Down",
+   "artist": "One Direction",
+   "mbid": "73870a9b-6ef5-4b29-ba65-fab85e6f3482",
+   "artist_mbids": [
+    "1a425bbd-cca4-4b2c-aeb7-71cb176c828a"
+   ],
+   "album": "Made in the A.M.",
+   "album_mbid": "341e5719-00d4-4736-82bb-f9b3ad80304a",
+   "album_group_mbid": "8dcbc499-2325-47bf-9e92-30bc5b0603e2",
+   "album_type": "Album",
+   "album_date": "2015-11-13"
+  },
+  {
+   "rank": 66,
+   "title": "Truffle Butter",
+   "artist": "Nicki Minaj featuring Drake and Lil Wayne",
+   "mbid": "04466588-422a-423e-8f3e-10d50b2ea117",
+   "artist_mbids": [
+    "1036b808-f58c-4a3e-b461-a2c4492ecf1b",
+    "9fff2f8a-21e6-47de-a2b8-7f449929d43f",
+    "ac9a487a-d9d2-4f27-bb23-0f4686488345"
+   ],
+   "album": "The Pinkprint",
+   "album_mbid": "52ff901c-84ff-49c5-8498-4efd16e8cf23",
+   "album_group_mbid": "75c1375c-1311-4cd0-b5cd-182c42e357e7",
+   "album_type": "Album",
+   "album_date": "2014-12-15"
+  },
+  {
+   "rank": 67,
+   "title": "One Last Time",
+   "artist": "Ariana Grande",
+   "mbid": "9f24c0f7-a644-4074-8fbd-a1dba03de129",
+   "artist_mbids": [
+    "f4fdbb4c-e4b7-47a0-b83b-d91bbfcfa387"
+   ],
+   "album": "My Everything",
+   "album_mbid": "e2b3357f-59c3-4f9d-9be3-aa261a2bcf5e",
+   "album_group_mbid": "17fd3576-b584-4f32-8ff0-12206d4cb66c",
+   "album_type": "Album",
+   "album_date": "2014-08-25"
+  },
+  {
+   "rank": 68,
+   "title": "Chains",
+   "artist": "Nick Jonas",
+   "mbid": "2aca630f-e3e6-49d9-9202-5a52bc96851e",
+   "artist_mbids": [
+    "943e3724-27e7-4e23-9b1c-cc5d46b5bcc7"
+   ],
+   "album": "Nick Jonas",
+   "album_mbid": "c61abaa2-0a1f-430f-91f3-be196b503a20",
+   "album_group_mbid": "bbc52b68-5d22-4164-8196-373ca92ba55d",
+   "album_type": "Album",
+   "album_date": "2014-11-10"
+  },
+  {
+   "rank": 69,
+   "title": "All Eyes on You",
+   "artist": "Meek Mill featuring Chris Brown and Nicki Minaj",
+   "mbid": "5ae8761d-f047-42f0-b636-44cfced8a60b",
+   "artist_mbids": [
+    "31bcadcc-e1da-4cad-bec8-2f4f1d41b095",
+    "c234fa42-e6a6-443e-937e-2f4b073538a3",
+    "1036b808-f58c-4a3e-b461-a2c4492ecf1b"
+   ],
+   "album": "Dreams Worth More Than Money",
+   "album_mbid": "96b5c904-9840-4d70-8616-2c162f89d515",
+   "album_group_mbid": "dc439085-b4fb-4213-9b0d-5bd762d35890",
+   "album_type": "Album",
+   "album_date": "2015-06-29"
+  },
+  {
+   "rank": 70,
+   "title": "No Type",
+   "artist": "Rae Sremmurd",
+   "mbid": "d1417aee-a8aa-40c4-bafe-06fb0461f722",
+   "artist_mbids": [
+    "c78c3026-426b-4580-ab23-08490bb8b515"
+   ],
+   "album": "SremmLife",
+   "album_mbid": "a8ec0f38-0c86-48b0-8dbb-a7835e91c871",
+   "album_group_mbid": "0443bf56-81ab-4e04-a8cc-390d526023e9",
+   "album_type": "Album",
+   "album_date": "2015-01-06"
+  },
+  {
+   "rank": 71,
+   "title": "Riptide",
+   "artist": "Vance Joy",
+   "mbid": "8c3f4879-5477-47f1-92f3-fe0a54b22786",
+   "artist_mbids": [
+    "df36f6db-5987-46ed-9d02-0cf36ed4e060"
+   ],
+   "album": "Dream Your Life Away",
+   "album_mbid": "3c77e18e-8970-4fbf-85ef-501ea2d44ab9",
+   "album_group_mbid": "dd7ecfc9-58e6-40d9-a18f-986fcaeea091",
+   "album_type": "Album",
+   "album_date": "2014-09-09"
+  },
+  {
+   "rank": 72,
+   "title": "Classic Man",
+   "artist": "Jidenna featuring Roman GianArthur",
+   "mbid": "e4bd65e9-0875-4f85-a473-d05630a9f724",
+   "artist_mbids": [
+    "2bb9df33-7510-437f-8868-801ce21d6a69",
+    "bf93639c-1d7e-44ff-9331-91d871b6e14b"
+   ],
+   "album": "Wondaland Presents: The Eephus",
+   "album_mbid": "75382251-94ff-428e-b830-626b3ea29073",
+   "album_group_mbid": "d553fbf9-0d0d-4991-9d03-86333bbb54fa",
+   "album_type": "EP",
+   "album_date": "2015-08-14"
+  },
+  {
+   "rank": 73,
+   "title": "Ex's & Oh's",
+   "artist": "Elle King",
+   "album": "Love Stuff",
+   "album_mbid": "3e34afda-ad60-4f2a-bb53-08ab18875219",
+   "album_group_mbid": "c8dc5594-88a5-4da5-b7f3-7c01976c8ba5",
+   "album_type": "Album",
+   "album_date": "2015-02-13"
+  },
+  {
+   "rank": 74,
+   "title": "Dear Future Husband",
+   "artist": "Meghan Trainor",
+   "mbid": "a19628b1-5ffd-4332-8558-755a7b497021",
+   "artist_mbids": [
+    "b2029169-2574-4305-820f-252a5fde3697"
+   ],
+   "album": "Title",
+   "album_mbid": "4b167a67-11b4-4c95-b3e3-7314990c563f",
+   "album_group_mbid": "e041d145-a199-4ea9-8aba-4988eb4586d7",
+   "album_type": "Album",
+   "album_date": "2015-01-16"
+  },
+  {
+   "rank": 75,
+   "title": "Marvin Gaye",
+   "artist": "Charlie Puth featuring Meghan Trainor",
+   "mbid": "b6ce4adc-5aa2-41d1-8e60-5e4c5bdff371",
+   "artist_mbids": [
+    "525f1f1c-03f0-4bc8-8dfd-e7521f87631b",
+    "b2029169-2574-4305-820f-252a5fde3697"
+   ],
+   "album": "Nine Track Mind",
+   "album_mbid": "07bc9edd-a92e-45c6-a7a2-7098d52fed0e",
+   "album_group_mbid": "3c82ff29-b9f1-4348-b20e-11d24d295845",
+   "album_type": "Album",
+   "album_date": "2016-01-29"
+  },
+  {
+   "rank": 76,
+   "title": "Like I'm Gonna Lose You",
+   "artist": "Meghan Trainor featuring John Legend",
+   "album": "Title",
+   "album_mbid": "2a28140c-b447-49fe-9b3e-c4d48e029508",
+   "album_group_mbid": "e041d145-a199-4ea9-8aba-4988eb4586d7",
+   "album_type": "Album",
+   "album_date": "2015-01-09"
+  },
+  {
+   "rank": 77,
+   "title": "Habits (Stay High)",
+   "artist": "Tove Lo",
+   "mbid": "1d8b14d9-0398-4128-a1b9-9dfc79ac24d8",
+   "artist_mbids": [
+    "56756959-1e78-429c-b897-e1d056cb0225"
+   ],
+   "album": "Queen of the Clouds",
+   "album_mbid": "3d9f2f0b-c541-4cf9-97c4-3bcda9207710",
+   "album_group_mbid": "91d3a3b7-1814-4088-84b9-5740c1e3efd9",
+   "album_type": "Album",
+   "album_date": "2014-10-14"
+  },
+  {
+   "rank": 78,
+   "title": "The Hanging Tree",
+   "artist": "James Newton Howard featuring Jennifer Lawrence",
+   "mbid": "bae87b19-f222-4ebe-af05-dca32dc2b833",
+   "artist_mbids": [
+    "f6580b26-77f7-4a7b-8513-6db0476e8f21",
+    "d2d2baa6-f386-4136-acbd-4717e54dfb96"
+   ],
+   "album": "The Hunger Games: Mockingjay, Pt. 1 (Original Motion Picture Score)",
+   "album_mbid": "7c05c08f-614a-44f9-bbc4-a4db2afce5bc",
+   "album_group_mbid": "eb82c153-6832-4fbf-abae-054bdfbd26b2",
+   "album_type": "Album / Soundtrack",
+   "album_date": "2014-11-21"
+  },
+  {
+   "rank": 79,
+   "title": "CoCo",
+   "artist": "O.T. Genasis",
+   "mbid": "05118134-5156-41fd-bb03-de5b67c59e33",
+   "artist_mbids": [
+    "f3c48d53-8dfe-435f-84e6-1756754c4687"
+   ],
+   "album": "CoCo",
+   "album_mbid": "e9aad34f-6389-4428-bf23-5a64a7fb5aba",
+   "album_group_mbid": "863bb7da-8286-4fe2-a28f-6d18c6ddc80b",
+   "album_type": "Single",
+   "album_date": "2014-10-27"
+  },
+  {
+   "rank": 80,
+   "title": "Bang Bang",
+   "artist": "Jessie J, Ariana Grande and Nicki Minaj",
+   "mbid": "146707fc-924f-48ce-b56e-fff3a6a19c06",
+   "artist_mbids": [
+    "d24fb461-dee8-41fc-bb15-2f13bb2644a6",
+    "f4fdbb4c-e4b7-47a0-b83b-d91bbfcfa387",
+    "1036b808-f58c-4a3e-b461-a2c4492ecf1b"
+   ],
+   "album": "My Everything",
+   "album_mbid": "e2b3357f-59c3-4f9d-9be3-aa261a2bcf5e",
+   "album_group_mbid": "17fd3576-b584-4f32-8ff0-12206d4cb66c",
+   "album_type": "Album",
+   "album_date": "2014-08-25"
+  },
+  {
+   "rank": 81,
+   "title": "Lay Me Down",
+   "artist": "Sam Smith",
+   "mbid": "316404fb-6cdb-4d63-abcb-78ee31f654c4",
+   "artist_mbids": [
+    "5a85c140-dcf9-4dd2-b2c8-aff0471549f3"
+   ],
+   "album": "In the Lonely Hour",
+   "album_mbid": "f43d20c0-2fa5-4bc2-9c42-c677e346e768",
+   "album_group_mbid": "c8d660d1-4181-4a5b-9507-346970dffe96",
+   "album_type": "Album",
+   "album_date": "2014-06-17"
+  },
+  {
+   "rank": 82,
+   "title": "Tuesday",
+   "artist": "ILoveMakonnen featuring Drake",
+   "mbid": "878050c9-e608-4ddf-9a6c-b76c3eb088b6",
+   "artist_mbids": [
+    "9fff2f8a-21e6-47de-a2b8-7f449929d43f",
+    "047c7563-6c32-4619-a0b6-1dcf218b3e1b"
+   ],
+   "album": "Tuesday",
+   "album_mbid": "27ea515b-5fad-4541-a07d-68d667555ff0",
+   "album_group_mbid": "28d692ef-bfd0-4561-bda8-e6e74fef9ccb",
+   "album_type": "Single",
+   "album_date": "2014-09-01"
+  },
+  {
+   "rank": 83,
+   "title": "Hit the Quan",
+   "artist": "iLoveMemphis",
+   "mbid": "a4153e61-7eda-4921-ae8d-e5a29295fedd",
+   "artist_mbids": [
+    "19329ae2-3ddc-4c51-8377-7c2a04c3fb6d"
+   ],
+   "album": "Hit the Quan",
+   "album_mbid": "f7f855ea-b194-4e4b-bbdc-346f99fa7f9b",
+   "album_group_mbid": "f6e07783-03b1-4208-ad4b-f0efed323e9f",
+   "album_type": "Single",
+   "album_date": "2015-07-04"
+  },
+  {
+   "rank": 84,
+   "title": "Downtown",
+   "artist": "Macklemore & Ryan Lewis featuring Eric Nally, Melle Mel, Kool Moe Dee and Grandmaster Caz",
+   "mbid": "81fc061a-e17b-4c59-9284-f432e9e28f07",
+   "artist_mbids": [
+    "97b226c8-7140-4da3-91ac-15e62e131a81",
+    "faaf4f84-7751-4613-9903-32c9d6a49741",
+    "0e9c2251-2d7d-4f79-9894-0fd662ed8420",
+    "94ff7d3c-27e1-4628-9b81-477f911295cd",
+    "5fec72d3-cddf-4188-98d9-6552581c30ed"
+   ],
+   "album": "This Unruly Mess I’ve Made",
+   "album_mbid": "28bf8e9f-e6ac-4a2d-8a3e-1dda7aaf0ba8",
+   "album_group_mbid": "e46f5d60-17be-4523-9cb9-9030aea25c20",
+   "album_type": "Album",
+   "album_date": "2016-02-26"
+  },
+  {
+   "rank": 85,
+   "title": "House Party",
+   "artist": "Sam Hunt",
+   "mbid": "0f74d154-abd4-4491-b46c-eaa7b30c8b0e",
+   "artist_mbids": [
+    "b27229bb-5669-4e98-b4ce-0158b2451fe8"
+   ],
+   "album": "Montevallo",
+   "album_mbid": "c0539a59-bc3f-4464-b762-8dd341acb4b1",
+   "album_group_mbid": "d67689b1-d65d-4389-847d-de6396c63ec6",
+   "album_type": "Album",
+   "album_date": "2014-10-27"
+  },
+  {
+   "rank": 86,
+   "title": "Ayo",
+   "artist": "Chris Brown and Tyga",
+   "mbid": "f444ccb2-61ff-485b-b050-e05ed2b59afc",
+   "artist_mbids": [
+    "c234fa42-e6a6-443e-937e-2f4b073538a3",
+    "ce09ea31-3d4a-4487-a797-e315175457a0"
+   ],
+   "album": "Fan of a Fan The Album",
+   "album_mbid": "ea402030-363a-47df-8c1c-59bd3fc002cd",
+   "album_group_mbid": "b693d7e3-6200-4413-9fbc-6491166dd56b",
+   "album_type": "Album",
+   "album_date": "2015-02-20"
+  },
+  {
+   "rank": 87,
+   "title": "Kick the Dust Up",
+   "artist": "Luke Bryan",
+   "mbid": "2d329a5b-e471-450f-9ab1-6526dcb70bdd",
+   "artist_mbids": [
+    "aab35942-f176-4f77-bbf9-1d6aa98ccf3f"
+   ],
+   "album": "Kill the Lights",
+   "album_mbid": "ff2c2c47-a8c3-42ca-8046-bd77b8289918",
+   "album_group_mbid": "03c9caee-ee5c-4741-8dd6-eed2c2883b40",
+   "album_type": "Album",
+   "album_date": "2015-08-07"
+  },
+  {
+   "rank": 88,
+   "title": "Blessings",
+   "artist": "Big Sean featuring Drake and Kanye West",
+   "mbid": "024de126-e1b0-4dc4-8deb-8be929703e4f",
+   "artist_mbids": [
+    "942a9807-9c1a-4a0e-a285-1fde2c5be9d1",
+    "9fff2f8a-21e6-47de-a2b8-7f449929d43f",
+    "164f0d73-1234-4e2c-8743-d77bf2191051"
+   ],
+   "album": "Dark Sky Paradise",
+   "album_mbid": "0ef866e5-0d08-4500-8d77-cacef8eca9fa",
+   "album_group_mbid": "3c7bea52-7c2f-4706-8c7f-d90b8178c800",
+   "album_type": "Album",
+   "album_date": "2015-02-20"
+  },
+  {
+   "rank": 89,
+   "title": "Budapest",
+   "artist": "George Ezra",
+   "mbid": "c63c4b83-2144-4c93-a6d4-39e85278d809",
+   "artist_mbids": [
+    "2c5e2a98-d9ea-46b5-9618-d9bb4863a920"
+   ],
+   "album": "Wanted on Voyage",
+   "album_mbid": "bd274251-f232-4afb-98b8-d4f4ce89e783",
+   "album_group_mbid": "9b2a689e-7935-4afc-84c9-1ef54a8c873d",
+   "album_type": "Album",
+   "album_date": "2014-06-27"
+  },
+  {
+   "rank": 90,
+   "title": "Chandelier",
+   "artist": "Sia",
+   "mbid": "d54ad2cf-cc5b-4c8d-881d-f4685e12553c",
+   "artist_mbids": [
+    "2f548675-008d-4332-876c-108b0c7ab9c5"
+   ],
+   "album": "1000 Forms of Fear",
+   "album_mbid": "15e4d795-407d-420e-8c7b-bcbd0049a35e",
+   "album_group_mbid": "5628bc44-c89b-4af6-9b76-f266d09be63c",
+   "album_type": "Album",
+   "album_date": "2014-07-08"
+  },
+  {
+   "rank": 91,
+   "title": "Heartbeat Song",
+   "artist": "Kelly Clarkson",
+   "mbid": "ec0d851d-f491-4e97-84c7-affdbc5fad91",
+   "artist_mbids": [
+    "d339efbb-77b9-4147-ba9e-59f2f24550b2"
+   ],
+   "album": "Piece by Piece",
+   "album_mbid": "21181750-9b2b-47a7-9202-9fdcb3f088b9",
+   "album_group_mbid": "0c9a7e98-8762-4fd8-afef-68690a5c2d2f",
+   "album_type": "Album",
+   "album_date": "2015-04-15"
+  },
+  {
+   "rank": 92,
+   "title": "Don't",
+   "artist": "Ed Sheeran",
+   "mbid": "9037fd5b-e74f-49c9-90aa-9c8d08ee160a",
+   "artist_mbids": [
+    "b8a7c51f-362c-4dcb-a259-bc6e0095f0a6"
+   ],
+   "album": "x (Wembley Edition)",
+   "album_mbid": "05773733-dd07-43fc-b146-8115be617b84",
+   "album_group_mbid": "c24e5416-cd2e-4cff-851b-5faa78db98a2",
+   "album_type": "Album",
+   "album_date": "2014-06-23"
+  },
+  {
+   "rank": 93,
+   "title": "Ghost",
+   "artist": "Ella Henderson",
+   "mbid": "859678f6-cc24-4dfa-9ad5-09b38bc72461",
+   "artist_mbids": [
+    "3a60a284-256b-4481-9c33-84d12ea481cd"
+   ],
+   "album": "Chapter One",
+   "album_mbid": "d017bca3-55d3-4b26-8c22-324f53a2a41b",
+   "album_group_mbid": "6e4665ec-14eb-4e49-8e08-d7d14480e074",
+   "album_type": "Album",
+   "album_date": "2014-10-10"
+  },
+  {
+   "rank": 94,
+   "title": "Here",
+   "artist": "Alessia Cara",
+   "mbid": "2a537d0d-b7ca-4ede-b661-02d5fd104900",
+   "artist_mbids": [
+    "97e69730-3791-423b-9770-287261588854"
+   ],
+   "album": "Know‐It‐All",
+   "album_mbid": "4ca0eee2-4869-49cc-872a-209440aee923",
+   "album_group_mbid": "a3a64704-39a5-4c5b-87b9-ff35d56fc9cb",
+   "album_type": "Album",
+   "album_date": "2015-11-13"
+  },
+  {
+   "rank": 95,
+   "title": "Waves (Robin Schulz Remix)",
+   "artist": "Mr Probz",
+   "mbid": "2abda42c-1ef1-4594-80ff-a3a72fadf634",
+   "artist_mbids": [
+    "9bb64b8f-d7a4-4fc0-954f-9c9e9d7b3bc3"
+   ],
+   "album": "Waves",
+   "album_mbid": "6dd753f3-1efb-4d8f-870d-af6221e89ede",
+   "album_group_mbid": "0e9b06d4-50dd-4416-a8ca-94dd7075805e",
+   "album_type": "Single",
+   "album_date": "2013-11-22"
+  },
+  {
+   "rank": 96,
+   "title": "El Perdón",
+   "artist": "Nicky Jam and Enrique Iglesias",
+   "mbid": "a5420580-a30f-412f-ac56-e383b862481d",
+   "artist_mbids": [
+    "c458e9dc-e0d5-45ea-9e83-f9d0395f030d",
+    "35f866dc-c061-48ba-8157-cf2e0eac4857"
+   ],
+   "album": "Fénix",
+   "album_mbid": "dd7df6ea-b5ca-492f-80e4-14490660ebc4",
+   "album_group_mbid": "3face3d3-b1e3-444d-83aa-17576df9ded5",
+   "album_type": "Album",
+   "album_date": "2017-01-20"
+  },
+  {
+   "rank": 97,
+   "title": "She Knows",
+   "artist": "Ne-Yo featuring Juicy J",
+   "mbid": "f9e6e723-0967-4608-84ca-314367d24bb9",
+   "artist_mbids": [
+    "a4a01f5d-18e7-4571-8c3a-76ec0e24e2d7",
+    "c45d161f-83ce-4464-ba41-44202e6916d9"
+   ],
+   "album": "Non-Fiction",
+   "album_mbid": "01dd56e9-af45-4d30-8cd1-b4c4bb58a00f",
+   "album_group_mbid": "8349df6b-5900-4993-866d-b185d8bf8bbf",
+   "album_type": "Album",
+   "album_date": "2015-01-27"
+  },
+  {
+   "rank": 98,
+   "title": "Night Changes",
+   "artist": "One Direction",
+   "mbid": "f4fb45d5-a3c7-4da8-9bcc-8ae65d6b64a5",
+   "artist_mbids": [
+    "1a425bbd-cca4-4b2c-aeb7-71cb176c828a"
+   ],
+   "album": "Four: The Ultimate Edition",
+   "album_mbid": "6820fefa-91fa-4c28-96b3-1d52282b321c",
+   "album_group_mbid": "1a59a87b-24b1-41fa-8d84-ee7ebcb6f0af",
+   "album_type": "Album",
+   "album_date": "2014-11-17"
+  },
+  {
+   "rank": 99,
+   "title": "Back to Back",
+   "artist": "Drake",
+   "mbid": "69a45327-9e4a-4591-8fb5-c6173a646eac",
+   "artist_mbids": [
+    "9fff2f8a-21e6-47de-a2b8-7f449929d43f"
+   ],
+   "album": "Back to Back",
+   "album_mbid": "9ff49db9-3a38-40ef-b239-f23f04e0e0a9",
+   "album_group_mbid": "4b604dc4-c66a-4363-8127-f9037df7d1e5",
+   "album_type": "Single",
+   "album_date": "2015-07-29"
+  },
+  {
+   "rank": 100,
+   "title": "How Deep Is Your Love",
+   "artist": "Calvin Harris and Disciples",
+   "mbid": "10eec724-45dd-4cfa-930c-c28c07c0485d",
+   "artist_mbids": [
+    "8dd98bdc-80ec-4e93-8509-2f46bafc09a7",
+    "bac7f942-8e94-4868-b3f6-ba66c75b136e"
+   ],
+   "album": "How Deep Is Your Love",
+   "album_mbid": "f16a1b7a-ddca-4c76-ac23-deb327dc5443",
+   "album_group_mbid": "dfd494d5-3852-49a3-8958-a15a7d072f42",
+   "album_type": "Single",
+   "album_date": "2015-07-17"
+  }
+ ]
+}

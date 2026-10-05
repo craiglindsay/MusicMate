@@ -1,0 +1,12 @@
+# Vocal separation for karaoke. Lives in its own venv so the ~700 MB ML stack
+# cannot disturb the app. karaoke.py finds it at <repo>/karaoke-venv or via
+# the JUKEBOX_DEMUCS_PY environment variable. ffmpeg must be on PATH.
+#
+#   python -m venv karaoke-venv
+#   karaoke-venv\Scripts\python -m pip install --index-url https://download.pytorch.org/whl/cpu torch==2.14.0 torchaudio==2.11.0
+#   karaoke-venv\Scripts\python -m pip install -r requirements-karaoke.txt
+#
+# The htdemucs model (~80 MB) downloads to ~/.cache/huggingface on first run.
+demucs==4.1.0
+soundfile==0.14.0
+numpy==2.5.2

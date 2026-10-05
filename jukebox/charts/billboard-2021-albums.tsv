@@ -1,0 +1,101 @@
+rank	title	artist	album	album_type	album_date	album_group_mbid	album_mbid	recording_mbid
+1	Levitating	Dua Lipa	Future Nostalgia	Album	2020-11-27	aa366795-92d7-4d67-91fa-6741f82a4858	c19c52df-c0b0-4756-8f1a-727ceca58374	957df7c5-9c3a-4dbc-b139-f339f2378986
+2	Save Your Tears	The Weeknd and Ariana Grande	After Hours	Album	2020-02-19	78570bea-2a26-467c-a3db-c52723ceb394	6e355f73-3b40-46d6-a28e-11a39105568f	0f431b3e-ddb0-4cea-9b32-e59d47b1ae8c
+3	Blinding Lights	The Weeknd	After Hours	Album	2020-03-30	78570bea-2a26-467c-a3db-c52723ceb394	f03788c4-8308-40cc-bd51-1e57ac396a87	1a67e215-a19e-40c9-9b12-732de134bf5f
+4	Mood	24kGoldn featuring Iann Dior	El Dorado	Album	2021-03-24	499a3f73-ca91-4a3a-8b81-0d1ace0ecaa8	f944ded9-1b82-4bc9-a1f1-585dab770639	2e620e8a-08fa-4ac3-b70e-5cb5fe0fa9f9
+5	Good 4 U	Olivia Rodrigo	SOUR	Album	2021-08	2ae2e504-7116-4b4f-b632-9748bb18ccd2	867abe55-8dac-4ff0-a315-4d70e9a2cf09	97aa087b-5fa2-42ff-bd48-d162862cdc95
+6	Kiss Me More	Doja Cat featuring SZA	Planet Her	Album	2021-12-10	6c90cb91-e615-4545-854b-6d6f10c5cb6d	5fa94158-e8f9-4ad8-8d1f-d3a13787eaf7	16ba7915-2acf-42b2-8c87-ed67090dca91
+7	Leave the Door Open	Silk Sonic (Bruno Mars and Anderson .Paak)	An Evening With Silk Sonic	Album	2021-11-12	97a8636b-af26-46b9-a3f4-4ed57c75a2da	31eb81a9-334b-4975-b6f9-4c0b70d2a88b	
+8	Drivers License	Olivia Rodrigo	SOUR	Album	2021-08	2ae2e504-7116-4b4f-b632-9748bb18ccd2	ecf4320b-2eeb-488e-8dde-408c5e516755	88af1d59-e809-48bb-8a89-745bd05f0ae0
+9	Montero (Call Me by Your Name)	Lil Nas X	MONTERO	Album	2021-09-17	5ff232ca-d9c8-459b-9253-9374ec07777e	1c4c481f-6f18-4275-abc9-6ee6636a4ce9	6ed6a516-8b56-4ba2-a621-00678bc86ec5
+10	Peaches	Justin Bieber featuring Daniel Caesar and Giveon	Justice (triple chucks deluxe)	Album	2021-04-02	0f9d5103-dd09-4fcd-8fe1-223612668f09	4435ba7c-4feb-4b65-8bdd-34431b6a6e71	6c139885-5eb7-4390-984e-34b0353cbfb6
+11	Butter	BTS	Butter	Single	2021-05-21	fe9200d2-6a79-4b3f-8f64-e54865342823	8e92c1d9-d77c-4110-84d6-5928bc8b752b	e139bd8d-410c-41c1-967c-a30ee3b444e8
+12	Stay	The Kid Laroi and Justin Bieber	FUCK LOVE	Album / Mixtape/Street	2020-07-24	892a1351-c58c-4b51-9218-a82c8bf6d7ff	27fdd420-d5ba-49d3-8b24-9518be056c65	21d852bf-c5ab-4cfb-b1fb-9e8067f6de02
+13	Deja Vu	Olivia Rodrigo	SOUR	Album	2021-08	2ae2e504-7116-4b4f-b632-9748bb18ccd2	867abe55-8dac-4ff0-a315-4d70e9a2cf09	b5f3c969-1a8b-4bd4-ae48-ab5ebfb13774
+14	Positions	Ariana Grande	Positions	Album	2020-10-30	7db1808d-53bc-4bde-9ee2-5dfc96cfeb45	a971b9df-dfd4-48c4-a0bb-9343e9285ac9	9ccbc110-3d50-498f-9edc-6bcdef21ab0c
+15	Bad Habits	Ed Sheeran	=	Album	2021-10-29	51182052-d6d4-49a0-bd87-a88cdb211bed	3e5d8737-ab42-433e-aab9-2397964d4265	2d24a8d7-66ad-40b2-8ae7-5f6fc9981646
+16	Heat Waves	Glass Animals	Dreamland (+ bonus levels)	Album	2020-08-11	1ccd441a-a906-4773-8e72-e4055732a784	d4a497dd-b7c7-45b8-b6dc-1a9e28771bdf	9f61e4a7-d4c3-4d0d-a6e4-dc62e31e30db
+17	Without You	The Kid Laroi	F*CK LOVE (SAVAGE)	Album / Mixtape/Street	2020-11-06	892a1351-c58c-4b51-9218-a82c8bf6d7ff	8452a27e-f418-459b-9c4f-a3fd01181030	f05d46ef-edb9-408f-9213-ff55b927dc52
+18	Forever After All	Luke Combs	What You See Ain’t Always What You Get	Album	2020-10-23	e9fc93bc-1a36-4725-9f7c-10d920b7cbed	af576162-db5b-472a-881b-491269d5fd15	bcb3e8ad-b75b-4c41-bf13-22479f04eda2
+19	Go Crazy	Chris Brown and Young Thug	Slime & B	Album / Mixtape/Street	2020-05-04	8faa8c5a-3a2b-4a99-8718-4a4bb02eeac5	f9cbf546-538f-44ad-8816-573716ce0beb	6b43ad0e-d189-44d6-b023-9ac09e18ca8a
+20	Astronaut in the Ocean	Masked Wolf	Astronomical	Album / Mixtape/Street	2021-09-10	38b52163-803f-4f03-8fd4-ccaa5eced560	19bab398-16da-40c0-91bb-75dcd508785d	2152a787-2931-4ece-863f-94c1c2bf0575
+21	34+35	Ariana Grande featuring Doja Cat and Megan Thee Stallion	Positions	Album	2020-10-30	7db1808d-53bc-4bde-9ee2-5dfc96cfeb45	be87026a-ab4b-4be8-a360-b41b5468ede8	ac1ddf29-9d9b-4d4c-9e52-3d03d2f74e71
+22	What You Know Bout Love	Pop Smoke	Shoot for the Stars Aim for the Moon	Album	2020-07-20	d6d1de65-7e43-4277-b723-fc74a2b385e1	892da9f2-78b9-4c36-8384-2f5041f0bf16	1019b4a1-e7b0-4013-8976-f978ef56621b
+23	My Ex's Best Friend	Machine Gun Kelly featuring Blackbear	Tickets to My Downfall	Album	2020-09-25	74075a86-d650-4273-9876-4890eeffeb09	88748741-3ca7-4492-a508-4f39f8bd5907	4f3791b0-06b9-4098-8103-b6166f680cb1
+24	Industry Baby	Lil Nas X and Jack Harlow	MONTERO	Album	2021-09-17	5ff232ca-d9c8-459b-9253-9374ec07777e	1c4c481f-6f18-4275-abc9-6ee6636a4ce9	13dac323-afa2-4787-a21b-d18275a3869b
+25	Therefore I Am	Billie Eilish	Happier Than Ever	Album	2021-07-30	3ac5236a-3bd8-44c6-ab60-69b013594ae6	a2fa6cac-4acb-45c1-9f7a-feb56c51a62e	028eb5ad-3eba-4e8f-ac50-4cbc21c0c11e
+26	Up	Cardi B	AM I THE DRAMA?	Album	2025-09-19	0b7306c9-16d4-434a-ad8d-890333359710	cee40237-09cd-40c4-8377-80f04b4cebcb	e539b484-321f-445c-a1c0-18368cf3d768
+27	Fancy Like	Walker Hayes	Country Stuff the Album	Album	2022-01-21	593be7ef-677c-47dd-9e5a-f78a554e1ae7	6e4b386d-2361-4740-886c-801bfce3b9f1	16a24410-1736-4eb1-ba9f-e4e7d5a02301
+28	Dakiti	Bad Bunny and Jhay Cortez	EL ÚLTIMO TOUR DEL MUNDO	Album	2020-11-27	4b550700-6912-4f3b-a804-bac8da786629	c7abe583-1b57-4868-9324-68daba19538c	b6e10c60-9abb-4b67-860b-876d2a2eeaec
+29	Best Friend	Saweetie featuring Doja Cat	Best Friend	Single	2021-01-07	fc6d610a-6312-46dc-8b1a-330f7b230e05	018a6ac2-e74f-4874-9b42-7add11ba6ddf	4b417355-ff07-478d-a792-42e194f60dd9
+30	Rapstar	Polo G	Hall of Fame	Album	2021-06-11	0cd22e63-e1bd-4789-84d9-f50722288bf2	a4179732-2d15-4039-a742-43e543aef629	e8580ecd-476f-4c6e-b0d2-d0dca017d628
+31	Heartbreak Anniversary	Giveon	Take Time	EP	2020-03-27	8891da89-48da-4f56-85d4-e24053584ea5	aff2efa7-104b-4e47-bfd7-5f6f14f5276c	cb77aabb-7b1f-4cf4-8db9-6b49753a60de
+32	For the Night	Pop Smoke featuring Lil Baby and DaBaby	Shoot for the Stars Aim for the Moon	Album	2020-07-20	d6d1de65-7e43-4277-b723-fc74a2b385e1	892da9f2-78b9-4c36-8384-2f5041f0bf16	f593c614-03af-4438-a814-ef51e6f8290e
+33	Calling My Phone	Lil Tjay and 6lack	Destined 2 Win	Album	2021-04-02	9b62852c-52d7-4eb5-8439-625575d0b94f	8d27d545-e8a7-4524-a664-4305f1824824	0a5a1c6c-8ba0-41f4-ad3b-4ed7ddb1efbb
+34	Beautiful Mistakes	Maroon 5 featuring Megan Thee Stallion	JORDI	Album	2021-06-11	7ed5ba22-98c6-4688-8ab9-2099bac4dffe	a630b639-bf2c-4eb6-bfac-f4fd0979e3f4	fa25135a-b42a-4a5d-a42a-71e9b5c9c13d
+35	Holy	Justin Bieber featuring Chance the Rapper	Justice (triple chucks deluxe)	Album	2021-04-02	0f9d5103-dd09-4fcd-8fe1-223612668f09	4435ba7c-4feb-4b65-8bdd-34431b6a6e71	abd1a019-255a-4fe6-8608-aa6cd1f6dd2a
+36	On Me	Lil Baby	My Turn	Album	2020-02-28	77586fd3-4316-4a16-af35-51336d51df5d	7786e6ce-73cf-4cd1-8473-d240b53d0e02	188f27ea-fd5f-4956-a2d4-27e0b5b6139c
+37	You Broke Me First	Tate McRae	TOO YOUNG TO BE SAD	EP	2021-03-26	50204cfd-7503-4573-a480-a5df1677ac09	c018a36b-3f9f-4133-9208-09c93d7d07c4	08ef36fa-8e8b-41a5-8b37-1f9ba2a17f5e
+38	Traitor	Olivia Rodrigo	SOUR	Album	2021-08	2ae2e504-7116-4b4f-b632-9748bb18ccd2	ecf4320b-2eeb-488e-8dde-408c5e516755	b0554059-21b3-416e-b62d-99e13608f6bf
+39	Back in Blood	Pooh Shiesty featuring Lil Durk	Shiesty Season: Certified	Album		72d30b54-ce02-4cf5-adb2-a81ecaf7c455	eb8baf17-bfc5-4114-ba3e-75993b7ae38c	1a7e0e86-68df-4076-b4d8-916f99856306
+40	I Hope	Gabby Barrett featuring Charlie Puth	Goldmine (deluxe)	Album	2020-11-19	663cddbf-281e-4ca8-8765-cd5f00c45568	22cf1e20-206d-4f33-a090-b374bebe986a	45dc2983-2127-4f6c-a0d5-97658af1fbf2
+41	Dynamite	BTS	BE	Album	2020-11-20	7917fe48-906d-464f-9909-0e4d18d59192	75622cd1-7bf0-497d-a2ad-76a1dcb5d578	db965fe4-9e56-4fc7-837b-b2a0dcdb3206
+42	Wockesha	Moneybagg Yo	A Gangsta’s Pain: Reloaded	Album	2021-10-22	19e69f6d-67b4-4a1b-9eed-3faccb425e76	e269b8d1-a4b9-4e95-9407-71bb94ebaaa8	27fcca5c-a570-4a1c-9484-ceccf02fa09b
+43	You Right	Doja Cat and the Weeknd	Planet Her	Album	2021-12-10	6c90cb91-e615-4545-854b-6d6f10c5cb6d	5fa94158-e8f9-4ad8-8d1f-d3a13787eaf7	861679df-1dda-4c68-aef3-f4bb14bc7431
+44	Beat Box 2" / "Beat Box 3	SpotemGottem featuring Pooh Shiesty / SpotemGottem featuring DaBaby	Final Destination	Album	2020-12-18	5d4977e7-9f30-4aad-badc-f2ee8590ed3b	9b466040-2b46-4a5c-bb8e-43704b39d613	02e2a1f0-55f6-4652-829d-5a9f4c463f96
+45	Laugh Now Cry Later	Drake featuring Lil Durk	Laugh Now Cry Later	Single	2020-08-14	07c7c6fa-c9bb-46ba-a23e-3515960ce42b	8aedec08-60f9-4957-a79f-5f7e80f1c31c	1b273dd9-feeb-4f26-aa05-9913e2b9e4c0
+46	Need to Know	Doja Cat	Planet Her	Album	2021-12-10	6c90cb91-e615-4545-854b-6d6f10c5cb6d	5fa94158-e8f9-4ad8-8d1f-d3a13787eaf7	f86bafa7-fd06-4f9e-adfc-7c6dae500bf2
+47	Wants and Needs	Drake featuring Lil Baby	Scary Hours 2	EP	2021-03-05	b63d31fa-3d82-4442-a666-fd10afc641fb	15952108-93aa-4b77-8dc2-2344c6e5923d	72551c68-65f3-42e5-be3a-23fae53eeb31
+48	Way 2 Sexy	Drake featuring Future and Young Thug	Certified Lover Boy	Album	2021-09-03	5c2e6a17-dc0b-42bc-8fcb-a60770505e37	6f0abe27-099d-4e30-864a-48159d8374af	d298cd51-fd1e-4799-b827-e09699b76264
+49	Telepatía	Kali Uchis	Sin Miedo (del Amor y Otros Demonios) ∞	Album	2020-12-04	65435725-fb6c-4a72-a239-3971e2254956	9319d8d4-471a-4e06-81f7-cc2275978b13	2fc3283f-dc40-4c7b-af4b-e60d27d66750
+50	Whoopty	CJ	Loyalty Over Royalty	Album	2021-04-09	0cb29254-7124-43ba-96ad-ea9d0d839266	c80b7d50-d814-4a75-baea-18ed32a7fb93	c76d7912-9019-4c14-9af0-5c4a7b263cf9
+51	Lemonade	Internet Money and Gunna featuring Don Toliver and Nav	B4 the Storm	Album	2020-10-23	465db760-ba29-473d-969b-ed11ebdebfe9	158a775e-7f93-4958-939b-1c10541d72b2	6590f7e5-9da5-4d69-bc8d-04901a2cb8b6
+52	Good Days	SZA	SOS	Album	2023-05-19	1646286a-d0ad-4288-bfab-34b0fb7b22c1	79a7b5e6-7edb-489d-9481-63387f7bc197	dc80e9a0-8282-4bea-8cdb-a7acdeb7f692
+53	Starting Over	Chris Stapleton	Starting Over	Album	2020-11-13	1495c73e-9da2-464e-9cbf-15ae7b38fd4c	e6e646ad-e569-400e-a907-0026f32afce3	f823bd97-adfc-4b14-bb45-a16a593b90ee
+54	Body	Megan Thee Stallion	Good News	Album	2020-11-20	c7e0972a-f876-429f-b9ad-b9c281dee7dc	4ed3028a-8e13-420b-934a-7e7a53a18b4b	08cf70e2-05c3-4711-94d5-e7bbd933a394
+55	Willow	Taylor Swift	evermore	Album	2020-12-18	e86d6219-f5a2-4edd-bf2b-3f9eab190ae0	5602a2c2-e161-41b0-a93f-1fa96bde8e76	af9aeb85-a1f8-4894-84c5-b03e807bb836
+56	Bang!	AJR	OK ORCHESTRA	Album	2021	1783d41f-dcf2-4a88-bd43-7133ad5e54eb	5a761c10-06e5-4937-8826-0a0454b133f1	1d5c804e-3a68-4439-87da-8124bb266205
+57	Better Together	Luke Combs	What You See Is What You Get	Album	2019-11-08	e9fc93bc-1a36-4725-9f7c-10d920b7cbed	31b0f8a7-cd88-4024-abc7-ef14a2a958d5	423e5b04-5aaa-4e5c-b34e-7958933394b9
+58	You're Mines Still	Yung Bleu featuring Drake	Moon Boy	Album	2021-07-21	83cfec67-7aa2-4627-b664-5294453583fc	7d79487f-f5ce-4cd3-9244-023d6ef8655d	
+59	Every Chance I Get	DJ Khaled featuring Lil Baby and Lil Durk	KHALED KHALED	Album	2021-05-21	b25e6372-ae59-4ef2-b33b-677ee0cd52a4	9f966258-bd63-400f-96d0-830988d9eae9	e4a2ce9a-c504-4dce-86ea-3b86788eea2a
+60	Essence	Wizkid featuring Justin Bieber and Tems	Made in Lagos	Album	2020-10-29	a29e4711-741e-4576-af2d-bf00ab8a5538	21ba339b-707f-4f44-a79a-afa0719c43a8	ebd58a14-7fa4-4c83-862b-3a0adb135cc1
+61	Chasing After You	Ryan Hurd and Maren Morris	Pelago	Album	2021-10-15	afbd66ad-3e8b-4c12-b5e7-09ef1251f757	35f509b0-48c4-4e91-87ec-a1b0ca3c6cc0	b6e13372-f491-4f08-999d-c08a4391d9ef
+62	The Good Ones	Gabby Barrett	Goldmine (deluxe)	Album	2020-11-19	663cddbf-281e-4ca8-8765-cd5f00c45568	22cf1e20-206d-4f33-a090-b374bebe986a	4b499310-77d4-4ba8-9126-411df71e8919
+63	Leave Before You Love Me	Marshmello and Jonas Brothers	Leave Before You Love Me	Single	2021-05-21	325e7108-0b06-4b2f-a7c6-1e7e2ebba3f0	6fdfaa02-f5b8-4d11-8595-dd27098efcff	db7476a2-88ea-41ed-b381-f382b6534f13
+64	Glad You Exist	Dan + Shay	Good Things	Album	2021-08-13	0ac61b2d-2234-4eb4-9a81-4117ba2c6c0a	bb55f24f-7043-48ce-a4db-703888dc51ed	0fccf3e8-868b-4ef9-863d-21b55b16acc6
+65	Lonely	Justin Bieber and Benny Blanco	Justice (triple chucks deluxe)	Album	2021-04-02	0f9d5103-dd09-4fcd-8fe1-223612668f09	4435ba7c-4feb-4b65-8bdd-34431b6a6e71	f894a41b-c220-4de9-b9c1-b4e4b41d2e0b
+66	Beggin'	Måneskin	Chosen	EP	2017-12-08	cefe7298-2d05-4456-85aa-93fd635d2aee	172958b1-493d-4b2d-b5fe-b366a3522b5e	41d1a9c3-7847-4e40-96e7-5b9657c6ac4e
+67	Streets	Doja Cat	Hot Pink	Album	2019-11-07	88e46272-f172-42ad-ae4a-6df5dbfb5ae0	9922257e-6031-425c-8d27-4fbd15cf9c46	a833a67f-e3e9-4594-b6f2-7009ec2b99d8
+68	What's Next	Drake	Scary Hours 2	EP	2021-03-05	b63d31fa-3d82-4442-a666-fd10afc641fb	a1b3e250-5c05-41df-b825-4a03fa6254fb	
+69	Famous Friends	Chris Young and Kane Brown	Famous Friends	Album	2021-08-06	50b7c2ee-0203-4caf-9a4c-3c1868b5b2a9	cbd08967-5325-4bb2-a32a-7151e9ee9edb	40e2f8c8-e4cb-40a0-8c80-056fa4407d93
+70	Lil Bit	Nelly and Florida Georgia Line	Heartland	Album	2021-08-27	9dc7f3a5-0c0d-457f-bc75-2c231ae2aa6d	5d3c54d9-4ad2-4302-903b-8fc59164df26	fd76fba3-295d-4589-a6e2-979269b6e436
+71	Thot Shit	Megan Thee Stallion	Thot Shit	Single	2021-06-11	839a8cdf-33e2-4d1c-99ec-ebcc0b4b11f6	d2fcce8b-5cd9-46a4-b371-5e37de96fd60	99f863e1-a649-4af1-8747-711aa1625a92
+72	Late at Night	Roddy Ricch	LIVE LIFE FAST	Album	2021-12-17	51bbc8d5-cd9a-4c76-82b9-fae29515b68e	5fc8d021-0fda-4d55-b6d5-fa81fcae1092	b0ca3d0f-e51c-4d20-a069-4f44cdb9809c
+73	Kings & Queens	Ava Max	Heaven & Hell	Album	2020-11-19	dab43958-f33f-481b-901d-d4ba5fea4935	b84c687f-9177-4303-afb8-ee86744c52bc	90e606bc-6b29-4afe-8393-872e24db7632
+74	Anyone	Justin Bieber	Justice (triple chucks deluxe)	Album	2021-04-02	0f9d5103-dd09-4fcd-8fe1-223612668f09	4435ba7c-4feb-4b65-8bdd-34431b6a6e71	51798a1e-190a-4229-b56a-f2cda0972fdd
+75	Track Star	Mooski	Melodic Therapy 4 the Broken	Album	2022-03-11	ca25e266-cc0d-43af-9c06-368c9aaa5ca6	b9f8fd1d-7eb8-4d9d-88ce-311121c0d325	f9bbffd1-b5c0-43fb-aaab-27e321ba75bc
+76	Time Today	Moneybagg Yo	A Gangsta’s Pain: Reloaded	Album	2021-10-22	19e69f6d-67b4-4a1b-9eed-3faccb425e76	2718668d-6b1c-4797-8a2b-f8ee209b26e7	6be214c5-a915-4475-b309-bbecb6a7cd45
+77	Cry Baby	Megan Thee Stallion featuring DaBaby	Good News	Album	2020-11-20	c7e0972a-f876-429f-b9ad-b9c281dee7dc	93e2727c-bcb1-4dc2-96a1-fcca251736ae	48a50e0e-7875-4dea-b2f9-f46bf3c4b93d
+78	All I Want for Christmas Is You	Mariah Carey	Merry Christmas	Album	1994-11-01	ea885664-bf25-3e52-8ce0-15a84aed4a83	7cfa9c10-0673-4790-a7aa-aa41e1cfcb4d	a6fab057-cf3a-4456-950e-d3edaf219326
+79	No More Parties	Coi Leray featuring Lil Durk	Trendsetter	Album	2022-04-08	ef714762-a055-4363-9f6c-174505854371	3cd788a1-7e9c-4f9c-8960-b5fd1b23894f	55efb027-0288-439d-8172-ea7ceeb216f5
+80	What's Your Country Song	Thomas Rhett	Country Again: Side A	Album	2021-04-30	ba106bd7-762d-4ef5-b9df-3babbff9949f	276445a2-e09f-4862-972e-7463bde6cc87	
+81	One Too Many	Keith Urban and Pink	The Speed of Now, Part 1	Album	2020-11-06	32da6faf-e03d-455b-8e03-d502fa3e6065	97ad420a-b494-46ae-81de-72b2f462e20b	57e60fcb-b6e1-4e63-a0b3-2bb0f33d0222
+82	Arcade	Duncan Laurence	Small Town Boy	Album	2020-11-13	e0fd2c46-57ec-4f99-8a32-4849af47f8d9	a6e2ec9b-dd54-49c4-842c-ad0df5a306e0	873e516e-ab01-4955-a717-f97024c6b649
+83	Yonaguni	Bad Bunny	Yonaguni	Single	2021-06-04	76a26ba4-3980-4298-bc04-fd92cbac301c	837e3570-460f-4364-8001-5ce308a1f818	e1309e30-9e92-41eb-9349-28649d85e6eb
+84	Good Time	Niko Moon	GOOD TIME	Album	2021-08-27	a7de1915-b1b8-4e63-8680-6cb4b42d6f71	6217b62a-c220-41cb-8026-064852a2f712	a63b83ce-cea2-4d77-a0e8-74467a902bf6
+85	If I Didn't Love You	Jason Aldean and Carrie Underwood	Macon	Album	2021-11-12	24fb7539-65b0-44d7-8a82-019a4b7e8af2	964595ce-ffcd-4d24-9dcd-dab3d9b9a9e1	
+86	Knife Talk	Drake featuring 21 Savage and Project Pat	Certified Lover Boy	Album	2021-09-03	5c2e6a17-dc0b-42bc-8fcb-a60770505e37	8bd2c19c-d143-483c-a7f9-34eb7bd451e0	b9eca4dd-1a9b-4065-90cd-fad3a8e5cb91
+87	POV	Ariana Grande	Positions	Album	2020-10-30	7db1808d-53bc-4bde-9ee2-5dfc96cfeb45	a971b9df-dfd4-48c4-a0bb-9343e9285ac9	4a53be81-ec65-4441-a044-cea7dd30bd21
+88	Just the Way	Parmalee and Blanco Brown	For You	Album	2021-07-30	ef8f8f3a-235a-499d-982f-b762ae51afa6	07447626-3202-434a-b81f-3d76981437d8	9059262b-7658-4b29-9686-639392c9d931
+89	Take My Breath	The Weeknd	Dawn FM: Alternate World	Album	2022-01-12	3344452a-3da9-4b4f-8954-ae23a86c2ecf	518712a2-5d4d-4a09-9e68-93035a717fa1	bdc3e2cb-0e40-4697-9b89-22eacbc851fb
+90	We're Good	Dua Lipa	Future Nostalgia	Album	2020-03-27	aa366795-92d7-4d67-91fa-6741f82a4858	eb694f4e-ecaa-4a71-8fb6-aa5db59a6291	15d0cfa5-1d43-42be-86e3-dbafb3991856
+91	Hell of a View	Eric Church	Soul	Album	2021	669a0114-048e-4ea8-96d9-c33f050d1b9c	4235a1e9-f76d-42d4-80ee-10e117ce11c6	df94f351-a629-46e6-88ad-6e5916b588b7
+92	Rockin' Around the Christmas Tree	Brenda Lee	Merry Christmas From Brenda Lee	Album	1964-10-19	d8699075-d5d1-4b3a-8db3-f23751c4873d	4b4f8025-b7f6-4fb9-aec8-fcca05299b60	def9b580-ad29-4ebd-a67b-a55555808d34
+93	Put Your Records On	Ritt Momney	Put Your Records On	Single	2020-04-24	17cd8993-d5ab-4d37-abed-ca48653b697d	51a2ef68-7df8-44e4-8fae-745685340035	109473e2-fc36-4416-9754-0c6533844178
+94	Happier Than Ever	Billie Eilish	Happier Than Ever	Album	2021-07-30	3ac5236a-3bd8-44c6-ab60-69b013594ae6	a2fa6cac-4acb-45c1-9f7a-feb56c51a62e	24134481-599d-4e30-bffd-3080739f3d58
+95	Single Saturday Night	Cole Swindell	Stereotype	Album	2022	dd2d0abf-0fca-4cc2-b402-da4b0fc376e7	a4f31bfb-1647-4a91-b5be-874d00a4c146	5604cd69-e5dc-41bd-a7a4-171f9dc04428
+96	Things a Man Oughta Know	Lainey Wilson	Sayin' What I'm Thinkin'	Album	2021-02-19	ffcc64d4-124a-4607-a4e7-21c20357e965	d41f16f0-32f7-4791-a8bf-4babe876e1fd	9ee34e27-316e-44b2-aa62-5d7985a8be4a
+97	Throat Baby (Go Baby)	BRS Kash	Kash Only	Album	2021-01-22	06afb121-53eb-46af-9a34-b4d9131f190f	ce62635b-c56b-451a-89dc-ad57c0698c84	d18d51e3-1888-4acf-9189-60ca7da12cf3
+98	Tombstone	Rod Wave	SoulFly (deluxe)	Album	2021	821cea37-6133-432d-bee5-79d491f76975	cf892927-4e2c-4f3a-85f7-6ceec23bc625	831d3f9b-8935-44c8-8043-bf7159310eea
+99	Drinkin' Beer. Talkin' God. Amen.	Chase Rice featuring Florida Georgia Line	The Album	Album	2021-05-28	92ecb243-1a11-47e7-a863-fb90581f7f2a	9db5b850-dcda-4f81-8423-4fcb203b8096	0bbd4355-fa7b-4190-88d3-483e710ea8ca
+100	Todo de Ti	Rauw Alejandro	VICE VERSA	Album	2021-06-25	89c26a1a-7c23-4dec-891f-22f5fd2c6f3f	8d993ba6-ef00-42dc-89e4-23ee8fe3912b	2928b0e8-1116-4593-a214-5838d574fb08

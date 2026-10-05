@@ -1,0 +1,30 @@
+plugins { id 'com.android.application' }
+
+android {
+    namespace 'com.musicmate.tv'
+    compileSdk 34
+    defaultConfig {
+        applicationId 'com.musicmate.tv'
+        minSdk 21             // 2014-era Android TV and up; the WebView is whatever the set ships
+        targetSdk 34
+        versionCode 2
+        versionName '1.1'
+    }
+    signingConfigs {
+        // a self-signed key is all a sideloaded app needs; keep tvapp/keystore/musicmate.jks
+        // once made, or the TV will refuse the next build as a different app
+        release {
+            storeFile file('keystore/musicmate.jks')
+            storePassword 'musicmate'
+            keyAlias 'musicmate'
+            keyPassword 'musicmate'
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+        }
+    }
+    compileOptions { sourceCompatibility JavaVersion.VERSION_1_8; targetCompatibility JavaVersion.VERSION_1_8 }
+}

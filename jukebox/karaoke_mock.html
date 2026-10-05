@@ -1,0 +1,337 @@
+<!-- Karaoke design mockup.
+     Written to Chrome 74 rules (no clamp, inset, aspect-ratio, min()/max() or
+     backdrop-filter) so it renders on the television, which is the only screen
+     whose opinion matters for a 10-foot layout. -->
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Karaoke mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b0a0e; --ink:#efe9df; --ink2:#b7af9f; --ink3:#7d7668;
+  --acc:#e8a04c; --acc-soft:rgba(232,160,76,.16);
+  --panel:rgba(28,25,38,.82);
+  --ease:cubic-bezier(.22,1.2,.36,1);
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{background:var(--bg);color:var(--ink);font-family:'Sora',system-ui,sans-serif;overflow:hidden}
+img{display:block}
+#glow{position:fixed;top:0;right:0;bottom:0;left:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(90vmax 70vmax at 12% 6%, rgba(232,160,76,.13) 0%, transparent 46%),
+    radial-gradient(80vmax 60vmax at 88% 94%, rgba(28,39,51,.85) 0%, transparent 55%);}
+.scene{position:fixed;top:0;right:0;bottom:0;left:0;z-index:1;display:none;flex-direction:column}
+.scene.on{display:flex}
+
+/* ---------------------------------------------------- 1. where it starts */
+#s1{padding:6vh 7vw}
+h2.sc{font-family:'Fraunces',serif;font-size:3.4vh;font-weight:640;margin:0 0 .4em}
+p.sub{color:var(--ink2);font-size:1.9vh;margin:0 0 4vh;max-width:70ch;line-height:1.55}
+.row{display:flex;align-items:center;gap:2.2vh;padding:1.7vh 1.6vh;border-radius:14px;
+  border:1px solid transparent}
+.row + .row{margin-top:.5vh}
+.row .n{width:3ch;color:var(--ink3);font-size:1.9vh;font-variant-numeric:tabular-nums}
+.row .tl{flex:1;min-width:0}
+.row .tl b{display:block;font-size:2.2vh;font-weight:500}
+.row .tl span{display:block;font-size:1.7vh;color:var(--ink3);margin-top:.3vh}
+.row .dur{color:var(--ink3);font-size:1.9vh;font-variant-numeric:tabular-nums}
+.mic{width:5.2vh;height:5.2vh;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);color:var(--ink2);
+  flex:none;position:relative}
+.mic svg{width:2.4vh;height:2.4vh}
+.mic.ready{color:var(--acc);border-color:rgba(232,160,76,.5);background:var(--acc-soft)}
+.mic.ready .dot{position:absolute;top:.2vh;right:.2vh;width:1.2vh;height:1.2vh;border-radius:50%;
+  background:var(--acc);border:.25vh solid var(--bg)}
+.mic.none{visibility:hidden}
+.legend{margin-top:4vh;display:flex;gap:3vw;flex-wrap:wrap;color:var(--ink3);font-size:1.7vh}
+.legend i{font-style:normal;color:var(--ink2)}
+
+/* ---------------------------------------------------- 2. the one-time cost */
+#s2{align-items:center;justify-content:center}
+.prep{width:52vw;max-width:760px;background:var(--panel);border:1px solid rgba(255,255,255,.12);
+  border-radius:22px;padding:4.5vh 4vw;box-shadow:0 30px 80px -20px rgba(0,0,0,.8)}
+.prep h3{font-family:'Fraunces',serif;font-size:3.2vh;font-weight:640;margin:0 0 1.4vh}
+.prep p{color:var(--ink2);font-size:1.9vh;line-height:1.6;margin:0 0 3vh}
+.bar{height:1.1vh;border-radius:999px;background:rgba(255,255,255,.1);overflow:hidden}
+.bar > i{display:block;height:100%;width:38%;border-radius:999px;
+  background:linear-gradient(90deg,var(--acc),#f0c489);transition:width .5s linear}
+.prepmeta{display:flex;justify-content:space-between;margin-top:1.6vh;color:var(--ink3);font-size:1.7vh;
+  font-variant-numeric:tabular-nums}
+.prepbtns{display:flex;gap:1.2vw;margin-top:4vh}
+
+/* ---------------------------------------------------- 3. the karaoke screen */
+#khead{display:flex;align-items:center;gap:1.6vw;padding:3.2vh 4vw 0;flex:none}
+#khead .kart{width:11vh;height:11vh;border-radius:14px;overflow:hidden;flex:none;position:relative;
+  box-shadow:0 18px 44px -14px rgba(0,0,0,.9), 0 0 0 1px rgba(255,255,255,.1)}
+#khead .kart img{width:100%;height:100%;object-fit:cover;position:absolute;top:0;left:0}
+#khead .kt b{display:block;font-family:'Fraunces',serif;font-size:2.9vh;font-weight:640;line-height:1.15}
+#khead .kt span{display:block;color:var(--ink2);font-size:1.9vh;margin-top:.5vh}
+#khead .kbadge{margin-left:auto;display:flex;align-items:center;gap:.7vw;color:var(--acc);
+  font-size:1.6vh;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  border:1px solid rgba(232,160,76,.45);background:var(--acc-soft);padding:.9vh 1.4vw;border-radius:999px}
+#khead .kbadge svg{width:2vh;height:2vh}
+
+#lyr{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:0 8vw;min-height:0;overflow:hidden;text-align:center}
+#lines{display:flex;flex-direction:column;align-items:center}
+.ln{font-family:'Fraunces',serif;font-weight:600;line-height:1.28;transition:.45s var(--ease);
+  margin:.55vh 0;max-width:26ch}
+.ln.past{font-size:3.1vh;color:#544e45}
+.ln.next{font-size:3.4vh;color:var(--ink3)}
+.ln.next2{font-size:3.1vh;color:#5d5749}
+.ln.cur{font-size:6.2vh;color:var(--acc);text-shadow:0 4px 30px rgba(232,160,76,.32)}
+#leadin{height:3vh;display:flex;gap:.8vw;align-items:center;justify-content:center;margin-bottom:1.4vh}
+#leadin b{width:1.4vh;height:1.4vh;border-radius:50%;background:rgba(232,160,76,.26);transition:.2s}
+#leadin b.lit{background:var(--acc);transform:scale(1.35)}
+
+#kfoot{flex:none;padding:0 4vw 4.4vh;display:flex;flex-direction:column;gap:2.2vh}
+#kbar{height:.9vh;border-radius:999px;background:rgba(255,255,255,.1);overflow:hidden}
+#kbar > i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--acc),#f0c489)}
+#ktime{display:flex;justify-content:space-between;color:var(--ink3);font-size:1.7vh;
+  font-variant-numeric:tabular-nums;margin-top:-1.2vh}
+#kctl{display:flex;align-items:center;gap:1.4vw}
+.seg{display:flex;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);
+  border-radius:999px;padding:.5vh;gap:.4vh}
+.seg button{appearance:none;border:0;background:transparent;color:var(--ink2);cursor:pointer;
+  font-family:'Sora',sans-serif;font-size:1.9vh;font-weight:500;padding:1.2vh 1.8vw;border-radius:999px;
+  transition:.2s var(--ease)}
+.seg button.sel{background:var(--acc);color:#20170c;font-weight:640}
+.btn{appearance:none;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.05);
+  color:var(--ink);cursor:pointer;font-family:'Sora',sans-serif;font-size:1.9vh;font-weight:500;
+  padding:1.3vh 2vw;border-radius:999px;transition:.2s var(--ease)}
+.spacer{flex:1}
+.foc{outline:none;box-shadow:0 0 0 .45vh var(--acc), 0 0 0 .9vh rgba(232,160,76,.22)}
+
+#hint{position:fixed;left:0;right:0;bottom:0;z-index:5;text-align:center;padding:1.1vh 0;
+  background:rgba(8,7,10,.94);border-top:1px solid rgba(255,255,255,.08);
+  color:var(--ink3);font-size:1.5vh;letter-spacing:.03em}
+#hint b{color:var(--acc);font-weight:600}
+</style>
+
+<div id="glow"></div>
+
+<section id="s1" class="scene on">
+  <h2 class="sc">Still Life &middot; The Rolling Stones</h2>
+  <p class="sub">The microphone shows only on songs that have time-synced lyrics, because karaoke
+    without them is just an instrumental. Its state says whether the song can be sung right now
+    or has to be prepared first.</p>
+
+  <div class="row">
+    <span class="n">3</span>
+    <span class="tl"><b>Beast Of Burden</b><span>The Rolling Stones</span></span>
+    <span class="dur">4:34</span>
+    <span class="mic ready" title="Ready to sing"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path><path d="M19 10v1a7 7 0 0 1-14 0v-1"></path><path d="M12 18v4"></path></svg><i class="dot"></i></span>
+  </div>
+
+  <div class="row">
+    <span class="n">4</span>
+    <span class="tl"><b>Shattered</b><span>The Rolling Stones</span></span>
+    <span class="dur">4:11</span>
+    <span class="mic" title="Prepare for karaoke"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path><path d="M19 10v1a7 7 0 0 1-14 0v-1"></path><path d="M12 18v4"></path></svg></span>
+  </div>
+
+  <div class="row">
+    <span class="n">5</span>
+    <span class="tl"><b>Time Is On My Side</b><span>The Rolling Stones &middot; no synced lyrics</span></span>
+    <span class="dur">3:00</span>
+    <span class="mic none"></span>
+  </div>
+
+  <div class="legend">
+    <span><i>Filled, with a dot</i> &nbsp;already separated &mdash; opens instantly</span>
+    <span><i>Outline</i> &nbsp;needs preparing once</span>
+    <span><i>Absent</i> &nbsp;no synced lyrics, so no karaoke</span>
+  </div>
+</section>
+
+<section id="s2" class="scene">
+  <div class="prep">
+    <h3>Separating the vocals</h3>
+    <p>Shattered is being split into a vocal track and a backing track. This happens once. The
+      result is kept on disk, so this song opens instantly every time after today. It runs in the
+      background &mdash; you can carry on browsing and the microphone will fill in when it is ready.</p>
+    <div class="bar"><i id="pbar"></i></div>
+    <div class="prepmeta"><span id="ppct">38%</span><span id="peta">about 9 min left</span></div>
+    <div class="prepbtns">
+      <button class="btn" id="p1">Keep browsing</button>
+      <button class="btn" id="p2">Cancel</button>
+    </div>
+  </div>
+</section>
+
+<section id="s3" class="scene">
+  <div id="khead">
+    <div class="kart"><img id="kimg" alt=""></div>
+    <div class="kt"><b>Danny Boy</b><span>Traditional</span></div>
+    <div class="kbadge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"></path><path d="M19 10v1a7 7 0 0 1-14 0v-1"></path><path d="M12 18v4"></path></svg> Karaoke</div>
+  </div>
+
+  <div id="lyr">
+    <div id="leadin"><b></b><b></b><b></b></div>
+    <div id="lines"></div>
+  </div>
+
+  <div id="kfoot">
+    <div id="kbar"><i id="kfill"></i></div>
+    <div id="ktime"><span id="kel">0:00</span><span id="kre">-4:11</span></div>
+    <div id="kctl">
+      <div class="seg foc" id="seg" tabindex="0">
+        <button class="sel" data-v="0">Vocals off</button>
+        <button data-v="1">Guide</button>
+        <button data-v="2">Vocals on</button>
+      </div>
+      <span class="spacer"></span>
+      <button class="btn" id="brestart">Restart</button>
+      <button class="btn" id="bexit">Exit karaoke</button>
+    </div>
+  </div>
+</section>
+
+<div id="hint"><b>1</b> library &nbsp; <b>2</b> preparing &nbsp; <b>3</b> karaoke &nbsp;&nbsp;|&nbsp;&nbsp;
+  <b>left / right</b> move focus &nbsp; <b>Enter</b> select</div>
+
+<script>
+/* A drawn placeholder sleeve, so the mockup needs nothing from the server. */
+(function () {
+  var c = document.createElement('canvas');
+  c.width = 300; c.height = 300;
+  var x = c.getContext('2d');
+  var g = x.createLinearGradient(0, 0, 300, 300);
+  g.addColorStop(0, '#2a2530');
+  g.addColorStop(1, '#12101a');
+  x.fillStyle = g;
+  x.fillRect(0, 0, 300, 300);
+  x.fillStyle = 'rgba(232,160,76,.92)';
+  x.font = '600 128px Fraunces, Georgia, serif';
+  x.textAlign = 'center';
+  x.textBaseline = 'middle';
+  x.fillText('D', 150, 160);
+  document.getElementById('kimg').src = c.toDataURL();
+})();
+
+/* A public-domain lyric (Danny Boy, 1913), so the layout is tested against real
+   singable lines and real line lengths rather than filler. */
+var LINES = [
+  'Oh Danny boy, the pipes, the pipes are calling',
+  'From glen to glen, and down the mountain side',
+  'The summer is gone, and all the roses falling',
+  'It is you, it is you must go and I must bide',
+  'But come ye back when summer is in the meadow',
+  'Or when the valley is hushed and white with snow',
+  'And I will be here in sunshine or in shadow',
+  'Oh Danny boy, oh Danny boy, I love you so'
+];
+var LINE_MS = 5200;
+var DUR = 251;
+
+var lines = document.getElementById('lines');
+var cur = 0;
+
+function paint() {
+  var h = '';
+  for (var i = cur - 2; i <= cur + 3; i++) {
+    if (i < 0 || i >= LINES.length) continue;
+    var cls = i < cur ? 'past' : (i === cur ? 'cur' : (i === cur + 1 ? 'next' : 'next2'));
+    h += '<div class="ln ' + cls + '">' + LINES[i] + '</div>';
+  }
+  lines.innerHTML = h;
+}
+paint();
+
+function fmt(s) {
+  s = Math.max(0, Math.round(s));
+  return Math.floor(s / 60) + ':' + ('0' + (s % 60)).slice(-2);
+}
+
+var t0 = Date.now();
+var fill = document.getElementById('kfill');
+setInterval(function () {
+  var ms = Date.now() - t0;
+  var el = (ms / 1000) % DUR;
+  fill.style.width = (el / DUR * 100) + '%';
+  document.getElementById('kel').textContent = fmt(el);
+  document.getElementById('kre').textContent = '-' + fmt(DUR - el);
+
+  var want = Math.floor(ms / LINE_MS) % LINES.length;
+  if (want !== cur) { cur = want; paint(); }
+
+  /* three beats of lead-in before each line, the way karaoke counts you in */
+  var into = (ms % LINE_MS) / LINE_MS;
+  var dots = document.querySelectorAll('#leadin b');
+  for (var i = 0; i < dots.length; i++) {
+    dots[i].className = (into > 0.82 && i <= (into - 0.82) / 0.06) ? 'lit' : '';
+  }
+}, 100);
+
+var pw = 38;
+setInterval(function () {
+  pw = pw >= 100 ? 4 : pw + 0.6;
+  document.getElementById('pbar').style.width = pw + '%';
+  document.getElementById('ppct').textContent = Math.round(pw) + '%';
+  document.getElementById('peta').textContent =
+    'about ' + Math.max(1, Math.round((100 - pw) * 0.15)) + ' min left';
+}, 700);
+
+/* Focus model: the vocals control holds focus the moment karaoke opens, because
+   it is the only thing anyone reaches for mid-song. */
+var FOCUS = { s1: [], s2: ['p1', 'p2'], s3: ['seg', 'brestart', 'bexit'] };
+var scene = 's1';
+var fi = 0;
+
+function applyFocus() {
+  var all = document.querySelectorAll('.foc');
+  for (var i = 0; i < all.length; i++) all[i].classList.remove('foc');
+  var ids = FOCUS[scene];
+  if (!ids.length) return;
+  if (fi < 0) fi = ids.length - 1;
+  if (fi >= ids.length) fi = 0;
+  document.getElementById(ids[fi]).classList.add('foc');
+}
+
+function show(id) {
+  scene = id;
+  fi = 0;
+  var all = document.querySelectorAll('.scene');
+  for (var i = 0; i < all.length; i++) all[i].classList.remove('on');
+  document.getElementById(id).classList.add('on');
+  applyFocus();
+}
+
+var seg = document.getElementById('seg');
+var vmode = 0;
+
+function setV(v) {
+  vmode = v;
+  var b = seg.querySelectorAll('button');
+  for (var i = 0; i < b.length; i++) b[i].className = (i === v ? 'sel' : '');
+}
+
+(function () {
+  var b = seg.querySelectorAll('button');
+  for (var i = 0; i < b.length; i++) {
+    (function (btn) {
+      btn.addEventListener('click', function () { setV(parseInt(btn.getAttribute('data-v'), 10)); });
+    })(b[i]);
+  }
+})();
+
+addEventListener('keydown', function (e) {
+  if (e.key === '1') { show('s1'); return; }
+  if (e.key === '2') { show('s2'); return; }
+  if (e.key === '3') { show('s3'); return; }
+  var ids = FOCUS[scene];
+  if (!ids.length) return;
+  if (e.key === 'ArrowRight') { fi++; applyFocus(); e.preventDefault(); }
+  else if (e.key === 'ArrowLeft') { fi--; applyFocus(); e.preventDefault(); }
+  else if (e.key === 'Enter' || e.key === ' ') {
+    e.preventDefault();
+    var id = ids[fi];
+    if (scene === 's3' && id === 'seg') setV((vmode + 1) % 3);
+    else if (id === 'p1' || id === 'p2' || id === 'bexit') show('s1');
+  }
+});
+
+show('s1');
+</script>

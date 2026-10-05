@@ -1,0 +1,1430 @@
+{
+ "chart": "Billboard Year-End Hot 100",
+ "year": 2012,
+ "source": "https://en.wikipedia.org/wiki/Billboard_Year-End_Hot_100_singles_of_2012",
+ "songs": [
+  {
+   "rank": 1,
+   "title": "Somebody That I Used to Know",
+   "artist": "Gotye featuring Kimbra",
+   "mbid": "5b6ad1ba-9e08-4570-bcef-e3343519070a",
+   "artist_mbids": [
+    "6f6fd596-76e0-4b82-aa37-f558ac2d337b",
+    "fad2875e-ba81-4637-b859-4684622dcb1c"
+   ],
+   "album": "Making Mirrors",
+   "album_mbid": "c2b2d0c9-16d2-49e1-b03e-2d7304d767e2",
+   "album_group_mbid": "8c68c586-358f-46c0-85e3-77d2ea9650be",
+   "album_type": "Album",
+   "album_date": "2011-08-19"
+  },
+  {
+   "rank": 2,
+   "title": "Call Me Maybe",
+   "artist": "Carly Rae Jepsen",
+   "mbid": "cac5b2b9-5fda-4856-b71a-31c94bb5da9d",
+   "artist_mbids": [
+    "09887aa7-226e-4ecc-9a0c-02d2ae5777e1"
+   ],
+   "album": "Kiss",
+   "album_mbid": "45fcf784-f9e9-45bf-a0bc-b46dd90a735a",
+   "album_group_mbid": "e7ce6cac-d26e-470c-b8a1-97ecc07354df",
+   "album_type": "Album",
+   "album_date": "2012-09-18"
+  },
+  {
+   "rank": 3,
+   "title": "We Are Young",
+   "artist": "Fun featuring Janelle Monáe",
+   "mbid": "9f7bac6a-0231-4fc3-b277-2a4c000ee606",
+   "artist_mbids": [
+    "136c4166-85b3-4994-aa04-59857c434199",
+    "ee190f6b-7d98-43ec-b924-da5f8018eca0"
+   ],
+   "album": "Some Nights",
+   "album_mbid": "c8947007-4af5-4515-8468-87927bd8ab01",
+   "album_group_mbid": "a969cc3c-2ab3-4799-acb1-50e1325cb290",
+   "album_type": "Album",
+   "album_date": "2012-02-21"
+  },
+  {
+   "rank": 4,
+   "title": "Payphone",
+   "artist": "Maroon 5 featuring Wiz Khalifa",
+   "mbid": "bcd54ab6-9552-44cd-a09d-d46a8a374c35",
+   "artist_mbids": [
+    "0ab49580-c84f-44d4-875f-d83760ea2cfe",
+    "f5dfa020-ad69-41cd-b3d4-fd7af0414e94"
+   ],
+   "album": "Overexposed",
+   "album_mbid": "16b4835a-0f40-44c3-8f57-703f08a0623e",
+   "album_group_mbid": "ed3c55b6-e49d-4d4e-a338-62b823b1e2d4",
+   "album_type": "Album",
+   "album_date": "2012-06-25"
+  },
+  {
+   "rank": 5,
+   "title": "Lights",
+   "artist": "Ellie Goulding",
+   "mbid": "10803856-9c6d-4970-b14b-8dd34a20c225",
+   "artist_mbids": [
+    "33ca19f4-18c8-4411-98df-ac23890ce9f5"
+   ],
+   "album": "Lights",
+   "album_mbid": "babe3872-2c65-4b25-a025-06137690514e",
+   "album_group_mbid": "e665cc07-f57a-4b0d-8e7a-426095aa529f",
+   "album_type": "Album",
+   "album_date": "2010"
+  },
+  {
+   "rank": 6,
+   "title": "Glad You Came",
+   "artist": "The Wanted",
+   "mbid": "571c10f9-911e-476a-9302-1cdf2125cace",
+   "artist_mbids": [
+    "bcb16f22-b064-4b80-b3a3-c824bccdbab1"
+   ],
+   "album": "Battleground",
+   "album_mbid": "8d60ae1f-277d-4883-a3b6-b114241e1e25",
+   "album_group_mbid": "ca78eb58-e3f6-4a8b-9350-3f1af5393d16",
+   "album_type": "Album",
+   "album_date": "2011-11-04"
+  },
+  {
+   "rank": 7,
+   "title": "Stronger (What Doesn't Kill You)",
+   "artist": "Kelly Clarkson",
+   "mbid": "ea12da63-6f68-432e-9951-a779a5db64c9",
+   "artist_mbids": [
+    "d339efbb-77b9-4147-ba9e-59f2f24550b2"
+   ],
+   "album": "Stronger",
+   "album_mbid": "ae13c2c9-0d87-4653-9cc3-379a9602714a",
+   "album_group_mbid": "cc073eb5-920b-4dad-a7f7-178a5cad1966",
+   "album_type": "Album",
+   "album_date": "2011-10-21"
+  },
+  {
+   "rank": 8,
+   "title": "We Found Love",
+   "artist": "Rihanna featuring Calvin Harris",
+   "mbid": "11294597-b4ac-4717-8e95-f99d665c1ece",
+   "artist_mbids": [
+    "73e5e69d-3554-40d8-8516-00cb38737a1c",
+    "8dd98bdc-80ec-4e93-8509-2f46bafc09a7"
+   ],
+   "album": "Talk That Talk",
+   "album_mbid": "2c2c07ee-c324-45b1-bad4-d90e2f3e9298",
+   "album_group_mbid": "15818ec5-bf34-47de-a4e5-260f98828d64",
+   "album_type": "Album",
+   "album_date": "2011-11-21"
+  },
+  {
+   "rank": 9,
+   "title": "Starships",
+   "artist": "Nicki Minaj",
+   "mbid": "7101eeb1-5210-4a97-b4d6-81aa2ff92835",
+   "artist_mbids": [
+    "1036b808-f58c-4a3e-b461-a2c4492ecf1b"
+   ],
+   "album": "Pink Friday: Roman Reloaded: The Re‐Up",
+   "album_mbid": "80da590e-c97b-4511-9c4e-846c28a5ca0d",
+   "album_group_mbid": "78a4ac64-298f-45ec-ac69-832a68830a6a",
+   "album_type": "Album",
+   "album_date": "2012-11-19"
+  },
+  {
+   "rank": 10,
+   "title": "What Makes You Beautiful",
+   "artist": "One Direction",
+   "mbid": "d9a5d65e-04b1-4bef-bb81-1c24f96cd396",
+   "artist_mbids": [
+    "1a425bbd-cca4-4b2c-aeb7-71cb176c828a"
+   ],
+   "album": "Up All Night (limited yearbook edition)",
+   "album_mbid": "c67d69c1-52ed-4ad9-8adc-dcd912c91b32",
+   "album_group_mbid": "efba7763-a237-4bba-85e7-ba94f59f8c2c",
+   "album_type": "Album",
+   "album_date": "2011-11-18"
+  },
+  {
+   "rank": 11,
+   "title": "Wild Ones",
+   "artist": "Flo Rida featuring Sia",
+   "mbid": "42c8bc9d-2722-464c-b4de-0134e72aba68",
+   "artist_mbids": [
+    "4593d49a-7f67-46ba-9ec0-126bd676286f",
+    "2f548675-008d-4332-876c-108b0c7ab9c5"
+   ],
+   "album": "Wild Ones",
+   "album_mbid": "6eb9684b-b73f-42cb-a2b2-d4012d76eed8",
+   "album_group_mbid": "3d3ca13d-8269-4d90-95c9-7e03bb297d37",
+   "album_type": "Album",
+   "album_date": "2012-06-22"
+  },
+  {
+   "rank": 12,
+   "title": "Set Fire to the Rain",
+   "artist": "Adele",
+   "mbid": "d1e0a99e-1894-457b-ba6a-985eeef4d0c4",
+   "artist_mbids": [
+    "cc2c9c3c-b7bc-4b8b-84d8-4fbd8779e493"
+   ],
+   "album": "21",
+   "album_mbid": "7fb66278-4cff-3fe8-9ed5-4e95cdee3bbb",
+   "album_group_mbid": "e4174758-d333-4a8e-a31f-dd0edd51518e",
+   "album_type": "Album",
+   "album_date": "2011-02-22"
+  },
+  {
+   "rank": 13,
+   "title": "Sexy and I Know It",
+   "artist": "LMFAO",
+   "mbid": "c8200a2c-fbae-4c01-be04-94818a069364",
+   "artist_mbids": [
+    "ed5d9086-e8cd-473a-b96c-d81ad6c98f0d"
+   ],
+   "album": "Sorry for Party Rocking",
+   "album_mbid": "e8e6b5cd-94b0-4c25-a4b5-33aac18d77c1",
+   "album_group_mbid": "3be839a3-1d35-4846-aa64-9d1532648799",
+   "album_type": "Album",
+   "album_date": "2011-06-21"
+  },
+  {
+   "rank": 14,
+   "title": "Some Nights",
+   "artist": "Fun",
+   "mbid": "582c0a72-1540-40a2-bf23-e86349575498",
+   "artist_mbids": [
+    "136c4166-85b3-4994-aa04-59857c434199"
+   ],
+   "album": "Some Nights",
+   "album_mbid": "ed85d3ab-9b66-4530-b678-816d0db9fe73",
+   "album_group_mbid": "a969cc3c-2ab3-4799-acb1-50e1325cb290",
+   "album_type": "Album",
+   "album_date": "2012-02-21"
+  },
+  {
+   "rank": 15,
+   "title": "Wide Awake",
+   "artist": "Katy Perry",
+   "mbid": "2c2b2fff-b527-4cfd-90ae-41647a7d2d35",
+   "artist_mbids": [
+    "122d63fc-8671-43e4-9752-34e846d62a9c"
+   ],
+   "album": "Teenage Dream: The Complete Confection",
+   "album_mbid": "5a2fc373-30e5-40ff-87d4-0ed5bd19482b",
+   "album_group_mbid": "e6f683c9-fc85-412c-a352-d6e411fc2603",
+   "album_type": "Album",
+   "album_date": "2012-03-23"
+  },
+  {
+   "rank": 16,
+   "title": "Good Feeling",
+   "artist": "Flo Rida",
+   "mbid": "27a3e84a-bdae-4fc3-9440-218371c6143d",
+   "artist_mbids": [
+    "4593d49a-7f67-46ba-9ec0-126bd676286f"
+   ],
+   "album": "Wild Ones",
+   "album_mbid": "6eb9684b-b73f-42cb-a2b2-d4012d76eed8",
+   "album_group_mbid": "3d3ca13d-8269-4d90-95c9-7e03bb297d37",
+   "album_type": "Album",
+   "album_date": "2012-06-22"
+  },
+  {
+   "rank": 17,
+   "title": "Whistle",
+   "artist": "Flo Rida",
+   "mbid": "a63b42a6-916d-457a-827d-07d48f9f8502",
+   "artist_mbids": [
+    "4593d49a-7f67-46ba-9ec0-126bd676286f"
+   ],
+   "album": "Wild Ones",
+   "album_mbid": "6eb9684b-b73f-42cb-a2b2-d4012d76eed8",
+   "album_group_mbid": "3d3ca13d-8269-4d90-95c9-7e03bb297d37",
+   "album_type": "Album",
+   "album_date": "2012-06-22"
+  },
+  {
+   "rank": 18,
+   "title": "One More Night",
+   "artist": "Maroon 5",
+   "mbid": "7c1fce2d-5f5b-4a5b-8287-d3452ae3677f",
+   "artist_mbids": [
+    "0ab49580-c84f-44d4-875f-d83760ea2cfe"
+   ],
+   "album": "Overexposed",
+   "album_mbid": "16b4835a-0f40-44c3-8f57-703f08a0623e",
+   "album_group_mbid": "ed3c55b6-e49d-4d4e-a338-62b823b1e2d4",
+   "album_type": "Album",
+   "album_date": "2012-06-25"
+  },
+  {
+   "rank": 19,
+   "title": "Drive By",
+   "artist": "Train",
+   "mbid": "e04a4d03-6eae-478c-8b41-4f1dc5f2b854",
+   "artist_mbids": [
+    "bfd5aec5-62a2-4560-a316-7c46c17babda"
+   ],
+   "album": "California 37",
+   "album_mbid": "cbe6e860-98ad-40b8-ae77-0a02a1e12ae3",
+   "album_group_mbid": "adb83fd9-88c1-4357-b057-5616d7a0c4e8",
+   "album_type": "Album",
+   "album_date": "2012-12-04"
+  },
+  {
+   "rank": 20,
+   "title": "The Motto",
+   "artist": "Drake featuring Lil Wayne",
+   "mbid": "ddb6fe69-a9ce-4a21-a13d-adb6052b2017",
+   "artist_mbids": [
+    "9fff2f8a-21e6-47de-a2b8-7f449929d43f",
+    "ac9a487a-d9d2-4f27-bb23-0f4686488345"
+   ],
+   "album": "Take Care",
+   "album_mbid": "129c3821-2931-4c01-b2c8-9cc96461399d",
+   "album_group_mbid": "47809021-4515-4215-beea-db3f5dfb6267",
+   "album_type": "Album",
+   "album_date": "2011-11-15"
+  },
+  {
+   "rank": 21,
+   "title": "Where Have You Been",
+   "artist": "Rihanna",
+   "mbid": "8757a519-65c8-4ad4-b82b-5c71e6e192f7",
+   "artist_mbids": [
+    "73e5e69d-3554-40d8-8516-00cb38737a1c"
+   ],
+   "album": "Talk That Talk",
+   "album_mbid": "2c2c07ee-c324-45b1-bad4-d90e2f3e9298",
+   "album_group_mbid": "15818ec5-bf34-47de-a4e5-260f98828d64",
+   "album_type": "Album",
+   "album_date": "2011-11-21"
+  },
+  {
+   "rank": 22,
+   "title": "Everybody Talks",
+   "artist": "Neon Trees",
+   "mbid": "7be8d679-53b5-4fde-909e-de2dfd433c6b",
+   "artist_mbids": [
+    "16243662-8538-4746-a0fb-0d15b5828b8e"
+   ],
+   "album": "Picture Show",
+   "album_mbid": "b660188a-4cef-46fa-80f4-58b8bdb4bfc9",
+   "album_group_mbid": "a0f2c14e-2424-45fc-9786-3a0ca5cdd22e",
+   "album_type": "Album",
+   "album_date": "2012-04-17"
+  },
+  {
+   "rank": 23,
+   "title": "Take Care",
+   "artist": "Drake featuring Rihanna",
+   "mbid": "a23ccdb8-765f-4b7d-b47a-63191b2f856f",
+   "artist_mbids": [
+    "9fff2f8a-21e6-47de-a2b8-7f449929d43f",
+    "73e5e69d-3554-40d8-8516-00cb38737a1c"
+   ],
+   "album": "Take Care",
+   "album_mbid": "129c3821-2931-4c01-b2c8-9cc96461399d",
+   "album_group_mbid": "47809021-4515-4215-beea-db3f5dfb6267",
+   "album_type": "Album",
+   "album_date": "2011-11-15"
+  },
+  {
+   "rank": 24,
+   "title": "Titanium",
+   "artist": "David Guetta featuring Sia",
+   "mbid": "0069c0f7-9274-4b4b-a10e-110b90a4bcc0",
+   "artist_mbids": [
+    "302bd7b9-d012-4360-897a-93b00c855680",
+    "2f548675-008d-4332-876c-108b0c7ab9c5"
+   ],
+   "album": "Nothing But the Beat Ultimate",
+   "album_mbid": "ec467779-96e6-45a6-95af-b41f94915df0",
+   "album_group_mbid": "a2709bdb-e16e-4f71-b1aa-cc68119fb782",
+   "album_type": "Album",
+   "album_date": "2011-08-24"
+  },
+  {
+   "rank": 25,
+   "title": "I Won't Give Up",
+   "artist": "Jason Mraz",
+   "mbid": "d7a648a9-2996-4092-88df-b3b05d9ae30f",
+   "artist_mbids": [
+    "82eb8936-7bf6-4577-8320-a2639465206d"
+   ],
+   "album": "Love Is a Four Letter Word",
+   "album_mbid": "94fdd9eb-5394-4ca0-b12f-c4aff9660707",
+   "album_group_mbid": "7b2b8286-a641-4c92-9477-3c0cd1217ec6",
+   "album_type": "Album",
+   "album_date": ""
+  },
+  {
+   "rank": 26,
+   "title": "It Will Rain",
+   "artist": "Bruno Mars",
+   "mbid": "15274cfe-4a96-4761-a01f-4fb99afc04d3",
+   "artist_mbids": [
+    "afb680f2-b6eb-4cd7-a70b-a63b25c763d5"
+   ],
+   "album": "The Twilight Saga: Breaking Dawn, Part 1: Original Motion Picture Soundtrack",
+   "album_mbid": "aa4b441e-fd24-4520-8509-7852e6535227",
+   "album_group_mbid": "f997eb8c-d01a-40e9-84e4-5876df38e0d6",
+   "album_type": "Album / Compilation, Soundtrack",
+   "album_date": "2011-11-04"
+  },
+  {
+   "rank": 27,
+   "title": "Mercy",
+   "artist": "Kanye West, Big Sean, Pusha T and 2 Chainz",
+   "mbid": "a2b608b5-6bc1-42cb-b0c5-9696ec42d7bb",
+   "artist_mbids": [
+    "164f0d73-1234-4e2c-8743-d77bf2191051",
+    "942a9807-9c1a-4a0e-a285-1fde2c5be9d1",
+    "14ecd19f-7121-4192-8549-e5056241a42f",
+    "dff0d392-4cd5-4052-9fbb-f485df3891e5"
+   ],
+   "album": "Kanye West Presents Good Music: Cruel Summer",
+   "album_mbid": "922144cc-2a51-4d90-b2d0-634a052d95a7",
+   "album_group_mbid": "1e06bb4d-3e20-4d1c-8d0a-0c179df397b5",
+   "album_type": "Album",
+   "album_date": "2012-09-18"
+  },
+  {
+   "rank": 28,
+   "title": "Boyfriend",
+   "artist": "Justin Bieber",
+   "mbid": "21037394-2d89-42ce-bb9b-8822266b1fa0",
+   "artist_mbids": [
+    "e0140a67-e4d1-4f13-8a01-364355bee46e"
+   ],
+   "album": "Believe",
+   "album_mbid": "31a17ed3-dfbf-4786-b3c7-d35c0e94e6f0",
+   "album_group_mbid": "df46f245-7f62-4982-9d2c-e83d7be91cbf",
+   "album_type": "Album",
+   "album_date": "2012"
+  },
+  {
+   "rank": 29,
+   "title": "Party Rock Anthem",
+   "artist": "LMFAO featuring Lauren Bennett and GoonRock",
+   "mbid": "3ed31778-e8b3-4391-a4b4-a33010ec7ccf",
+   "artist_mbids": [
+    "ed5d9086-e8cd-473a-b96c-d81ad6c98f0d",
+    "131a8268-b0aa-4c5c-89fc-d0e618af3f45",
+    "727b0e62-ad3e-4e14-ae3c-f068b0a84195"
+   ],
+   "album": "Sorry For Party Rocking",
+   "album_mbid": "fb477a91-1e88-4356-81fa-66e0799f5d29",
+   "album_group_mbid": "3be839a3-1d35-4846-aa64-9d1532648799",
+   "album_type": "Album",
+   "album_date": "2011-07-18"
+  },
+  {
+   "rank": 30,
+   "title": "Too Close",
+   "artist": "Alex Clare",
+   "mbid": "93fa737b-1abb-489e-a16e-0bc625a1a8e3",
+   "artist_mbids": [
+    "e8c8a3c3-29b6-421e-b977-fb6796231d41"
+   ],
+   "album": "The Lateness of the Hour (Deluxe Edition)",
+   "album_mbid": "35f48b83-e9d3-4318-86a1-35513ce4d28a",
+   "album_group_mbid": "d1e4c110-595a-4319-8c7a-76ff80e424d5",
+   "album_type": "Album",
+   "album_date": "2011-07-08"
+  },
+  {
+   "rank": 31,
+   "title": "Part of Me",
+   "artist": "Katy Perry",
+   "mbid": "eca3290c-253d-458a-a5f2-f11dd1221648",
+   "artist_mbids": [
+    "122d63fc-8671-43e4-9752-34e846d62a9c"
+   ],
+   "album": "Teenage Dream: The Complete Confection",
+   "album_mbid": "5a2fc373-30e5-40ff-87d4-0ed5bd19482b",
+   "album_group_mbid": "e6f683c9-fc85-412c-a352-d6e411fc2603",
+   "album_type": "Album",
+   "album_date": "2012-03-23"
+  },
+  {
+   "rank": 32,
+   "title": "Young, Wild & Free",
+   "artist": "Snoop Dogg and Wiz Khalifa featuring Bruno Mars",
+   "mbid": "604fd64f-556f-49c3-8d5d-38ac2480482c",
+   "artist_mbids": [
+    "f90e8b26-9e52-4669-a5c9-e28529c47894",
+    "f5dfa020-ad69-41cd-b3d4-fd7af0414e94",
+    "afb680f2-b6eb-4cd7-a70b-a63b25c763d5"
+   ],
+   "album": "Mac and Devin Go to High School (Music from and Inspired by the Movie) (Deluxe)",
+   "album_mbid": "5478bfb4-4842-49c2-b18e-76c5281bf043",
+   "album_group_mbid": "9c34b1bc-7214-4a49-845a-e935d17c25c9",
+   "album_type": "Album / Soundtrack",
+   "album_date": "2011-12-09"
+  },
+  {
+   "rank": 33,
+   "title": "We Are Never Ever Getting Back Together",
+   "artist": "Taylor Swift",
+   "mbid": "44b6ea5d-33dc-4374-bc4a-bb3309db2e5a",
+   "artist_mbids": [
+    "20244d07-534f-4eff-b4d4-930878889970"
+   ],
+   "album": "Red",
+   "album_mbid": "1ea34711-bee5-4bd5-95fd-830a3d883d0e",
+   "album_group_mbid": "a73cecde-0923-40ad-aad1-e8c24ba6c3d2",
+   "album_type": "Album",
+   "album_date": "2012-10-22"
+  },
+  {
+   "rank": 34,
+   "title": "As Long as You Love Me",
+   "artist": "Justin Bieber featuring Big Sean",
+   "mbid": "12456308-20ee-41c6-bfc4-1849c86b2f69",
+   "artist_mbids": [
+    "e0140a67-e4d1-4f13-8a01-364355bee46e",
+    "942a9807-9c1a-4a0e-a285-1fde2c5be9d1"
+   ],
+   "album": "Believe",
+   "album_mbid": "31a17ed3-dfbf-4786-b3c7-d35c0e94e6f0",
+   "album_group_mbid": "df46f245-7f62-4982-9d2c-e83d7be91cbf",
+   "album_type": "Album",
+   "album_date": "2012"
+  },
+  {
+   "rank": 35,
+   "title": "Turn Me On",
+   "artist": "David Guetta featuring Nicki Minaj",
+   "mbid": "37f77c89-d94f-42da-86a8-7cdb91b698ab",
+   "artist_mbids": [
+    "302bd7b9-d012-4360-897a-93b00c855680",
+    "1036b808-f58c-4a3e-b461-a2c4492ecf1b"
+   ],
+   "album": "Nothing But the Beat Ultimate",
+   "album_mbid": "ec467779-96e6-45a6-95af-b41f94915df0",
+   "album_group_mbid": "a2709bdb-e16e-4f71-b1aa-cc68119fb782",
+   "album_type": "Album",
+   "album_date": "2011-08-24"
+  },
+  {
+   "rank": 36,
+   "title": "Moves like Jagger",
+   "artist": "Maroon 5 featuring Christina Aguilera",
+   "mbid": "c832691f-fe0c-448a-bf22-54e28335627e",
+   "artist_mbids": [
+    "0ab49580-c84f-44d4-875f-d83760ea2cfe",
+    "b202beb7-99bd-47e7-8b72-195c8d72ebdd"
+   ],
+   "album": "Overexposed",
+   "album_mbid": "16b4835a-0f40-44c3-8f57-703f08a0623e",
+   "album_group_mbid": "ed3c55b6-e49d-4d4e-a338-62b823b1e2d4",
+   "album_type": "Album",
+   "album_date": "2012-06-25"
+  },
+  {
+   "rank": 37,
+   "title": "Blow Me (One Last Kiss)",
+   "artist": "Pink",
+   "mbid": "e9a65771-d373-43fa-bc2b-19c9f59a7d0b",
+   "artist_mbids": [
+    "f4d5cc07-3bc9-4836-9b15-88a08359bc63"
+   ],
+   "album": "The Truth About Love",
+   "album_mbid": "95d79f1e-f2cb-4712-a674-a6bd99d34c7f",
+   "album_group_mbid": "74a65aea-6e59-477a-b48c-5e4d9c53dfb2",
+   "album_type": "Album",
+   "album_date": "2012-09-18"
+  },
+  {
+   "rank": 38,
+   "title": "Good Time",
+   "artist": "Owl City and Carly Rae Jepsen",
+   "mbid": "47094556-37b5-4302-9e67-3bbbefbfdb1f",
+   "artist_mbids": [
+    "ad279295-653f-42e1-9aaa-b731df2e78ba",
+    "09887aa7-226e-4ecc-9a0c-02d2ae5777e1"
+   ],
+   "album": "Kiss",
+   "album_mbid": "45fcf784-f9e9-45bf-a0bc-b46dd90a735a",
+   "album_group_mbid": "e7ce6cac-d26e-470c-b8a1-97ecc07354df",
+   "album_type": "Album",
+   "album_date": "2012-09-18"
+  },
+  {
+   "rank": 39,
+   "title": "Give Your Heart a Break",
+   "artist": "Demi Lovato",
+   "mbid": "385af599-43a9-47fd-96cc-92de8b13f59f",
+   "artist_mbids": [
+    "faf4cefb-036c-4c88-b93a-5b03dd0a0e6b"
+   ],
+   "album": "Unbroken",
+   "album_mbid": "f49e4848-0faf-42c2-81be-5da152885955",
+   "album_group_mbid": "1c43f3cb-e590-47e3-a974-b6e92145ef1c",
+   "album_type": "Album",
+   "album_date": "2011-09-20"
+  },
+  {
+   "rank": 40,
+   "title": "Niggas in Paris",
+   "artist": "Jay-Z and Kanye West",
+   "mbid": "5212a44f-799d-4de9-a569-373632bfa616",
+   "artist_mbids": [
+    "f82bcf78-5b69-4622-a5ef-73800768d9ac",
+    "164f0d73-1234-4e2c-8743-d77bf2191051"
+   ],
+   "album": "Watch the Throne",
+   "album_mbid": "70dc104d-6136-4dcd-bd8c-2b7035c43feb",
+   "album_group_mbid": "a96597aa-93b4-4e14-9e6e-03892ab24979",
+   "album_type": "Album",
+   "album_date": "2011-08-23"
+  },
+  {
+   "rank": 41,
+   "title": "The One That Got Away",
+   "artist": "Katy Perry",
+   "mbid": "2d6f51c6-afc5-457e-9c58-689679c08d30",
+   "artist_mbids": [
+    "122d63fc-8671-43e4-9752-34e846d62a9c"
+   ],
+   "album": "Teenage Dream",
+   "album_mbid": "e7d98581-cb23-43ed-ac32-d1dc1bd44eb3",
+   "album_group_mbid": "e6f683c9-fc85-412c-a352-d6e411fc2603",
+   "album_type": "Album",
+   "album_date": "2010-08-24"
+  },
+  {
+   "rank": 42,
+   "title": "Feel So Close",
+   "artist": "Calvin Harris",
+   "mbid": "66ef35f5-3424-416a-b189-2a4b7d1434b4",
+   "artist_mbids": [
+    "8dd98bdc-80ec-4e93-8509-2f46bafc09a7"
+   ],
+   "album": "18 Months",
+   "album_mbid": "4e32dd65-ee0b-47d0-a217-93752224f93f",
+   "album_group_mbid": "98432828-5764-4892-9e3f-9c674cf70acb",
+   "album_type": "Album",
+   "album_date": "2012-10-26"
+  },
+  {
+   "rank": 43,
+   "title": "Someone like You",
+   "artist": "Adele",
+   "mbid": "028efe7f-cdfb-4135-846f-848f2fff15b1",
+   "artist_mbids": [
+    "cc2c9c3c-b7bc-4b8b-84d8-4fbd8779e493"
+   ],
+   "album": "21",
+   "album_mbid": "7fb66278-4cff-3fe8-9ed5-4e95cdee3bbb",
+   "album_group_mbid": "e4174758-d333-4a8e-a31f-dd0edd51518e",
+   "album_type": "Album",
+   "album_date": "2011-02-22"
+  },
+  {
+   "rank": 44,
+   "title": "Scream",
+   "artist": "Usher",
+   "mbid": "bc751dcb-322c-42a5-b5ca-0602db225ee3",
+   "artist_mbids": [
+    "3414d446-735a-443c-931f-10634f57e5b9"
+   ],
+   "album": "Looking 4 Myself",
+   "album_mbid": "78a52727-1665-4d85-ae78-a4cdd1aa3cf2",
+   "album_group_mbid": "b9a895e8-870d-4bfa-bb96-57b314b6081f",
+   "album_type": "Album",
+   "album_date": "2012-06-12"
+  },
+  {
+   "rank": 45,
+   "title": "Rack City",
+   "artist": "Tyga",
+   "mbid": "1515f96a-3549-4799-93e8-9a717203b223",
+   "artist_mbids": [
+    "ce09ea31-3d4a-4487-a797-e315175457a0"
+   ],
+   "album": "Careless World: Rise of the Last King",
+   "album_mbid": "1acb5fbc-2211-4eac-881d-4c484aa9f6ba",
+   "album_group_mbid": "eed3716b-7e39-498b-9cf5-3f74f58f766e",
+   "album_type": "Album",
+   "album_date": "2012-02-12"
+  },
+  {
+   "rank": 46,
+   "title": "Domino",
+   "artist": "Jessie J",
+   "mbid": "bc4abc41-2f25-4eff-a624-9a2984b2f1f2",
+   "artist_mbids": [
+    "d24fb461-dee8-41fc-bb15-2f13bb2644a6"
+   ],
+   "album": "Who You Are",
+   "album_mbid": "cba0ba07-43ef-48ef-8ee9-528833ddfbed",
+   "album_group_mbid": "fa1c7a04-10e0-407d-8101-9a73254b6150",
+   "album_type": "Album",
+   "album_date": "2011-11-14"
+  },
+  {
+   "rank": 47,
+   "title": "Gangnam Style",
+   "artist": "Psy",
+   "mbid": "882ce25d-51b9-4fe5-bbdf-16e661df0822",
+   "artist_mbids": [
+    "f99b7d67-4e63-4678-aa66-4c6ac0f7d24a"
+   ],
+   "album": "Gangnam Style",
+   "album_mbid": "5b870a45-c6ba-4e6f-a1d8-c309b819af8d",
+   "album_group_mbid": "0d288522-6ad9-4c1d-b958-c237241e5466",
+   "album_type": "Album",
+   "album_date": "2012"
+  },
+  {
+   "rank": 48,
+   "title": "International Love",
+   "artist": "Pitbull featuring Chris Brown",
+   "mbid": "3e702f2c-72c2-4633-8bee-896958710919",
+   "artist_mbids": [
+    "d262ea27-3ffe-40f7-b922-85c42d625e67",
+    "c234fa42-e6a6-443e-937e-2f4b073538a3"
+   ],
+   "album": "Global Warming",
+   "album_mbid": "eb7bdc3c-f556-45f3-952f-dfbf5ae3e311",
+   "album_group_mbid": "ff3d0e03-e51f-4cbb-b59b-52d96f478662",
+   "album_type": "Album",
+   "album_date": "2012-11-19"
+  },
+  {
+   "rank": 49,
+   "title": "Home",
+   "artist": "Phillip Phillips",
+   "mbid": "df62e69b-4a3d-4752-8b1c-c6dc20637cf7",
+   "artist_mbids": [
+    "838483d3-a803-4194-9754-ad634fba8553"
+   ],
+   "album": "The World From the Side of the Moon",
+   "album_mbid": "e76439c6-6402-4f51-b761-c921c98caf3b",
+   "album_group_mbid": "58631e7e-7a45-4d3c-a098-f8f4da5f053c",
+   "album_type": "Album",
+   "album_date": "2012-11-19"
+  },
+  {
+   "rank": 50,
+   "title": "Without You",
+   "artist": "David Guetta featuring Usher",
+   "mbid": "bedaee7e-3788-4eab-a1b8-0ab0bbbcde38",
+   "artist_mbids": [
+    "302bd7b9-d012-4360-897a-93b00c855680",
+    "3414d446-735a-443c-931f-10634f57e5b9"
+   ],
+   "album": "Nothing But the Beat Ultimate",
+   "album_mbid": "ec467779-96e6-45a6-95af-b41f94915df0",
+   "album_group_mbid": "a2709bdb-e16e-4f71-b1aa-cc68119fb782",
+   "album_type": "Album",
+   "album_date": "2011-08-24"
+  },
+  {
+   "rank": 51,
+   "title": "Ass Back Home",
+   "artist": "Gym Class Heroes featuring Neon Hitch",
+   "mbid": "f2c95388-63c0-4d64-87b8-c4192bb606e4",
+   "artist_mbids": [
+    "f4d4b515-0b74-423f-a161-db184330c37c",
+    "8386d976-933e-454c-8364-63f75dd7b7e2"
+   ],
+   "album": "The Papercut Chronicles II",
+   "album_mbid": "57373190-ea25-4908-92b6-93d84bd468ae",
+   "album_group_mbid": "d3b2709c-6535-47a4-9ec9-d826ba9276cb",
+   "album_type": "Album",
+   "album_date": "2011-11-11"
+  },
+  {
+   "rank": 52,
+   "title": "Wanted",
+   "artist": "Hunter Hayes",
+   "mbid": "215110b5-9f5e-48c9-a741-1ca4836246ef",
+   "artist_mbids": [
+    "0c75ddc6-2b5d-4b01-8c99-3d9479a14683"
+   ],
+   "album": "Hunter Hayes",
+   "album_mbid": "e2fe0b13-b531-41f1-8ed2-4e9eb6573548",
+   "album_group_mbid": "ac000fad-0ce5-4fb7-9bb0-d03dee7ce794",
+   "album_type": "Album",
+   "album_date": "2011-10-07"
+  },
+  {
+   "rank": 53,
+   "title": "Drunk on You",
+   "artist": "Luke Bryan",
+   "mbid": "4c7358f3-346a-469a-bbcb-192c061b4e68",
+   "artist_mbids": [
+    "aab35942-f176-4f77-bbf9-1d6aa98ccf3f"
+   ],
+   "album": "Tailgates & Tanlines",
+   "album_mbid": "8daf2bfc-9341-4f14-98ef-eaadfc139ebd",
+   "album_group_mbid": "23fffff0-5311-4b9f-b131-150a7ab60a55",
+   "album_type": "Album",
+   "album_date": "2011-08-09"
+  },
+  {
+   "rank": 54,
+   "title": "No Lie",
+   "artist": "2 Chainz featuring Drake",
+   "mbid": "411b6199-49a7-4a4f-8ef8-a0938af3e1c7",
+   "artist_mbids": [
+    "dff0d392-4cd5-4052-9fbb-f485df3891e5",
+    "9fff2f8a-21e6-47de-a2b8-7f449929d43f"
+   ],
+   "album": "Based On A T.R.U. Story (Deluxe)",
+   "album_mbid": "aa8460fc-7666-46c5-9c2e-76a3c01e5c37",
+   "album_group_mbid": "13c1c478-ed2a-4bc7-9e39-ffc042cb42a3",
+   "album_type": "Album",
+   "album_date": "2012-01-01"
+  },
+  {
+   "rank": 55,
+   "title": "Want U Back",
+   "artist": "Cher Lloyd",
+   "mbid": "2fe2272f-133c-499e-8108-c25068b1b54d",
+   "artist_mbids": [
+    "48fbfb0b-92ee-45eb-99c2-0bde4c05962e"
+   ],
+   "album": "Sticks + Stones",
+   "album_mbid": "c5a4714a-065b-49b5-a3a5-3ef7e700f699",
+   "album_group_mbid": "2c16cbb2-667c-4a00-8c5f-7795ef91f6cf",
+   "album_type": "Album",
+   "album_date": "2011-11-07"
+  },
+  {
+   "rank": 56,
+   "title": "Don't Wake Me Up",
+   "artist": "Chris Brown",
+   "mbid": "0012ca09-e99a-4bd3-96f7-3123b94fa281",
+   "artist_mbids": [
+    "c234fa42-e6a6-443e-937e-2f4b073538a3"
+   ],
+   "album": "Fortune",
+   "album_mbid": "811e6e69-a1b7-4ee6-8fbb-4882f78ddc96",
+   "album_group_mbid": "8f0ef3d8-5ea1-468a-87ae-b45dc06124bc",
+   "album_type": "Album",
+   "album_date": "2012-07-03"
+  },
+  {
+   "rank": 57,
+   "title": "Dance (A$$)",
+   "artist": "Big Sean featuring Nicki Minaj",
+   "mbid": "8536af2b-b2c1-43b4-b65b-cda20d01654f",
+   "artist_mbids": [
+    "942a9807-9c1a-4a0e-a285-1fde2c5be9d1",
+    "1036b808-f58c-4a3e-b461-a2c4492ecf1b"
+   ],
+   "album": "Finally Famous",
+   "album_mbid": "f3fbbef2-a548-422d-9c82-b28d1e2cba1d",
+   "album_group_mbid": "2f29a348-dfa8-4d2f-95a6-34c5cb57949a",
+   "album_type": "Album",
+   "album_date": "2011-06-28"
+  },
+  {
+   "rank": 58,
+   "title": "Springsteen",
+   "artist": "Eric Church",
+   "mbid": "de294185-b623-43e2-b810-5f8071906551",
+   "artist_mbids": [
+    "15856215-cc51-4423-879c-9ac955ccb11a"
+   ],
+   "album": "Chief",
+   "album_mbid": "8d3aea63-3997-417b-87c2-98c08d5b5612",
+   "album_group_mbid": "979e5e4d-0c1d-46c0-9fda-fa9b6fce89a6",
+   "album_type": "Album",
+   "album_date": "2011"
+  },
+  {
+   "rank": 59,
+   "title": "Brokenhearted",
+   "artist": "Karmin",
+   "mbid": "c281aae1-44a5-4f1a-bd91-3c74af76f90c",
+   "artist_mbids": [
+    "a81303f1-64a5-4359-83ce-767f5fc3a542"
+   ],
+   "album": "Hello",
+   "album_mbid": "77c5786e-afb7-4f4e-b886-bc2096c50c82",
+   "album_group_mbid": "e04d7a5f-4908-4ef5-8a53-7f60e5937725",
+   "album_type": "EP",
+   "album_date": "2012-05-04"
+  },
+  {
+   "rank": 60,
+   "title": "Not Over You",
+   "artist": "Gavin DeGraw",
+   "mbid": "4c43b769-0c9c-4dde-9a83-286480eb241e",
+   "artist_mbids": [
+    "3f2a12e9-6398-42fd-b257-2f6abd4aa5fc"
+   ],
+   "album": "Sweeter",
+   "album_mbid": "0903c1ba-7643-47ad-8c0e-00b5c5eab3fe",
+   "album_group_mbid": "cb78edf1-3464-4627-ad78-c57eeba77793",
+   "album_type": "Album",
+   "album_date": "2011-09-20"
+  },
+  {
+   "rank": 61,
+   "title": "Stereo Hearts",
+   "artist": "Gym Class Heroes featuring Adam Levine",
+   "mbid": "14707c5e-1b13-4e51-987c-68c90b15ff59",
+   "artist_mbids": [
+    "f4d4b515-0b74-423f-a161-db184330c37c",
+    "a1421d73-1a21-484b-97ad-77c9a5676daf"
+   ],
+   "album": "The Papercut Chronicles II",
+   "album_mbid": "09cec8c8-4969-4fc6-9534-8238b4af2d22",
+   "album_group_mbid": "d3b2709c-6535-47a4-9ec9-d826ba9276cb",
+   "album_type": "Album",
+   "album_date": "2011-11-15"
+  },
+  {
+   "rank": 62,
+   "title": "Back in Time",
+   "artist": "Pitbull",
+   "mbid": "446af560-2d50-41b6-9683-599aec516650",
+   "artist_mbids": [
+    "d262ea27-3ffe-40f7-b922-85c42d625e67"
+   ],
+   "album": "Global Warming",
+   "album_mbid": "a16e6884-5bb0-4bc2-901a-fdf6adfaa6d2",
+   "album_group_mbid": "ff3d0e03-e51f-4cbb-b59b-52d96f478662",
+   "album_type": "Album",
+   "album_date": "2012-11-16"
+  },
+  {
+   "rank": 63,
+   "title": "Work Out",
+   "artist": "J. Cole",
+   "mbid": "de6f80b9-f935-4f37-8354-45cb24bb00ca",
+   "artist_mbids": [
+    "875203e1-8e58-4b86-8dcb-7190faf411c5"
+   ],
+   "album": "Cole World: The Sideline Story",
+   "album_mbid": "e5ca9611-ee0d-4d79-9a05-8e7a9101c74c",
+   "album_group_mbid": "5aadf6f8-bbf7-4675-8b83-771c1e0fb08f",
+   "album_type": "Album",
+   "album_date": "2011-09-27"
+  },
+  {
+   "rank": 64,
+   "title": "Rumour Has It",
+   "artist": "Adele",
+   "mbid": "797ae656-81d4-4d89-bddb-eca56f77ba72",
+   "artist_mbids": [
+    "cc2c9c3c-b7bc-4b8b-84d8-4fbd8779e493"
+   ],
+   "album": "21",
+   "album_mbid": "7fb66278-4cff-3fe8-9ed5-4e95cdee3bbb",
+   "album_group_mbid": "e4174758-d333-4a8e-a31f-dd0edd51518e",
+   "album_type": "Album",
+   "album_date": "2011-02-22"
+  },
+  {
+   "rank": 65,
+   "title": "Let's Go",
+   "artist": "Calvin Harris featuring Ne-Yo",
+   "mbid": "8fc500cf-9b70-4ba7-a72c-3534a6a56027",
+   "artist_mbids": [
+    "8dd98bdc-80ec-4e93-8509-2f46bafc09a7",
+    "a4a01f5d-18e7-4571-8c3a-76ec0e24e2d7"
+   ],
+   "album": "18 Months",
+   "album_mbid": "21672dad-42dc-4fd9-a845-d1e675780329",
+   "album_group_mbid": "98432828-5764-4892-9e3f-9c674cf70acb",
+   "album_type": "Album",
+   "album_date": "2012-10-30"
+  },
+  {
+   "rank": 66,
+   "title": "Good Girl",
+   "artist": "Carrie Underwood",
+   "mbid": "bfd52acf-5a9c-4cc3-82d2-72f57e955202",
+   "artist_mbids": [
+    "70f0e309-5418-49b6-a130-666e2f76eecd"
+   ],
+   "album": "Blown Away",
+   "album_mbid": "f7d9d91d-aa77-49ec-a631-d4bf9dee3d66",
+   "album_group_mbid": "35c692f5-3e8a-4d60-b474-9d115e17389a",
+   "album_type": "Album",
+   "album_date": "2012-05-01"
+  },
+  {
+   "rank": 67,
+   "title": "Pontoon",
+   "artist": "Little Big Town",
+   "mbid": "4f45343b-0d0d-4297-a846-7142589a9b00",
+   "artist_mbids": [
+    "76e78b58-f301-4975-8058-7f84d8360738"
+   ],
+   "album": "Tornado",
+   "album_mbid": "ad20e78f-7dba-4885-b7a3-9abaf83429b9",
+   "album_group_mbid": "92bbaeeb-f4d4-40b8-a973-d4eadd02ba29",
+   "album_type": "Album",
+   "album_date": "2012-11-19"
+  },
+  {
+   "rank": 68,
+   "title": "Ho Hey",
+   "artist": "The Lumineers",
+   "mbid": "1243e386-d49c-48b8-aea7-ea14383eb67f",
+   "artist_mbids": [
+    "bfcb6630-9b31-4e63-b11f-7b0363be72b5"
+   ],
+   "album": "The Lumineers (Deluxe Edition)",
+   "album_mbid": "ff79b629-4250-411c-846f-c9505f15de0b",
+   "album_group_mbid": "0304f1e1-0547-4fd9-a0cc-90bfdb7945b0",
+   "album_type": "Album",
+   "album_date": "2012-04-03"
+  },
+  {
+   "rank": 69,
+   "title": "Paradise",
+   "artist": "Coldplay",
+   "mbid": "574eafc0-6909-4278-94fa-083ea5aefc61",
+   "artist_mbids": [
+    "cc197bad-dc9c-440d-a5b5-d52ba2e14234"
+   ],
+   "album": "Mylo Xyloto",
+   "album_mbid": "d959317a-987b-4432-ab74-9018737cc25f",
+   "album_group_mbid": "61b7b6cd-86a6-4728-9478-b58c93bca8fd",
+   "album_type": "Album",
+   "album_date": "2011-10-25"
+  },
+  {
+   "rank": 70,
+   "title": "Blown Away",
+   "artist": "Carrie Underwood",
+   "mbid": "20570c16-560b-406a-9c38-50ac75e352fc",
+   "artist_mbids": [
+    "70f0e309-5418-49b6-a130-666e2f76eecd"
+   ],
+   "album": "Blown Away",
+   "album_mbid": "f7d9d91d-aa77-49ec-a631-d4bf9dee3d66",
+   "album_group_mbid": "35c692f5-3e8a-4d60-b474-9d115e17389a",
+   "album_type": "Album",
+   "album_date": "2012-05-01"
+  },
+  {
+   "rank": 71,
+   "title": "Rolling in the Deep",
+   "artist": "Adele",
+   "mbid": "1a13c710-4b7e-4701-8968-cd61f2e58110",
+   "artist_mbids": [
+    "cc2c9c3c-b7bc-4b8b-84d8-4fbd8779e493"
+   ],
+   "album": "21",
+   "album_mbid": "7fb66278-4cff-3fe8-9ed5-4e95cdee3bbb",
+   "album_group_mbid": "e4174758-d333-4a8e-a31f-dd0edd51518e",
+   "album_type": "Album",
+   "album_date": "2011-02-22"
+  },
+  {
+   "rank": 72,
+   "title": "Climax",
+   "artist": "Usher",
+   "mbid": "d02dc7c4-7cfc-40ed-bc9a-cd585efdeb3b",
+   "artist_mbids": [
+    "3414d446-735a-443c-931f-10634f57e5b9"
+   ],
+   "album": "Looking 4 Myself",
+   "album_mbid": "db31737c-82c9-4f88-b53f-c2f3ed2fb357",
+   "album_group_mbid": "b9a895e8-870d-4bfa-bb96-57b314b6081f",
+   "album_type": "Album",
+   "album_date": "2012-06-08"
+  },
+  {
+   "rank": 73,
+   "title": "Work Hard, Play Hard",
+   "artist": "Wiz Khalifa",
+   "mbid": "948f1020-28b3-40e1-b28e-a7fa6840a94e",
+   "artist_mbids": [
+    "f5dfa020-ad69-41cd-b3d4-fd7af0414e94"
+   ],
+   "album": "O.N.I.F.C.",
+   "album_mbid": "641e1a8d-8ce5-49c3-ac6b-13a721b7d052",
+   "album_group_mbid": "3517c650-def0-43b1-a5a4-25a53ac1d683",
+   "album_type": "Album",
+   "album_date": "2012-12-04"
+  },
+  {
+   "rank": 74,
+   "title": "Let Me Love You (Until You Learn to Love Yourself)",
+   "artist": "Ne-Yo",
+   "mbid": "4a6bacb7-c289-4931-8979-423bdd042e44",
+   "artist_mbids": [
+    "a4a01f5d-18e7-4571-8c3a-76ec0e24e2d7"
+   ],
+   "album": "R.E.D.",
+   "album_mbid": "4e9805d2-a0d7-4909-af1e-27eca9a0ede2",
+   "album_group_mbid": "45c11b00-06a3-4a85-a859-07841895d39a",
+   "album_type": "Album",
+   "album_date": "2012-11-06"
+  },
+  {
+   "rank": 75,
+   "title": "Pound the Alarm",
+   "artist": "Nicki Minaj",
+   "mbid": "7f8cbb07-d4e8-4341-93a2-b4e4439d297a",
+   "artist_mbids": [
+    "1036b808-f58c-4a3e-b461-a2c4492ecf1b"
+   ],
+   "album": "Pink Friday: Roman Reloaded: The Re‐Up",
+   "album_mbid": "80da590e-c97b-4511-9c4e-846c28a5ca0d",
+   "album_group_mbid": "78a4ac64-298f-45ec-ac69-832a68830a6a",
+   "album_type": "Album",
+   "album_date": "2012-11-19"
+  },
+  {
+   "rank": 76,
+   "title": "Come Over",
+   "artist": "Kenny Chesney",
+   "mbid": "17c97827-b4ce-4c92-8c7e-a6291c598472",
+   "artist_mbids": [
+    "5dca4d22-d6c8-4e70-8ca1-4543e43353c7"
+   ],
+   "album": "Welcome to the Fishbowl",
+   "album_mbid": "08b6a314-4a6e-48f0-918e-9e4aaee8c2e4",
+   "album_group_mbid": "541ba685-7f12-4dfb-8938-4108c11c39ca",
+   "album_type": "Album",
+   "album_date": "2012-06-19"
+  },
+  {
+   "rank": 77,
+   "title": "Heart Attack",
+   "artist": "Trey Songz",
+   "mbid": "726ca595-3c84-400b-999d-11f98c3763f4",
+   "artist_mbids": [
+    "4d7304f6-7fe3-4959-9d98-01a5af84afe6"
+   ],
+   "album": "Chapter V",
+   "album_mbid": "50f8fc11-ba5d-470b-a9af-35d49a086f42",
+   "album_group_mbid": "9184932f-1177-468e-a2c0-b0c2d780df96",
+   "album_type": "Album",
+   "album_date": "2012"
+  },
+  {
+   "rank": 78,
+   "title": "Drank in My Cup",
+   "artist": "Kirko Bangz",
+   "mbid": "8615b014-5d26-4ad2-a611-31067b4735d2",
+   "artist_mbids": [
+    "7e08b1ef-cc96-4b9c-a175-e64aa022bc1d"
+   ],
+   "album": "Progression 2: A Young Texas Playa",
+   "album_mbid": "344b5b8e-e5a5-4c89-881a-32d26d8303f9",
+   "album_group_mbid": "b4483571-8555-4a21-a45a-863595f65ac8",
+   "album_type": "Album",
+   "album_date": "2012-01-19"
+  },
+  {
+   "rank": 79,
+   "title": "Birthday Cake",
+   "artist": "Rihanna featuring Chris Brown",
+   "mbid": "a8ac4e32-1ecb-420e-a445-ffbda3583a1f",
+   "artist_mbids": [
+    "73e5e69d-3554-40d8-8516-00cb38737a1c"
+   ],
+   "album": "Talk That Talk",
+   "album_mbid": "2ea8e08a-cb0f-4766-bfb1-0f8de5734bdf",
+   "album_group_mbid": "15818ec5-bf34-47de-a4e5-260f98828d64",
+   "album_type": "Album",
+   "album_date": "2011-11-21"
+  },
+  {
+   "rank": 80,
+   "title": "So Good",
+   "artist": "B.o.B",
+   "mbid": "c10fad62-b8a6-4434-b1d7-27391c36181d",
+   "artist_mbids": [
+    "94c338ff-1985-4429-9dc8-997b61bb5932"
+   ],
+   "album": "Strange Clouds",
+   "album_mbid": "cadae5f0-925a-4f1e-9ead-488a08598918",
+   "album_group_mbid": "5f70eff9-0faf-4df4-a6a5-e843fec74cea",
+   "album_type": "Album",
+   "album_date": "2012-05-01"
+  },
+  {
+   "rank": 81,
+   "title": "50 Ways to Say Goodbye",
+   "artist": "Train",
+   "mbid": "5a1cd5fc-58ed-47f4-ac16-7fae6b6db9bd",
+   "artist_mbids": [
+    "bfd5aec5-62a2-4560-a316-7c46c17babda"
+   ],
+   "album": "California 37",
+   "album_mbid": "cbe6e860-98ad-40b8-ae77-0a02a1e12ae3",
+   "album_group_mbid": "adb83fd9-88c1-4357-b057-5616d7a0c4e8",
+   "album_type": "Album",
+   "album_date": "2012-12-04"
+  },
+  {
+   "rank": 82,
+   "title": "Red Solo Cup",
+   "artist": "Toby Keith",
+   "mbid": "8f0f81d4-4074-499a-b2d0-5344c110704b",
+   "artist_mbids": [
+    "2f951906-5629-4fef-a260-5033151c162a"
+   ],
+   "album": "Clancy’s Tavern",
+   "album_mbid": "4b6312cc-207f-4d3d-a575-24a384fdd0ad",
+   "album_group_mbid": "5f758338-7493-428a-aa5c-c61e5e8d6648",
+   "album_type": "Album",
+   "album_date": "2011-10-21"
+  },
+  {
+   "rank": 83,
+   "title": "Love You Like a Love Song",
+   "artist": "Selena Gomez & the Scene",
+   "mbid": "1a22c8ba-3f56-44a5-90fb-8eb150811b8f",
+   "artist_mbids": [
+    "37d0a847-32d3-480f-bd1e-101f50a3d332"
+   ],
+   "album": "When the Sun Goes Down",
+   "album_mbid": "4d92bda4-3aef-4a43-ab94-25b82126a976",
+   "album_group_mbid": "4e5b294b-c166-4d24-81cf-4b6ee5af3e75",
+   "album_type": "Album",
+   "album_date": "2011-10-31"
+  },
+  {
+   "rank": 84,
+   "title": "Turn Up the Music",
+   "artist": "Chris Brown",
+   "mbid": "49b095be-50f1-434f-b1f1-28dc40c5657f",
+   "artist_mbids": [
+    "c234fa42-e6a6-443e-937e-2f4b073538a3"
+   ],
+   "album": "Fortune",
+   "album_mbid": "daeec869-7963-47d3-9ac3-df25e7213f30",
+   "album_group_mbid": "8f0ef3d8-5ea1-468a-87ae-b45dc06124bc",
+   "album_type": "Album",
+   "album_date": "2012-07-03"
+  },
+  {
+   "rank": 85,
+   "title": "Die Young",
+   "artist": "Kesha",
+   "mbid": "fdee0a21-37f6-4593-bafa-a775d7b2b2b4",
+   "artist_mbids": [
+    "fab34286-b8e1-4879-bce3-194e1358fbd2"
+   ],
+   "album": "Warrior",
+   "album_mbid": "abcc0f6c-0932-4e6a-9dee-bdba328f8931",
+   "album_group_mbid": "7f238f1a-6b01-458f-9a1b-3b34859018f3",
+   "album_type": "Album",
+   "album_date": "2012-11-30"
+  },
+  {
+   "rank": 86,
+   "title": "5 O'Clock",
+   "artist": "T-Pain featuring Wiz Khalifa and Lily Allen",
+   "album": "REVOLVEЯ",
+   "album_mbid": "1f387d39-37f0-42a2-8611-134149918e31",
+   "album_group_mbid": "2fa4692e-994c-414f-950b-b47613019711",
+   "album_type": "Album",
+   "album_date": "2011-12-06"
+  },
+  {
+   "rank": 87,
+   "title": "A Thousand Years",
+   "artist": "Christina Perri",
+   "mbid": "ec7a8e1c-0d80-4c6d-93d2-564030445fa6",
+   "artist_mbids": [
+    "38d363c7-fdcb-4308-9474-a0d14ab8d9b7"
+   ],
+   "album": "The Twilight Saga: Breaking Dawn, Part 1: Original Motion Picture Soundtrack",
+   "album_mbid": "aa4b441e-fd24-4520-8509-7852e6535227",
+   "album_group_mbid": "f997eb8c-d01a-40e9-84e4-5876df38e0d6",
+   "album_type": "Album / Compilation, Soundtrack",
+   "album_date": "2011-11-04"
+  },
+  {
+   "rank": 88,
+   "title": "Take a Little Ride",
+   "artist": "Jason Aldean",
+   "mbid": "f15f6407-3ca3-4a17-8729-40ae5795ea88",
+   "artist_mbids": [
+    "f24df11a-7e35-4979-a4db-a3b2a170ce27"
+   ],
+   "album": "Night Train",
+   "album_mbid": "9ad7181e-5df9-4207-8e53-e42cd2b6076b",
+   "album_group_mbid": "5f45cca4-cda2-4c1f-80de-82c9c2e41580",
+   "album_type": "Album",
+   "album_date": "2012-10-16"
+  },
+  {
+   "rank": 89,
+   "title": "You da One",
+   "artist": "Rihanna",
+   "mbid": "87e161a9-8801-483d-8bb7-8d65973d9597",
+   "artist_mbids": [
+    "73e5e69d-3554-40d8-8516-00cb38737a1c"
+   ],
+   "album": "Talk That Talk",
+   "album_mbid": "2ea8e08a-cb0f-4766-bfb1-0f8de5734bdf",
+   "album_group_mbid": "15818ec5-bf34-47de-a4e5-260f98828d64",
+   "album_type": "Album",
+   "album_date": "2011-11-21"
+  },
+  {
+   "rank": 90,
+   "title": "We Run the Night",
+   "artist": "Havana Brown featuring Pitbull",
+   "mbid": "9a463ba9-031d-4c4d-8ba2-4301e241b719",
+   "artist_mbids": [
+    "202d9955-4cd2-4bb2-835c-e0152c6abf19"
+   ],
+   "album": "When the Lights Go Out",
+   "album_mbid": "d6130ab3-ab8a-4660-a8e0-724f4fbf6c5c",
+   "album_group_mbid": "888fed69-bd79-4a3a-9546-1c171699a4f7",
+   "album_type": "EP",
+   "album_date": "2012-07-31"
+  },
+  {
+   "rank": 91,
+   "title": "It's Time",
+   "artist": "Imagine Dragons",
+   "mbid": "b7edeeb5-a3ab-4e6d-8e6f-754dffc39425",
+   "artist_mbids": [
+    "012151a8-0f9a-44c9-997f-ebd68b5389f9"
+   ],
+   "album": "Night Visions (Deluxe)",
+   "album_mbid": "d0fdcba1-3b89-48c9-8dd8-0b5f43553934",
+   "album_group_mbid": "caef5f01-8568-4573-8458-c9e99ff7c734",
+   "album_type": "Album",
+   "album_date": "2012-09-04"
+  },
+  {
+   "rank": 92,
+   "title": "Cashin' Out",
+   "artist": "Cash Out",
+   "mbid": "8e264c05-e9e2-46ff-9fb3-29adfeceea3a",
+   "artist_mbids": [
+    "d5f90fc9-eeb0-4aa2-afc1-7f15eb1aefb0"
+   ],
+   "album": "Cashin' Out",
+   "album_mbid": "1358b58a-2e4a-4c07-8694-922b8d8f42e7",
+   "album_group_mbid": "381a2db2-a50a-4760-8dd8-0141066564b9",
+   "album_type": "Single",
+   "album_date": "2012-03-26"
+  },
+  {
+   "rank": 93,
+   "title": "I Don't Want This Night to End",
+   "artist": "Luke Bryan",
+   "mbid": "ca8e5b1b-8d63-4af4-b766-0c86bc018fcf",
+   "artist_mbids": [
+    "aab35942-f176-4f77-bbf9-1d6aa98ccf3f"
+   ],
+   "album": "Tailgates & Tanlines",
+   "album_mbid": "8daf2bfc-9341-4f14-98ef-eaadfc139ebd",
+   "album_group_mbid": "23fffff0-5311-4b9f-b131-150a7ab60a55",
+   "album_type": "Album",
+   "album_date": "2011-08-09"
+  },
+  {
+   "rank": 94,
+   "title": "Diamonds",
+   "artist": "Rihanna",
+   "mbid": "6f964e8c-ae56-4bcd-8a7c-1b80b848d9fb",
+   "artist_mbids": [
+    "73e5e69d-3554-40d8-8516-00cb38737a1c"
+   ],
+   "album": "Unapologetic",
+   "album_mbid": "5be3066b-2ba9-4c51-8c4b-ecf404ba2ecd",
+   "album_group_mbid": "1ab3ba95-bc96-46f4-bc6d-1e57bc6ad1a0",
+   "album_type": "Album",
+   "album_date": "2012-11-19"
+  },
+  {
+   "rank": 95,
+   "title": "Hard to Love",
+   "artist": "Lee Brice",
+   "mbid": "930bd575-6b14-4db0-81fa-c7e6614d4c61",
+   "artist_mbids": [
+    "48a6d065-1fda-4280-ae39-df1394d419cd"
+   ],
+   "album": "Hard 2 Love",
+   "album_mbid": "8eef2693-7b98-471a-896e-979f5907b886",
+   "album_group_mbid": "7e9f9c05-6c55-4e11-82cb-a96464dfd5cc",
+   "album_type": "Album",
+   "album_date": "2012-04-24"
+  },
+  {
+   "rank": 96,
+   "title": "Somethin' 'Bout a Truck",
+   "artist": "Kip Moore",
+   "mbid": "e6e44b23-236c-4af2-9968-50562c107880",
+   "artist_mbids": [
+    "3afa378a-4a7f-46f5-b686-f41ee2287c0c"
+   ],
+   "album": "Up All Night",
+   "album_mbid": "8cd5913a-7d43-4a48-87c6-73de9362c5dd",
+   "album_group_mbid": "4229660f-84ff-473a-91da-98b6f8afff25",
+   "album_type": "Album",
+   "album_date": "2012-04-12"
+  },
+  {
+   "rank": 97,
+   "title": "Adorn",
+   "artist": "Miguel",
+   "mbid": "d6bcc45c-2567-4abb-91bc-2ff39a98bbf9",
+   "artist_mbids": [
+    "285e1285-aecc-478f-a8da-0c8cf69e1217"
+   ],
+   "album": "Kaleidoscope Dream",
+   "album_mbid": "8de16084-3176-4d5d-b0e8-37235c4889c9",
+   "album_group_mbid": "bdf9ad0d-1444-4551-ad33-7046bef2260d",
+   "album_type": "Album",
+   "album_date": "2012-09-24"
+  },
+  {
+   "rank": 98,
+   "title": "Fly Over States",
+   "artist": "Jason Aldean",
+   "mbid": "6b5cf31a-09f5-465b-bc41-4199483b172e",
+   "artist_mbids": [
+    "f24df11a-7e35-4979-a4db-a3b2a170ce27"
+   ],
+   "album": "My Kinda Party",
+   "album_mbid": "91b48d70-bce1-4806-880c-a2b1488ac877",
+   "album_group_mbid": "e25c26bb-57e8-4c9f-9b66-8dbba5648e3a",
+   "album_type": "Album",
+   "album_date": "2010-11-02"
+  },
+  {
+   "rank": 99,
+   "title": "Even If It Breaks Your Heart",
+   "artist": "Eli Young Band",
+   "mbid": "cd15ee31-eea2-4133-b306-3742dd35004a",
+   "artist_mbids": [
+    "80737f69-60c5-4c0d-9562-88faf8d8f2f4"
+   ],
+   "album": "Life At Best",
+   "album_mbid": "63632cc0-370c-4f9e-90e1-cb8c0e88b8a0",
+   "album_group_mbid": "3b6e1a4f-22da-4738-a629-2b889fa7edae",
+   "album_type": "Album",
+   "album_date": "2011-08-16"
+  },
+  {
+   "rank": 100,
+   "title": "Burn It Down",
+   "artist": "Linkin Park",
+   "mbid": "5e54d4be-a83b-41d1-9372-06fa58b4c36d",
+   "artist_mbids": [
+    "f59c5520-5f46-4d2c-b2c4-822eabf53419"
+   ],
+   "album": "Living Things",
+   "album_mbid": "50a131ac-38bc-438b-8c22-58afbc944e06",
+   "album_group_mbid": "af682b63-021e-4806-afac-9aa4380fc6bd",
+   "album_type": "Album",
+   "album_date": "2012-11-16"
+  }
+ ]
+}

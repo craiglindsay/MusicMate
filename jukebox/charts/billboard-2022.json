@@ -1,0 +1,1435 @@
+{
+ "chart": "Billboard Year-End Hot 100",
+ "year": 2022,
+ "source": "https://en.wikipedia.org/wiki/Billboard_Year-End_Hot_100_singles_of_2022",
+ "songs": [
+  {
+   "rank": 1,
+   "title": "Heat Waves",
+   "artist": "Glass Animals",
+   "mbid": "9f61e4a7-d4c3-4d0d-a6e4-dc62e31e30db",
+   "artist_mbids": [
+    "20395131-fbde-43ce-b141-b700cfdae99c"
+   ],
+   "album": "Dreamland (+ bonus levels)",
+   "album_mbid": "d4a497dd-b7c7-45b8-b6dc-1a9e28771bdf",
+   "album_group_mbid": "1ccd441a-a906-4773-8e72-e4055732a784",
+   "album_type": "Album",
+   "album_date": "2020-08-11"
+  },
+  {
+   "rank": 2,
+   "title": "As It Was",
+   "artist": "Harry Styles",
+   "mbid": "53969964-673a-4407-9396-3087be9245f6",
+   "artist_mbids": [
+    "7eb1ce54-a355-41f9-8d68-e018b096d427"
+   ],
+   "album": "Harry’s House",
+   "album_mbid": "7ec22411-8195-4630-97ae-dc0b82380c19",
+   "album_group_mbid": "d712ba0e-25fa-4c03-aecd-ec0c100deba5",
+   "album_type": "Album",
+   "album_date": "2022-05-20"
+  },
+  {
+   "rank": 3,
+   "title": "Stay",
+   "artist": "The Kid Laroi and Justin Bieber",
+   "mbid": "21d852bf-c5ab-4cfb-b1fb-9e8067f6de02",
+   "artist_mbids": [
+    "80609a00-b394-4a49-975b-2db6b543fa97",
+    "e0140a67-e4d1-4f13-8a01-364355bee46e"
+   ],
+   "album": "FUCK LOVE",
+   "album_mbid": "27fdd420-d5ba-49d3-8b24-9518be056c65",
+   "album_group_mbid": "892a1351-c58c-4b51-9218-a82c8bf6d7ff",
+   "album_type": "Album / Mixtape/Street",
+   "album_date": "2020-07-24"
+  },
+  {
+   "rank": 4,
+   "title": "Easy on Me",
+   "artist": "Adele",
+   "mbid": "a7720370-b5a1-49b0-983a-85081f0bcbfe",
+   "artist_mbids": [
+    "cc2c9c3c-b7bc-4b8b-84d8-4fbd8779e493"
+   ],
+   "album": "30",
+   "album_mbid": "5c2b134a-70df-4bd3-8b72-7cfce4f82e49",
+   "album_group_mbid": "d8a99910-33c2-481d-9b96-085ece5545f6",
+   "album_type": "Album",
+   "album_date": "2021-11-19"
+  },
+  {
+   "rank": 5,
+   "title": "Shivers",
+   "artist": "Ed Sheeran",
+   "mbid": "121036d2-fa48-4113-be1c-6f82d7fc160a",
+   "artist_mbids": [
+    "b8a7c51f-362c-4dcb-a259-bc6e0095f0a6"
+   ],
+   "album": "=",
+   "album_mbid": "3e5d8737-ab42-433e-aab9-2397964d4265",
+   "album_group_mbid": "51182052-d6d4-49a0-bd87-a88cdb211bed",
+   "album_type": "Album",
+   "album_date": "2021-10-29"
+  },
+  {
+   "rank": 6,
+   "title": "First Class",
+   "artist": "Jack Harlow",
+   "mbid": "402681c9-426a-4edc-b8bc-d6bcc4ff6701",
+   "artist_mbids": [
+    "134cb0bc-06fa-42f7-8078-b0c858349975"
+   ],
+   "album": "Come Home the Kids Miss You",
+   "album_mbid": "15ca4484-cf17-4b70-ae97-0d4289a42bfd",
+   "album_group_mbid": "d0c823fc-ad7c-434d-8555-ad8e7592c33c",
+   "album_type": "Album",
+   "album_date": "2022-09-16"
+  },
+  {
+   "rank": 7,
+   "title": "Big Energy",
+   "artist": "Latto",
+   "mbid": "4547ea39-e1da-412a-a116-030a5938920b",
+   "artist_mbids": [
+    "355cc194-b8db-4af2-8678-c7ad54213f4b"
+   ],
+   "album": "777",
+   "album_mbid": "374f9d9e-b14d-4dc4-aa10-66568fd5178c",
+   "album_group_mbid": "c2ceb153-d254-4c4d-9d4a-3b722e4c62b5",
+   "album_type": "Album",
+   "album_date": "2022-03-25"
+  },
+  {
+   "rank": 8,
+   "title": "Ghost",
+   "artist": "Justin Bieber",
+   "mbid": "78a3a527-c8cb-4cd7-98b1-00af2a0a9d0c",
+   "artist_mbids": [
+    "e0140a67-e4d1-4f13-8a01-364355bee46e"
+   ],
+   "album": "Justice (triple chucks deluxe)",
+   "album_mbid": "4435ba7c-4feb-4b65-8bdd-34431b6a6e71",
+   "album_group_mbid": "0f9d5103-dd09-4fcd-8fe1-223612668f09",
+   "album_type": "Album",
+   "album_date": "2021-04-02"
+  },
+  {
+   "rank": 9,
+   "title": "Super Gremlin",
+   "artist": "Kodak Black",
+   "mbid": "db5a2db6-cc47-4603-8e80-6256b96c652c",
+   "artist_mbids": [
+    "5ec1ecc6-4535-4911-a27a-e26343f4a189"
+   ],
+   "album": "Back for Everything",
+   "album_mbid": "0bd26967-69a1-4877-a009-e9b13e58d538",
+   "album_group_mbid": "7f85eacd-7567-4400-b01a-14b05df77f22",
+   "album_type": "Album",
+   "album_date": "2022-02-25"
+  },
+  {
+   "rank": 10,
+   "title": "Cold Heart (Pnau Remix)",
+   "artist": "Elton John and Dua Lipa",
+   "mbid": "a3906438-a1b2-403d-a7c2-7f48fca0a586",
+   "artist_mbids": [
+    "b83bc61f-8451-4a5d-8b8e-7e9ed295e822",
+    "6f1a58bf-9b1b-49cf-a44a-6cefad7ae04f"
+   ],
+   "album": "The Lockdown Sessions",
+   "album_mbid": "c819edf2-0c78-4af8-bb94-60ed047f4c96",
+   "album_group_mbid": "78b65cee-4a6d-49c8-a98e-9159bf147cd1",
+   "album_type": "Album",
+   "album_date": "2021-10-22"
+  },
+  {
+   "rank": 11,
+   "title": "Wait for U",
+   "artist": "Future featuring Drake and Tems",
+   "mbid": "1185dba0-4802-48a4-9441-e6259a3d84b0",
+   "artist_mbids": [
+    "48262e82-db9f-4a92-b650-dfef979b73ec",
+    "9fff2f8a-21e6-47de-a2b8-7f449929d43f",
+    "5b2a8faa-ffee-4706-a1a8-58f109bc8ca2"
+   ],
+   "album": "I NEVER LIKED YOU",
+   "album_mbid": "2b440879-df84-4769-83b7-b1a85a248070",
+   "album_group_mbid": "503bb581-ecf1-4794-9746-aa896c3a89e3",
+   "album_type": "Album",
+   "album_date": "2022-04-29"
+  },
+  {
+   "rank": 12,
+   "title": "About Damn Time",
+   "artist": "Lizzo",
+   "mbid": "c6ac0f0a-3c15-4615-ace6-64c92144801a",
+   "artist_mbids": [
+    "8fb5370b-9568-4b61-9da5-2aa12c9928db"
+   ],
+   "album": "Special",
+   "album_mbid": "cb0ff3fa-3b5c-47e5-b878-e5a40a23127c",
+   "album_group_mbid": "29bd1493-ce60-43c6-afb4-487b77de494c",
+   "album_type": "Album",
+   "album_date": "2022-07-15"
+  },
+  {
+   "rank": 13,
+   "title": "Bad Habits",
+   "artist": "Ed Sheeran",
+   "mbid": "2d24a8d7-66ad-40b2-8ae7-5f6fc9981646",
+   "artist_mbids": [
+    "b8a7c51f-362c-4dcb-a259-bc6e0095f0a6"
+   ],
+   "album": "=",
+   "album_mbid": "3e5d8737-ab42-433e-aab9-2397964d4265",
+   "album_group_mbid": "51182052-d6d4-49a0-bd87-a88cdb211bed",
+   "album_type": "Album",
+   "album_date": "2021-10-29"
+  },
+  {
+   "rank": 14,
+   "title": "Thats What I Want",
+   "artist": "Lil Nas X",
+   "mbid": "23c0d2bf-5a64-4126-a6ac-bfab95053510",
+   "artist_mbids": [
+    "0b30341b-b59d-4979-8130-b66c0e475321"
+   ],
+   "album": "MONTERO",
+   "album_mbid": "1c4c481f-6f18-4275-abc9-6ee6636a4ce9",
+   "album_group_mbid": "5ff232ca-d9c8-459b-9253-9374ec07777e",
+   "album_type": "Album",
+   "album_date": "2021-09-17"
+  },
+  {
+   "rank": 15,
+   "title": "Enemy",
+   "artist": "Imagine Dragons and JID",
+   "mbid": "0f56753c-1986-4188-b1d5-0229a657870a",
+   "artist_mbids": [
+    "012151a8-0f9a-44c9-997f-ebd68b5389f9",
+    "d616b606-cf6a-4b6e-ab0f-e253b8db6610"
+   ],
+   "album": "Mercury – Act 1",
+   "album_mbid": "f0f06dfb-8082-404f-b9e0-426367aabe2f",
+   "album_group_mbid": "9ce73eb5-8929-4934-9cb9-6d386c92762e",
+   "album_type": "Album",
+   "album_date": "2022-02-04"
+  },
+  {
+   "rank": 16,
+   "title": "Industry Baby",
+   "artist": "Lil Nas X and Jack Harlow",
+   "mbid": "13dac323-afa2-4787-a21b-d18275a3869b",
+   "artist_mbids": [
+    "0b30341b-b59d-4979-8130-b66c0e475321",
+    "134cb0bc-06fa-42f7-8078-b0c858349975"
+   ],
+   "album": "MONTERO",
+   "album_mbid": "1c4c481f-6f18-4275-abc9-6ee6636a4ce9",
+   "album_group_mbid": "5ff232ca-d9c8-459b-9253-9374ec07777e",
+   "album_type": "Album",
+   "album_date": "2021-09-17"
+  },
+  {
+   "rank": 17,
+   "title": "ABCDEFU",
+   "artist": "Gayle",
+   "mbid": "920dd9ae-190a-4026-9189-410ed9b82e48",
+   "artist_mbids": [
+    "18fa2604-c608-4e1a-9b9d-05d7360c5817"
+   ],
+   "album": "a study of the human experience, volume one",
+   "album_mbid": "1a09e60e-ebf5-4207-9192-9d347e02e278",
+   "album_group_mbid": "116f49a3-bcfe-4b22-b7a9-7ab7bdb6efdf",
+   "album_type": "EP",
+   "album_date": "2022-03-18"
+  },
+  {
+   "rank": 18,
+   "title": "Need to Know",
+   "artist": "Doja Cat",
+   "mbid": "f86bafa7-fd06-4f9e-adfc-7c6dae500bf2",
+   "artist_mbids": [
+    "5df62a88-cac9-490a-b62c-c7c88f4020f4"
+   ],
+   "album": "Planet Her",
+   "album_mbid": "5fa94158-e8f9-4ad8-8d1f-d3a13787eaf7",
+   "album_group_mbid": "6c90cb91-e615-4545-854b-6d6f10c5cb6d",
+   "album_type": "Album",
+   "album_date": "2021-12-10"
+  },
+  {
+   "rank": 19,
+   "title": "Wasted on You",
+   "artist": "Morgan Wallen",
+   "mbid": "944ae9f7-5334-43d6-8a9e-8d9b9b5fb5ee",
+   "artist_mbids": [
+    "2077273e-eaa1-4f49-903c-f286ededecb9"
+   ],
+   "album": "Dangerous: The Double Album",
+   "album_mbid": "b75e8d7f-6092-43b3-865b-d6e01d32338c",
+   "album_group_mbid": "c61d61b6-9850-4b59-bb73-0cde95ab7b75",
+   "album_type": "Album",
+   "album_date": "2021-01-29"
+  },
+  {
+   "rank": 20,
+   "title": "Me Porto Bonito",
+   "artist": "Bad Bunny and Chencho Corleone",
+   "mbid": "aaab6788-00a8-4f91-9bd2-dfb77cefc3c2",
+   "artist_mbids": [
+    "89aa5ecb-59ad-46f5-b3eb-2d424e941f19",
+    "60e7a87a-2a15-42cb-831a-fd699a8d9863"
+   ],
+   "album": "Un verano sin ti",
+   "album_mbid": "aded3f90-b758-451a-aad7-711d5985b05f",
+   "album_group_mbid": "e992b449-141b-4aea-b07b-9b2a478a8570",
+   "album_type": "Album",
+   "album_date": "2022-05-06"
+  },
+  {
+   "rank": 21,
+   "title": "Woman",
+   "artist": "Doja Cat",
+   "mbid": "4d7642a0-c36c-433f-9709-f6ff9a83eb11",
+   "artist_mbids": [
+    "5df62a88-cac9-490a-b62c-c7c88f4020f4"
+   ],
+   "album": "Planet Her",
+   "album_mbid": "5fa94158-e8f9-4ad8-8d1f-d3a13787eaf7",
+   "album_group_mbid": "6c90cb91-e615-4545-854b-6d6f10c5cb6d",
+   "album_type": "Album",
+   "album_date": "2021-12-10"
+  },
+  {
+   "rank": 22,
+   "title": "Tití Me Preguntó",
+   "artist": "Bad Bunny",
+   "mbid": "f094b32c-d8ec-46a0-a1b6-b4f3a9fc8d83",
+   "artist_mbids": [
+    "89aa5ecb-59ad-46f5-b3eb-2d424e941f19"
+   ],
+   "album": "Un verano sin ti",
+   "album_mbid": "aded3f90-b758-451a-aad7-711d5985b05f",
+   "album_group_mbid": "e992b449-141b-4aea-b07b-9b2a478a8570",
+   "album_type": "Album",
+   "album_date": "2022-05-06"
+  },
+  {
+   "rank": 23,
+   "title": "Running Up That Hill (A Deal with God)",
+   "artist": "Kate Bush",
+   "mbid": "6029d549-5858-4936-9156-b90770d2ae92",
+   "artist_mbids": [
+    "4b585938-f271-45e2-b19a-91c634b5e396"
+   ],
+   "album": "Hounds of Love",
+   "album_mbid": "b19ac567-8f88-3182-b41f-77bb475e85fe",
+   "album_group_mbid": "017f2a37-a78f-3578-9611-fa40408e5d90",
+   "album_type": "Album",
+   "album_date": "1985-10-08"
+  },
+  {
+   "rank": 24,
+   "title": "We Don't Talk About Bruno",
+   "artist": "Carolina Gaitán, Mauro Castillo, Adassa, Rhenzy Feliz, Diane Guerrero, Stephanie Beatriz and the Encanto cast",
+   "mbid": "247c2244-406b-475a-92e2-5be724d52cee",
+   "artist_mbids": [
+    "468be9aa-67bc-4ed1-b84d-9f4f20128f07",
+    "b26fbf03-064d-477d-8452-61c587ce82f7",
+    "239c8eea-895e-4b6f-bfd5-3e51a61230df",
+    "c919a8e7-e4cf-407f-ac87-f4a670a01cf9",
+    "5958a781-1fa5-4d4f-a027-9caba2943eaf",
+    "6dca439d-0612-4c83-bf00-52747922fe62"
+   ],
+   "album": "Encanto: Original Motion Picture Soundtrack",
+   "album_mbid": "0fd03d2e-5d8f-4116-b30b-2487e3030527",
+   "album_group_mbid": "0266c80c-b550-43f3-824f-fb435977460c",
+   "album_type": "Album / Soundtrack",
+   "album_date": "2021-11-19"
+  },
+  {
+   "rank": 25,
+   "title": "Late Night Talking",
+   "artist": "Harry Styles",
+   "mbid": "fadbe78b-7421-46da-802a-f72d139ea15f",
+   "artist_mbids": [
+    "7eb1ce54-a355-41f9-8d68-e018b096d427"
+   ],
+   "album": "Harry’s House",
+   "album_mbid": "7ec22411-8195-4630-97ae-dc0b82380c19",
+   "album_group_mbid": "d712ba0e-25fa-4c03-aecd-ec0c100deba5",
+   "album_type": "Album",
+   "album_date": "2022-05-20"
+  },
+  {
+   "rank": 26,
+   "title": "I Like You (A Happier Song)",
+   "artist": "Post Malone featuring Doja Cat",
+   "mbid": "3cb342e3-3c00-495b-a639-317f27fa4386",
+   "artist_mbids": [
+    "b1e26560-60e5-4236-bbdb-9aa5a8d5ee19",
+    "5df62a88-cac9-490a-b62c-c7c88f4020f4"
+   ],
+   "album": "Twelve Carat Toothache",
+   "album_mbid": "91ef3742-298f-40a6-a855-4af6930e3c3b",
+   "album_group_mbid": "da1ba8df-a869-4270-8af0-b1c7ffd8d44a",
+   "album_type": "Album",
+   "album_date": "2022-06-07"
+  },
+  {
+   "rank": 27,
+   "title": "You Proof",
+   "artist": "Morgan Wallen",
+   "mbid": "479de3c2-2950-4c26-82ea-fbd1c63f84c4",
+   "artist_mbids": [
+    "2077273e-eaa1-4f49-903c-f286ededecb9"
+   ],
+   "album": "One Thing at a Time",
+   "album_mbid": "315dfe4c-7634-477b-b285-c0741afdb853",
+   "album_group_mbid": "eab1ce83-eb3d-4e70-94ff-6fddd5405e84",
+   "album_type": "Album",
+   "album_date": "2023-03-03"
+  },
+  {
+   "rank": 28,
+   "title": "Bad Habit",
+   "artist": "Steve Lacy",
+   "mbid": "1abdf128-2f80-457c-8da0-e554e8e3b534",
+   "artist_mbids": [
+    "b29020d6-5dbf-4c99-b16f-c009f8a712ff"
+   ],
+   "album": "Gemini Rights",
+   "album_mbid": "b6782fa5-d657-4116-96fd-d0175277b7bf",
+   "album_group_mbid": "ab1c1fd8-f769-4d78-90bc-4677f8ad8c22",
+   "album_type": "Album",
+   "album_date": "2022-07-14"
+  },
+  {
+   "rank": 29,
+   "title": "Sunroof",
+   "artist": "Nicky Youre and Dazy",
+   "mbid": "1e1753ea-13aa-4bc2-b4c7-bfa4dcfeb58b",
+   "artist_mbids": [
+    "ace8e5aa-28ed-4139-ad04-ff84b04c53b9",
+    "6efea995-5b54-46eb-a118-73eb629d591b"
+   ],
+   "album": "Good Times Go",
+   "album_mbid": "b3584e66-566d-43a1-abb5-0fbc346dc360",
+   "album_group_mbid": "8007ce23-ee88-4867-aa6f-b268911d6c22",
+   "album_type": "Album",
+   "album_date": "2023-06-09"
+  },
+  {
+   "rank": 30,
+   "title": "One Right Now",
+   "artist": "Post Malone and the Weeknd",
+   "mbid": "65fe6fab-2cf6-433e-8bfa-0e89b8ab7a60",
+   "artist_mbids": [
+    "b1e26560-60e5-4236-bbdb-9aa5a8d5ee19",
+    "c8b03190-306c-4120-bb0b-6f2ebfc06ea9"
+   ],
+   "album": "Twelve Carat Toothache",
+   "album_mbid": "68f1f260-5871-4fe9-9baf-99bc7ca77f00",
+   "album_group_mbid": "da1ba8df-a869-4270-8af0-b1c7ffd8d44a",
+   "album_type": "Album",
+   "album_date": "2022-06-07"
+  },
+  {
+   "rank": 31,
+   "title": "Good 4 U",
+   "artist": "Olivia Rodrigo",
+   "mbid": "97aa087b-5fa2-42ff-bd48-d162862cdc95",
+   "artist_mbids": [
+    "6925db17-f35e-42f3-a4eb-84ee6bf5d4b0"
+   ],
+   "album": "SOUR",
+   "album_mbid": "ecf4320b-2eeb-488e-8dde-408c5e516755",
+   "album_group_mbid": "2ae2e504-7116-4b4f-b632-9748bb18ccd2",
+   "album_type": "Album",
+   "album_date": "2021-08"
+  },
+  {
+   "rank": 32,
+   "title": "Numb Little Bug",
+   "artist": "Em Beihold",
+   "mbid": "f5c43684-c895-4367-a9a7-012adbe28891",
+   "artist_mbids": [
+    "7575e3b8-ba04-4acc-a895-9cc528f86525"
+   ],
+   "album": "Egg in the Backseat",
+   "album_mbid": "6f1dc284-5ebc-4232-aee0-f1dbc805f3b1",
+   "album_group_mbid": "02dec789-ac6b-43ed-b9d7-c73edea97a27",
+   "album_type": "Album",
+   "album_date": "2022-07-22"
+  },
+  {
+   "rank": 33,
+   "title": "Jimmy Cooks",
+   "artist": "Drake featuring 21 Savage",
+   "mbid": "198fe48f-7ac9-46c3-bb9c-5dc4f8203868",
+   "artist_mbids": [
+    "9fff2f8a-21e6-47de-a2b8-7f449929d43f",
+    "37b2cb82-ef79-4d46-a184-a549450aa231"
+   ],
+   "album": "Honestly, Nevermind",
+   "album_mbid": "98cde1bf-1c4d-4658-a2b8-9dd9ffacf8a2",
+   "album_group_mbid": "26d2e1f2-a76e-46ff-a2b5-b4200ac883d5",
+   "album_type": "Album",
+   "album_date": "2022-06-17"
+  },
+  {
+   "rank": 34,
+   "title": "'Til You Can't",
+   "artist": "Cody Johnson",
+   "album": "Human: The Double Album",
+   "album_mbid": "fad8b730-90d2-4850-a8da-69552c93b6fa",
+   "album_group_mbid": "7b4800d5-eebb-4be2-9438-abdae8cf9202",
+   "album_type": "Album",
+   "album_date": "2021-10-08"
+  },
+  {
+   "rank": 35,
+   "title": "Fancy Like",
+   "artist": "Walker Hayes",
+   "mbid": "16a24410-1736-4eb1-ba9f-e4e7d5a02301",
+   "artist_mbids": [
+    "e48d32dc-18ad-40df-854c-49ea4d12d809"
+   ],
+   "album": "Country Stuff the Album",
+   "album_mbid": "6e4b386d-2361-4740-886c-801bfce3b9f1",
+   "album_group_mbid": "593be7ef-677c-47dd-9e5a-f78a554e1ae7",
+   "album_type": "Album",
+   "album_date": "2022-01-21"
+  },
+  {
+   "rank": 36,
+   "title": "The Kind of Love We Make",
+   "artist": "Luke Combs",
+   "mbid": "572b33ea-ae5a-425c-918b-d33e94e705bb",
+   "artist_mbids": [
+    "c20ee61f-071f-4e65-9c81-45ee931a54ce"
+   ],
+   "album": "Growin’ Up",
+   "album_mbid": "ec2d9a5b-193a-41c4-ba62-154ffcbad29e",
+   "album_group_mbid": "5e359856-3d25-42e5-80e4-91fac3db6ce0",
+   "album_type": "Album",
+   "album_date": "2022-06-24"
+  },
+  {
+   "rank": 37,
+   "title": "I Ain't Worried",
+   "artist": "OneRepublic",
+   "mbid": "f1dc6100-56e4-4c84-8a78-ee8ffcfc3df1",
+   "artist_mbids": [
+    "c33c2065-b1c3-4406-b066-d33a9e2ea71a"
+   ],
+   "album": "Top Gun: Maverick: Music From the Motion Picture",
+   "album_mbid": "5563f361-baf1-464a-a095-d73cc28d0d24",
+   "album_group_mbid": "034cc2d4-934a-49d3-9bd1-949a99b5541b",
+   "album_type": "Album / Soundtrack",
+   "album_date": "2022-05-27"
+  },
+  {
+   "rank": 38,
+   "title": "Break My Soul",
+   "artist": "Beyoncé",
+   "mbid": "378f8d61-8d50-45be-85e6-d442b9941ea5",
+   "artist_mbids": [
+    "859d0860-d480-4efd-970c-c05d5f1776b8"
+   ],
+   "album": "RENAISSANCE",
+   "album_mbid": "11e1c7e5-61fd-49a4-8030-1287f8f31a0f",
+   "album_group_mbid": "2c385052-5083-43a2-b1e5-36566d2ae3c0",
+   "album_type": "Album",
+   "album_date": "2022-07-29"
+  },
+  {
+   "rank": 39,
+   "title": "Something in the Orange",
+   "artist": "Zach Bryan",
+   "mbid": "95a87931-919e-4364-934a-24b70cf9ebff",
+   "artist_mbids": [
+    "51e90731-08c0-4f60-89b6-5b78e5844de8"
+   ],
+   "album": "American Heartbreak",
+   "album_mbid": "51b31eba-ee31-4ab0-9f58-7d83364983d1",
+   "album_group_mbid": "7f1f0e41-2831-4902-8c60-8c705b1b3bf3",
+   "album_type": "Album",
+   "album_date": "2022-05-20"
+  },
+  {
+   "rank": 40,
+   "title": "Save Your Tears",
+   "artist": "The Weeknd and Ariana Grande",
+   "mbid": "0f431b3e-ddb0-4cea-9b32-e59d47b1ae8c",
+   "artist_mbids": [
+    "c8b03190-306c-4120-bb0b-6f2ebfc06ea9"
+   ],
+   "album": "After Hours",
+   "album_mbid": "caeb9098-cd20-4d8c-af47-983033841c7a",
+   "album_group_mbid": "78570bea-2a26-467c-a3db-c52723ceb394",
+   "album_type": "Album",
+   "album_date": "2020-03-30"
+  },
+  {
+   "rank": 41,
+   "title": "Smokin out the Window",
+   "artist": "Silk Sonic (Bruno Mars and Anderson .Paak)",
+   "album": "An Evening With Silk Sonic",
+   "album_mbid": "31eb81a9-334b-4975-b6f9-4c0b70d2a88b",
+   "album_group_mbid": "97a8636b-af26-46b9-a3f4-4ed57c75a2da",
+   "album_type": "Album",
+   "album_date": "2021-11-12"
+  },
+  {
+   "rank": 42,
+   "title": "Levitating",
+   "artist": "Dua Lipa",
+   "mbid": "957df7c5-9c3a-4dbc-b139-f339f2378986",
+   "artist_mbids": [
+    "6f1a58bf-9b1b-49cf-a44a-6cefad7ae04f"
+   ],
+   "album": "Future Nostalgia",
+   "album_mbid": "c19c52df-c0b0-4756-8f1a-727ceca58374",
+   "album_group_mbid": "aa366795-92d7-4d67-91fa-6741f82a4858",
+   "album_type": "Album",
+   "album_date": "2020-11-27"
+  },
+  {
+   "rank": 43,
+   "title": "In a Minute",
+   "artist": "Lil Baby",
+   "mbid": "6a5dcd41-73d8-4606-84fe-58406062de2d",
+   "artist_mbids": [
+    "d42a5768-ada1-4fb6-85fd-f61aba6264e0"
+   ],
+   "album": "It’s Only Me",
+   "album_mbid": "f3d74ebd-337e-4f83-890d-ddcb9dc68d60",
+   "album_group_mbid": "5aef4459-015e-4d60-8f88-b8b154b41811",
+   "album_type": "Album",
+   "album_date": ""
+  },
+  {
+   "rank": 44,
+   "title": "Moscow Mule",
+   "artist": "Bad Bunny",
+   "mbid": "27117064-7212-4d61-9caf-4260c6a97d78",
+   "artist_mbids": [
+    "89aa5ecb-59ad-46f5-b3eb-2d424e941f19"
+   ],
+   "album": "Un verano sin ti",
+   "album_mbid": "aded3f90-b758-451a-aad7-711d5985b05f",
+   "album_group_mbid": "e992b449-141b-4aea-b07b-9b2a478a8570",
+   "album_type": "Album",
+   "album_date": "2022-05-06"
+  },
+  {
+   "rank": 45,
+   "title": "You Right",
+   "artist": "Doja Cat and the Weeknd",
+   "mbid": "861679df-1dda-4c68-aef3-f4bb14bc7431",
+   "artist_mbids": [
+    "5df62a88-cac9-490a-b62c-c7c88f4020f4",
+    "c8b03190-306c-4120-bb0b-6f2ebfc06ea9"
+   ],
+   "album": "Planet Her",
+   "album_mbid": "5fa94158-e8f9-4ad8-8d1f-d3a13787eaf7",
+   "album_group_mbid": "6c90cb91-e615-4545-854b-6d6f10c5cb6d",
+   "album_type": "Album",
+   "album_date": "2021-12-10"
+  },
+  {
+   "rank": 46,
+   "title": "She Had Me at Heads Carolina",
+   "artist": "Cole Swindell",
+   "mbid": "d9319b93-249d-4aed-953d-d57f05123c1b",
+   "artist_mbids": [
+    "365247e5-db90-4d0e-bf2c-ca18b54fcab9"
+   ],
+   "album": "Stereotype",
+   "album_mbid": "a4f31bfb-1647-4a91-b5be-874d00a4c146",
+   "album_group_mbid": "dd2d0abf-0fca-4cc2-b402-da4b0fc376e7",
+   "album_type": "Album",
+   "album_date": "2022"
+  },
+  {
+   "rank": 47,
+   "title": "Vegas",
+   "artist": "Doja Cat",
+   "mbid": "884cc074-7e5f-4b69-af71-99d556675ad5",
+   "artist_mbids": [
+    "5df62a88-cac9-490a-b62c-c7c88f4020f4"
+   ],
+   "album": "ELVIS: Original Motion Picture Soundtrack",
+   "album_mbid": "143069eb-d43f-41ab-be17-d432dd016245",
+   "album_group_mbid": "30c63b4c-390d-4dac-8292-0e48c0454177",
+   "album_type": "Album / Soundtrack",
+   "album_date": "2022"
+  },
+  {
+   "rank": 48,
+   "title": "Pushin P",
+   "artist": "Gunna and Future featuring Young Thug",
+   "mbid": "930eaed0-0217-45d7-86dc-69e147156ec1",
+   "artist_mbids": [
+    "100b8734-f4f0-4536-9960-47f7c59d1b4c",
+    "48262e82-db9f-4a92-b650-dfef979b73ec",
+    "800760de-bdf8-43a2-8fe0-44a2401a5515"
+   ],
+   "album": "DS4EVER",
+   "album_mbid": "f8f3cb63-2829-40da-a426-ef7cfb185f0f",
+   "album_group_mbid": "df0c74cb-5759-41bc-be69-a5dab216ab5e",
+   "album_type": "Album",
+   "album_date": "2022-01-07"
+  },
+  {
+   "rank": 49,
+   "title": "Buy Dirt",
+   "artist": "Jordan Davis and Luke Bryan",
+   "mbid": "41d64bea-e1bc-404f-9162-050277c0beab",
+   "artist_mbids": [
+    "f3830a42-5c4c-4974-8ae0-bb19002629b0",
+    "aab35942-f176-4f77-bbf9-1d6aa98ccf3f"
+   ],
+   "album": "Bluebird Days",
+   "album_mbid": "c4f6ea3b-7f79-495c-a1e5-5e2d7a7aea4f",
+   "album_group_mbid": "72778b73-47ca-4465-b8bb-f460cbbfeec3",
+   "album_type": "Album",
+   "album_date": "2023"
+  },
+  {
+   "rank": 50,
+   "title": "I Hate U",
+   "artist": "SZA",
+   "mbid": "f5e54962-d384-435f-8006-fbb872790c73",
+   "artist_mbids": [
+    "272989c8-5535-492d-a25c-9f58803e027f"
+   ],
+   "album": "SOS",
+   "album_mbid": "79a7b5e6-7edb-489d-9481-63387f7bc197",
+   "album_group_mbid": "1646286a-d0ad-4288-bfab-34b0fb7b22c1",
+   "album_type": "Album",
+   "album_date": "2023-05-19"
+  },
+  {
+   "rank": 51,
+   "title": "Boyfriend",
+   "artist": "Dove Cameron",
+   "mbid": "d6098f4c-25e7-42ef-a5d0-02766559c45e",
+   "artist_mbids": [
+    "831dcf03-b745-436b-922f-6a2baaf45e57"
+   ],
+   "album": "Alchemical: Vol. 1",
+   "album_mbid": "3ac2a048-dbf1-4bee-bf68-3f9892f65103",
+   "album_group_mbid": "74324885-4ddb-4675-908a-a67cfd5f6f36",
+   "album_type": "EP",
+   "album_date": ""
+  },
+  {
+   "rank": 52,
+   "title": "Glimpse of Us",
+   "artist": "Joji",
+   "mbid": "57c319d6-31ed-4668-acf1-13350ab8b67b",
+   "artist_mbids": [
+    "8264722b-df00-467a-858e-5c97cda169c9"
+   ],
+   "album": "SMITHEREENS",
+   "album_mbid": "10948d07-64a1-4adc-b51e-07a937405366",
+   "album_group_mbid": "f2b2abf8-09af-4d45-aee9-b0c99d4fcabc",
+   "album_type": "Album",
+   "album_date": "2022-11-04"
+  },
+  {
+   "rank": 53,
+   "title": "Surface Pressure",
+   "artist": "Jessica Darrow",
+   "mbid": "b20dc64a-5da2-4a5c-936b-8e14188b8554",
+   "artist_mbids": [
+    "e096782e-66d3-4add-aa75-ddf2b3d13923"
+   ],
+   "album": "Encanto: Original Motion Picture Soundtrack",
+   "album_mbid": "0fd03d2e-5d8f-4116-b30b-2487e3030527",
+   "album_group_mbid": "0266c80c-b550-43f3-824f-fb435977460c",
+   "album_type": "Album / Soundtrack",
+   "album_date": "2021-11-19"
+  },
+  {
+   "rank": 54,
+   "title": "Fall in Love",
+   "artist": "Bailey Zimmerman",
+   "mbid": "3e24bae1-84b1-4809-9a3e-24cc80e24cb8",
+   "artist_mbids": [
+    "20543896-ec2c-48c4-b6b2-507c6cbe9918"
+   ],
+   "album": "Religiously. The Album.",
+   "album_mbid": "960b6853-be43-444f-aae4-5fb3469d0096",
+   "album_group_mbid": "bc91595c-f5e8-4f83-8835-e460eaa3f0c6",
+   "album_type": "Album",
+   "album_date": "2023-05-12"
+  },
+  {
+   "rank": 55,
+   "title": "Love Nwantiti (Ah Ah Ah)",
+   "artist": "CKay",
+   "mbid": "b4ece4ff-9866-4f65-b376-86179a5d70e0",
+   "artist_mbids": [
+    "eb1febcf-9902-4962-9dc4-8fe4d7fc25b4"
+   ],
+   "album": "Sad Romance",
+   "album_mbid": "6900541e-2078-4f9f-8c47-924fad598949",
+   "album_group_mbid": "7dda04ab-36a3-4208-8d99-150cc9a57adb",
+   "album_type": "Album",
+   "album_date": "2022-09-23"
+  },
+  {
+   "rank": 56,
+   "title": "Super Freaky Girl",
+   "artist": "Nicki Minaj",
+   "mbid": "ec81e381-c77a-4eb6-a237-fbd0e7d6038f",
+   "artist_mbids": [
+    "1036b808-f58c-4a3e-b461-a2c4492ecf1b"
+   ],
+   "album": "Pink Friday 2",
+   "album_mbid": "d051b326-bad2-4473-b1eb-03760a095911",
+   "album_group_mbid": "016d0958-01da-4d16-8da1-8328f891a3a1",
+   "album_type": "Album",
+   "album_date": "2023-12-11"
+  },
+  {
+   "rank": 57,
+   "title": "Hrs and Hrs",
+   "artist": "Muni Long",
+   "mbid": "039a5310-ec9b-4500-8307-024dcac1b71f",
+   "artist_mbids": [
+    "66acfbaf-a28e-49c1-aeff-ef92e4358d90"
+   ],
+   "album": "Public Displays of Affection",
+   "album_mbid": "e4cb57d3-7e9e-42c1-b35e-dbb21afe8629",
+   "album_group_mbid": "334f0e97-3e13-478a-acc9-03429a7a1ff0",
+   "album_type": "Album",
+   "album_date": "2022-09-23"
+  },
+  {
+   "rank": 58,
+   "title": "Sand in My Boots",
+   "artist": "Morgan Wallen",
+   "mbid": "2999671e-a218-4fee-88ac-06373a6c7280",
+   "artist_mbids": [
+    "2077273e-eaa1-4f49-903c-f286ededecb9"
+   ],
+   "album": "Dangerous: The Double Album",
+   "album_mbid": "b75e8d7f-6092-43b3-865b-d6e01d32338c",
+   "album_group_mbid": "c61d61b6-9850-4b59-bb73-0cde95ab7b75",
+   "album_type": "Album",
+   "album_date": "2021-01-29"
+  },
+  {
+   "rank": 59,
+   "title": "Mamiii",
+   "artist": "Becky G and Karol G",
+   "mbid": "a6b42ba3-4e60-452c-a458-99d96369cf17",
+   "artist_mbids": [
+    "eb90c8b8-d733-4c14-a293-105c3d1ba9b3",
+    "de22adae-f8ac-414f-b653-b0162611bd60"
+   ],
+   "album": "ESQUEMAS",
+   "album_mbid": "bdb79c7c-367d-42c5-9f8d-d2bf4ca9219f",
+   "album_group_mbid": "f86fad2d-f424-48b1-9372-e8a657f8f337",
+   "album_type": "Album",
+   "album_date": "2022-05-13"
+  },
+  {
+   "rank": 60,
+   "title": "Knife Talk",
+   "artist": "Drake featuring 21 Savage and Project Pat",
+   "mbid": "b9eca4dd-1a9b-4065-90cd-fad3a8e5cb91",
+   "artist_mbids": [
+    "9fff2f8a-21e6-47de-a2b8-7f449929d43f",
+    "37b2cb82-ef79-4d46-a184-a549450aa231",
+    "8b8985eb-f71f-4229-9f11-171a7aac98c1"
+   ],
+   "album": "Certified Lover Boy",
+   "album_mbid": "8bd2c19c-d143-483c-a7f9-34eb7bd451e0",
+   "album_group_mbid": "5c2e6a17-dc0b-42bc-8fcb-a60770505e37",
+   "album_type": "Album",
+   "album_date": "2021-09-03"
+  },
+  {
+   "rank": 61,
+   "title": "AA",
+   "artist": "Walker Hayes",
+   "mbid": "9e432c61-806f-4812-a209-a3a50049c3a5",
+   "artist_mbids": [
+    "e48d32dc-18ad-40df-854c-49ea4d12d809"
+   ],
+   "album": "Country Stuff the Album",
+   "album_mbid": "6e4b386d-2361-4740-886c-801bfce3b9f1",
+   "album_group_mbid": "593be7ef-677c-47dd-9e5a-f78a554e1ae7",
+   "album_type": "Album",
+   "album_date": "2022-01-21"
+  },
+  {
+   "rank": 62,
+   "title": "Sweetest Pie",
+   "artist": "Megan Thee Stallion and Dua Lipa",
+   "mbid": "f9fb365e-5c45-4af3-a467-9841a0bf1857",
+   "artist_mbids": [
+    "ee27b2d8-648c-4a9d-a68c-e55066959975",
+    "6f1a58bf-9b1b-49cf-a44a-6cefad7ae04f"
+   ],
+   "album": "Traumazine",
+   "album_mbid": "17f5495f-4485-4048-bc66-88085876e8b0",
+   "album_group_mbid": "d20d5d07-bcb1-4aa2-a1a2-d8d2144ae782",
+   "album_type": "Album",
+   "album_date": "2022-08-12"
+  },
+  {
+   "rank": 63,
+   "title": "Provenza",
+   "artist": "Karol G",
+   "mbid": "8eb7f5d6-5841-4ecf-97c0-ceb6862d2013",
+   "artist_mbids": [
+    "de22adae-f8ac-414f-b653-b0162611bd60"
+   ],
+   "album": "MAÑANA SERÁ BONITO",
+   "album_mbid": "3a306f98-4e37-4709-97f7-5a55d96e55e1",
+   "album_group_mbid": "a1ceb373-b802-4889-a20f-2039dab9c5ce",
+   "album_type": "Album",
+   "album_date": "2023-02-23"
+  },
+  {
+   "rank": 64,
+   "title": "Essence",
+   "artist": "Wizkid featuring Justin Bieber and Tems",
+   "mbid": "ebd58a14-7fa4-4c83-862b-3a0adb135cc1",
+   "artist_mbids": [
+    "efc5d365-a448-4e2f-9b5f-4a7c84be725c",
+    "e0140a67-e4d1-4f13-8a01-364355bee46e",
+    "5b2a8faa-ffee-4706-a1a8-58f109bc8ca2"
+   ],
+   "album": "Made in Lagos",
+   "album_mbid": "21ba339b-707f-4f44-a79a-afa0719c43a8",
+   "album_group_mbid": "a29e4711-741e-4576-af2d-bf00ab8a5538",
+   "album_type": "Album",
+   "album_date": "2020-10-29"
+  },
+  {
+   "rank": 65,
+   "title": "All I Want for Christmas Is You",
+   "artist": "Mariah Carey",
+   "mbid": "a6fab057-cf3a-4456-950e-d3edaf219326",
+   "artist_mbids": [
+    "494e8d09-f85b-4543-892f-a5096aed1cd4"
+   ],
+   "album": "Merry Christmas",
+   "album_mbid": "7cfa9c10-0673-4790-a7aa-aa41e1cfcb4d",
+   "album_group_mbid": "ea885664-bf25-3e52-8ce0-15a84aed4a83",
+   "album_type": "Album",
+   "album_date": "1994-11-01"
+  },
+  {
+   "rank": 66,
+   "title": "Bam Bam",
+   "artist": "Camila Cabello featuring Ed Sheeran",
+   "mbid": "6dec2e9d-ccfd-4eca-9284-e4f1ba810945",
+   "artist_mbids": [
+    "01b8b5bf-06cb-45da-85fb-61ada72fcd69",
+    "b8a7c51f-362c-4dcb-a259-bc6e0095f0a6"
+   ],
+   "album": "Familia",
+   "album_mbid": "3c72321e-1486-40e0-92f3-d139e165312e",
+   "album_group_mbid": "69701f2b-aaef-41e1-9910-d23276c5cff8",
+   "album_type": "Album",
+   "album_date": "2022-04-08"
+  },
+  {
+   "rank": 67,
+   "title": "5 Foot 9",
+   "artist": "Tyler Hubbard",
+   "mbid": "92d584d0-fea6-4cfb-bd7c-6d624d2954b9",
+   "artist_mbids": [
+    "a0b0b576-d6bc-445d-b9db-70893547a4e1"
+   ],
+   "album": "Tyler Hubbard",
+   "album_mbid": "fb106e1b-79fb-4de3-8c16-de4cdb60960b",
+   "album_group_mbid": "095a4d47-0dc1-4cff-9b94-19f537886dff",
+   "album_type": "Album",
+   "album_date": "2023-01-27"
+  },
+  {
+   "rank": 68,
+   "title": "Get Into It (Yuh)",
+   "artist": "Doja Cat",
+   "mbid": "b9ea0f48-6f21-4115-a97f-eb6bbb503093",
+   "artist_mbids": [
+    "5df62a88-cac9-490a-b62c-c7c88f4020f4"
+   ],
+   "album": "Planet Her",
+   "album_mbid": "5fa94158-e8f9-4ad8-8d1f-d3a13787eaf7",
+   "album_group_mbid": "6c90cb91-e615-4545-854b-6d6f10c5cb6d",
+   "album_type": "Album",
+   "album_date": "2021-12-10"
+  },
+  {
+   "rank": 69,
+   "title": "Efecto",
+   "artist": "Bad Bunny",
+   "mbid": "782ee794-afb3-4adb-a1d7-c6fdc1d945de",
+   "artist_mbids": [
+    "89aa5ecb-59ad-46f5-b3eb-2d424e941f19"
+   ],
+   "album": "Un verano sin ti",
+   "album_mbid": "aded3f90-b758-451a-aad7-711d5985b05f",
+   "album_group_mbid": "e992b449-141b-4aea-b07b-9b2a478a8570",
+   "album_type": "Album",
+   "album_date": "2022-05-06"
+  },
+  {
+   "rank": 70,
+   "title": "Rock and a Hard Place",
+   "artist": "Bailey Zimmerman",
+   "mbid": "4b76d5cd-b2cd-4feb-924c-a37ec13fd99b",
+   "artist_mbids": [
+    "20543896-ec2c-48c4-b6b2-507c6cbe9918"
+   ],
+   "album": "Religiously. The Album.",
+   "album_mbid": "960b6853-be43-444f-aae4-5fb3469d0096",
+   "album_group_mbid": "bc91595c-f5e8-4f83-8835-e460eaa3f0c6",
+   "album_type": "Album",
+   "album_date": "2023-05-12"
+  },
+  {
+   "rank": 71,
+   "title": "Doin' This",
+   "artist": "Luke Combs",
+   "mbid": "c2324f7f-3798-489d-aa6a-444562c673d2",
+   "artist_mbids": [
+    "c20ee61f-071f-4e65-9c81-45ee931a54ce"
+   ],
+   "album": "Growin’ Up",
+   "album_mbid": "ec2d9a5b-193a-41c4-ba62-154ffcbad29e",
+   "album_group_mbid": "5e359856-3d25-42e5-80e4-91fac3db6ce0",
+   "album_type": "Album",
+   "album_date": "2022-06-24"
+  },
+  {
+   "rank": 72,
+   "title": "Oh My God",
+   "artist": "Adele",
+   "mbid": "a655f293-ea2a-4eec-abc0-31d1c91ebbc5",
+   "artist_mbids": [
+    "cc2c9c3c-b7bc-4b8b-84d8-4fbd8779e493"
+   ],
+   "album": "30",
+   "album_mbid": "5c2b134a-70df-4bd3-8b72-7cfce4f82e49",
+   "album_group_mbid": "d8a99910-33c2-481d-9b96-085ece5545f6",
+   "album_type": "Album",
+   "album_date": "2021-11-19"
+  },
+  {
+   "rank": 73,
+   "title": "Better Days",
+   "artist": "Neiked, Mae Muller and Polo G",
+   "mbid": "983ee785-7cae-48f0-b963-c77dcdc302c1",
+   "artist_mbids": [
+    "45d2e2d4-a8eb-402b-9a49-2cc117232feb",
+    "f102440f-8e60-45eb-af2b-f6a6df4025d2",
+    "7e1e5648-1d6a-4248-975a-98603e781848"
+   ],
+   "album": "Sorry I’m Late",
+   "album_mbid": "e977648c-42f8-485f-a86b-d630daf03eff",
+   "album_group_mbid": "62474b67-eda7-4e19-a1c8-8dcf5979b7cd",
+   "album_type": "Album",
+   "album_date": "2023-09-29"
+  },
+  {
+   "rank": 74,
+   "title": "Meet Me at Our Spot",
+   "artist": "The Anxiety: Willow and Tyler Cole",
+   "mbid": "2c7b1667-1244-4763-9355-9ba3d3ac5d30",
+   "artist_mbids": [
+    "85c18775-22bd-4a66-8415-3fe11c026040",
+    "6bbfc71b-5f18-4e61-82fb-bee0c2a6b5f9",
+    "af03e830-1470-49de-a891-03e9d36eb8e4"
+   ],
+   "album": "THE ANXIETY",
+   "album_mbid": "225b1c39-e4fe-4aaa-8a9d-1b6dcb2d7462",
+   "album_group_mbid": "802cc825-a654-43b7-b6f3-99fc327eb71d",
+   "album_type": "Album",
+   "album_date": "2020-03-13"
+  },
+  {
+   "rank": 75,
+   "title": "Fingers Crossed",
+   "artist": "Lauren Spencer-Smith",
+   "mbid": "ec2eb394-9da1-43f2-82d6-c93b1340f0c1",
+   "artist_mbids": [
+    "0a727c70-cb97-4e3d-a973-219a0575349c"
+   ],
+   "album": "Mirror",
+   "album_mbid": "9b4f6034-b325-4651-a102-5d08a63cb45e",
+   "album_group_mbid": "ebb56971-0213-42a9-976c-1433bcfba547",
+   "album_type": "Album",
+   "album_date": "2023-10-13"
+  },
+  {
+   "rank": 76,
+   "title": "All Too Well (Taylor's Version)",
+   "artist": "Taylor Swift",
+   "mbid": "7f989758-df3e-4bc5-bda7-1558d9de03e4",
+   "artist_mbids": [
+    "20244d07-534f-4eff-b4d4-930878889970"
+   ],
+   "album": "Red (Taylor’s version)",
+   "album_mbid": "35ccb95e-de21-4d81-94d9-f5c60912cdf9",
+   "album_group_mbid": "67727253-f1c0-4243-9270-f9f1401c3b8c",
+   "album_type": "Album",
+   "album_date": "2021-11-15"
+  },
+  {
+   "rank": 77,
+   "title": "Party",
+   "artist": "Bad Bunny and Rauw Alejandro",
+   "mbid": "4573ac4e-6d31-4d29-8374-22428dad0c36",
+   "artist_mbids": [
+    "89aa5ecb-59ad-46f5-b3eb-2d424e941f19",
+    "197b70c7-8910-4030-ad03-632d82aa40e3"
+   ],
+   "album": "Un verano sin ti",
+   "album_mbid": "aded3f90-b758-451a-aad7-711d5985b05f",
+   "album_group_mbid": "e992b449-141b-4aea-b07b-9b2a478a8570",
+   "album_type": "Album",
+   "album_date": "2022-05-06"
+  },
+  {
+   "rank": 78,
+   "title": "Después de la Playa",
+   "artist": "Bad Bunny",
+   "mbid": "8aa7b603-fcd9-40c9-a3a5-0d000fc7c3b7",
+   "artist_mbids": [
+    "89aa5ecb-59ad-46f5-b3eb-2d424e941f19"
+   ],
+   "album": "Un verano sin ti",
+   "album_mbid": "aded3f90-b758-451a-aad7-711d5985b05f",
+   "album_group_mbid": "e992b449-141b-4aea-b07b-9b2a478a8570",
+   "album_type": "Album",
+   "album_date": "2022-05-06"
+  },
+  {
+   "rank": 79,
+   "title": "You Should Probably Leave",
+   "artist": "Chris Stapleton",
+   "mbid": "c3e7d3c9-844b-4727-8918-a743f95aedd3",
+   "artist_mbids": [
+    "71d58182-aa37-4c04-b21a-efe46ea0f221"
+   ],
+   "album": "Starting Over",
+   "album_mbid": "e6e646ad-e569-400e-a907-0026f32afce3",
+   "album_group_mbid": "1495c73e-9da2-464e-9cbf-15ae7b38fd4c",
+   "album_type": "Album",
+   "album_date": "2020-11-13"
+  },
+  {
+   "rank": 80,
+   "title": "Rockin' Around the Christmas Tree",
+   "artist": "Brenda Lee",
+   "mbid": "3bc78b7b-df89-45d1-952d-c0a1da84392a",
+   "artist_mbids": [
+    "6ca4886a-8f77-4133-b404-46fb3908e24a"
+   ],
+   "album": "Merry Christmas From Brenda Lee",
+   "album_mbid": "4b4f8025-b7f6-4fb9-aec8-fcca05299b60",
+   "album_group_mbid": "d8699075-d5d1-4b3a-8db3-f23751c4873d",
+   "album_type": "Album",
+   "album_date": "1964-10-19"
+  },
+  {
+   "rank": 81,
+   "title": "Broadway Girls",
+   "artist": "Lil Durk featuring Morgan Wallen",
+   "mbid": "6c673cc0-fa66-4a2b-b379-8dcee437ea19",
+   "artist_mbids": [
+    "c9cd225b-4883-428e-82c2-73e0b6282fb6",
+    "2077273e-eaa1-4f49-903c-f286ededecb9"
+   ],
+   "album": "7220 (deluxe)",
+   "album_mbid": "94408531-597d-41e0-a950-642f6d381b87",
+   "album_group_mbid": "5a62bebd-d78e-4f02-9d95-0bee626a7eff",
+   "album_type": "Album",
+   "album_date": ""
+  },
+  {
+   "rank": 82,
+   "title": "Take My Name",
+   "artist": "Parmalee",
+   "mbid": "0d77dd45-4f54-43e3-b346-37708668201b",
+   "artist_mbids": [
+    "66980f96-2716-48e6-88c2-cbbb81b8e888"
+   ],
+   "album": "For You",
+   "album_mbid": "5d0c683f-3825-4faa-b727-8d5bb067a699",
+   "album_group_mbid": "ef8f8f3a-235a-499d-982f-b762ae51afa6",
+   "album_type": "Album",
+   "album_date": "2021-07-30"
+  },
+  {
+   "rank": 83,
+   "title": "What Happened to Virgil",
+   "artist": "Lil Durk featuring Gunna",
+   "mbid": "1572d66d-b49a-4e8f-9b6c-b154d3d37cde",
+   "artist_mbids": [
+    "c9cd225b-4883-428e-82c2-73e0b6282fb6",
+    "100b8734-f4f0-4536-9960-47f7c59d1b4c"
+   ],
+   "album": "7220 (deluxe)",
+   "album_mbid": "94408531-597d-41e0-a950-642f6d381b87",
+   "album_group_mbid": "5a62bebd-d78e-4f02-9d95-0bee626a7eff",
+   "album_type": "Album",
+   "album_date": ""
+  },
+  {
+   "rank": 84,
+   "title": "Puffin on Zootiez",
+   "artist": "Future",
+   "mbid": "f88b34f6-ea7a-498e-806b-ccfa89df3e87",
+   "artist_mbids": [
+    "48262e82-db9f-4a92-b650-dfef979b73ec"
+   ],
+   "album": "I NEVER LIKED YOU",
+   "album_mbid": "2b440879-df84-4769-83b7-b1a85a248070",
+   "album_group_mbid": "503bb581-ecf1-4794-9746-aa896c3a89e3",
+   "album_type": "Album",
+   "album_date": "2022-04-29"
+  },
+  {
+   "rank": 85,
+   "title": "Like I Love Country Music",
+   "artist": "Kane Brown",
+   "mbid": "3e2bb575-71ce-4302-8e67-025df0ae4cbc",
+   "artist_mbids": [
+    "a62e299b-4707-4ff5-ad53-d80b2b03319d"
+   ],
+   "album": "Different Man",
+   "album_mbid": "0fe1cb39-fd15-4ab2-aa68-4b5d6ddf5b53",
+   "album_group_mbid": "2ce92a85-ce77-4176-833d-8ca4d18a63c3",
+   "album_type": "Album",
+   "album_date": "2022-09-09"
+  },
+  {
+   "rank": 86,
+   "title": "Jingle Bell Rock",
+   "artist": "Bobby Helms",
+   "mbid": "af10343e-5ad7-4adb-9896-dc42579732e3",
+   "artist_mbids": [
+    "502b3244-0f7d-470c-99e9-b17fe6bcaabf"
+   ],
+   "album": "Jingle Bell Rock / Captain Santa Claus (and His Reindeer Space Patrol)",
+   "album_mbid": "797468cd-23a2-47f4-9042-4b652ace5f6d",
+   "album_group_mbid": "39509f63-766a-3d6b-9d24-68199925221b",
+   "album_type": "Single",
+   "album_date": "1957-11"
+  },
+  {
+   "rank": 87,
+   "title": "Ojitos Lindos",
+   "artist": "Bad Bunny and Bomba Estéreo",
+   "mbid": "40f1bb4f-44e0-435b-b0e0-31c0b0d29b2d",
+   "artist_mbids": [
+    "89aa5ecb-59ad-46f5-b3eb-2d424e941f19",
+    "aea8576d-7ad5-4430-bf2e-63725d80f05c"
+   ],
+   "album": "Un verano sin ti",
+   "album_mbid": "fe3226ab-726b-4d52-a971-714473fec41b",
+   "album_group_mbid": "e992b449-141b-4aea-b07b-9b2a478a8570",
+   "album_type": "Album",
+   "album_date": "2022-08-05"
+  },
+  {
+   "rank": 88,
+   "title": "Trouble with a Heartbreak",
+   "artist": "Jason Aldean",
+   "mbid": "b8bd474a-636d-4f7f-a85a-4be1bb26f010",
+   "artist_mbids": [
+    "f24df11a-7e35-4979-a4db-a3b2a170ce27"
+   ],
+   "album": "GEORGIA",
+   "album_mbid": "dffe701b-7a6f-4aee-9abb-bf6e8fc60049",
+   "album_group_mbid": "5cc61925-457a-4a60-b212-d8e558bd0ecd",
+   "album_type": "Album",
+   "album_date": "2022-04-22"
+  },
+  {
+   "rank": 89,
+   "title": "A Holly Jolly Christmas",
+   "artist": "Burl Ives",
+   "mbid": "698a5c4e-b829-42f6-acde-44d80dc934fe",
+   "artist_mbids": [
+    "086c1936-9eaa-4091-b140-ad33a51a3b71"
+   ],
+   "album": "Have a Holly Jolly Christmas",
+   "album_mbid": "93385ea0-1c33-4808-9b5b-aabb2a070683",
+   "album_group_mbid": "86966f53-0fdd-3229-8fa7-4a09dd2c249f",
+   "album_type": "Album",
+   "album_date": "1965-10"
+  },
+  {
+   "rank": 90,
+   "title": "Kiss Me More",
+   "artist": "Doja Cat featuring SZA",
+   "mbid": "16ba7915-2acf-42b2-8c87-ed67090dca91",
+   "artist_mbids": [
+    "5df62a88-cac9-490a-b62c-c7c88f4020f4",
+    "272989c8-5535-492d-a25c-9f58803e027f"
+   ],
+   "album": "Planet Her",
+   "album_mbid": "5fa94158-e8f9-4ad8-8d1f-d3a13787eaf7",
+   "album_group_mbid": "6c90cb91-e615-4545-854b-6d6f10c5cb6d",
+   "album_type": "Album",
+   "album_date": "2021-12-10"
+  },
+  {
+   "rank": 91,
+   "title": "She Likes It",
+   "artist": "Russell Dickerson featuring Jake Scott",
+   "mbid": "db8b64e2-d378-4dc9-ae6b-a2ffa80a890e",
+   "artist_mbids": [
+    "e2529584-b250-4a22-821c-16d3d8120978",
+    "9251ea3b-e680-4445-99d6-c717af9a61cd"
+   ],
+   "album": "Russell Dickerson",
+   "album_mbid": "36924831-4666-4252-b937-cba0c3b8fcb2",
+   "album_group_mbid": "1824e7cb-efb9-4a2a-ae72-dda245880a6d",
+   "album_type": "Album",
+   "album_date": "2022-11-04"
+  },
+  {
+   "rank": 92,
+   "title": "Never Say Never",
+   "artist": "Cole Swindell and Lainey Wilson",
+   "mbid": "75d0e18d-6590-4781-be3f-2238fb31b9a7",
+   "artist_mbids": [
+    "365247e5-db90-4d0e-bf2c-ca18b54fcab9",
+    "a6e613d6-ff65-4972-beff-303a1b10ab05"
+   ],
+   "album": "Stereotype",
+   "album_mbid": "a4f31bfb-1647-4a91-b5be-874d00a4c146",
+   "album_group_mbid": "dd2d0abf-0fca-4cc2-b402-da4b0fc376e7",
+   "album_type": "Album",
+   "album_date": "2022"
+  },
+  {
+   "rank": 93,
+   "title": "Damn Strait",
+   "artist": "Scotty McCreery",
+   "mbid": "9689e845-ed95-407d-8f05-5980e29fa772",
+   "artist_mbids": [
+    "2294c553-58e4-425b-8bab-bee01f2d477a"
+   ],
+   "album": "Same Truck",
+   "album_mbid": "6d9a5eca-26ac-40b6-ae31-794ab093e479",
+   "album_group_mbid": "1e97b529-181e-4f5c-8bdd-06b69c340a3d",
+   "album_type": "Album",
+   "album_date": "2021-09-17"
+  },
+  {
+   "rank": 94,
+   "title": "She's All I Wanna Be",
+   "artist": "Tate McRae",
+   "album": "i used to think i could fly",
+   "album_mbid": "a682db29-8eb5-45b0-801a-2ca40d08fb58",
+   "album_group_mbid": "248271da-8240-450e-9959-b2f05fefb988",
+   "album_type": "Album",
+   "album_date": "2022-05-27"
+  },
+  {
+   "rank": 95,
+   "title": "Last Night Lonely",
+   "artist": "Jon Pardi",
+   "mbid": "f8b9014b-298c-4b93-9b69-75a0e4d52f89",
+   "artist_mbids": [
+    "ad590765-191c-4c07-9d64-49633488e9a8"
+   ],
+   "album": "Mr. Saturday Night",
+   "album_mbid": "59beb1d4-feb9-474a-aaa7-531c45f0c0c2",
+   "album_group_mbid": "61ec4e7c-c588-4018-a6a9-c9cd9ee949ee",
+   "album_type": "Album",
+   "album_date": "2022-09-02"
+  },
+  {
+   "rank": 96,
+   "title": "Flower Shops",
+   "artist": "Ernest featuring Morgan Wallen",
+   "mbid": "dffddf85-a677-4bdb-b44f-f3169f00bf79",
+   "artist_mbids": [
+    "5e154c14-de6d-4901-a6d3-68d6b45ec305",
+    "2077273e-eaa1-4f49-903c-f286ededecb9"
+   ],
+   "album": "FLOWER SHOPS (THE ALBUM)",
+   "album_mbid": "329d80f8-d220-406d-a630-e3b6b901fc6f",
+   "album_group_mbid": "3ce6246d-4ea3-41e6-bf5b-9d9bc91480e1",
+   "album_type": "Album",
+   "album_date": "2022-03-11"
+  },
+  {
+   "rank": 97,
+   "title": "To the Moon",
+   "artist": "Jnr Choi and Sam Tompkins",
+   "mbid": "4a131bca-0f92-4af2-a39e-9557fff4aef1",
+   "artist_mbids": [
+    "419e6697-0f18-432f-af9c-380418742279",
+    "0bd1d730-f49b-4661-bf8e-60f30af9f7f5"
+   ],
+   "album": "TO THE MOON",
+   "album_mbid": "8ae87c0d-5cec-43fd-af9f-dabca6bc7267",
+   "album_group_mbid": "c2f3e93a-8a18-407e-ac89-c4916ce5b30b",
+   "album_type": "Single",
+   "album_date": "2022-01-24"
+  },
+  {
+   "rank": 98,
+   "title": "Unholy",
+   "artist": "Sam Smith and Kim Petras",
+   "mbid": "1a774967-444d-42de-aa65-b6160d1205e4",
+   "artist_mbids": [
+    "5a85c140-dcf9-4dd2-b2c8-aff0471549f3"
+   ],
+   "album": "Gloria",
+   "album_mbid": "1a84cedd-1bc2-4617-88a3-8be6539113e3",
+   "album_group_mbid": "9594b876-3c1f-4f20-91d1-1aa680d5a85f",
+   "album_type": "Album",
+   "album_date": "2023-04-12"
+  },
+  {
+   "rank": 99,
+   "title": "One Mississippi",
+   "artist": "Kane Brown",
+   "mbid": "79cc9789-2682-43b6-ab31-b74b529b8548",
+   "artist_mbids": [
+    "a62e299b-4707-4ff5-ad53-d80b2b03319d"
+   ],
+   "album": "Different Man",
+   "album_mbid": "0fe1cb39-fd15-4ab2-aa68-4b5d6ddf5b53",
+   "album_group_mbid": "2ce92a85-ce77-4176-833d-8ca4d18a63c3",
+   "album_type": "Album",
+   "album_date": "2022-09-09"
+  },
+  {
+   "rank": 100,
+   "title": "Circles Around This Town",
+   "artist": "Maren Morris",
+   "mbid": "ebe526ad-e49b-41ba-8bb3-a61e7f835469",
+   "artist_mbids": [
+    "109357f0-eb37-4672-9697-dca8c83a61b5"
+   ],
+   "album": "Humble Quest",
+   "album_mbid": "daca17c2-3765-495a-8698-5924a5ba7a94",
+   "album_group_mbid": "94c9361c-4dc8-45e8-9b2c-0aa0cfd720e4",
+   "album_type": "Album",
+   "album_date": "2022-03-25"
+  }
+ ]
+}

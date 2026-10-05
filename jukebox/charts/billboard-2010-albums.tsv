@@ -1,0 +1,101 @@
+rank	title	artist	album	album_type	album_date	album_group_mbid	album_mbid	recording_mbid
+1	Tik Tok	Kesha	Animal	Album	2010-05-10	ff7b68e9-ba2f-4a11-8004-52f1f358856a	2a02d8db-39f9-406b-9d7f-e43e1d092fe5	1e0dd271-9dec-4bb0-88d9-4444935c3e05
+2	Need You Now	Lady Antebellum	Need You Now	Album	2010-01-26	be6f6989-a723-414e-a688-2f3057363959	6b463349-e26a-4706-880d-3b182f97f0a6	967472c2-430b-46a4-9f73-801435bf8cec
+3	Hey, Soul Sister	Train	Save Me, San Francisco	Album	2009-10-26	5e883fd7-667f-426c-b15c-9ab0249e815b	33efa41a-5d7f-416a-ad6a-04aa1fca87ca	f939409f-c292-4a8f-ad18-3d8d4cc07376
+4	California Gurls	Katy Perry featuring Snoop Dogg	Teenage Dream	Album	2010-08-24	e6f683c9-fc85-412c-a352-d6e411fc2603	e7d98581-cb23-43ed-ac32-d1dc1bd44eb3	44e88237-bdb1-4176-9687-714f0d9f6f76
+5	OMG	Usher featuring will.i.am	Raymond v Raymond	Album	2010-08-24	47cf1c09-974a-4558-9a81-fbf1ecd17376	ecf9a18d-8cec-33ce-a1d7-e7f5ae55c3e6	8bb81269-6443-438c-a567-21a5e1b40607
+6	Airplanes	B.o.B featuring Hayley Williams	B.o.B Presents: The Adventures of Bobby Ray	Album	2010-04-27	dfc3df85-c536-45e5-95a2-b423ee92a103	5414f72e-79d9-459f-9ba7-8cc90bce46df	9c3e8053-8ffa-4e3f-81e1-3ca3e371390b
+7	Love the Way You Lie	Eminem featuring Rihanna	Recovery	Album	2010-06-18	a5056c3b-730f-493b-b10e-52f678d72b85	362e2ce8-1761-42ce-94be-43833538fdf8	29d6a30b-b911-475c-808c-8b289844ca75
+8	Bad Romance	Lady Gaga	The Fame Monster	Album	2009-11-23	e5495719-b3ad-3eea-a533-fb70af43c23d	7e85d384-2449-4a80-8498-9f33040ab649	d76057c6-c29c-41f7-b83e-751b4269851d
+9	Dynamite	Taio Cruz	Rokstarr	Album	2009-10-12	f4fc9067-305b-412e-b507-c01ab34f4c2c	0af227dc-2e0f-47df-8731-43a69f248b8e	9f8086b3-6840-4d93-9a1f-902d86654dad
+10	Break Your Heart	Taio Cruz featuring Ludacris	Rokstarr	Album		f4fc9067-305b-412e-b507-c01ab34f4c2c	a557322f-ec7c-48e5-aa27-39ecf08472f1	491d7995-9080-40d4-a462-6363c2ccea02
+11	Nothin' on You	B.o.B featuring Bruno Mars	B.o.B Presents: The Adventures of Bobby Ray	Album	2010-04-27	dfc3df85-c536-45e5-95a2-b423ee92a103	5414f72e-79d9-459f-9ba7-8cc90bce46df	ff701bef-2637-4463-b76d-8ad1a60b3036
+12	I Like It	Enrique Iglesias featuring Pitbull	Euphoria	Album	2010-07-05	7e5977ba-b8b7-4c05-9d8d-b28a4c51273b	ed21b552-c3db-47c7-a377-9556c63614fd	6ef6fa3a-8d12-4c4e-8650-094f2e4a0f3a
+13	BedRock	Young Money featuring Lloyd	We Are Young Money	Album	2009-12-21	475b97e7-fc4a-4b7c-a735-68a0e707ea93	0d6886d2-fc6b-4ca4-b21a-6c9ea1d46dc0	7ad6a8c6-a6ad-444f-8dc9-e32ad071971e
+14	In My Head	Jason Derulo	Jason Derülo	Album	2010-03-01	ebe95434-34f2-4210-bcb1-b65c1daf2302	915c237f-3b2d-41ed-b6ec-c255cd90349d	c2fc361e-2ca7-4b22-9837-428f49aef3e4
+15	Rude Boy	Rihanna	Rated R	Album	2009-11-16	06fda337-5c4b-42e0-a96c-a349c786965f	27ea1a49-0929-4825-ad25-37ddbfc84932	3d3ef666-880f-4dd8-b17f-4e58a7b35c4c
+16	Telephone	Lady Gaga featuring Beyoncé	The Fame Monster	Album	2009-11-18	e5495719-b3ad-3eea-a533-fb70af43c23d	8169d30e-6bf5-4810-9481-49d7c152916f	fa8fb8c8-c3a8-4978-ae7c-c121c57c7f8f
+17	Teenage Dream	Katy Perry	Teenage Dream	Album	2010-08-24	e6f683c9-fc85-412c-a352-d6e411fc2603	e7d98581-cb23-43ed-ac32-d1dc1bd44eb3	8cf81f4a-05fd-4688-bb8c-eb59df2026a0
+18	Just the Way You Are	Bruno Mars	Doo-Wops & Hooligans	Album	2010-10-04	b3d1fbf7-dd1c-4119-a16e-58c2feb5bcb0	33030768-eed0-404a-bd5e-af6950546211	2c03feb2-af77-483f-982e-8d82d3ffd03f
+19	Cooler Than Me	Mike Posner	31 Minutes to Takeoff	Album	2010	4933ec10-b654-411c-a6bc-960b1dd1167e	71effe8e-f9b9-49aa-9fbb-d06d1f14f567	eda7a713-a323-48a5-b83a-38487836c93e
+20	Imma Be	The Black Eyed Peas	The E•N•D	Album	2009-06-02	bb022fc8-55f5-4f4d-82d9-0b504099a3b1	b0f2f06b-09b5-44ba-9e5d-73a25944d3f1	9ac15b6e-fdc7-4c54-9ed8-a161412d9f8b
+21	Empire State of Mind	Jay-Z featuring Alicia Keys	The Blueprint 3	Album	2009-09-08	8f046e37-21ef-46de-9aa6-4f89e3d48bbb	0fbe4d35-0635-43d7-add4-8616809c6828	4a9818ba-5963-4761-864f-7d96841053d2
+22	DJ Got Us Fallin' in Love	Usher featuring Pitbull	Raymond v Raymond	Album	2010-08-24	47cf1c09-974a-4558-9a81-fbf1ecd17376	ecf9a18d-8cec-33ce-a1d7-e7f5ae55c3e6	85ee744a-c3d1-4684-868f-6cd403f2352d
+23	Billionaire	Travie McCoy featuring Bruno Mars	Lazarus	Album	2010	813625b6-245a-451a-a3a8-3624952228ea	300a1776-b779-428b-87d4-7930ef57204a	324cb765-fd2c-49fc-9e1a-80d519391b0d
+24	Not Afraid	Eminem	Recovery	Album	2010-06-21	a5056c3b-730f-493b-b10e-52f678d72b85	262dc55e-d4fe-487f-bc31-50c040c098d9	7b898b31-3bf6-4048-a690-f33ba0cdb324
+25	Replay	Iyaz	Replay	Album	2009-08-18	e968d799-3877-4dfe-926b-33d0eb8e3fb7	13458b7b-0178-498b-96da-a56a2cabf0c2	6c09e6c7-3986-4dc8-878b-230a5116a060
+26	Sexy Bitch	David Guetta featuring Akon	One Love	Album	2009-08-25	1fd6e5d5-564c-4924-ae01-b4677c50d866	a76192e1-c28c-4b0e-81f2-a76f8c2c7a27	cc2ed413-d85f-4dca-82c8-9b9dbed1c6c8
+27	Breakeven	The Script	The Script	Album	2008-07-14	85cb0cce-3c22-37ae-a3d2-f0e9dc9630d2	3a928d67-e852-46f8-9571-b2a5a8903f20	3327438f-162b-49ac-97d7-a857b1410841
+28	Your Love Is My Drug	Kesha	Animal	Album	2010-05-10	ff7b68e9-ba2f-4a11-8004-52f1f358856a	2a02d8db-39f9-406b-9d7f-e43e1d092fe5	9fff929b-c0cc-4ae8-a01d-d0a6ae84b86b
+29	I Gotta Feeling	The Black Eyed Peas	The E•N•D	Album	2009-06-02	bb022fc8-55f5-4f4d-82d9-0b504099a3b1	b0f2f06b-09b5-44ba-9e5d-73a25944d3f1	ada7236f-73bd-4f2d-8054-b2586d285548
+30	Fireflies	Owl City	Ocean Eyes (Deluxe Version)	Album	2009-01-01	6fa35df1-a08e-42f5-aeb2-ae590ba9fd6b	30e242dd-ec5c-43f2-bfe7-824cf9c672a7	b9cd6107-ac74-49b6-8b5e-fa5121c0f56e
+31	Say Aah	Trey Songz featuring Fabolous	Ready	Album	2009-08-31	5ce92d26-c60b-4fcf-8d0d-9c5d0d928c8c	947e8c8a-a273-419e-ae75-7056722f5e0a	b04ab0a5-a727-4b7b-b134-51769abae347
+32	Find Your Love	Drake	Thank Me Later	Album	2010-06-15	7c0efd43-6023-400d-8d5c-d808b1cb4094	7e5cf3e1-f511-43f5-aa6d-8b66100f7924	957fe6bf-9b0d-47df-bd93-a8dc061f1c56
+33	Alejandro	Lady Gaga	The Fame (10th anniversary limited edition USB)	Album	2018-12-14	e5495719-b3ad-3eea-a533-fb70af43c23d	4ea4e8fb-1927-4d56-bd8f-be773f10d334	5980289d-c9a5-4103-b5be-aa8dac3e4789
+34	Ridin' Solo	Jason Derulo	Jason Derülo	Album	2010-03-01	ebe95434-34f2-4210-bcb1-b65c1daf2302	915c237f-3b2d-41ed-b6ec-c255cd90349d	623a1167-f874-44ba-8c0e-1b677a13d4ab
+35	Just a Dream	Nelly	5.0	Album	2010-11-16	e4e0a213-db82-4559-b1c8-c745142ed69f	780c6aee-e3e9-4389-b750-4220832b3e3e	9d3dced0-3b54-4a1f-a9b4-8a4dadf74f6a
+36	How Low	Ludacris	Battle of the Sexes (deluxe edition)	Album	2010-03-09	53319b86-2bac-4e89-b311-be36f53c1500	ab79d4b4-45c4-41a0-8529-7fd3ee085cfa	bb586b0c-f084-4dcd-aed1-cc16ab605d70
+37	Like a G6	Far East Movement featuring The Cataracs and Dev	Free Wired	Album	2010-10-12	365f99a0-04be-48cc-8a73-5145d33e53df	b78bc262-0bea-4a4e-accb-3cd1b9d4be70	d90dfee4-f50e-4dbb-9396-d8ae3b52bfff
+38	Carry Out	Timbaland featuring Justin Timberlake	Shock Value II	Album	2009-12-08	8a4f1172-4e83-489b-94d8-48cbd45b9717	c74c559b-f79f-4f60-ab87-80cff2da8124	b6515ca0-7a21-4d98-9134-3bdac043c5be
+39	Haven't Met You Yet	Michael Bublé	Crazy Love	Album	2009-10-06	4d5e89be-e9d1-470b-8bcf-e345529d9a76	27bfdada-a0ec-45c4-8184-d8767174b3b1	97910079-ad69-46bd-8c34-dd2fc585cbe0
+40	Club Can't Handle Me	Flo Rida featuring David Guetta	Only One Flo, Pt. 1	Album	2010-11-24	9feaa1c8-a876-4961-9154-b43045b04b04	93e5ca24-4e64-4c4f-9f66-34888aa7ef56	cefaf7b5-c772-4a6b-a453-cec00e481bea
+41	Down	Jay Sean featuring Lil Wayne	All or Nothing	Album	2009-11-23	6cf5cd4c-2992-4777-839c-3ffae45f46c8	7b203865-503a-46da-8f1f-5e50b71acdb1	40fb397c-cc9a-46c0-8068-b0e311b6de41
+42	Bulletproof	La Roux	La Roux	Album	2009-06-28	9ad9539d-00e4-43b1-ada2-9574b848e3e0	f06439b7-f4a2-4383-97ff-5e50735907cc	bf3e215f-40b3-495c-b782-42bf65e5e254
+43	Whatcha Say	Jason Derulo	Jason Derülo	Album	2010-03-01	ebe95434-34f2-4210-bcb1-b65c1daf2302	915c237f-3b2d-41ed-b6ec-c255cd90349d	520ad88d-28bf-47e1-bfbb-7c92bc44d18d
+44	Baby	Justin Bieber featuring Ludacris	My World 2.0	Album	2010-03-23	eb68ecd6-fb1e-483a-9cda-b595fb4664a7	ca4bd939-c85e-466d-94ca-71c0ca9e263c	ee6d9954-eab4-4eb7-abda-673ce2812a8e
+45	Whataya Want from Me	Adam Lambert	For Your Entertainment	Album	2009-11-23	0da55280-3c78-474a-9e81-5e9e348ff227	86da059c-2af3-43f4-897e-d3f7fa3f5a75	dbb97b5f-570a-483c-8ec4-b9d56a17ded2
+46	Mine	Taylor Swift	Speak Now	Album	2010-10-25	ba1259eb-d41e-41c5-a70c-0e6fa73e6708	811f81ec-fa09-35a5-bf18-4c363f881698	6fce6a24-51ea-43be-a2bd-9ac39285b49c
+47	Only Girl (In the World)	Rihanna	Loud	Album	2010-11-16	7c6de97d-bf6a-4793-82f5-f142baed33e6	b415d412-e9c6-4e72-bc11-9c2e2e60326a	e6d894a9-8593-4b90-966a-9ce743365c3e
+48	Live Like We're Dying	Kris Allen	Kris Allen	Album	2009-11-17	40740097-e05a-4609-bee5-e04106e1727b	c64ec54a-e5e1-4187-8ba3-4ac55212dd82	750d039a-28e3-4cc2-888c-97e9912eb842
+49	Hard	Rihanna featuring Jeezy	Rated R	Album	2009-11-16	06fda337-5c4b-42e0-a96c-a349c786965f	340e4427-553d-4399-add6-2b1ae9c694d8	eede8a6b-0834-4698-b384-6ea297628b5c
+50	Young Forever	Jay-Z featuring Mr Hudson	The Blueprint 3	Album	2009-09-08	8f046e37-21ef-46de-9aa6-4f89e3d48bbb	0fbe4d35-0635-43d7-add4-8616809c6828	4a0bd6f0-5f05-40d6-b7e7-1cddedac784a
+51	Blah Blah Blah	Kesha featuring 3OH!3	Animal	Album	2010-05-10	ff7b68e9-ba2f-4a11-8004-52f1f358856a	2a02d8db-39f9-406b-9d7f-e43e1d092fe5	7e802933-e6c8-410d-8455-db425cd99e02
+52	Bottoms Up	Trey Songz featuring Nicki Minaj	Passion, Pain & Pleasure	Album	2010-09-14	1a36fd5a-7c86-4d58-a7d8-3c88e6efd76e	6bc5fce5-2fbf-4ba1-818d-bc3996110dde	6a49e678-2526-4755-80d5-902f5c11ad24
+53	Do You Remember	Jay Sean featuring Sean Paul and Lil Jon	All or Nothing	Album	2009-11-23	6cf5cd4c-2992-4777-839c-3ffae45f46c8	7b203865-503a-46da-8f1f-5e50b71acdb1	16ecd469-8084-45c0-89ea-cb68b9312f1e
+54	All the Right Moves	OneRepublic	Waking Up	Album	2009-11-17	fcb3b72d-67b4-4e4a-9c91-354eca76a3dd	4fe254d3-63b3-4aae-bb67-d594e4af0f70	08391d06-8a4b-4a33-aeca-27e9b7b57c6d
+55	According to You	Orianthi	Believe	Album	2009-10-27	d564f4ee-4b70-4ff3-ba5b-4da93984b645	b433ded0-cff7-46c8-97c8-32cc67f2d843	75ffa324-4f32-4c13-adb5-b2f8ec66cffb
+56	My Chick Bad	Ludacris featuring Nicki Minaj	Battle of the Sexes (deluxe edition)	Album	2010-03-09	53319b86-2bac-4e89-b311-be36f53c1500	ab79d4b4-45c4-41a0-8529-7fd3ee085cfa	ff2b7db9-18d6-411c-94d0-62f0a3257d0a
+57	You Belong with Me	Taylor Swift	Fearless	Album	2008-11-11	63eba062-847c-3b73-8b0f-6baf27bba6fa	b015be5b-66ea-4515-8c66-f91b9afc6e99	70ecebf2-6dc0-4cc8-8f6c-52f7de1fdeb0
+58	Meet Me Halfway	The Black Eyed Peas	The E•N•D	Album	2009-06-02	bb022fc8-55f5-4f4d-82d9-0b504099a3b1	b0f2f06b-09b5-44ba-9e5d-73a25944d3f1	72efde9b-88c8-46dd-85d2-2208513bb0fb
+59	Take It Off	Kesha	Animal	Album	2010-05-10	ff7b68e9-ba2f-4a11-8004-52f1f358856a	2a02d8db-39f9-406b-9d7f-e43e1d092fe5	96ab3214-3aa0-4035-abcf-396f976efb13
+60	Over	Drake	Thank Me Later	Album	2010-06-15	7c0efd43-6023-400d-8d5c-d808b1cb4094	7e5cf3e1-f511-43f5-aa6d-8b66100f7924	79ccacbb-9cd1-48d0-b35c-7f549a573819
+61	Animal	Neon Trees	Habits	Album	2010-03-16	02e054f2-23f1-4e54-bf6a-53dd8ff1b7ba	aa83fd02-10ab-45c4-8fa2-99e66fa222ff	db32c1ea-3664-4c25-996d-6e9679c1bf9a
+62	Misery	Maroon 5	Hands All Over	Album	2010-09-21	a097ca51-85d5-4109-8e0f-55189a70cb9b	305fd618-bd46-42ad-b236-596602457046	55671308-2ba1-479b-874a-781d752931c3
+63	Magic	B.o.B featuring Rivers Cuomo	B.o.B Presents: The Adventures of Bobby Ray	Album	2010-04-27	dfc3df85-c536-45e5-95a2-b423ee92a103	5414f72e-79d9-459f-9ba7-8cc90bce46df	38264cd6-cc52-421d-bae8-efc6d04f6a9d
+64	Paparazzi	Lady Gaga	The Fame	Album	2008-11-04	e5495719-b3ad-3eea-a533-fb70af43c23d	0056a348-b45a-431e-850f-3dbde24c640a	7a1040dc-bac0-479c-9921-f43797ed0b81
+65	Tie Me Down	New Boyz featuring Ray J	Skinny Jeanz And A Mic	Album	2009-09-15	5a8457a1-abfe-4b8b-a7b5-7a43941e2f6f	97b82c84-2798-4cfc-8afa-27a1ada050fb	d3809e99-2615-46c9-b1d4-4adc2e2b4878
+66	Your Love	Nicki Minaj	Pink Friday (deluxe edition)	Album	2010-11-22	c91d9596-dfa8-482d-b3ab-706e937fd3ec	ccb895ef-ea98-45ea-ad35-5782b3b0472d	089d8dfd-3a88-4a0f-b2b8-57b8fe02bfae
+67	Party in the U.S.A.	Miley Cyrus	The Time of Our Lives	EP	2009-08-31	9ab71af0-20f1-4d09-b36e-d3b4068603cc	2b72990f-0c8d-4687-a33f-4a329672f85a	c2656d9f-ed39-46a6-ae6c-9a1cadd48ebc
+68	Deuces	Chris Brown featuring Tyga and Kevin McCall	F.A.M.E.	Album	2011-03-22	b2168fe2-85a4-474b-8f75-09d7b7b48959	187be14a-3664-4017-ae4c-92992ef9b9ef	e849f1a5-ab06-4b4f-8149-0a2f15385416
+69	3	Britney Spears	The Singles Collection	Album / Compilation	2009-11-09	20c4a0b6-50d5-48d4-aad2-33c93b38bd75	a6750e20-486d-4085-9297-5a38dd18f9fd	a75802ee-6031-473e-bf4b-3ec05acd92cb
+70	Impossible	Shontelle	No Gravity	Album	2010-01-01	ce264234-5d71-47bd-a31e-88572c429eae	b907fa39-2214-451a-a7bd-aa18cffe5713	b2e0aefe-a0ed-483b-83e8-6bff04948d48
+71	Forever	Drake featuring Kanye West, Lil Wayne and Eminem	Music Inspired by the Film More Than a Game	Album / Soundtrack	2009-09-28	d8ef7fc2-1671-4609-9ce5-cc08b198ecb5	92f0d295-4ca3-4eeb-bdb6-54cdc6a14e76	d472cdea-dde3-467f-b63f-97971b69bd30
+72	Two Is Better Than One	Boys Like Girls featuring Taylor Swift	Love Drunk	Album	2009-09-08	76eec0e5-851d-485c-92b1-2710c5b3d34b	75e9698b-e094-4103-ad6d-c868d750bced	52313d69-3ca9-4423-8604-c15d826170b6
+73	My First Kiss	3OH!3 featuring Kesha	Streets of Gold	Album	2010-06-29	ecce9b27-4703-4a63-89e4-c600e4443b53	22284e87-5247-48d9-af6b-4eabb94d6771	5c2e0e48-4c3d-4350-80d9-ec91faf622fc
+74	Already Gone	Kelly Clarkson	All I Ever Wanted	Album	2009-03-10	50e5e68b-626a-3bde-904d-5649163ebecd	4efeb310-908c-4fdd-b93e-e3463403ae34	f5992a73-9c1b-492f-ba6f-fddfa6f68853
+75	Rock That Body	The Black Eyed Peas	The E•N•D	Album	2009-06-02	bb022fc8-55f5-4f4d-82d9-0b504099a3b1	b0f2f06b-09b5-44ba-9e5d-73a25944d3f1	5663941d-aab2-41da-ab1a-ba3f5e509a64
+76	Secrets	OneRepublic	Waking Up	Album	2009-11-17	fcb3b72d-67b4-4e4a-9c91-354eca76a3dd	4fe254d3-63b3-4aae-bb67-d594e4af0f70	b6df27b9-afa4-4da3-be45-bd6751d4ac8b
+77	Naturally	Selena Gomez & the Scene	A Year Without Rain	Album	2010-09-21	ef2dfbbd-aad1-4d8a-adca-67179259228c	9d657759-e311-4947-936b-9865bddc8e5e	337a071b-3030-4048-b648-6b1f492e042a
+78	Un-Thinkable (I'm Ready)	Alicia Keys	The Element of Freedom (Empire edition)	Album	2009-12-15	ff3f4515-0c8d-4779-9217-e5c11eadce13	d3762247-5fff-4bb4-b170-32cda83f863d	9aba480a-bf93-43ba-9066-7e956125b98d
+79	All I Do Is Win	DJ Khaled featuring T-Pain, Ludacris, Snoop Dogg and Rick Ross	Victory	Album	2010-03-02	16ea728d-2037-4d93-8fb2-692c9d5e9070	d718f9b3-4be9-42ad-8eb8-79d6ce6292bf	84cdec3a-16d3-480b-8605-573b29e29098
+80	I Made It (Cash Money Heroes)	Kevin Rudolf featuring Birdman, Jay Sean and Lil Wayne	To the Sky	Album	2010-06-15	a9ce1577-bc54-43f7-8b2f-57c819163435	9bcff58f-683e-4cc0-a421-aaff6dd571c9	ef987503-9e1d-47b0-ab07-17d7f99eee4b
+81	Stuck Like Glue	Sugarland	The Incredible Machine (deluxe edition)	Album	2010	84ed3eda-48ec-4358-8165-65bdc86eca0f	e3547b9d-8c8d-423f-a586-191e2fe698c8	2ec826d6-3484-49f6-bcfc-3950ff7ffa6e
+82	Hey Daddy (Daddy's Home)	Usher featuring Plies	Raymond v Raymond	Album	2010-08-24	47cf1c09-974a-4558-9a81-fbf1ecd17376	ecf9a18d-8cec-33ce-a1d7-e7f5ae55c3e6	c2ae4883-82e7-4eb0-890d-dba8e22a3658
+83	There Goes My Baby	Usher	Raymond v Raymond	Album	2010-08-24	47cf1c09-974a-4558-9a81-fbf1ecd17376	ecf9a18d-8cec-33ce-a1d7-e7f5ae55c3e6	73a65e50-4be5-44ab-b0d3-433c99f04c47
+84	Today Was a Fairytale	Taylor Swift	Valentine’s Day: Original Motion Picture Soundtrack	Album / Soundtrack	2010-02-09	bbb622df-fa2d-4c32-95a8-9519cf5f27fc	b79d505a-69b4-4a9c-9627-be5ff06a6da0	bdc3a14b-d210-4db9-a3b5-71750219fcc6
+85	Say Something	Timbaland featuring Drake	Shock Value II	Album	2009-12-08	8a4f1172-4e83-489b-94d8-48cbd45b9717	c74c559b-f79f-4f60-ab87-80cff2da8124	9dc51669-f015-484c-a164-3b61f822f5fd
+86	Sweet Dreams	Beyoncé	I Am… Sasha Fierce	Album	2008-11-18	6f8e8119-de1b-39f0-85ca-b5252cb9211d	760b4162-1cae-4eb6-842d-e9e3e0cfb72d	aecba9b4-7d70-4ee0-938f-f26ff85fd5fa
+87	Use Somebody	Kings of Leon	Only by the Night	Album	2008-09-23	7a23bc7e-d7bd-3a22-a38d-7d1f793bae1c	b57a5aff-1300-463a-bea4-6babde050ae0	787d77e9-dac1-4ae3-a5f4-0ebba532f362
+88	Undo It	Carrie Underwood	Play On	Album	2009-11-03	f938faab-5ced-4539-899b-51e25773e611	7d98d910-5698-422b-a012-572e2eab0300	2abeb766-72f1-4481-8f94-ae12f0831331
+89	Eenie Meenie	Sean Kingston and Justin Bieber	My World 2.0	Album	2010-03-23	eb68ecd6-fb1e-483a-9cda-b595fb4664a7	ca4bd939-c85e-466d-94ca-71c0ca9e263c	701817b5-a1be-4dcf-8522-c00c7ad8c4fb
+90	Right Above It	Lil Wayne featuring Drake	I Am Not a Human Being	Album	2010-10-12	99cd8f1a-86ef-46d9-811b-731ec9b90829	68879bdd-42f1-4a7c-9559-27edfbd29a54	e48c820a-3002-4a45-99b4-e5909865a17e
+91	The House That Built Me	Miranda Lambert	Revolution	Album	2009-09-24	a774524f-09b8-4c80-aedd-b56b1bee4550	e37ffdac-cdfc-4f91-b346-115de6ca195b	8eb11cbc-4674-486f-9e6c-463270e05826
+92	If I Die Young	The Band Perry	The Band Perry	Album	2010-10-12	f95bffe5-32de-44b2-b8db-32915d86ce4a	c9dd9a51-d8e3-4b67-b23f-7be2a272a023	5f103d13-2508-4b0b-b6ea-10d0cb413f20
+93	The Only Exception	Paramore	Brand New Eyes	Album	2009-09-29	cd706457-8b16-4809-a61a-cdba1b281d39	d717cff7-d854-480b-a6e8-d9d2c7095001	d771c353-1ddf-4271-96f7-d36a703a3717
+94	American Honey	Lady Antebellum	Need You Now	Album	2010-04-30	be6f6989-a723-414e-a688-2f3057363959	5034cdf2-4502-46bc-93c9-2433a4d8454b	5a25def6-b16d-4ac4-905a-359b26b64f95
+95	King of Anything	Sara Bareilles	Kaleidoscope Heart	Album	2010-09-07	3c3f46ac-aa24-4fb0-9933-4dbdb17635d3	31bc09c0-340e-47c0-bc0a-e7e6c0097c6b	0c14e18f-3161-41b9-98f9-9ca5fa32e56d
+96	Life After You	Daughtry	Leave This Town	Album	2009-07-14	8e335ddb-e9d7-4152-8028-a3a6ddd12d10	b6b59b3b-dc92-4cc7-9fea-7f4b9258fdaf	0839e95c-76d9-4bdc-af70-0106ea87adfb
+97	Smile	Uncle Kracker	Happy Hour	Album	2009	8f8bf286-ed9f-4c30-9ce7-a5a3d1ed1691	bdf8e4e2-1c24-4b92-af30-1b61a722b894	99ecfa4a-7fd7-4d0f-9ee0-1fb746477633
+98	Teach Me How to Dougie	Cali Swag District	The Kickback	Album	2010-11-09	00e81999-8810-49f2-a58e-4c08f705e7ed	1bd1e75f-9400-47ee-aad9-aaafb0e69988	b52ce549-0901-4ddb-98ce-468d9f1f3e13
+99	Try Sleeping with a Broken Heart	Alicia Keys	The Element of Freedom (Empire edition)	Album	2009-12-15	ff3f4515-0c8d-4779-9217-e5c11eadce13	d3762247-5fff-4bb4-b170-32cda83f863d	29fb6806-cf74-4ea5-bbe2-8985b2402eab
+100	Lover, Lover	Jerrod Niemann	Judge Jerrod & the Hung Jury	Album	2010-07-12	8ec3a10c-6b32-41ab-a8b8-0fe71bd71bff	e55c3376-b0a5-4c77-b2fe-a9bef9c75a76	a26f9fd2-0353-4622-a079-17f8e5b79d02

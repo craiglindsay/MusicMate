@@ -1,0 +1,5 @@
+// MusicMate TV: a full-screen WebView pointed at the jukebox server.
+// Build:  cd tvapp && ..\tools\gradlew.cmd assembleRelease   (see build.ps1)
+plugins {
+    id 'com.android.application' version '8.5.2' apply false
+}

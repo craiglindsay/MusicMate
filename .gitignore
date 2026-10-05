@@ -1,0 +1,77 @@
+# secrets
+.genius_client
+.genius_key
+.acoustid_key
+**/.acoustid_key
+
+# machine-learning venv (recreate from requirements-karaoke.txt)
+karaoke-venv/
+.venv/
+venv/
+
+# databases and their sqlite sidecars (rebuildable, or user data backed up separately)
+*.db
+*.db-shm
+*.db-wal
+*.db.bak*
+*.db.pre-*
+
+# fetched caches
+jukebox/cache/
+jukebox/artistpix/
+library/cache/
+
+# large work products of the organising exercise
+library/inventory.jsonl
+library/mergeplan.json
+library/foldplan.json
+library/foldfail.json
+library/pairplan.json
+library/*.pkl
+
+# binaries
+library/bin/
+
+# python
+__pycache__/
+*.pyc
+
+# editor / os
+.DS_Store
+Thumbs.db
+*.bak
+*.bak-*
+
+# runtime logs written by the running server / smoke tests
+archive/logs/server.*
+archive/logs/smoketest.*
+jukebox/server.*.log
+
+# runtime output of the launcher and the in-server backup job
+jukebox/logs/
+jukebox/backups/
+
+# Android TV wrapper: build output, Gradle caches, the signing key (see HANDOFF: keep a copy)
+tvapp/app/build/
+tvapp/.gradle/
+tvapp/build/
+tvapp/app/keystore/
+tvapp/local.properties
+jukebox/dist/
+
+# spotify (chart playlists)
+.spotify_client
+.spotify_token
+.spotify_key
+jukebox/charts/spotify-run.log
+jukebox/charts/mb-run.log
+jukebox/charts/*.log
+jukebox/charts/*.err
+jukebox/charts/mb-2007-view.txt
+library/*.log
+library/*.err
+library/library.db.pre-*
+
+# CD+G store: text, envelopes and debug frames derived from the karaoke discs
+jukebox/cdgtext/
+jukebox/cdgdebug/

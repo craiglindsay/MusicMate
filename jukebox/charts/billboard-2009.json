@@ -1,0 +1,1436 @@
+{
+ "chart": "Billboard Year-End Hot 100",
+ "year": 2009,
+ "source": "https://en.wikipedia.org/wiki/Billboard_Year-End_Hot_100_singles_of_2009",
+ "songs": [
+  {
+   "rank": 1,
+   "title": "Boom Boom Pow",
+   "artist": "The Black Eyed Peas",
+   "mbid": "ab8b1827-461e-4bfa-bc73-cb469784714e",
+   "artist_mbids": [
+    "d5be5333-4171-427e-8e12-732087c6b78e"
+   ],
+   "album": "The E•N•D",
+   "album_mbid": "503a6db7-0aaa-489f-8eb9-239c69910a34",
+   "album_group_mbid": "bb022fc8-55f5-4f4d-82d9-0b504099a3b1",
+   "album_type": "Album",
+   "album_date": "2009"
+  },
+  {
+   "rank": 2,
+   "title": "Poker Face",
+   "artist": "Lady Gaga",
+   "mbid": "ce3a5a96-e755-4742-9f20-2578600daa4c",
+   "artist_mbids": [
+    "650e7db6-b795-4eb5-a702-5ea2fc46c848"
+   ],
+   "album": "The Fame",
+   "album_mbid": "0056a348-b45a-431e-850f-3dbde24c640a",
+   "album_group_mbid": "e5495719-b3ad-3eea-a533-fb70af43c23d",
+   "album_type": "Album",
+   "album_date": "2008-11-04"
+  },
+  {
+   "rank": 3,
+   "title": "Just Dance",
+   "artist": "Lady Gaga featuring Colby O'Donis",
+   "mbid": "1571a031-a266-4048-bc7f-3a93ca8b6f4f",
+   "artist_mbids": [
+    "650e7db6-b795-4eb5-a702-5ea2fc46c848"
+   ],
+   "album": "The Fame",
+   "album_mbid": "591a8885-6b0c-437c-8546-1a4398f483c2",
+   "album_group_mbid": "e5495719-b3ad-3eea-a533-fb70af43c23d",
+   "album_type": "Album",
+   "album_date": "2008-10-28"
+  },
+  {
+   "rank": 4,
+   "title": "I Gotta Feeling",
+   "artist": "The Black Eyed Peas",
+   "mbid": "bc25de97-7c62-4d3f-a200-ac9b0619d438",
+   "artist_mbids": [
+    "d5be5333-4171-427e-8e12-732087c6b78e"
+   ],
+   "album": "The E•N•D",
+   "album_mbid": "b0f2f06b-09b5-44ba-9e5d-73a25944d3f1",
+   "album_group_mbid": "bb022fc8-55f5-4f4d-82d9-0b504099a3b1",
+   "album_type": "Album",
+   "album_date": "2009-06-02"
+  },
+  {
+   "rank": 5,
+   "title": "Love Story",
+   "artist": "Taylor Swift",
+   "mbid": "7e710968-1f9e-4ba7-93d6-721b690c5ad2",
+   "artist_mbids": [
+    "20244d07-534f-4eff-b4d4-930878889970"
+   ],
+   "album": "Fearless",
+   "album_mbid": "b015be5b-66ea-4515-8c66-f91b9afc6e99",
+   "album_group_mbid": "63eba062-847c-3b73-8b0f-6baf27bba6fa",
+   "album_type": "Album",
+   "album_date": "2008-11-11"
+  },
+  {
+   "rank": 6,
+   "title": "Right Round",
+   "artist": "Flo Rida",
+   "mbid": "e7ea6192-8ffe-4734-a913-dc5ce6c7122c",
+   "artist_mbids": [
+    "4593d49a-7f67-46ba-9ec0-126bd676286f",
+    "fab34286-b8e1-4879-bce3-194e1358fbd2"
+   ],
+   "album": "R.O.O.T.S.",
+   "album_mbid": "7c305fe7-2355-4fa5-bbd1-0927b5e98e71",
+   "album_group_mbid": "e829d05a-ca63-411b-8cc1-dee43f9a4391",
+   "album_type": "Album",
+   "album_date": "2009-03-31"
+  },
+  {
+   "rank": 7,
+   "title": "I'm Yours",
+   "artist": "Jason Mraz",
+   "mbid": "88d4f6b2-3419-4b78-896c-d0872a94bc74",
+   "artist_mbids": [
+    "82eb8936-7bf6-4577-8320-a2639465206d"
+   ],
+   "album": "We Sing. We Dance. We Steal Things. We Deluxe Edition.",
+   "album_mbid": "0cd4bea6-17c0-419c-ad58-53f427942f38",
+   "album_group_mbid": "0fba4366-e58e-30b3-814c-42f4cfbae464",
+   "album_type": "Album",
+   "album_date": "2008-05-13"
+  },
+  {
+   "rank": 8,
+   "title": "Single Ladies (Put a Ring on It)",
+   "artist": "Beyoncé",
+   "mbid": "67dc066b-d84e-444c-b250-82917db7281e",
+   "artist_mbids": [
+    "859d0860-d480-4efd-970c-c05d5f1776b8"
+   ],
+   "album": "I Am… Sasha Fierce",
+   "album_mbid": "760b4162-1cae-4eb6-842d-e9e3e0cfb72d",
+   "album_group_mbid": "6f8e8119-de1b-39f0-85ca-b5252cb9211d",
+   "album_type": "Album",
+   "album_date": "2008-11-18"
+  },
+  {
+   "rank": 9,
+   "title": "Heartless",
+   "artist": "Kanye West",
+   "mbid": "986077d0-162b-43b3-b8ff-514cfd774eba",
+   "artist_mbids": [
+    "164f0d73-1234-4e2c-8743-d77bf2191051"
+   ],
+   "album": "808s & Heartbreak",
+   "album_mbid": "f2a47746-710f-4d60-9100-0e5c23b0a227",
+   "album_group_mbid": "1c1b50ec-828b-3d7c-9b1b-54cb1fe97d55",
+   "album_type": "Album",
+   "album_date": "2008-11-24"
+  },
+  {
+   "rank": 10,
+   "title": "Gives You Hell",
+   "artist": "The All-American Rejects",
+   "mbid": "6a334e04-e8f2-4411-bf1d-a0acbffc55d9",
+   "artist_mbids": [
+    "09885b8e-f235-4b80-a02a-055539493173"
+   ],
+   "album": "When the World Comes Down",
+   "album_mbid": "90e4549b-f477-4143-ab6a-ca0a979d3cb6",
+   "album_group_mbid": "2ce57a09-9b74-3571-a72b-79ff59ff89af",
+   "album_type": "Album",
+   "album_date": "2008-12-16"
+  },
+  {
+   "rank": 11,
+   "title": "You Belong with Me",
+   "artist": "Taylor Swift",
+   "mbid": "70ecebf2-6dc0-4cc8-8f6c-52f7de1fdeb0",
+   "artist_mbids": [
+    "20244d07-534f-4eff-b4d4-930878889970"
+   ],
+   "album": "Fearless",
+   "album_mbid": "b015be5b-66ea-4515-8c66-f91b9afc6e99",
+   "album_group_mbid": "63eba062-847c-3b73-8b0f-6baf27bba6fa",
+   "album_type": "Album",
+   "album_date": "2008-11-11"
+  },
+  {
+   "rank": 12,
+   "title": "Dead and Gone",
+   "artist": "T.I. featuring Justin Timberlake",
+   "mbid": "2e29f9ae-2f7d-4a36-9535-b75b24d8f844",
+   "artist_mbids": [
+    "f7ba7fbe-c6bd-4ac0-bee9-c25c558d7d62",
+    "596ffa74-3d08-44ef-b113-765d43d12738"
+   ],
+   "album": "Paper Trail",
+   "album_mbid": "b663b7a1-261c-45f2-a1b4-39cae6e809c8",
+   "album_group_mbid": "5f31bfcb-d817-3cf9-8376-237e1f8ecbe9",
+   "album_type": "Album",
+   "album_date": "2008-09-29"
+  },
+  {
+   "rank": 13,
+   "title": "You Found Me",
+   "artist": "The Fray",
+   "mbid": "67e8d7b9-1306-4b41-9d00-b06370b6dc57",
+   "artist_mbids": [
+    "2ddd167f-5b8a-4372-b350-6ad50493bac0"
+   ],
+   "album": "The Fray",
+   "album_mbid": "0d62e5b3-8fea-4f20-9184-7a9692520f0d",
+   "album_group_mbid": "74f88ce4-aaaf-3aa8-8c4c-bfed56285e99",
+   "album_type": "Album",
+   "album_date": "2009-11-10"
+  },
+  {
+   "rank": 14,
+   "title": "Use Somebody",
+   "artist": "Kings of Leon",
+   "mbid": "787d77e9-dac1-4ae3-a5f4-0ebba532f362",
+   "artist_mbids": [
+    "6ffb8ea9-2370-44d8-b678-e9237bbd347b"
+   ],
+   "album": "Only by the Night",
+   "album_mbid": "b57a5aff-1300-463a-bea4-6babde050ae0",
+   "album_group_mbid": "7a23bc7e-d7bd-3a22-a38d-7d1f793bae1c",
+   "album_type": "Album",
+   "album_date": "2008-09-23"
+  },
+  {
+   "rank": 15,
+   "title": "Knock You Down",
+   "artist": "Keri Hilson featuring Kanye West and Ne-Yo",
+   "mbid": "4dab0d4f-2992-4140-8d08-1a364a6d4957",
+   "artist_mbids": [
+    "b76c616a-ec0d-4f0c-b986-f249c4a04d77",
+    "164f0d73-1234-4e2c-8743-d77bf2191051",
+    "a4a01f5d-18e7-4571-8c3a-76ec0e24e2d7"
+   ],
+   "album": "In a Perfect World...",
+   "album_mbid": "3750322b-eb50-4d97-a94a-69ac39aa8038",
+   "album_group_mbid": "cd642e90-b698-3be9-9340-3cc0b9f28220",
+   "album_type": "Album",
+   "album_date": "2009-03-24"
+  },
+  {
+   "rank": 16,
+   "title": "Blame It",
+   "artist": "Jamie Foxx featuring T-Pain",
+   "mbid": "4bdccd51-5752-4934-b0b2-1fe5671e7575",
+   "artist_mbids": [
+    "15a5da16-8b89-4047-aefe-81473c97b5b2",
+    "ce55e49a-32f4-4757-9849-bf04d06d5fcc"
+   ],
+   "album": "Intuition",
+   "album_mbid": "761530f2-5a87-440e-ad76-39a1b036479d",
+   "album_group_mbid": "93d8d84e-90ce-3c7b-8f4f-b6320ab7e422",
+   "album_type": "Album",
+   "album_date": "2008-12-16"
+  },
+  {
+   "rank": 17,
+   "title": "I Know You Want Me (Calle Ocho)",
+   "artist": "Pitbull",
+   "mbid": "e2494bfe-e546-46e2-bc90-d14364f914a3",
+   "artist_mbids": [
+    "d262ea27-3ffe-40f7-b922-85c42d625e67"
+   ],
+   "album": "Pitbull Starring In: Rebelution",
+   "album_mbid": "1a68cf8e-d389-4798-8089-1eb4812aaa96",
+   "album_group_mbid": "76f88b43-f945-41a5-bf17-c40db7c5702d",
+   "album_type": "Album",
+   "album_date": "2009-10-23"
+  },
+  {
+   "rank": 18,
+   "title": "Live Your Life",
+   "artist": "T.I. featuring Rihanna",
+   "mbid": "bd536534-e2c3-4280-b111-eca553fc5685",
+   "artist_mbids": [
+    "f7ba7fbe-c6bd-4ac0-bee9-c25c558d7d62",
+    "73e5e69d-3554-40d8-8516-00cb38737a1c"
+   ],
+   "album": "Paper Trail",
+   "album_mbid": "b663b7a1-261c-45f2-a1b4-39cae6e809c8",
+   "album_group_mbid": "5f31bfcb-d817-3cf9-8376-237e1f8ecbe9",
+   "album_type": "Album",
+   "album_date": "2008-09-29"
+  },
+  {
+   "rank": 19,
+   "title": "Kiss Me thru the Phone",
+   "artist": "Soulja Boy Tell 'Em featuring Sammie",
+   "mbid": "e36eedda-0f1d-4a44-9568-1d904f025a1e",
+   "artist_mbids": [
+    "29eead4d-3793-4625-8727-c03edbb38b8b",
+    "3ee95be0-a86c-4354-938d-faff8aec4e2d"
+   ],
+   "album": "iSouljaBoyTellEm",
+   "album_mbid": "fde61d0d-a7d1-472f-9cbb-f2a8f24eb3e4",
+   "album_group_mbid": "0dcd82bb-7d92-344a-82ff-898f201dd8e1",
+   "album_type": "Album",
+   "album_date": "2008-12-16"
+  },
+  {
+   "rank": 20,
+   "title": "Down",
+   "artist": "Jay Sean featuring Lil Wayne",
+   "mbid": "40fb397c-cc9a-46c0-8068-b0e311b6de41",
+   "artist_mbids": [
+    "e03cf5b6-d2ec-4465-adee-226b518bcfcd",
+    "ac9a487a-d9d2-4f27-bb23-0f4686488345"
+   ],
+   "album": "All or Nothing",
+   "album_mbid": "7b203865-503a-46da-8f1f-5e50b71acdb1",
+   "album_group_mbid": "6cf5cd4c-2992-4777-839c-3ffae45f46c8",
+   "album_type": "Album",
+   "album_date": "2009-11-23"
+  },
+  {
+   "rank": 21,
+   "title": "The Climb",
+   "artist": "Miley Cyrus",
+   "mbid": "4fd5584d-458f-4664-b139-05018e0891d4",
+   "artist_mbids": [
+    "7e9bd05a-117f-4cce-87bc-e011527a8b18"
+   ],
+   "album": "Hannah Montana: The Movie",
+   "album_mbid": "996e6e92-1106-4c1f-bb7b-ead35090878e",
+   "album_group_mbid": "82e958ff-a930-3516-a213-43b670dab063",
+   "album_type": "Album / Soundtrack",
+   "album_date": "2009-03-24"
+  },
+  {
+   "rank": 22,
+   "title": "Best I Ever Had",
+   "artist": "Drake",
+   "mbid": "52351437-7209-4879-9cdb-3bcd64a5b7de",
+   "artist_mbids": [
+    "9fff2f8a-21e6-47de-a2b8-7f449929d43f"
+   ],
+   "album": "So Far Gone",
+   "album_mbid": "94d7681e-8f81-48a6-9989-5943899a7198",
+   "album_group_mbid": "4ad12bc7-797a-475e-9830-fb35bca66fc5",
+   "album_type": "EP",
+   "album_date": "2009-09-15"
+  },
+  {
+   "rank": 23,
+   "title": "My Life Would Suck Without You",
+   "artist": "Kelly Clarkson",
+   "mbid": "83267cbd-e245-4ccd-b981-45eac5f197a2",
+   "artist_mbids": [
+    "d339efbb-77b9-4147-ba9e-59f2f24550b2"
+   ],
+   "album": "All I Ever Wanted",
+   "album_mbid": "4efeb310-908c-4fdd-b93e-e3463403ae34",
+   "album_group_mbid": "50e5e68b-626a-3bde-904d-5649163ebecd",
+   "album_type": "Album",
+   "album_date": "2009-03-10"
+  },
+  {
+   "rank": 24,
+   "title": "Halo",
+   "artist": "Beyoncé",
+   "mbid": "69ed6f8a-d889-4458-b442-5cd9a04a1f8c",
+   "artist_mbids": [
+    "859d0860-d480-4efd-970c-c05d5f1776b8"
+   ],
+   "album": "I Am… Sasha Fierce (platinum edition)",
+   "album_mbid": "6a2de661-053b-426e-afaf-33d87a85cd56",
+   "album_group_mbid": "6f8e8119-de1b-39f0-85ca-b5252cb9211d",
+   "album_type": "Album",
+   "album_date": "2009-10-07"
+  },
+  {
+   "rank": 25,
+   "title": "Hot n Cold",
+   "artist": "Katy Perry",
+   "mbid": "82214173-a7e5-4abc-938e-03031d9241b3",
+   "artist_mbids": [
+    "122d63fc-8671-43e4-9752-34e846d62a9c"
+   ],
+   "album": "One of the Boys",
+   "album_mbid": "b938e2d0-1d53-42b2-b08e-bea00b4b2cf5",
+   "album_group_mbid": "88f14b0b-f8d1-31b4-87ab-199145fc12d3",
+   "album_type": "Album",
+   "album_date": "2008-06-17"
+  },
+  {
+   "rank": 26,
+   "title": "Second Chance",
+   "artist": "Shinedown",
+   "mbid": "d066650c-172a-4f27-9f82-72a28e25c505",
+   "artist_mbids": [
+    "adc0f033-95c2-4e0b-87bc-c23ed3f26ce6"
+   ],
+   "album": "The Sound of Madness",
+   "album_mbid": "ad220cf2-f191-486e-b2bf-07194a5f6934",
+   "album_group_mbid": "28fead46-58a0-3c7b-bc7b-a884bd0e50f9",
+   "album_type": "Album",
+   "album_date": "2008-06-23"
+  },
+  {
+   "rank": 27,
+   "title": "Circus",
+   "artist": "Britney Spears",
+   "mbid": "2b9241b3-a7c4-4866-a15d-17344cf44541",
+   "artist_mbids": [
+    "45a663b5-b1cb-4a91-bff6-2bef7bbfdd76"
+   ],
+   "album": "Circus",
+   "album_mbid": "93b360e4-aa0f-412b-afbd-adc90eb6749f",
+   "album_group_mbid": "1e5f92e0-913c-3202-a72c-b068b9f34ce1",
+   "album_type": "Album",
+   "album_date": "2008"
+  },
+  {
+   "rank": 28,
+   "title": "Day 'n' Nite",
+   "artist": "Kid Cudi",
+   "mbid": "90ad7065-9e86-4968-a475-6066bbbd6b31",
+   "artist_mbids": [
+    "e0e1db18-f7ba-4dee-95ff-7ae8cf545460"
+   ],
+   "album": "Man on the Moon: The End of Day",
+   "album_mbid": "3c855edc-3f34-4780-ac4c-db94956b2a57",
+   "album_group_mbid": "1b4bb003-db4c-4858-84ec-817aaca09501",
+   "album_type": "Album",
+   "album_date": "2009-09-15"
+  },
+  {
+   "rank": 29,
+   "title": "Party in the U.S.A.",
+   "artist": "Miley Cyrus",
+   "mbid": "c2656d9f-ed39-46a6-ae6c-9a1cadd48ebc",
+   "artist_mbids": [
+    "7e9bd05a-117f-4cce-87bc-e011527a8b18"
+   ],
+   "album": "The Time of Our Lives",
+   "album_mbid": "2b72990f-0c8d-4687-a33f-4a329672f85a",
+   "album_group_mbid": "9ab71af0-20f1-4d09-b36e-d3b4068603cc",
+   "album_type": "EP",
+   "album_date": "2009-08-31"
+  },
+  {
+   "rank": 30,
+   "title": "Don't Trust Me",
+   "artist": "3OH!3",
+   "mbid": "5dd6cfff-e731-4d98-96d8-33679934e365",
+   "artist_mbids": [
+    "125948ec-7f91-4d1a-8b83-accbf50fae3d"
+   ],
+   "album": "WANT",
+   "album_mbid": "78bf094d-433e-486a-9927-3ad5ae63401a",
+   "album_group_mbid": "a40d1db1-eab9-39aa-975f-32bbeefe5d1b",
+   "album_type": "Album",
+   "album_date": "2008-07-07"
+  },
+  {
+   "rank": 31,
+   "title": "Run This Town",
+   "artist": "Jay-Z featuring Rihanna and Kanye West",
+   "mbid": "659af419-4562-4c86-9815-2111eaa4e75c",
+   "artist_mbids": [
+    "f82bcf78-5b69-4622-a5ef-73800768d9ac",
+    "73e5e69d-3554-40d8-8516-00cb38737a1c",
+    "164f0d73-1234-4e2c-8743-d77bf2191051"
+   ],
+   "album": "The Blueprint 3",
+   "album_mbid": "6e18c5c8-e487-4f83-9ea6-281c574933b9",
+   "album_group_mbid": "8f046e37-21ef-46de-9aa6-4f89e3d48bbb",
+   "album_type": "Album",
+   "album_date": "2009-09-08"
+  },
+  {
+   "rank": 32,
+   "title": "Let It Rock",
+   "artist": "Kevin Rudolf featuring Lil Wayne",
+   "mbid": "73d76134-5f55-486d-8bcf-0e34bafbc61f",
+   "artist_mbids": [
+    "2a0cce30-071b-4ba9-bf78-ae76c9eb7316",
+    "ac9a487a-d9d2-4f27-bb23-0f4686488345"
+   ],
+   "album": "In the City",
+   "album_mbid": "cbafbc1c-ae5e-40f9-9025-1e47845db679",
+   "album_group_mbid": "d0ca50a7-d445-3071-be85-0776d74b45f2",
+   "album_type": "Album",
+   "album_date": "2008-11-24"
+  },
+  {
+   "rank": 33,
+   "title": "Fire Burning",
+   "artist": "Sean Kingston",
+   "mbid": "ae35b185-ba5b-4b01-830a-a89723d0138c",
+   "artist_mbids": [
+    "f7eb3be3-1065-4a53-94d4-e2d0c15c0b33"
+   ],
+   "album": "Tomorrow",
+   "album_mbid": "5e767ae0-dfc3-39fe-a101-8b283ca95d0b",
+   "album_group_mbid": "40d93180-3dd4-4dd1-b1bf-ef63326b31dc",
+   "album_type": "Album",
+   "album_date": "2009-09-22"
+  },
+  {
+   "rank": 34,
+   "title": "Whatcha Say",
+   "artist": "Jason Derulo",
+   "mbid": "520ad88d-28bf-47e1-bfbb-7c92bc44d18d",
+   "artist_mbids": [
+    "6de0f914-3e60-4418-be3b-42e0feb6eb4d"
+   ],
+   "album": "Jason Derülo",
+   "album_mbid": "915c237f-3b2d-41ed-b6ec-c255cd90349d",
+   "album_group_mbid": "ebe95434-34f2-4210-bcb1-b65c1daf2302",
+   "album_type": "Album",
+   "album_date": "2010-03-01"
+  },
+  {
+   "rank": 35,
+   "title": "LoveGame",
+   "artist": "Lady Gaga",
+   "mbid": "baec3223-cf18-4301-bcde-7fd95921ce8a",
+   "artist_mbids": [
+    "650e7db6-b795-4eb5-a702-5ea2fc46c848"
+   ],
+   "album": "The Fame",
+   "album_mbid": "0056a348-b45a-431e-850f-3dbde24c640a",
+   "album_group_mbid": "e5495719-b3ad-3eea-a533-fb70af43c23d",
+   "album_type": "Album",
+   "album_date": "2008-11-04"
+  },
+  {
+   "rank": 36,
+   "title": "Waking Up in Vegas",
+   "artist": "Katy Perry",
+   "mbid": "40e19d92-b212-4915-970a-2ce3b8169d7d",
+   "artist_mbids": [
+    "122d63fc-8671-43e4-9752-34e846d62a9c"
+   ],
+   "album": "One of the Boys",
+   "album_mbid": "b938e2d0-1d53-42b2-b08e-bea00b4b2cf5",
+   "album_group_mbid": "88f14b0b-f8d1-31b4-87ab-199145fc12d3",
+   "album_type": "Album",
+   "album_date": "2008-06-17"
+  },
+  {
+   "rank": 37,
+   "title": "Birthday Sex",
+   "artist": "Jeremih",
+   "mbid": "a6179569-2c0f-4449-94dd-58971037951d",
+   "artist_mbids": [
+    "1c009a08-74d1-4682-bc56-8bfbe9e66b62"
+   ],
+   "album": "Jeremih",
+   "album_mbid": "88ab64d1-4c4c-4c7f-b432-c0a168d8d584",
+   "album_group_mbid": "18e11653-713d-4274-9881-16216dfa4adf",
+   "album_type": "Album",
+   "album_date": "2009"
+  },
+  {
+   "rank": 38,
+   "title": "Sober",
+   "artist": "Pink",
+   "mbid": "312e74b6-10e5-48d6-bac2-5bbac6211c9a",
+   "artist_mbids": [
+    "f4d5cc07-3bc9-4836-9b15-88a08359bc63"
+   ],
+   "album": "Funhouse",
+   "album_mbid": "cd9bbb99-2ef5-4330-9c58-76cedd7cbeb0",
+   "album_group_mbid": "d8e89f6d-0c5b-3a05-a660-8c7367274d85",
+   "album_type": "Album",
+   "album_date": "2008-10-28"
+  },
+  {
+   "rank": 39,
+   "title": "Womanizer",
+   "artist": "Britney Spears",
+   "mbid": "bb2d1754-0d93-41a1-8346-e95dacab304d",
+   "artist_mbids": [
+    "45a663b5-b1cb-4a91-bff6-2bef7bbfdd76"
+   ],
+   "album": "Circus",
+   "album_mbid": "93b360e4-aa0f-412b-afbd-adc90eb6749f",
+   "album_group_mbid": "1e5f92e0-913c-3202-a72c-b068b9f34ce1",
+   "album_type": "Album",
+   "album_date": "2008"
+  },
+  {
+   "rank": 40,
+   "title": "Whatever You Like",
+   "artist": "T.I.",
+   "mbid": "ec591680-cecd-4d2a-9ff8-15dac1bcaf04",
+   "artist_mbids": [
+    "f7ba7fbe-c6bd-4ac0-bee9-c25c558d7d62"
+   ],
+   "album": "Paper Trail",
+   "album_mbid": "b663b7a1-261c-45f2-a1b4-39cae6e809c8",
+   "album_group_mbid": "5f31bfcb-d817-3cf9-8376-237e1f8ecbe9",
+   "album_type": "Album",
+   "album_date": "2008-09-29"
+  },
+  {
+   "rank": 41,
+   "title": "Obsessed",
+   "artist": "Mariah Carey",
+   "mbid": "d4b3347e-b327-417d-97d2-9f6ad7c0b5d6",
+   "artist_mbids": [
+    "494e8d09-f85b-4543-892f-a5096aed1cd4"
+   ],
+   "album": "Memoirs of an Imperfect Angel",
+   "album_mbid": "ca3f5776-3720-3771-aa45-e27a3d6e1589",
+   "album_group_mbid": "57696575-b91f-45d1-ac7a-f2c80185b22a",
+   "album_type": "Album",
+   "album_date": "2009-09-29"
+  },
+  {
+   "rank": 42,
+   "title": "Mad",
+   "artist": "Ne-Yo",
+   "mbid": "5e53d622-f5a8-4477-a0bb-3b058bc3f515",
+   "artist_mbids": [
+    "a4a01f5d-18e7-4571-8c3a-76ec0e24e2d7"
+   ],
+   "album": "Year of the Gentleman",
+   "album_mbid": "3972d7d3-4a17-48fd-bd65-4b5d7e7a23fe",
+   "album_group_mbid": "f2eaa55a-757b-3b01-8c33-474dd8a8b870",
+   "album_type": "Album",
+   "album_date": "2008-01-01"
+  },
+  {
+   "rank": 43,
+   "title": "Good Girls Go Bad",
+   "artist": "Cobra Starship featuring Leighton Meester",
+   "mbid": "c5ca0c3a-2f17-44ef-9bdc-2dd12f3c7c85",
+   "artist_mbids": [
+    "ffb390b8-8df4-4b72-97d1-7b2fc008a452",
+    "03825d6a-e148-4966-a2c5-0b9788d81bcb"
+   ],
+   "album": "Hot Mess",
+   "album_mbid": "3eda41fa-517d-4792-89a0-9914cf6dbc99",
+   "album_group_mbid": "ed829e8f-8154-437b-a984-b143fd69cc91",
+   "album_type": "Album",
+   "album_date": "2009-08-11"
+  },
+  {
+   "rank": 44,
+   "title": "Love Lockdown",
+   "artist": "Kanye West",
+   "mbid": "11bc5236-54da-4009-a0ed-589e9cb83cb9",
+   "artist_mbids": [
+    "164f0d73-1234-4e2c-8743-d77bf2191051"
+   ],
+   "album": "808s & Heartbreak",
+   "album_mbid": "f2a47746-710f-4d60-9100-0e5c23b0a227",
+   "album_group_mbid": "1c1b50ec-828b-3d7c-9b1b-54cb1fe97d55",
+   "album_type": "Album",
+   "album_date": "2008-11-24"
+  },
+  {
+   "rank": 45,
+   "title": "So What",
+   "artist": "Pink",
+   "mbid": "505f8d89-64af-4bcd-800a-e39cb91598a1",
+   "artist_mbids": [
+    "f4d5cc07-3bc9-4836-9b15-88a08359bc63"
+   ],
+   "album": "Funhouse",
+   "album_mbid": "cd9bbb99-2ef5-4330-9c58-76cedd7cbeb0",
+   "album_group_mbid": "d8e89f6d-0c5b-3a05-a660-8c7367274d85",
+   "album_type": "Album",
+   "album_date": "2008-10-28"
+  },
+  {
+   "rank": 46,
+   "title": "Hotel Room Service",
+   "artist": "Pitbull",
+   "mbid": "ab9616d1-e83a-4ab4-9f47-6c8d168c1141",
+   "artist_mbids": [
+    "d262ea27-3ffe-40f7-b922-85c42d625e67"
+   ],
+   "album": "Pitbull Starring In: Rebelution",
+   "album_mbid": "1a68cf8e-d389-4798-8089-1eb4812aaa96",
+   "album_group_mbid": "76f88b43-f945-41a5-bf17-c40db7c5702d",
+   "album_type": "Album",
+   "album_date": "2009-10-23"
+  },
+  {
+   "rank": 47,
+   "title": "Crack a Bottle",
+   "artist": "Eminem, Dr. Dre and 50 Cent",
+   "mbid": "6688538b-ac29-4403-ba01-c83ade5b58b6",
+   "artist_mbids": [
+    "b95ce3ff-3d05-4e87-9e01-c97b66af13d4",
+    "5f6ab597-f57a-40da-be9e-adad48708203",
+    "8e68819d-71be-4e7d-b41d-f1df81b01d3f"
+   ],
+   "album": "Relapse",
+   "album_mbid": "c0c2f1bf-57d9-4d4f-88a0-4da54ac7c65e",
+   "album_group_mbid": "ea1d0073-b586-3545-8607-f2632d53b0c0",
+   "album_type": "Album",
+   "album_date": "2009-05-19"
+  },
+  {
+   "rank": 48,
+   "title": "If I Were a Boy",
+   "artist": "Beyoncé",
+   "mbid": "0ce4a1ba-4439-4756-8f7a-a4c1d7257332",
+   "artist_mbids": [
+    "859d0860-d480-4efd-970c-c05d5f1776b8"
+   ],
+   "album": "I Am… Sasha Fierce",
+   "album_mbid": "760b4162-1cae-4eb6-842d-e9e3e0cfb72d",
+   "album_group_mbid": "6f8e8119-de1b-39f0-85ca-b5252cb9211d",
+   "album_type": "Album",
+   "album_date": "2008-11-18"
+  },
+  {
+   "rank": 49,
+   "title": "Turnin Me On",
+   "artist": "Keri Hilson featuring Lil Wayne",
+   "mbid": "b39fc332-972e-4424-af42-5d0aefdd0052",
+   "artist_mbids": [
+    "b76c616a-ec0d-4f0c-b986-f249c4a04d77",
+    "ac9a487a-d9d2-4f27-bb23-0f4686488345"
+   ],
+   "album": "In a Perfect World...",
+   "album_mbid": "3750322b-eb50-4d97-a94a-69ac39aa8038",
+   "album_group_mbid": "cd642e90-b698-3be9-9340-3cc0b9f28220",
+   "album_type": "Album",
+   "album_date": "2009-03-24"
+  },
+  {
+   "rank": 50,
+   "title": "I Hate This Part",
+   "artist": "Pussycat Dolls",
+   "mbid": "ea08b908-87c2-4dc6-aa88-ec8fa63c8833",
+   "artist_mbids": [
+    "1fda852b-92e9-4562-82fa-c52820a77b23"
+   ],
+   "album": "Doll Domination",
+   "album_mbid": "a3769679-ec9c-3243-9ea3-34cb6d2847af",
+   "album_group_mbid": "930202e7-58d9-3476-b1fa-7c7faf07ec9b",
+   "album_type": "Album",
+   "album_date": "2008-09-23"
+  },
+  {
+   "rank": 51,
+   "title": "Gotta Be Somebody",
+   "artist": "Nickelback",
+   "mbid": "f351f1f1-d99d-4a55-803b-666ebce0da48",
+   "artist_mbids": [
+    "bc710bcf-8815-42cf-bad2-3f1d12246aeb"
+   ],
+   "album": "Dark Horse",
+   "album_mbid": "70a968c1-6f09-4ebd-ada4-c5c6555dd0f3",
+   "album_group_mbid": "4a62f40e-acce-3938-bdcd-c4ee3003e747",
+   "album_type": "Album",
+   "album_date": "2008-11-18"
+  },
+  {
+   "rank": 52,
+   "title": "Please Don't Leave Me",
+   "artist": "Pink",
+   "mbid": "dc5f12c9-2b5c-4c0f-b7d3-975467ff6849",
+   "artist_mbids": [
+    "f4d5cc07-3bc9-4836-9b15-88a08359bc63"
+   ],
+   "album": "Funhouse",
+   "album_mbid": "cd9bbb99-2ef5-4330-9c58-76cedd7cbeb0",
+   "album_group_mbid": "d8e89f6d-0c5b-3a05-a660-8c7367274d85",
+   "album_type": "Album",
+   "album_date": "2008-10-28"
+  },
+  {
+   "rank": 53,
+   "title": "Paparazzi",
+   "artist": "Lady Gaga",
+   "mbid": "7a1040dc-bac0-479c-9921-f43797ed0b81",
+   "artist_mbids": [
+    "650e7db6-b795-4eb5-a702-5ea2fc46c848"
+   ],
+   "album": "The Fame",
+   "album_mbid": "0056a348-b45a-431e-850f-3dbde24c640a",
+   "album_group_mbid": "e5495719-b3ad-3eea-a533-fb70af43c23d",
+   "album_type": "Album",
+   "album_date": "2008-11-04"
+  },
+  {
+   "rank": 54,
+   "title": "Beautiful",
+   "artist": "Akon featuring Colby O'Donis and Kardinal Offishall",
+   "mbid": "4285ec3a-5f9b-43ef-a4a3-e405ed787c40",
+   "artist_mbids": [
+    "1138a764-2212-4d0a-b02d-0dc14df91e08",
+    "d71c2b20-616a-4bb8-a848-e6edac412c3b",
+    "03647192-f55b-42b2-9a74-db28fcae8fd1"
+   ],
+   "album": "Freedom",
+   "album_mbid": "105d5ff9-0996-4a8f-bc9f-c28efeeebbd7",
+   "album_group_mbid": "ea2687ed-ae65-30ec-b475-bfc7a3d6be7b",
+   "album_type": "Album",
+   "album_date": "2008-11-25"
+  },
+  {
+   "rank": 55,
+   "title": "Viva la Vida",
+   "artist": "Coldplay",
+   "mbid": "68d672b5-9d44-4bab-a255-d36b85d3ec8d",
+   "artist_mbids": [
+    "cc197bad-dc9c-440d-a5b5-d52ba2e14234"
+   ],
+   "album": "Viva la Vida or Death and All His Friends",
+   "album_mbid": "10c38900-3f35-4a09-a9cc-5c44ee2da0ed",
+   "album_group_mbid": "a1084754-8bb5-3ebc-bbd2-6a27d48e798a",
+   "album_type": "Album",
+   "album_date": "2008-06-17"
+  },
+  {
+   "rank": 56,
+   "title": "Right Now (Na Na Na)",
+   "artist": "Akon",
+   "mbid": "a7b43151-e4c4-4b9e-940e-d7d999245ff9",
+   "artist_mbids": [
+    "1138a764-2212-4d0a-b02d-0dc14df91e08"
+   ],
+   "album": "Freedom",
+   "album_mbid": "105d5ff9-0996-4a8f-bc9f-c28efeeebbd7",
+   "album_group_mbid": "ea2687ed-ae65-30ec-b475-bfc7a3d6be7b",
+   "album_type": "Album",
+   "album_date": "2008-11-25"
+  },
+  {
+   "rank": 57,
+   "title": "Battlefield",
+   "artist": "Jordin Sparks",
+   "mbid": "4d7005cb-b81e-41f8-a2f4-472cd7e8d5ef",
+   "artist_mbids": [
+    "5508631d-697f-4839-a669-06637e5bcb90"
+   ],
+   "album": "Battlefield (Deluxe Version)",
+   "album_mbid": "914f71ff-a370-4abf-986e-4df1a5515b52",
+   "album_group_mbid": "75fc3af8-2145-4158-a311-1781ed40b958",
+   "album_type": "Album",
+   "album_date": "2009-07-17"
+  },
+  {
+   "rank": 58,
+   "title": "Sugar",
+   "artist": "Flo Rida featuring Wynter",
+   "mbid": "35fe5e0d-ef32-4d7d-87d1-0c4da0201dd3",
+   "artist_mbids": [
+    "4593d49a-7f67-46ba-9ec0-126bd676286f",
+    "aec279b2-b9cc-488c-b892-f2271605fa11"
+   ],
+   "album": "R.O.O.T.S.",
+   "album_mbid": "7c305fe7-2355-4fa5-bbd1-0927b5e98e71",
+   "album_group_mbid": "e829d05a-ca63-411b-8cc1-dee43f9a4391",
+   "album_type": "Album",
+   "album_date": "2009-03-31"
+  },
+  {
+   "rank": 59,
+   "title": "Miss Independent",
+   "artist": "Ne-Yo",
+   "mbid": "b4b875a9-9737-49c7-8010-5a4282f991fa",
+   "artist_mbids": [
+    "a4a01f5d-18e7-4571-8c3a-76ec0e24e2d7"
+   ],
+   "album": "Year of the Gentleman",
+   "album_mbid": "3972d7d3-4a17-48fd-bd65-4b5d7e7a23fe",
+   "album_group_mbid": "f2eaa55a-757b-3b01-8c33-474dd8a8b870",
+   "album_type": "Album",
+   "album_date": "2008-01-01"
+  },
+  {
+   "rank": 60,
+   "title": "Fireflies",
+   "artist": "Owl City",
+   "mbid": "30daa2fc-266e-4e5c-9e73-722d0e3a64f1",
+   "artist_mbids": [
+    "ad279295-653f-42e1-9aaa-b731df2e78ba"
+   ],
+   "album": "Ocean Eyes (Deluxe Version)",
+   "album_mbid": "30e242dd-ec5c-43f2-bfe7-824cf9c672a7",
+   "album_group_mbid": "6fa35df1-a08e-42f5-aeb2-ae590ba9fd6b",
+   "album_type": "Album",
+   "album_date": "2009-01-01"
+  },
+  {
+   "rank": 61,
+   "title": "New Divide",
+   "artist": "Linkin Park",
+   "mbid": "be0ce220-52d4-40cb-a492-040d75bd7538",
+   "artist_mbids": [
+    "f59c5520-5f46-4d2c-b2c4-822eabf53419"
+   ],
+   "album": "Transformers: Revenge of the Fallen: The Album",
+   "album_mbid": "8a42aee8-a039-47cb-9f78-0a9c951caf5b",
+   "album_group_mbid": "5177b2dd-36c9-452f-a669-e39c1b0cc71e",
+   "album_type": "Album / Compilation, Soundtrack",
+   "album_date": "2009-06-12"
+  },
+  {
+   "rank": 62,
+   "title": "Empire State of Mind",
+   "artist": "Jay-Z featuring Alicia Keys",
+   "mbid": "4a9818ba-5963-4761-864f-7d96841053d2",
+   "artist_mbids": [
+    "f82bcf78-5b69-4622-a5ef-73800768d9ac",
+    "8ef1df30-ae4f-4dbd-9351-1a32b208a01e"
+   ],
+   "album": "The Blueprint 3",
+   "album_mbid": "0996e292-5cb4-476b-be04-640eeecca646",
+   "album_group_mbid": "8f046e37-21ef-46de-9aa6-4f89e3d48bbb",
+   "album_type": "Album",
+   "album_date": "2009-10"
+  },
+  {
+   "rank": 63,
+   "title": "No Surprise",
+   "artist": "Daughtry",
+   "mbid": "87e99c5d-4bf5-4b68-a592-fa19a82bf2d9",
+   "artist_mbids": [
+    "21e3292e-dac8-4609-b57d-402f926aa41f"
+   ],
+   "album": "Leave This Town",
+   "album_mbid": "b6b59b3b-dc92-4cc7-9fea-7f4b9258fdaf",
+   "album_group_mbid": "8e335ddb-e9d7-4152-8028-a3a6ddd12d10",
+   "album_type": "Album",
+   "album_date": "2009-07-14"
+  },
+  {
+   "rank": 64,
+   "title": "She Wolf",
+   "artist": "Shakira",
+   "mbid": "d34dc769-3c46-45a9-9297-4af248b0a9d4",
+   "artist_mbids": [
+    "bf24ca37-25f4-4e34-9aec-460b94364cfc"
+   ],
+   "album": "She Wolf (Expanded Edition)",
+   "album_mbid": "1c7543fe-6275-44af-9fba-932a642c96d5",
+   "album_group_mbid": "3ad5e640-1da8-47d6-99ad-83f0e57d12f2",
+   "album_type": "Album",
+   "album_date": "2009"
+  },
+  {
+   "rank": 65,
+   "title": "Break Up",
+   "artist": "Mario featuring Gucci Mane and Sean Garrett",
+   "mbid": "e5eda78b-a144-400b-b4f6-ccd1cd96691e",
+   "artist_mbids": [
+    "f236134b-7ebb-4ba8-b155-1791193d05ec",
+    "36494952-f434-45d8-a958-8b4acdbcf8a8",
+    "441cc2e9-f07c-4c31-a6dc-749d993012cc"
+   ],
+   "album": "D.N.A.",
+   "album_mbid": "d5a8aa32-02b0-419c-8065-0f8096acd449",
+   "album_group_mbid": "7bce120a-5aae-4f2e-9b60-46ba5ec94839",
+   "album_type": "Album",
+   "album_date": "2009-10-13"
+  },
+  {
+   "rank": 66,
+   "title": "Sweet Dreams",
+   "artist": "Beyoncé",
+   "mbid": "aecba9b4-7d70-4ee0-938f-f26ff85fd5fa",
+   "artist_mbids": [
+    "859d0860-d480-4efd-970c-c05d5f1776b8"
+   ],
+   "album": "I Am… Sasha Fierce",
+   "album_mbid": "760b4162-1cae-4eb6-842d-e9e3e0cfb72d",
+   "album_group_mbid": "6f8e8119-de1b-39f0-85ca-b5252cb9211d",
+   "album_type": "Album",
+   "album_date": "2008-11-18"
+  },
+  {
+   "rank": 67,
+   "title": "Every Girl",
+   "artist": "Young Money",
+   "mbid": "0b49ca05-49d5-4456-b170-3843e4c23396",
+   "artist_mbids": [
+    "9fff2f8a-21e6-47de-a2b8-7f449929d43f",
+    "3ba45541-87be-4631-896b-d148b7f70f00"
+   ],
+   "album": "We Are Young Money",
+   "album_mbid": "0d6886d2-fc6b-4ca4-b21a-6c9ea1d46dc0",
+   "album_group_mbid": "475b97e7-fc4a-4b7c-a735-68a0e707ea93",
+   "album_type": "Album",
+   "album_date": "2009-12-21"
+  },
+  {
+   "rank": 68,
+   "title": "Fallin' for You",
+   "artist": "Colbie Caillat",
+   "mbid": "4478f2d4-a9ad-4353-9a62-cebd49f9fdda",
+   "artist_mbids": [
+    "efc8a006-d0c6-4a9b-8cb1-91ca770fa2b9"
+   ],
+   "album": "Breakthrough",
+   "album_mbid": "c070d402-787e-4c1f-a364-0530c67ffd46",
+   "album_group_mbid": "485b5bf1-20e1-4c68-acb2-19a7aff8f5c2",
+   "album_type": "Album",
+   "album_date": "2009-08-25"
+  },
+  {
+   "rank": 69,
+   "title": "Untouched",
+   "artist": "The Veronicas",
+   "mbid": "efa6e553-2c71-4573-8623-faa992ecffc9",
+   "artist_mbids": [
+    "fd1baeb3-0ee9-4838-b4c7-615c78d68d10"
+   ],
+   "album": "Hook Me Up",
+   "album_mbid": "252b346e-a1cc-3325-b25c-ab6ea4cd8017",
+   "album_group_mbid": "c099fd77-e46f-3457-b919-910429f39bc8",
+   "album_type": "Album",
+   "album_date": "2007-11-03"
+  },
+  {
+   "rank": 70,
+   "title": "If Today Was Your Last Day",
+   "artist": "Nickelback",
+   "mbid": "25fe93c8-6aa3-4b0e-aa8a-77980f17ce35",
+   "artist_mbids": [
+    "bc710bcf-8815-42cf-bad2-3f1d12246aeb"
+   ],
+   "album": "Dark Horse",
+   "album_mbid": "70a968c1-6f09-4ebd-ada4-c5c6555dd0f3",
+   "album_group_mbid": "4a62f40e-acce-3938-bdcd-c4ee3003e747",
+   "album_type": "Album",
+   "album_date": "2008-11-18"
+  },
+  {
+   "rank": 71,
+   "title": "Throw It in the Bag",
+   "artist": "Fabolous featuring The-Dream",
+   "mbid": "de687f49-2dc4-44c5-bfc9-e25008a1259b",
+   "artist_mbids": [
+    "d2299099-e617-46dd-b013-ba0b4c72bc63",
+    "66a4b9d2-d5a6-40b8-93d5-0bdd1dbb4b43"
+   ],
+   "album": "Loso’s Way",
+   "album_mbid": "e657933b-0136-4059-b52f-7dc3a5c5e8e8",
+   "album_group_mbid": "f84ea7b1-6362-41c9-979f-de006756e0a8",
+   "album_type": "Album",
+   "album_date": "2009"
+  },
+  {
+   "rank": 72,
+   "title": "Love Drunk",
+   "artist": "Boys Like Girls",
+   "mbid": "7902111e-24d7-48db-865d-5a527b0092e1",
+   "artist_mbids": [
+    "d6e65033-b56a-49df-8744-6fc3ffd75edd"
+   ],
+   "album": "Love Drunk",
+   "album_mbid": "75e9698b-e094-4103-ad6d-c868d750bced",
+   "album_group_mbid": "76eec0e5-851d-485c-92b1-2710c5b3d34b",
+   "album_type": "Album",
+   "album_date": "2009-09-08"
+  },
+  {
+   "rank": 73,
+   "title": "I Love College",
+   "artist": "Asher Roth",
+   "mbid": "36c6a6b4-ff2d-48b9-af34-60d2020830a0",
+   "artist_mbids": [
+    "c7d35b71-961e-4713-b65d-35a98591204a"
+   ],
+   "album": "Asleep in the Bread Aisle",
+   "album_mbid": "6475ef1f-8279-4f3e-ae7d-cf074534325e",
+   "album_group_mbid": "993fcad1-8420-4eab-9712-1d1a7e41c2fb",
+   "album_type": "Album",
+   "album_date": "2009-04-20"
+  },
+  {
+   "rank": 74,
+   "title": "If U Seek Amy",
+   "artist": "Britney Spears",
+   "mbid": "258bc802-8111-4d16-b081-fae0ea6aecba",
+   "artist_mbids": [
+    "45a663b5-b1cb-4a91-bff6-2bef7bbfdd76"
+   ],
+   "album": "Circus",
+   "album_mbid": "93b360e4-aa0f-412b-afbd-adc90eb6749f",
+   "album_group_mbid": "1e5f92e0-913c-3202-a72c-b068b9f34ce1",
+   "album_type": "Album",
+   "album_date": "2008"
+  },
+  {
+   "rank": 75,
+   "title": "Big Green Tractor",
+   "artist": "Jason Aldean",
+   "mbid": "9ae2199c-c14b-4dbb-ac4d-91a248ccceeb",
+   "artist_mbids": [
+    "f24df11a-7e35-4979-a4db-a3b2a170ce27"
+   ],
+   "album": "Wide Open",
+   "album_mbid": "a60c184a-e8af-4144-b0c3-54e0c28dbd7b",
+   "album_group_mbid": "664266b9-db3d-3e68-9ac1-1f89aed4d80c",
+   "album_type": "Album",
+   "album_date": "2009-04-07"
+  },
+  {
+   "rank": 76,
+   "title": "White Horse",
+   "artist": "Taylor Swift",
+   "mbid": "c46a220b-32be-4094-b38c-78b84d76ec0a",
+   "artist_mbids": [
+    "20244d07-534f-4eff-b4d4-930878889970"
+   ],
+   "album": "Fearless",
+   "album_mbid": "b015be5b-66ea-4515-8c66-f91b9afc6e99",
+   "album_group_mbid": "63eba062-847c-3b73-8b0f-6baf27bba6fa",
+   "album_type": "Album",
+   "album_date": "2008-11-11"
+  },
+  {
+   "rank": 77,
+   "title": "Disturbia",
+   "artist": "Rihanna",
+   "mbid": "327e3115-b909-410e-856a-977176392573",
+   "artist_mbids": [
+    "73e5e69d-3554-40d8-8516-00cb38737a1c"
+   ],
+   "album": "Good Girl Gone Bad: Reloaded",
+   "album_mbid": "770fcea3-047b-42a4-a278-c950d69fa92a",
+   "album_group_mbid": "7e48f018-b774-32e6-a68b-b42db04535c0",
+   "album_type": "Album",
+   "album_date": "2008-06-17"
+  },
+  {
+   "rank": 78,
+   "title": "21 Guns",
+   "artist": "Green Day",
+   "mbid": "1c98f48c-b617-489c-adb6-31aae5038636",
+   "artist_mbids": [
+    "084308bd-1654-436f-ba03-df6697104e19"
+   ],
+   "album": "21st Century Breakdown",
+   "album_mbid": "5b0f89f9-3742-41ae-abd5-b177509683ff",
+   "album_group_mbid": "37608ff2-3168-3e7c-a77e-04a4b7300c1b",
+   "album_type": "Album",
+   "album_date": "2009-05-15"
+  },
+  {
+   "rank": 79,
+   "title": "Turn My Swag On",
+   "artist": "Soulja Boy Tell 'Em",
+   "mbid": "aa247353-d203-4988-a195-1e05b0d4440f",
+   "artist_mbids": [
+    "29eead4d-3793-4625-8727-c03edbb38b8b"
+   ],
+   "album": "iSouljaBoyTellEm",
+   "album_mbid": "fde61d0d-a7d1-472f-9cbb-f2a8f24eb3e4",
+   "album_group_mbid": "0dcd82bb-7d92-344a-82ff-898f201dd8e1",
+   "album_type": "Album",
+   "album_date": "2008-12-16"
+  },
+  {
+   "rank": 80,
+   "title": "Rockin' That Thang",
+   "artist": "The-Dream",
+   "mbid": "c33086a2-9b4e-4175-863f-8e8af7363142",
+   "artist_mbids": [
+    "66a4b9d2-d5a6-40b8-93d5-0bdd1dbb4b43"
+   ],
+   "album": "Love Vs Money (deluxe edition)",
+   "album_mbid": "a0600656-7386-4a10-96e2-7525c262cb9e",
+   "album_group_mbid": "0782dba6-6b38-4a5e-a4ef-8d86928c1e6f",
+   "album_type": "Album",
+   "album_date": "2009"
+  },
+  {
+   "rank": 81,
+   "title": "Chicken Fried",
+   "artist": "Zac Brown Band",
+   "mbid": "4d18d9aa-4c5a-4e25-95fe-6cc34eacc93b",
+   "artist_mbids": [
+    "507226f4-0842-4f43-950e-81a7017230ec"
+   ],
+   "album": "The Foundation",
+   "album_mbid": "31e997e7-1b43-4245-b455-de9d3ca2545e",
+   "album_group_mbid": "2a6a7731-e832-38f5-8ed6-a821c9581755",
+   "album_type": "Album",
+   "album_date": "2008-11-17"
+  },
+  {
+   "rank": 82,
+   "title": "Diva",
+   "artist": "Beyoncé",
+   "mbid": "ac6dd0f9-9555-4ce7-a0a5-bb95e77e3796",
+   "artist_mbids": [
+    "859d0860-d480-4efd-970c-c05d5f1776b8"
+   ],
+   "album": "I Am… Sasha Fierce",
+   "album_mbid": "760b4162-1cae-4eb6-842d-e9e3e0cfb72d",
+   "album_group_mbid": "6f8e8119-de1b-39f0-85ca-b5252cb9211d",
+   "album_type": "Album",
+   "album_date": "2008-11-18"
+  },
+  {
+   "rank": 83,
+   "title": "Replay",
+   "artist": "Iyaz",
+   "mbid": "6c09e6c7-3986-4dc8-878b-230a5116a060",
+   "artist_mbids": [
+    "3bf30073-ce4e-4207-88d2-ad83677b0387"
+   ],
+   "album": "Replay",
+   "album_mbid": "13458b7b-0178-498b-96da-a56a2cabf0c2",
+   "album_group_mbid": "e968d799-3877-4dfe-926b-33d0eb8e3fb7",
+   "album_type": "Album",
+   "album_date": "2009-08-18"
+  },
+  {
+   "rank": 84,
+   "title": "Then",
+   "artist": "Brad Paisley",
+   "mbid": "e061aa59-f069-43a5-9aee-eaa5483990e5",
+   "artist_mbids": [
+    "6cfd7ffc-824f-4219-8e27-4b9417700f44"
+   ],
+   "album": "American Saturday Night",
+   "album_mbid": "b09a5f26-3089-4903-b838-2591051eaed8",
+   "album_group_mbid": "ad428872-2b62-407e-a8a9-4a04439ab1f7",
+   "album_type": "Album",
+   "album_date": "2009-06-30"
+  },
+  {
+   "rank": 85,
+   "title": "Her Diamonds",
+   "artist": "Rob Thomas",
+   "mbid": "c4b63d09-852c-458d-a1e8-357b298e82f4",
+   "artist_mbids": [
+    "e42680f7-e439-4666-9c2c-536c2b3c6db3"
+   ],
+   "album": "Cradlesong",
+   "album_mbid": "f04710df-913b-4649-85e7-982ed3e04297",
+   "album_group_mbid": "dbb8b358-52bf-4c75-a512-dd7c77985327",
+   "album_type": "Album",
+   "album_date": "2009-06-26"
+  },
+  {
+   "rank": 86,
+   "title": "How Do You Sleep?",
+   "artist": "Jesse McCartney featuring Ludacris",
+   "mbid": "60eb3107-7861-4710-ab76-a3049212ca0b",
+   "artist_mbids": [
+    "9d075d6e-9492-4343-ac95-93a808f61477",
+    "0638ba22-040f-438d-83a5-9b670c4adaf5"
+   ],
+   "album": "Departure",
+   "album_mbid": "1099fa46-ffc6-4f64-ac75-8db65d535957",
+   "album_group_mbid": "0b6597ff-094c-3cf3-a599-7054c9bb6cc1",
+   "album_type": "Album",
+   "album_date": "2008-05-20"
+  },
+  {
+   "rank": 87,
+   "title": "3",
+   "artist": "Britney Spears",
+   "mbid": "a75802ee-6031-473e-bf4b-3ec05acd92cb",
+   "artist_mbids": [
+    "45a663b5-b1cb-4a91-bff6-2bef7bbfdd76"
+   ],
+   "album": "The Singles Collection",
+   "album_mbid": "a6750e20-486d-4085-9297-5a38dd18f9fd",
+   "album_group_mbid": "20c4a0b6-50d5-48d4-aad2-33c93b38bd75",
+   "album_type": "Album / Compilation",
+   "album_date": "2009-11-09"
+  },
+  {
+   "rank": 88,
+   "title": "Forever",
+   "artist": "Drake featuring Kanye West, Lil Wayne and Eminem",
+   "mbid": "d472cdea-dde3-467f-b63f-97971b69bd30",
+   "artist_mbids": [
+    "b95ce3ff-3d05-4e87-9e01-c97b66af13d4",
+    "9fff2f8a-21e6-47de-a2b8-7f449929d43f"
+   ],
+   "album": "Music Inspired by the Film More Than a Game",
+   "album_mbid": "92f0d295-4ca3-4eeb-bdb6-54cdc6a14e76",
+   "album_group_mbid": "d8ef7fc2-1671-4609-9ce5-cc08b198ecb5",
+   "album_type": "Album / Soundtrack",
+   "album_date": "2009-09-28"
+  },
+  {
+   "rank": 89,
+   "title": "One Time",
+   "artist": "Justin Bieber",
+   "mbid": "984298e6-0cfc-4e98-9465-face3a5002bf",
+   "artist_mbids": [
+    "e0140a67-e4d1-4f13-8a01-364355bee46e"
+   ],
+   "album": "My World",
+   "album_mbid": "ca702418-7848-3992-b860-18409362b356",
+   "album_group_mbid": "916d9148-7d23-4f84-99b9-175211bd1551",
+   "album_type": "EP",
+   "album_date": "2009-11-17"
+  },
+  {
+   "rank": 90,
+   "title": "I Run to You",
+   "artist": "Lady Antebellum",
+   "mbid": "6a069f62-90f1-4450-b593-40ca367f6410",
+   "artist_mbids": [
+    "0eedfc95-e79a-4fd9-832a-cd816a0b3fda"
+   ],
+   "album": "Lady Antebellum",
+   "album_mbid": "cee460c0-4987-4708-a429-412a0324b159",
+   "album_group_mbid": "b11978d4-9615-32d5-a23a-57faab722236",
+   "album_type": "Album",
+   "album_date": "2008-04-15"
+  },
+  {
+   "rank": 91,
+   "title": "I Do Not Hook Up",
+   "artist": "Kelly Clarkson",
+   "mbid": "c37116aa-574e-458d-b8b5-b6bc6a659102",
+   "artist_mbids": [
+    "d339efbb-77b9-4147-ba9e-59f2f24550b2"
+   ],
+   "album": "All I Ever Wanted",
+   "album_mbid": "4efeb310-908c-4fdd-b93e-e3463403ae34",
+   "album_group_mbid": "50e5e68b-626a-3bde-904d-5649163ebecd",
+   "album_type": "Album",
+   "album_date": "2009-03-10"
+  },
+  {
+   "rank": 92,
+   "title": "Green Light",
+   "artist": "John Legend featuring André 3000",
+   "mbid": "0c2977eb-5199-427d-a565-207e76f3cd09",
+   "artist_mbids": [
+    "75a72702-a5ef-4513-bca5-c5b944903546",
+    "f563a1a9-069b-41ed-8b3b-e1b1a6f5b34b"
+   ],
+   "album": "Evolver",
+   "album_mbid": "f3ea808e-6a78-410e-9560-1d979a7ebc37",
+   "album_group_mbid": "3d8b3f88-114d-34e5-abe1-0809563b78e4",
+   "album_type": "Album",
+   "album_date": "2008"
+  },
+  {
+   "rank": 93,
+   "title": "People Are Crazy",
+   "artist": "Billy Currington",
+   "mbid": "4a6b33a0-2e4f-473b-9da1-599146afcd27",
+   "artist_mbids": [
+    "dbf94c49-0dd9-4f72-85d5-f548beb453f6"
+   ],
+   "album": "Little Bit of Everything",
+   "album_mbid": "a46e57f9-a0fc-4d8e-a6c5-e7e3fd66ef8f",
+   "album_group_mbid": "8795827e-ebb0-3237-b74f-b1cd1b7d2f5b",
+   "album_type": "Album",
+   "album_date": "2008-10-14"
+  },
+  {
+   "rank": 94,
+   "title": "Whatever It Is",
+   "artist": "Zac Brown Band",
+   "mbid": "5529faa1-6afd-413c-aee2-f29d4185b2da",
+   "artist_mbids": [
+    "507226f4-0842-4f43-950e-81a7017230ec"
+   ],
+   "album": "The Foundation",
+   "album_mbid": "31e997e7-1b43-4245-b455-de9d3ca2545e",
+   "album_group_mbid": "2a6a7731-e832-38f5-8ed6-a821c9581755",
+   "album_type": "Album",
+   "album_date": "2008-11-17"
+  },
+  {
+   "rank": 95,
+   "title": "Already Gone",
+   "artist": "Kelly Clarkson",
+   "mbid": "f5992a73-9c1b-492f-ba6f-fddfa6f68853",
+   "artist_mbids": [
+    "d339efbb-77b9-4147-ba9e-59f2f24550b2"
+   ],
+   "album": "All I Ever Wanted",
+   "album_mbid": "4efeb310-908c-4fdd-b93e-e3463403ae34",
+   "album_group_mbid": "50e5e68b-626a-3bde-904d-5649163ebecd",
+   "album_type": "Album",
+   "album_date": "2009-03-10"
+  },
+  {
+   "rank": 96,
+   "title": "Goodbye",
+   "artist": "Kristinia DeBarge",
+   "mbid": "d5f7bb6f-b043-4b39-ae61-6306c89d9408",
+   "artist_mbids": [
+    "685c876c-1b1c-4ebf-9244-b5254a4297b0"
+   ],
+   "album": "Exposed",
+   "album_mbid": "4057401b-9dae-40f5-8c9c-51b684480546",
+   "album_group_mbid": "90c4b844-3188-4496-95cd-694eb8ed6b26",
+   "album_type": "Album",
+   "album_date": "2009"
+  },
+  {
+   "rank": 97,
+   "title": "Say Hey (I Love You)",
+   "artist": "Michael Franti & Spearhead featuring Cherine Anderson",
+   "mbid": "d13256ba-cbb0-4f83-8a5d-c57252cc1d6e",
+   "artist_mbids": [
+    "e23eac42-f904-47da-8599-823ff431bea4",
+    "83f31d3b-f966-4713-aafb-d159b2b2081c"
+   ],
+   "album": "All Rebel Rockers",
+   "album_mbid": "4aca154f-dde7-4a21-b93b-5cc88fe7d162",
+   "album_group_mbid": "9c9ef097-cabd-3d8b-9be5-d3d32640e79c",
+   "album_type": "Album",
+   "album_date": "2008-09-09"
+  },
+  {
+   "rank": 98,
+   "title": "Pop Champagne",
+   "artist": "Jim Jones featuring Ron Browz and Juelz Santana",
+   "mbid": "474083d8-3c1f-4ae6-9164-d47ec91395f5",
+   "artist_mbids": [
+    "81148ae0-47e9-4830-ac97-8e69b6c71706",
+    "4395052a-9b7f-447b-ae9f-6753cc0501d9",
+    "bea235a0-db63-44b1-881e-264d25791f5a"
+   ],
+   "album": "Pray IV Reign",
+   "album_mbid": "053a3ebf-2d5f-4ed1-8f8b-2652facc01c4",
+   "album_group_mbid": "471bd164-ec5a-396e-8ea9-a6fca088ff0b",
+   "album_type": "Album",
+   "album_date": "2009-03-19"
+  },
+  {
+   "rank": 99,
+   "title": "Pretty Wings",
+   "artist": "Maxwell",
+   "mbid": "7c877b6b-5f3e-499d-bd23-7e378c4c3961",
+   "artist_mbids": [
+    "d252cca8-8214-43e5-b81a-101eb4a1447e"
+   ],
+   "album": "BLACKsummers’night",
+   "album_mbid": "e5262a5c-9b26-45bd-a1b2-5cd89d671a58",
+   "album_group_mbid": "65579f48-3ba4-489a-9b1a-6108925055c9",
+   "album_type": "Album",
+   "album_date": "2009-07-07"
+  },
+  {
+   "rank": 100,
+   "title": "Never Say Never",
+   "artist": "The Fray",
+   "mbid": "95db3fff-4a50-41b9-ac12-d15924232bdd",
+   "artist_mbids": [
+    "2ddd167f-5b8a-4372-b350-6ad50493bac0"
+   ],
+   "album": "The Fray",
+   "album_mbid": "0d62e5b3-8fea-4f20-9184-7a9692520f0d",
+   "album_group_mbid": "74f88ce4-aaaf-3aa8-8c4c-bfed56285e99",
+   "album_type": "Album",
+   "album_date": "2009-11-10"
+  }
+ ]
+}
