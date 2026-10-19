@@ -27,7 +27,7 @@ import numpy as np
 import musiclib, merge
 
 HERE = Path(__file__).resolve().parent
-JUKE = HERE / 'jukebox' / 'jukebox.db'
+JUKE = HERE.parent / 'jukebox' / 'jukebox.db'
 OP_DUP = 'fragment-dupe'
 OP_FOLD = 'fragment-fold'
 

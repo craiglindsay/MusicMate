@@ -137,7 +137,7 @@ setx MUSICMATE_ROOT "E:\My Music"                   # permanently (new windows)
 |---|---|---|
 | `MUSICMATE_ROOT` | `D:\Music` | the music folder |
 | `JUKEBOX_STEMS` | `D:\MusicStems` (or `~\.jukebox\stems` with no D: drive) | where karaoke separations are kept |
-| `JUKEBOX_CDG` | `<music folder>\Karaoke` | MP3+CD+G karaoke discs, if you have any |
+| `JUKEBOX_CDG` | `<music folder>\Karaoke`, else `C:\Music\Karaoke` | MP3+CD+G karaoke discs, if you have any |
 | `JUKEBOX_DEMUCS_PY` | `karaoke-venv\Scripts\python.exe` | the Python that runs vocal separation |
 
 ### 1. Install

@@ -26,7 +26,7 @@ from pathlib import Path
 import musiclib, merge, quality
 
 HERE = Path(__file__).resolve().parent
-JUKE = HERE / 'jukebox' / 'jukebox.db'
+JUKE = HERE.parent / 'jukebox' / 'jukebox.db'
 OP = 'fragment-quality'
 MARGIN = 1.0          # scores this close are not a real difference
 

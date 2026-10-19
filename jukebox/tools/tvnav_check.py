@@ -80,8 +80,9 @@ def cases(album, track):
             (R, 'chrome .pill'), (R, 'chrome .pill'), ('Enter', None), (('wait', 900), 'chrome .pill.f.on'), (D, 'view'), ('Escape', None), (('wait', 900), 'chrome .pill')]),
         'prefs': dict(url='?prefs=1', vh=720, steps=[
             (D, 'SHEET .bdopt'), (R, 'SHEET .bdopt'), (R, 'SHEET .bdopt'), (D, 'SHEET .bdopt'), (L, 'SHEET .bdopt'), ('Enter', 'foc.on'),
-            (D, 'SHEET'), (D, 'SHEET'), (R, 'SHEET'), ('Enter', 'foc.on'), (D, 'SHEET QWERTY'), (D, 'SHEET'), (D, 'SHEET .preflink'), (D, 'SHEET .preflink'),
-            (U, 'SHEET .preflink'), (('until', U, 'SHEET .bdopt', 6), 'SHEET .bdopt'), ('Escape', None), (('wait', 400), 'chrome .pill')]),
+            # rows as of 18 Oct 2026: a 22-tile backdrop grid (eight rows; Ridges x3, Spectrum, Tunnel, Synthwave, Skyline, Planet, Helix 18 Oct; Synthwave Cover, Currents 19 Oct), Motion, Behind the karaoke lyrics, idle, keyboard, size, two links
+            (('until', D, 'SHEET Full', 11), 'SHEET Full'), (R, 'SHEET Calm'), ('Enter', 'foc.on'), (D, 'SHEET Same as music'), (D, 'SHEET min'), (D, 'SHEET QWERTY'), (D, 'SHEET'), (D, 'SHEET .preflink'), (D, 'SHEET .preflink'),
+            (U, 'SHEET .preflink'), (('until', U, 'SHEET .bdopt', 8), 'SHEET .bdopt'), ('Escape', None), (('wait', 400), 'chrome .pill')]),
     }
 
 
@@ -154,6 +155,17 @@ def main():
         return 0
     from playwright.sync_api import sync_playwright
     names = a.only or list(allc)
+    # A karaoke screen opened here takes over the phones following the room
+    # (the newest screen owns them), so while a real one is singing that case
+    # is skipped rather than run (17 Oct 2026).
+    import json, urllib.request
+    try:
+        live = json.load(urllib.request.urlopen(a.base + '/api/karaoke/live', timeout=3)).get('live')
+    except Exception:
+        live = None
+    if live and 'karaoke-screen' in names:
+        print('SKIP karaoke-screen (a karaoke screen is live: %s)' % (live.get('title') or live.get('id')))
+        names = [n for n in names if n != 'karaoke-screen']
     bad = 0
     with sync_playwright() as p:
         b = p.chromium.launch()

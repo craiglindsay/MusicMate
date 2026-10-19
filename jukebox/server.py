@@ -2147,6 +2147,67 @@ def karaoke_envelope(tid: int):
                         headers={'Cache-Control': 'public, max-age=604800'})
 
 
+# ---- music features for the backdrops -----------------------------------------
+# The backdrops read GL.energy from an analyser on the page's own <audio>, which
+# the television never has: its music goes to a Sonos room, and the TV app's
+# WebView gives the analyser nothing even when it plays locally. So, as karaoke
+# does with its vocal stem, the whole mix is analysed ONCE here (musicfeat.py:
+# loudness, bands, onsets, a beat grid, sections, climax) and the page reads
+# the numbers by playback position on every output. Keyed by skey under
+# cache/feat/v<N>/ so a read-model rebuild costs nothing; computed on first
+# request in a worker thread, one job per song, and gzip on disk so the
+# response is the file as it lies (17 Oct 2026).
+import musicfeat as _mf
+FEAT_DIR = HERE / 'cache' / 'feat' / ('v%d' % _mf.VERSION)
+_FEAT = {'lock': _th.Lock(), 'jobs': {}}
+
+
+def _feat_job(skey, path, ev):
+    try:
+        _mf.compute_and_cache(FEAT_DIR, skey, path)
+    finally:
+        with _FEAT['lock']:
+            _FEAT['jobs'].pop(skey, None)
+        ev.set()
+
+
+def _feat_blob(skey, path, wait):
+    """The gzipped JSON for this song, computing it if need be; None while a
+    job is still running past `wait` seconds."""
+    blob = _mf.load_cached(FEAT_DIR, skey)
+    if blob is not None:
+        return blob
+    with _FEAT['lock']:
+        ev = _FEAT['jobs'].get(skey)
+        if ev is None:
+            ev = _th.Event()
+            _FEAT['jobs'][skey] = ev
+            _th.Thread(target=_feat_job, args=(skey, path, ev), daemon=True, name='feat').start()
+    if not ev.wait(wait):
+        return None
+    return _mf.load_cached(FEAT_DIR, skey)
+
+
+@app.get('/api/track/{tid}/feat')
+def track_feat(tid: int, request: Request, wait: float = 1.5):
+    """202 {pending} while the first analysis runs longer than `wait` seconds
+    (the page retries); afterwards the cached file, immutable for a week."""
+    t = _kar_track(tid)
+    path = safe_path(t['rel_path'])
+    if not path.exists():
+        raise HTTPException(404, 'file missing')
+    blob = _feat_blob(t['skey'], path, max(0.0, min(wait, 8.0)))
+    if blob is None:
+        return JSONResponse({'pending': True, 'retry': 1500}, status_code=202,
+                            headers={'Cache-Control': 'no-store'})
+    hdr = {'Cache-Control': 'public, max-age=604800', 'Vary': 'Accept-Encoding'}
+    if 'gzip' in (request.headers.get('accept-encoding') or ''):
+        hdr['Content-Encoding'] = 'gzip'
+        return Response(blob, media_type='application/json', headers=hdr)
+    import gzip
+    return Response(gzip.decompress(blob), media_type='application/json', headers=hdr)
+
+
 # ---- karaoke on a Sonos room -------------------------------------------------
 # The browser mixes the two Opus stems live through WebAudio. A speaker cannot:
 # Sonos plays no Opus and takes one stream, so each music/vocal setting the
@@ -2238,16 +2299,112 @@ def karaoke_cast(tid: int, c: KarCast):
     return {'ok': True, 'url': url, 'duration': t.get('duration'), 'errors': errs}
 
 
+# ---- singing along on a phone (17 Oct 2026) ----------------------------------
+# The karaoke screen shows a QR code for /?sing=1. A phone that opens it plays
+# the same song itself -- backing, lead vocal or both, the singer's choice --
+# in time with the room, so one person can sing with the voice in headphones
+# while the room hears only the backing. The screen reports where it is in the
+# song about once a second (and at once on play, pause and seek); the server
+# stamps each report with its own clock, and the phone, which measures its
+# offset from that clock on every poll, works out where the room is now.
+# Nothing here is persisted: a report older than LIVE_TTL means no song is on.
+_LIVE = {'rep': None, 'phones': {}}
+_LIVE_LOCK = _th.Lock()
+LIVE_TTL = 6.0
+
+
+class KarLive(BaseModel):
+    src: str                    # the reporting page, so one screen closing does not end another's song
+    kind: str = 'song'          # 'song' (a split library track) or 'disc' (CD+G)
+    id: str                     # track id, or the disc's id
+    pos: float = 0
+    playing: bool = False
+    offset_ms: int = 0          # the song's lyric offset, as the screen has it now
+    claim: bool = False         # sent when a screen opens a song: it takes the phones over
+    title: str = ''
+    artist: str = ''
+
+
+@app.post('/api/karaoke/live')
+def karaoke_live_report(r: KarLive):
+    now = time.time()
+    with _LIVE_LOCK:
+        cur = _LIVE['rep']
+        # Two karaoke screens at once took turns, and the phones jumped between
+        # songs. The screen that opened a song last owns them until it goes quiet.
+        if cur and cur['src'] != r.src and not r.claim and now - cur['t'] <= LIVE_TTL:
+            return {'ok': False, 'phones': 0}
+        _LIVE['rep'] = dict(r.model_dump(exclude={'claim'}), t=now)
+        ph = _LIVE['phones']
+        for k in [k for k, v in ph.items() if now - v > LIVE_TTL]:
+            del ph[k]
+        return {'ok': True, 'phones': len(ph)}
+
+
+@app.delete('/api/karaoke/live')
+def karaoke_live_end(src: str = ''):
+    with _LIVE_LOCK:
+        if _LIVE['rep'] and _LIVE['rep']['src'] == src:
+            _LIVE['rep'] = None
+    return {'ok': True}
+
+
+def _warm_phone_mixes(tid: int):
+    """Render the backing-alone and voice-alone MP3s a phone without Opus
+    (an iPhone) will ask for, so it does not wait on ffmpeg after Join. Such a
+    phone says so on its polls (mp3=1), from the join card onwards."""
+    try:
+        t = _kar_track(tid)
+        _kar_mix(t['skey'], True, 0)
+        _kar_mix(t['skey'], False, 2)
+    except Exception:
+        pass
+
+
+@app.get('/api/karaoke/live')
+def karaoke_live(ph: str = '', mp3: int = 0):
+    """What the room is singing, for a phone following it. `now` is the server
+    clock at the moment of answering; the phone pairs it with its own send and
+    receive times to find the offset between the two clocks."""
+    now = time.time()
+    warm = None
+    with _LIVE_LOCK:
+        if ph:
+            _LIVE['phones'][ph[:40]] = now
+        rep = _LIVE['rep']
+        if rep and now - rep['t'] > LIVE_TTL:
+            rep = None
+        if mp3 and rep and rep['kind'] == 'song' and _LIVE.get('warmed') != rep['id']:
+            _LIVE['warmed'] = warm = rep['id']
+    if warm and warm.isdigit():
+        _th.Thread(target=_warm_phone_mixes, args=(int(warm),), daemon=True).start()
+    return JSONResponse({'live': rep, 'now': now}, headers={'Cache-Control': 'no-store'})
+
+
+@app.get('/api/karaoke/join')
+def karaoke_join():
+    return {'url': lan_host() + '/?sing=1'}
+
+
+@app.get('/api/karaoke/join.svg')
+def karaoke_join_qr():
+    import qr
+    return Response(qr.svg(lan_host() + '/?sing=1'), media_type='image/svg+xml',
+                    headers={'Cache-Control': 'no-cache'})
+
+
 # ---- CD+G karaoke discs -----------------------------------------------------
 # A second karaoke source beside the split songs: the store of MP3+CDG discs at
-# D:\Music\Karaoke, indexed by cdg.py into cdg.db with its text read from the
+# C:\Music\Karaoke (D:\Music\Karaoke until 8 Oct 2026), indexed by cdg.py into cdg.db with its text read from the
 # disc graphics into jukebox/cdgtext/<id>.json. These are covers, never library
 # tracks: they have their own ids (the SHA-1 of the .cdg), their own audio, and
 # a pointer (lib_skey) to the library track of the same name when there is one,
 # used only for artwork and for saying "there is a disc of this" on a row.
 _CDG_DB = HERE / 'cdg.db'
 _CDG_TEXT = HERE / 'cdgtext'
-_CDG_STORE = Path(os.environ.get('JUKEBOX_CDG') or ROOT / 'Karaoke')
+# Moved to C:\Music\Karaoke on 8 Oct 2026 to free space on D:; one inside the
+# music folder still wins, so other machines keep the old default.
+_CDG_STORE = Path(os.environ.get('JUKEBOX_CDG') or (ROOT / 'Karaoke' if (ROOT / 'Karaoke').is_dir() or not Path(r'C:\Music\Karaoke').is_dir() else r'C:\Music\Karaoke'))
 
 
 def _cdg_conn():

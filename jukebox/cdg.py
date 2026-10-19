@@ -44,7 +44,10 @@ from pathlib import Path
 import numpy as np
 
 HERE = Path(__file__).resolve().parent
-STORE = Path(os.environ.get('JUKEBOX_CDG') or Path(os.environ.get('MUSICMATE_ROOT') or r'D:\Music') / 'Karaoke')
+# The store moved to C:\Music\Karaoke on 8 Oct 2026 to free space on D:. A store
+# inside the music folder still wins, so other machines keep the old default.
+_IN_ROOT = Path(os.environ.get('MUSICMATE_ROOT') or r'D:\Music') / 'Karaoke'
+STORE = Path(os.environ.get('JUKEBOX_CDG') or (_IN_ROOT if _IN_ROOT.is_dir() or not Path(r'C:\Music\Karaoke').is_dir() else r'C:\Music\Karaoke'))
 TEXT_DIR = HERE / 'cdgtext'
 DB = HERE / 'cdg.db'
 GLYPHS = HERE / 'cdgglyphs.json'

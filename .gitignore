@@ -75,3 +75,11 @@ library/library.db.pre-*
 # CD+G store: text, envelopes and debug frames derived from the karaoke discs
 jukebox/cdgtext/
 jukebox/cdgdebug/
+
+# work products of one-off runs: karaoke_tidy's plan/log/report (the log is its undo record)
+# and the CD+G text pass's id list and start time (see HANDOFF, Sep 2026)
+library/karaoke_tidy.json
+library/karaoke_tidy.log.jsonl
+library/karaoke_tidy_report.txt
+jukebox/chosen_ids.txt
+jukebox/pass_start.txt

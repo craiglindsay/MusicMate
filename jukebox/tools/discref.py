@@ -23,7 +23,8 @@ import numpy as np
 
 HERE = Path(__file__).resolve().parent.parent
 STEMS = Path(os.environ.get('JUKEBOX_STEMS') or r'D:\MusicStems')
-CDG_STORE = Path(os.environ.get('JUKEBOX_CDG') or Path(os.environ.get('MUSICMATE_ROOT') or r'D:\Music') / 'Karaoke')
+_IN_ROOT = Path(os.environ.get('MUSICMATE_ROOT') or r'D:\Music') / 'Karaoke'
+CDG_STORE = Path(os.environ.get('JUKEBOX_CDG') or (_IN_ROOT if _IN_ROOT.is_dir() or not Path(r'C:\Music\Karaoke').is_dir() else r'C:\Music\Karaoke'))
 CDG_DB = HERE / 'cdg.db'
 TEXT_DIR = HERE / 'cdgtext'
 OUT = HERE / 'cache' / 'discref'

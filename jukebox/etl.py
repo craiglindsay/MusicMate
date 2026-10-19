@@ -95,6 +95,26 @@ def parse_year(raw):
     # 21 tracks are tagged 2027; a year in the future is a typo, not a release date
     return y if 1900 <= y <= time.localtime().tm_year else None
 
+_NOT_FRONT = re.compile(r'(?i)back|small|inlay|inside|tray|\bcd\d*\b|disc|booklet')
+_FRONT = re.compile(r'(?i)folder|cover|front|_large')
+
+def folder_image(imgs):
+    """(path, width) of the front-cover image among an album folder's images, or None.
+
+    Backs, inlays and thumbnails are skipped; a name that says front/cover/folder
+    beats one that doesn't, then the bigger file wins. Width comes from the header."""
+    cands = [i for i in imgs if not _NOT_FRONT.search(os.path.splitext(i['filename'])[0])]
+    cands.sort(key=lambda i: (not _FRONT.search(i['filename']), -(i['size'] or 0)))
+    for i in cands:
+        p = os.path.join(ROOT, i['path'].replace('/', os.sep))
+        try:
+            from PIL import Image
+            with Image.open(p) as im:
+                return p, max(im.size)
+        except Exception:
+            continue
+    return None
+
 def stable_key(artist, title, duration):
     """An identity for a recording that survives things the integer id does not.
 
@@ -339,6 +359,12 @@ def main():
         'artist,albumartist,album,title,track,disc,year,genre,has_art,mtime '
         'FROM files WHERE kind="audio"').fetchall()
     print(f'read {len(rows)} tracks from library.db')
+    # cover images saved beside the audio (folder.jpg, Windows Media's
+    # AlbumArt_{guid}_Large.jpg): the last resort when nothing was fetched and
+    # no file carries embedded art. Read in place; the media is never touched.
+    folder_imgs = collections.defaultdict(list)
+    for r in src.execute('SELECT path,folder,filename,size FROM files WHERE kind="image"'):
+        folder_imgs[r['folder']].append(r)
 
     # ---- group into albums by folder
     byfolder = collections.defaultdict(list)
@@ -443,6 +469,10 @@ def main():
                 art_path, art_w, art_kind = p, arow['new_w'] or 0, 'fetched'
         if not art_path and any(t['has_art'] for t in tracks):
             art_kind, art_w = 'embedded', (arow['cur_w'] if arow else 0) or 0
+        if not art_kind:
+            img = folder_image(folder_imgs.get(folder, ()))
+            if img:
+                art_path, art_w, art_kind = img[0], img[1], 'folder'
 
         album_id += 1
         discs = {t['disc'] for t in tracks if t['disc']}

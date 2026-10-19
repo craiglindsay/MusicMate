@@ -144,6 +144,7 @@ The stem store path is overridable with `JUKEBOX_STEMS` (default `D:\MusicStems`
 | `/?kar=<tid>` | opens the karaoke screen directly |
 | `/?np=<tid>` | plays that track and opens Now Playing (needs `--autoplay-policy=no-user-gesture-required` headless) |
 | `/?kar=<tid>&at=<sec>` | ...and seeks, for checking mid-song states |
+| `/?bd=<style>` | forces a backdrop style for this load only (any `BD_STYLES` id, including `cycle`); `&karbd=same` puts it behind the karaoke lyrics too |
 | `window.onerror` trap | surfaces script errors into the page (mockup only) |
 
 **Headless rendering is the highest-value tool of the session.** Three layout
@@ -1048,6 +1049,12 @@ frames correctly (Pink, ABBA).
 given, so the folder is never a sub-library; the karaoke code will index it
 itself, like the stems store.
 
+**Moved to `C:\Music\Karaoke` on 8 Oct 2026** to free space on D: (57 GB).
+`cdg.db` stores paths relative to the store, so nothing in it changed;
+`cdg.py`, `server.py`, `tools/discref.py` and `karaoke_tidy.py` use
+`<music folder>\Karaoke` when it exists, else `C:\Music\Karaoke`
+(`JUKEBOX_CDG` overrides both). Do not recreate `D:\Music\Karaoke`: it would win.
+
 `library/karaoke_tidy.py` (12 Sep 2026) brought the dozen naming styles to
 one: `Karaoke\<Artist>\<Artist> - <Title> [<disc code>].mp3/.cdg`. Zips
 were extracted straight to their destination and deleted after a size check;
@@ -1419,3 +1426,714 @@ explicit `.kbrow` rows: the old ten-column `1fr` grid rendered six wide and
 four narrow columns on the Hisense, and `aspect-ratio` is not understood
 there. From the ✕, Left and Down always land on the keyboard; the
 `search-close` case in `tools/tvnav_check.py` guards it.
+
+### Direct drop into VariousArtists and Christmas (16 Oct 2026)
+
+About 8,500 tracks (693 albums) were copied straight into VariousArtists and
+815 into Christmas, bypassing `ingest.py`. The Christmas albums had already
+been filed from `ToBeProcessed\_filed`, with duplicates set aside in
+`_duplicates_already_released`, so Christmas was indexed only, not modified.
+Tidy of the VariousArtists drop, after `musiclib.py scan` + `fingerprint`
+(library.db backed up to `~\MusicMate-backups\`):
+four albums already held under other names were retired track by track to
+`_superseded` (op `album-dupe`; the new copies won on quality every time):
+Genesis *Wind and Withering*, Pet Shop Boys *Behavior*, Talking Heads *77*,
+Weezer *Blue Album Deluxe*; a second "Hot" in Missy Elliott's *Under
+Construction* likewise. `foldcredit.py`: Perfect Circle -> A Perfect Circle,
+Tom Petty and the Heartbreakers -> Tom Petty. `unifyartist.py`: Fleetwood
+Mac, The Human League, Merle Haggard album-artist tags. Left on purpose: Lou
+Reed and Metallica's *Lulu* and one Craig David guest credit (the tool would
+also rewrite the per-track artist). Most fingerprint "duplicates" were
+studio albums against hits sets already held, kept as always. Note
+`album_dupes.py` resolves `jukebox.db` at `library/jukebox/`, a path from
+before the repo move, so it no longer runs as is.
+Then the System-page rescan (VariousArtists + Christmas, covers on): main
+library 3,963 albums / 1,356 artists, Christmas 120 albums / 1,660 tracks.
+
+### Cover fetch rebuilt (16 Oct 2026)
+
+The rescan's cover step had fetched 368 of 1,393 and was asking the same
+1,000 refused albums on every run. Causes, all in `library/artfetch.py`:
+the search sent the raw tag ("Vitalogy (2011 Remaster)" finds nothing as an
+exact phrase; the folder name was never tried); iTunes was asked only when
+Deezer returned nothing at all, so Deezer offering wrong records ended the
+search; one 403 switched iTunes off for the rest of the run; Deezer's quota
+answer (HTTP 200 with an error body) read as "no results"; compilations and
+soundtracks were searched under whoever sang track 1. And six regexes held
+literal backspace characters where `\b` was meant (`incomplete.py` had one
+too), so `WRONG_RECORD`, the volume check and parts of `artist_ok` had never
+matched anything: "Bon Jovi" had the Greatest Hits cover, "Hysteria" a live
+medley single, "American Idiot" the Broadway cast album.
+
+Now: `album_facts` reads the majority tags and the folder (disc folders take
+the parent, "Artist-Album" and "VA-" collection names are split);
+`queries` tries tag and folder titles, each cleaned by `search_title`, under
+the album-artist, the folder artist, "Various Artists" or the title alone
+as fits; `lookup` asks Deezer exact, Deezer free text, MusicBrainz/Cover Art
+Archive, then iTunes, until an answer is accepted and downloads; each source
+has a pace and a cool-down (`Source`). `accept` adds the title-only rules
+(exact core title via `core_title`; a soundtrack credited to its star only
+when the answer calls itself a soundtrack) and refuses a "Various Artists"
+answer for an album filed under one artist ("The Fame" had matched the
+"Fame" film). `match_score` now accepts an extension of our title only when
+the extra words read as an edition or the artist's name ("Deep Forest" had
+matched "Deep Forest Delevingne Crystal Clear"). Refused albums are asked
+again after 30 days, not on every rescan; `fetch --retry` asks now,
+`--only <prefix>` limits it.
+
+Audit of accepted covers against the repaired matcher: 44 replaced by a
+better answer (old images in
+`~\MusicMate-backups\replaced-covers-20261016`), the rest kept
+because nothing better was found. Left for the user: Soundtracks/Miami Vice
+TV and Compilations/Salsa Hits 2004 (cover is a near miss either way).
+
+`fetch --retry` over the 1,025 albums under 600px that every earlier run had
+refused: 462 fetched (Deezer 226, MusicBrainz 217, iTunes 19), 563 still
+nothing; ~70 min. A recheck after tightening the soundtrack rule dropped one
+(Bend It Like Beckham had the stage musical's cast album) and replaced one
+(Gladiator: The Lyndhurst Orchestra -> Hans Zimmer). Covers in the read
+model after the rebuild: albums with any art 3,884 of 3,963 main, 113/120
+Christmas, 51/134 Compilations, 94/122 Soundtracks (before: 3,862, 108, 26,
+49); 600px and up: 3,500 main. The next rescan asks only new albums and
+those refused more than 30 days ago.
+
+**Folder images as a last resort (17 Oct 2026).** `etl.py` now uses a cover
+image saved beside the audio (`folder.jpg`, Windows Media's
+`AlbumArt_{guid}_Large.jpg`; backs, inlays and `*Small` skipped) when nothing
+was fetched and no file has embedded art: `art_kind='folder'`, `art_path`
+pointing into the music folder, read in place. 78 collection albums gained a
+cover (Compilations 51 -> 107 of 134, Soundtracks 94 -> 111, Christmas
+113 -> 119), most of them 170-200 px. The 78 main-library albums still without
+one are bootlegs, live tapes, "Assorted" folders and demos with no art anywhere.
+
+## Singing along on a phone (17 Oct 2026)
+
+The karaoke screen shows a QR code (top right) for `http://<LAN address>/?sing=1`.
+A phone that opens it gets a join card naming the song on the TV; **Join** (the
+tap phones need before they will play sound) puts it on the karaoke screen in
+follow mode: the same lyrics, no transport, a **Backing / Lead / Full** switch,
+and a **Phone earlier/later** nudge for headphones (Bluetooth runs ~0.2 s late;
+kept per phone in `jb.singlat`). The room keeps playing whatever its own
+switches say, so one person can sing with the voice in their ears while the
+room hears only the backing. It follows song changes, pauses and seeks, and
+goes back to "Waiting" when the TV leaves karaoke. A computer can click the
+code; the TV gets no link so it cannot navigate away from itself.
+
+- **Clock.** The leading screen POSTs `/api/karaoke/live` every second and at
+  once on play, pause, seek and lyric nudge (`singReport`); the server stamps
+  it with its own clock. The phone polls `GET /api/karaoke/live` every second
+  and estimates the server-clock offset from the poll with the shortest round
+  trip of the last 12 (`singClock`). Nothing is persisted; a report older than
+  6 s means no song.
+- **Audio.** Two persistent `<audio>` elements, unlocked by the Join tap with a
+  silent clip and reused for every song. Backing/Lead/Full is `muted` on one
+  or the other (iOS ignores `volume`). Opus stems where the phone plays Opus,
+  else the server's MP3 renders `mix-m1-v0` (backing) and `mix-m0-v2` (voice
+  alone); a phone without Opus says so (`mp3=1`) on its polls from the join
+  card on, and the server renders both in the background before Join.
+- **Lining up, not steering** (`singAlign` / `singStart` / `singSteer`). Two
+  devices playing the same file from the same point stay within a few ms over
+  a song (clocks differ by tens of ppm), so the phone lines up once and then
+  leaves the audio alone: it pauses both stems, parks them `lead` (0.8 s,
+  doubled whenever buffering outruns it) ahead of the room, waits until that
+  stretch is buffered, and presses play when the room arrives there, less the
+  device's measured start lag (`jb.singstart`; learned on the first song, 90 ms
+  in headless Chromium). While running it changes nothing; only a sustained
+  slip (smoothed error > 0.15 s for 1.5 s, e.g. a network stall), a jump in the
+  room (> 1 s: a seek), the voice wandering > 0.1 s from the backing, or the
+  singer's nudge lines up again. If a phone will not buffer while paused it
+  starts anyway after 5 s and lines up once data flows.
+  History (17 Oct 2026): the first version steered continuously with
+  playbackRate on raw currentTime readings (which move in ~25 ms steps) --
+  ~80 rate changes a second, heard as choppy audio; the second smoothed that
+  but still seeked while playing when > 0.3 s out, and on a phone a seek
+  stalls to buffer and lands late, so it chased itself: "super clippy and
+  can't keep time" on Danceophobia. Measured now (headless Chromium, TV and
+  phone): 1-20 ms in steady play, after a seek and after pause/resume, with
+  no rate changes at all.
+- **Backing / Lead / Full is which stems play**, not which are muted. Muting
+  gave a dropout every ~5 s in Backing and Lead on the user's phone (a muted
+  element's clock wanders; the voice/backing check lined up again). The
+  unwanted stem is paused and the stem that plays is the lyric clock
+  (`KAR.aB`); dropping a stem is seamless, adding one lines up once (~1 s).
+- **The phone's own log.** Open `/?sing=1&log=1` and the phone posts a sample
+  a second and every line-up with its reason (`start:`, `late:`, `paused`,
+  `jump`, `slip`, `voice`, `learn`, `mix:`, `nudge`) to `/api/diag` as
+  `{sing: [...]}`; `GET /api/diag` returns the last five posts, so collect it
+  with `python jukebox/tools/singlog_collect.py out.jsonl` while they sing. The
+  user's phone is Chrome 155 on Android 10. After a refresh it showed no
+  drift line-ups at all: Full -12 ms median, Backing +17, Lead -61, and a
+  start lag of 0.18-0.3 s that varies start to start, so the learning was
+  damped to once a song, past 60 ms, moving 70% of the way. The dropouts the
+  user heard before were almost certainly the page still running the muting
+  version.
+- **Testing:** never run a headless karaoke screen against the live server
+  while `GET /api/karaoke/live` shows a song: the test screen takes the
+  phones (it happened twice on 17 Oct 2026).
+- The screen reports itself not playing while it buffers (`seeking`, or
+  `readyState < 3`) and reports again on `playing`/`waiting`; before, phones
+  ran ahead after a seek by however long the TV took to buffer.
+- **Two screens.** The screen that opened a song last owns the phones
+  (`claim` on its first report); others' reports are ignored until the owner
+  has been quiet for 6 s. Before that they took turns and phones jumped.
+- Playwright's WebKit on Windows cannot play media at all, so **an iPhone has
+  not been tried**: that is the first thing to check on real hardware.
+- `?sing=1` skips the library boot (route, session restore, cache warming):
+  Home's covers held the phone's six connections and starved the clock polls,
+  which made it seconds late in the first test.
+- The QR code is drawn by `jukebox/qr.py` (byte mode, level M, versions 1-10),
+  written here rather than added as a dependency; it matched segno module for
+  module on every mask.
+- CD+G discs work too, lyrics and backing only (a disc has no vocal track, so
+  the switch is hidden).
+
+
+## Remote navigation fixes (17 Oct 2026)
+
+- **Lists walk in order.** Up/Down inside a `.trlist` go to the neighbouring
+  `.tr` in DOM order, not the nearest by geometry: on the TV (Chrome 74, html
+  `zoom` 1.5) the geometric pick skipped every other song once a long list
+  scrolled (a Billboard top 100 in Era). In a two-column list Down from the
+  foot of the left column continues at the top of the right; past the end of
+  the list it leaves the list (never back into the other column). Not
+  reproducible headless; fixed by construction.
+- **The A-Z rail steps letter by letter** (skipping dim letters). Its letters
+  are ~20px and the Up/Down row band is 40px, so ties went to DOM order and Up
+  skipped a letter (S to U, never T). **Left from the rail** lands on the first
+  thing showing in the list (the letter just picked) -- it used to look for a
+  tile level with the letter and found none when the letter sat beside the gap
+  between tile rows.
+- **"All songs" on an artist page** is reached with Right from the end of a
+  Top songs line, like a shelf's "See all" (`.trlist` joins `.strip,
+  .shelfrow` in that rule). No key reached it before.
+- **Each page draws into a fresh `#view`.** All pages shared one element, so a
+  page still loading when another opened kept appending: Home's shelves landed
+  above or below the next album (seen headless when navigating within ~2 s of
+  Home; the TV is slower) and gave the d-pad stray stops. `route()` swaps in a
+  new `<main id="view">`; a stale route's late output goes to the detached one,
+  and its scroll/focus landing is skipped.
+- **Shelves step tile by tile.** Left/Right along a `.strip`/`.shelfrow` go
+  to the neighbouring tile: tiles past the shelf's edge are clipped by its
+  scroller, so the IntersectionObserver never put them in `vis` and Right
+  stopped at the last one showing (six on the TV). Home's Recently played
+  (25 albums from the last 100 plays) and Recently added (25) were raised
+  from 12 at the same time.
+- `tools/tvnav_check.py` skips its `karaoke-screen` case while
+  `/api/karaoke/live` shows a song (it took over the user's phone).
+
+## Backdrops behind Now Playing and karaoke, and Cycle (17 Oct 2026)
+
+The user asked for more interest in the background while music or karaoke
+plays, and a mode that changes it on every song. Two things were in the way:
+Now Playing hid the backdrop almost completely (on the television a 97% lid,
+because without backdrop-filter the page's tiles leaked through the old 55%
+wash), and the karaoke screen had its own three blobs that ignored the
+backdrop setting. Now there is one engine.
+
+- **The backdrop rises.** `openNP` adds `body.npon` and `karOpen`/`karOpenDisc`
+  add `body.karon` (through `bdKarLift`), which lift `#gl`, `#bd2d` and
+  `#glfall` to z-index 59 / 79, directly under the panel. Every style paints
+  an opaque frame, so nothing underneath shows and Now Playing is a 34-74%
+  vertical wash with no blur. The karaoke screen goes transparent (`#kar.bdx`),
+  hides its blobs, and gains `#karscrim`, a 52% band behind the lyric rows, on
+  top of the vignette it already had: the text keeps its ground whatever is
+  moving. A phone following the room (`KAR.follow`) never lifts; it keeps the
+  classic blobs and no canvas.
+- **Ten styles plus Cycle** (`BD_STYLES`, picker in the Preferences sheet).
+  Smoke, Gradient, Sleeve, Aurora, Embers, Grooves (was Grain; the id stays
+  `grain` so a saved choice still works), Glow, Streams, Kaleidoscope, Pulse.
+  Sleeve blurs the cover once into a 96 px tile (`bdSoft`), Aurora strokes
+  each ribbon three times at falling width, Kaleidoscope mirrors the cover
+  once into a 3x3 tile: no per-frame `ctx.filter` anywhere. **Cycle** is a
+  rule, not a style: `bdSong(key)` runs on every song start (`startCurrent`,
+  `adoptRemoteTrack`, session restore, `karOpen`, `karOpenDisc`) and, when
+  `jb.backdrop` is `cycle`, hashes the song key against `BD_CYCLE` minus the
+  style just shown, so the pick is deterministic per song-after-song and
+  consecutive songs always differ. Gradient is left out of the pool because
+  it does not move; Smoke drops out where WebGL has been demoted. A change of
+  style mid-session (Cycle, or the sheet) **crossfades**: `bdApply` keeps the
+  last frame of the old 2D style in `BD.fade` and draws it over the new one
+  at falling alpha for 1.6 s. Into or out of Smoke there is no snapshot (a
+  WebGL canvas cannot be copied after its frame), so that change still cuts.
+- **Settings**, all per device: `jb.backdrop` (also `cycle`), `jb.motion`,
+  `jb.karbd` = `glow` (default: the karaoke screen keeps its classic look) or
+  `same` ("Behind the karaoke lyrics: Same as music"). `?bd=<style>` and
+  `karbd=same` force a choice for one load.
+- What moved on what, and how it was measured, is superseded by the section
+  below: the first version read a WebAudio analyser that the television does
+  not have.
+
+## Backdrops that listen: the music clock and the Verse layer (17 Oct 2026, later)
+
+The user tried the ten styles on the living-room television: "I was hoping
+they would be more sound reactive, smooth, but reactive a bit. The pulse
+seems to be a one time thing ... grain just scrolls to the lower right, with
+no change in direction or speed based on the music playing (or not
+playing)." The diagnosis: every style read `GL.energy` / `GL.bass` from
+`updateEnergy`, a WebAudio analyser on the page's own `<audio>`. The TV's
+music goes to a Sonos room, so the browser hears nothing, and inside the TV
+app's WebView the analyser yields nothing even when it plays locally. The
+styles were honest about that (they sat at their calm level), which is
+exactly what the user saw. Karaoke had solved the same problem for its vocal
+stem a month earlier (`envelope.py`: analyse the file once, read by
+position). This pass does the same for the whole mix, then rebuilds every
+style on the result.
+
+**Server: `jukebox/musicfeat.py`, `GET /api/track/{tid}/feat`.** numpy and
+ffmpeg only. Decode to 11 kHz mono, one STFT (1024-point Hann, 110-sample
+hop = 100 frames a second, chunked), then:
+
+- `loud` A-weighted power in dB against the track's own 99.5th percentile
+  (45 dB floor), `low`/`mid`/`high` = 20-160 / 160-2000 / 2000-5500 Hz each
+  against its own range; `flux` = half-wave-rectified change of a 40-band
+  log-mel spectrum with the slow level removed. All pooled to **20 frames a
+  second, quantised to bytes, shipped base64**; `onsets` = peaks of the flux
+  in centiseconds.
+- **Tempo and beats**: autocorrelation of the onset strength with Ellis's
+  log-Gaussian prior around 110 bpm, then dynamic-programming beat tracking
+  (Ellis 2007, tightness 400) at that period; `bpm` is then the median
+  interval of the grid. The octave is decided from the grid itself, measured
+  on five records: a grid one octave too fast has beats of alternating
+  strength (`alt2` 0.5-0.6 on the wrong octave, 0.02-0.32 on the right), and
+  a ballad picked at double speed has a half-tempo grid that is both more
+  confident and stronger. `beatconf` (0..1: on-grid against off-grid
+  strength, the autocorrelation peak, interval steadiness) is what the client
+  reads before trusting the grid. `bar` assumes 4/4 and names the beat index
+  that carries the most attack and bass as beat one, with its own margin.
+- **Structure**: `sections` from a checkerboard-kernel novelty curve over the
+  self-similarity of the log-mel spectrum at 2 frames a second (16 s kernel,
+  8 s minimum gap, each boundary with the mean loudness of the section it
+  starts); `arc` = loudness smoothed over ~6 s, one a second; `climax` = the
+  loudest 20 s window; `balance` = each band's share of the song.
+
+Results on the test tracks (expected tempo in brackets): Danceophobia
+125.0 (125), Take on Me **84.5** (169 / 84.5: the 169 grid alternates 0.52,
+so the half-time feel wins, which is what Spotify lists too), Hotel
+California live 75.0 (~75; the first pick was 151), Someone Like You 67.4
+(~67.5; first pick 135), Yesterday 96.8 (~97). Confidence 0.70 (Adele) to
+0.90 (Duran Duran). **Cost 0.6-2.0 s a track** on this machine, scaling with
+length (decode ~0.35 s, the STFT ~0.5 s, beat tracking ~0.1 s for four
+minutes); **25-45 KB gzipped a track** (uniform 20 Hz streams are most of
+it; the grid and the onsets are a few KB). Cached as
+`jukebox/cache/feat/v1/<skey>.json.gz` (gitignored) and served as the file
+lies with `Content-Encoding: gzip`, a week's cache. The first request for a
+song starts one worker thread per skey (`_FEAT`) and waits up to 1.5 s for
+it; past that it answers **202 `{pending, retry}`** and the page polls. A
+track ffmpeg cannot decode is cached as `{error}` so it is not retried every
+play. `tools/feat_batch.py` pre-analyses the library (resumable, process
+pool): about 1.5 GB and six hours at four workers for 52,942 tracks. It has
+NOT been run; the on-demand path plus the client's prefetch of the next song
+is the default.
+
+**Client: the music clock (`MC`, `mcPos`, `mcUpdate`).** One reading of the
+music for every style, on every output. `mcPos()` is the one place that
+knows where the song is: `audio.currentTime` locally; on Sonos `OUT.pos`
+carried forward from `OUT.posAt` between polls (the speaker reports whole
+seconds every 1.5 s, so `pollRemote` now re-anchors only when the count
+turns over and the prediction is off by more than 0.35 s, or drifts clear by
+1.6 s, the karaoke clock's idea); in karaoke `KAR.el`, which `karFrame`
+already keeps. `bdSong(key)` calls `mcSong(key)`, which fetches the features
+(cache of eight songs, `mcFetch` follows the 202) and five seconds later the
+next song in the queue. `mcUpdate(now)` runs once per frame (both loops
+call it; a second call in the same frame is a no-op) and derives:
+`loud/low/mid/high/flux` smoothed with fast attacks and slow releases;
+`beat`, a pulse shaped on the grid (50 ms rise, decay over 30% of a beat),
+scaled by `beatconf` and the attack under that beat, with `beatNew` true for
+one frame, `phase` 0..1 and `down` on beat one when the bar is sure;
+`onset`, an impulse from the last attack; `section` and `lift` (1 at a
+boundary, decaying over 2.5 s) and **`dir`**, a heading that turns 1.1-2.0
+rad at every section change, eased over 4 s; `climax` eased in over 3 s and
+out over 4; `mood` from the arc; **`live`** (1 playing, 0 at rest, 0.6 s /
+1.8 s) and **`drift`**, music time: it advances at
+`live * (0.3 + 0.7 loud) * (bpm / 112)`, plus a 0.12 breath at rest, so
+every style's clock runs at the song's tempo, hurries when it is loud and
+settles when it stops. Calm (`bdRate` 0.5) halves the accents as well as the
+clock; Still freezes the clock and holds frames. Without features (a song
+still being analysed, a disc) the vocal envelope or the analyser stand in at
+`known` 0.6; nothing depends on the analyser any more. `GL.energy` /
+`GL.bass` are still written (the shader reads them) but from the clock.
+
+**The motion grammar every style shares** (the header comment above
+`BD_STYLES`): the clock is `MC.drift`; the heading `MC.dir` turns at section
+changes; the beat is a nudge (`MC.beat`), never a strobe; the climax lifts
+the whole scene; pause brings everything to rest; behind karaoke lyrics the
+accents are halved (`BD.amp` 0.55). What each style is now:
+
+- *Smoke*: flows on music time along the heading (`uD` uniform); the beat
+  pulses the zoom, loudness and climax light the caustics.
+- *Gradient*: deliberately still, the lightest option; left as the one that
+  does not move. The set needs it for the weakest screens.
+- *Sleeve*: the cover haze in two layers sliding against each other (a far
+  one, and a near one turned over that leans the way the song is heading),
+  breathing with the loudness, a 2% nudge on the beat, the dark rim pulling
+  back for the chorus.
+- *Aurora*: one ribbon per band (bass, mids, treble), each brighter with
+  its band; the wave travels at tempo, shivers on the beat, and the ribbons
+  glide to new heights at a section change.
+- *Embers*: motes rising at the song's pace with the wind on the heading,
+  flaring in threes on attacks, lifting together on the beat; a reserve joins
+  for the climax; at rest they hover and dim. One soft sprite stamped, not
+  arcs.
+- *Grooves* (was Grain): a record off-centre turning at tempo with a
+  reflection sweeping its face; each beat sends a ring of light out along the
+  grooves; the grain sparkles with the treble and drifts along the heading;
+  stopped, it stops. The old version was a vignette and a noise tile sliding
+  to the lower right at one speed, which is the one the user named.
+- *Glow*: three pools, one per band (the bass pool swells on the beat), on
+  slow orbits that turn as a whole to new corners at a section change.
+- *Streams*: particles at the song's pace on a field that turns with the
+  heading; attacks brighten the strokes; the climax wakes 40% more
+  particles; at rest the trails settle to a still field of dots.
+- *Kaleidoscope*: wedges turning at tempo, reversing through zero at a
+  section change (`cos(dir)`), a 3.5% zoom on the beat, the centre pool
+  lifting for the climax.
+- *Pulse*: a ring on every beat of the grid, stronger on beat one and under
+  a real attack, reaching the edge two beats later; with `beatconf` under
+  0.35 the rings follow attacks instead; the halo breathes with the
+  loudness; at rest the last rings dissolve. This is the one that "came out
+  at the beginning and then nothing".
+
+Nothing was cut. Grain was the only style with no reason to exist and it
+was rebuilt rather than dropped, because a turning record is the one
+metaphor a jukebox owns.
+
+**The Verse layer: REMOVED 18 Oct 2026** (the user: "I don't like the artist
+picture and words showing up randomly, let's lose that"). The code, the
+Preferences row and `jb.bdwords` are gone; what follows is the record of
+what it was. **The Verse layer (`WL`, `wlSong`, `wlTick`, `wlDraw`).** The user's second
+ask: "pop a lyric or two on the screen ... floating through the background
+twisting away, something that focuses on the chorus ... pop up pictures of
+the artist/band." It is a layer over whatever style is on, drawn after the
+style in `bdLoop`, only on Now Playing (`body.npon`), never in karaoke
+(the screen IS the lyrics), not on phones (their Now Playing has no free
+band), and switchable ("Words and faces on Now Playing"). On a song start
+it fetches `/api/lyrics/{tid}`; with time-synced lines `wlMark` finds the
+chorus as the lines of three words or more that come back, and the first
+line of each run of them is the one that **blooms** (large italic, 10% of
+the canvas height, shadowed in the accent, growing 0.88 to 1.18 and turning
+on its vertical axis as it goes, 9 s). Other lines drift by small now and
+then: every third line at most, one every 4.5 s, two alive at once, 7 s
+each. Placement is the outer bands only (7-14% and 86-93% of the height,
+alternating), clamped inside the canvas; alpha 0.17 small, 0.26 big plus a
+tenth of the beat. Each phrase is rendered to a bitmap ONCE (`wlRender`)
+and only the bitmap is transformed per frame. The artist's one photo is
+loaded on song start, graded once into the light half of the palette
+(`wlGrade`: luminance to c1, c2, white; feathered edges) and ghosts in at
+88% of the height at the side at a section change or the climax
+(`screen` composite, alpha 0.3 + loudness), alternating sides, 14 s a
+visit, never twice in 25 s. Seeks reset the lyric cursor so nothing from the
+past is read out. Under Smoke and Gradient, which have no 2D loop, the layer
+rides on the same canvas set to overlay mode (`BD.overlay`: cleared each
+frame, only the layer drawn).
+
+**Measured** (headless Chromium, software raster, `Emulation.setCPUThrottlingRate`
+4, viewport 1280x720 with `?tv=1`, which is the television's layout width,
+so the backdrop canvas is 448x251; the earlier numbers were at 1920x1080):
+Pulse 0.47 ms, Glow 0.50, Sleeve 0.73, Streams 0.74, Kaleidoscope 0.99,
+Aurora 1.08, Grooves 1.3-1.4, Embers 1.8 (2.3 with the old arcs); the Verse
+layer adds 0.2-0.4 ms, the clock 0.2-0.3. Analysis cost and tempo results
+above. `tools/tvnav_check.py`: 14 of 17 pass; `track-row-buttons-and-sheet`,
+`karaoke-page` and `karaoke-screen` fail identically with main's `ui.html`
+swapped in (read-model drift since 3 Sep: album 1312 is no longer Rumours
+and its rows have no mic; the karaoke page's first row does not open within
+3 s), so they are not this change's; the `prefs` case was updated for the
+rows added on 17 Oct. Chrome 74: `node --check` clean, no `?.`/`??`/
+`replaceAll`/`finally`, no new CSS at all. Still not seen on the real
+television.
+
+Videos of every style (Danceophobia from 0:28 for the beat, Someone Like
+You from 1:00 for the ballad, a paused clip, TV-mode clips, the karaoke
+screen with Aurora behind Take on Me, Smoke with the Verse layer) were
+recorded with Playwright at 1280x720; they live outside the repo, in the
+session scratchpad, and are listed in the report for this pass.
+
+Open: the Sonos clock is a prediction between whole-second polls, so on a
+room a beat can land a few hundred milliseconds off (the tempo is right, the
+phase is roughly right); the cast stream's own latency is unknown and on top
+of that. Lyrics for a song without a cached lookup cost a network fetch on
+song start (the lyrics pane did the same, only when open). The face grading
+uses the palette as it stands when the photo arrives.
+
+## Backdrops on the television: the NaN that blanked them, and the hit (18 Oct 2026)
+
+First night on the TV, the user: Streams "doesn't brighten on hits", Aurora
+"just dark", Embers "pops a bit but not related to the beat", "glow is just
+a white screen", Pulse "seems to be nothing" -- "the sound reactions don't
+seem to work". Three causes, found in this order:
+
+- **A NaN that stuck for the whole session.** `MC.lastE` was never
+  initialised. While a song is still being analysed (the first time it is
+  ever played) `mcUpdate` falls back to the live analyser and computes
+  `low - MC.lastE`: NaN on the first frame, and the exponential smoothing
+  carries NaN forward for good, so `MC.beat` stayed NaN even after the
+  features arrived. Every colour built from it threw in `addColorStop`
+  mid-frame; a style that had already switched to `lighter` left it on, and
+  each frame's background fill then ADDED to the last, so the screen climbed
+  to white (Glow). Others lost their geometry and sat dark. Reproduced
+  headless with any never-analysed track (`?tv=1&bd=glow&np=<tid>`, check
+  `MC.beat`). Fixed three ways: `lastE: 0`; the smoother `sm` treats a
+  non-finite value as 0; and `bdLoop` resets `globalCompositeOperation` and
+  `globalAlpha` in a `finally`, so no throw can latch a drawing mode.
+- **Colours drawn in near-black.** The palette is built for the shader's
+  dark smoke; its middle colour is often about (0.12, 0.10, 0.11), and
+  Aurora drew two of its three ribbons in it. `bdLitPal`/`bdLit` give the 2D
+  styles a lit accent (HSL lightness 0.56-0.70, hue kept) and a lit second
+  colour (the middle colour lightened if it has any saturation, else the
+  accent deepened and turned slightly toward red). A first try turned the
+  hue the other way and went yellow-green on an orange cover.
+- **Reactions too small to see.** The styles did correlate with the music,
+  but the canvas's mean brightness moved 0.5-6.7 levels of 255 over four
+  seconds. `MC.kick`, "the hit", jumps on each beat of the grid (x1.3 on the
+  downbeat) and on each strong attack and decays in 0.18 s; every style
+  shows it plainly (ribbons jump and flare, pools swell, rings are a wide
+  band under a sharp line, the ember swarm surges and a handful flare per
+  beat, the record's ripple, the kaleidoscope's zoom and lifted centre).
+  **Streams** keeps its trails on their own transparent layer
+  (`BD.flow.trail`) and draws it a second time, added, in proportion to the
+  hit. Drawing the main canvas over itself instead lifted the ground as well
+  and compounded to white in two seconds; do not do that.
+  Glow composites with `screen`, not `lighter`, so overlapping pools cannot
+  pass white.
+
+Measured with the scratch harness (TV mode, 1920x1080, 240 frames of the
+canvas reduced to 32x18): mean brightness and its range over 4 s, and the
+correlation of the mean with `MC.beat`/`MC.onset`. Before -> after on the
+same song: Aurora range 1.1 -> 27, Glow 6.7 -> 16, Embers 0.9 -> 10,
+Pulse 3.4 -> 12, Streams 2 -> 9 (thin strokes; the hit frames are plainly
+brighter by eye), onset correlation 0.4-0.8 throughout; no page errors on
+eight never-analysed songs.
+
+**The TV reports what it sees.** `bdBeacon` posts the style, output,
+position, whether the features loaded, the `MC` values, the lit palette and
+a 64x36 thumbnail of the canvas to `/api/diag` (`kind: 'bd'`) every 20 s,
+on a TV (or `?bdlog=1`), for an hour after load. `GET /api/diag` returns the
+last five (in memory only). Look there before guessing about the TV again.
+
+## Ridges and Ridges 3D (18 Oct 2026)
+
+The user sent the Unknown Pleasures cover: "a series of lines ... that move
+like a spectrum analyser ... both a still and a moving/rotating version ...
+rotating in a 3d plane". Two styles, one function (`bdRidges(g, w, h, now,
+turn)`):
+
+- **Data.** `musicfeat.py` VERSION 2 adds `spec`: the analysis's 40 log-mel
+  bands paired to 20 (`specn`), pooled to 10 a second (`spechz`), each band
+  in dB against its own 98th percentile over 36 dB, blended 60/40 with the
+  song-wide level over 50 dB so bands all move but a bass-heavy record still
+  looks it. 70-78 KB gzipped per song (40 bands was 113 KB). The bump moved
+  the cache to `cache/feat/v2/`; v1 was deleted (it rebuilds on play).
+  The client stretches it (`((v - .3) / .7) ^ 1.5`) so quiet bands lie flat.
+- **Drawing.** Each line is one spectrum frame (`bdRidgeRow`, cached per frame
+  index so a line keeps its shape as it travels back): low notes left, high
+  right, inside a central plateau (`exp(-((x-.5)/.23)^4)`) so the edges lie
+  flat, with a fixed jagged texture per frame and point. 44 lines on a TV
+  (56 elsewhere) = 4.4 s of history; the stack scrolls continuously by the
+  fractional frame, the newest line fades in at the front and the oldest out
+  at the back. Hidden lines: back to front, each line fills the strip
+  between it and its own baseline with the ground before stroking. The ink is
+  the lit accent 65% toward white. The hit lifts and brightens the newest
+  five lines. Before the analysis arrives, rows are made from the three
+  bands and frozen per frame.
+- **3D** projects the same field (x +-1.7, depth 2.2) through a camera whose
+  yaw swings `sin(drift * .12) * .6` plus a lean from `MC.dir` (sections),
+  pitch `.5 + sin(drift * .07) * .12`, so a swing is about 50 s of music time
+  and it holds still when the music stops. Painter's order by line index
+  holds for yaw within about +-50 degrees; a full orbit would need sorting.
+- **Resolution.** Fine lines show a low-resolution canvas, so `bdSize` gives
+  the Ridges styles 0.5 on a TV (0.35 for the soft styles) and 0.75 elsewhere.
+- **Cost** at a 4x CPU throttle: median 2.5-4.9 ms, p95 7-12 ms a frame:
+  the dearest style, heavier than the others' 0.5-1.8 ms. Watch the TV
+  beacon's frame rate if the TV stutters; fewer lines (`L`) is the lever.
+- Samples sent to the user: 22 s of each on Love Will Tear Us Apart with the
+  song's audio (Playwright video, offset by wall clock, muxed with ffmpeg).
+- `tvnav_check` `artists-rail` failed once in each of two full runs on
+  18 Oct and passed alone every time (step 5, Left from a rail letter):
+  intermittent, unrelated to the backdrops, not yet chased.
+
+## Ridges Colour and Spectrum (18 Oct 2026)
+
+Ridges Heat, Prism and Orbit were tried and shipped the same afternoon
+(a633a61). The user: "the fast moving one is pretty jumpy, but the other two
+are good ... use the album or song art for the color palette ... pull 3 from
+this, one is rotating and color, one is rotating and B&W and the third is
+stationary and B&W". Taken as: Orbit (full turns, shoved by each hit) was
+the jumpy one; Prism's faster swing was fine. So the family is now three,
+in `RIDGE_VARS`: Ridges (flat, mono), Ridges 3D (slow swing, mono) and
+**Ridges Colour** (`ridgescolor`: Prism's swing, `sin(drift * .36)`, inked
+with the cover's colours laid across the spectrum). A device that had saved
+one of the retired ids is moved to `ridgescolor` when the page loads.
+
+- **Art colours.** `artColours(d)` runs beside the palette extraction in
+  `paletteFromUrl` and sets `GL.art`: the cover's pixels binned into 12 hues,
+  weighted by chroma squared, the strongest bins taken (at least a tenth of
+  the top one, never two neighbouring bins, at most four), each lifted to a
+  lightness that reads on the dark ground, ordered by hue. A grey cover gives
+  null (`applyDuo` clears it too) and the style uses the lit accent and
+  second colour. Love Will Tear Us Apart's sleeve is grey, so the sample was
+  recorded on Foo Fighters, Making A Fire (red, blue, violet).
+- **Spectrum** (`leds`): the 90s LED bar meter the user asked for. 20 bars
+  from `spec`, eased between its frames, mapped `(v - .6) / .35` (spec sits
+  high: per-band median about .7, 90th percentile about .85), 16 segments,
+  green to 60%, yellow to 85%, red above. Meter ballistics: instant rise, a
+  fall of 2.4 full scales a second, peaks held 0.55 s then dropping faster as
+  they go. The hit adds up to .3 to the bass third, as a kick drum throws the
+  low bars. Unlit segments show faintly, lit ones carry an additive halo.
+  The trail: ten times a second (wall clock, so on pause the bars fall and
+  the trail carries them off) the levels are kept, 14 deep on a TV; each
+  older reading is drawn as the top segment of every bar only, rising toward
+  the upper fifth of the screen and shrinking a little as it fades, so the
+  past reads as glowing caps drifting up behind the meter.
+- **Cost** at a 4x throttle on 960x540: Ridges 3D 2.5 ms median / 7.9 p95,
+  Ridges Colour 4.8 / 12.4 (a gradient per line), Spectrum 1.1 / 3.8.
+  Spectrum gets the sharp canvas scale (0.5 on a TV) with the Ridges.
+- `tvnav_check` prefs: 15 tiles now (five rows).
+
+## The 3D spectrum family: Tunnel, Synthwave, Skyline, Planet, Helix (18 Oct 2026)
+
+Asked "any additional ones using the spectrum data ... particularly anything
+3D and moving?", five were proposed and the user said "lets do them all".
+All are Canvas 2D (no WebGL), share `bdSpecRow(f, idx)` (a 0..1 row per
+spectrum frame, `(v - .5) / .45`, cached per frame in `BD.scache`; the three
+live bands with a hash stand in before the analysis arrives, and for the
+picker thumbnails, `BD.thumb`), `bdBand(row, u)` (smooth read across bands),
+`bdArtCols()` (the cover's colours, `GL.art`, else the lit pair) and
+`bdSpecPos()`.
+
+- **The future on screen.** Tunnel, Synthwave and Helix lay out the coming
+  music (the analysis is offline, so it is known) and bring each reading to
+  the camera, or the middle for Helix, exactly as it plays. Skyline and
+  Planet show the last seconds.
+- **Tunnel**: a ring per reading, bass along the floor and treble overhead
+  (`u = (1 - sin a) / 2`, so left and right mirror), pinched in where loud;
+  30 rings on a TV at 0.3 apart; the tube bends with distance and rolls on
+  music time; six rails join the rings. Rings nearer than z 0.3 are dropped
+  and the far end fades to nothing (the first version clotted there).
+- **Synthwave**: wireframe land, a flat road and spectrum mountains either
+  side (bass nearest the road, taller toward the flanks), rows filled with
+  the ground far to near so near hills hide far ones, rungs between rows,
+  a striped sun in the cover's colours behind a horizon at 0.44 h.
+- **Skyline**: 20 bands by 8 rows (TV; 13 elsewhere) of towers, one row a
+  fifth of a second, the camera orbiting slowly (`drift * .1`). Painter's
+  order by box depth; the two sides that face the camera are picked from
+  the camera's world position, not by testing every face. It is the dearest
+  style: 7.6 ms median at a 4x throttle even after that rewrite (13 ms
+  first; fills and canvas path calls, not the script, are most of it), so
+  it uses the soft canvas scale (0.35 on a TV). Fewer rows is the lever.
+- **Planet**: a meridian per reading over 6.4 s, bass at the south pole,
+  raised and swung sideways where loud (radial bumps alone only showed at
+  the rim), the globe turning so the newest is laid down front left;
+  back meridians dim, then a body disc, then front ones additive; a halo
+  that breathes with loudness and the hit; slow stars.
+- **Helix**: first built looking down the corkscrew's axis, which was a
+  mess of huge near lines; rebuilt side-on as a DNA strand: rungs across a
+  ribbon that turns about the x axis, music entering from the right,
+  crossing the middle as it plays, fading left; two rails; the spin eased
+  toward `(.3 + .4 * rate) * live + kick * .8` over 0.6 s so the hits
+  quicken it without a jerk. The user: "dna is great".
+- **Cost** at 4x on the TV-sized canvas: Tunnel 2.3 / 7.8 p95, Synthwave
+  2.3 / 9.3, Planet 5.2 / 12.4, Helix 3.6 / 11.1, Skyline 7.6 (above).
+- `tvnav_check` prefs: 20 tiles, seven rows (`until` max 10).
+- Samples of all five on Making A Fire sent to the user.
+
+### First feedback on the five (19 Oct 2026)
+
+- **The music clock was jittery.** `audio.currentTime` steps unevenly from
+  frame to frame, so anything scrolling with the song juddered; the user saw
+  it as Synthwave "glitches a little". `mcPos()` now runs the local clock on
+  the wall clock at the playback rate, eased toward the audio's time over
+  0.5 s and snapped on a seek (over 0.3 s out), a pause, or a gap over 0.5 s
+  (`MC.clk`). The Sonos path already extrapolated. Every style benefits.
+- **Synthwave** also lifted a row on the beat by its place in the list
+  (`j`), so the lift jumped from row to row as they moved; it is keyed to
+  `idx - fp` now. New rows rise flat out of the horizon over six rows.
+- **Skyline**: the back rows sink into the floor and darken to it over the
+  last 55% of their age (smoothstep) instead of vanishing; the front row
+  grows from nothing. Rows back to 9 on a TV.
+- **Planet**: a meridian every 0.2 s, so a turn takes 12.8 s (was 6.4);
+  the camera's elevation swings `.32 +- .26` rad over about 140 s of music
+  time.
+- **Helix**: the camera circles part way round the strand (`yaw .48 sin`)
+  and rises and dips (`tilt .12 +- .24`), both slow; smaller field of view
+  so the near end stays on screen.
+
+### Synthwave Cover (19 Oct 2026)
+
+"album art somehow incorporated into the synthwave, perhaps ... into the
+sun". A second tile, `synthart` (`bdSynth(..., cover)`); plain Synthwave is
+unchanged. `bdSunArt(cols)` makes the sun once per cover and palette
+(keyed by `BD.imgId` and the art colours) on a 256 px canvas: the cover
+clipped to a disc, a `soft-light` wash from the first art colour (lightened)
+at the top to the last at the bottom, a light `screen` lift, and a hot rim.
+The sun stands higher (centre half a radius above the horizon) so most of
+the picture shows, and six bands drift slowly down through its lower part,
+thickening as they go. The hit adds the sun to itself additively, a flash.
+No cover (a disc, art still loading) draws the plain gradient sun.
+A grey sleeve gives a cool moonlit version in the palette's accent.
+- 19 Oct, after the samples: the cover version on Love Will Tear Us Apart
+  "glitches and seems to go backward a bit". A watcher on `mcPos()` during a
+  re-recording found no backward step, stall or frame gap over 60 ms, so it
+  was not the clock. Most likely a wagon-wheel effect: the land advanced one
+  row per spectrum frame (a tenth of a second), so on the road, where rows
+  look alike, a frame-rate dip moved them about half a gap a frame and the
+  eye read it as backward. Both Synthwaves now take a row every fifth of a
+  second (`bdSpecRow(f, idx * 2)`, the clock halved), half the speed, and
+  the land shows 6.8 s ahead.
+- The camera is no longer fixed (the user: up and down and left and right,
+  "slightly and slowly", with the sun and horizon still the vanishing
+  point): it drifts across the road (`camX .28 sin(drift * .037)`), rises
+  and sinks (`camH .5 +- .1`), and pans and tilts a little (the vanishing
+  point moves by up to 5% of the width and 2.5% of the height), each on its
+  own slow period, so no two passes look the same.
+
+## Currents (19 Oct 2026)
+
+From a photo of Tame Impala's Currents sleeve: "a ball being dragged
+through the sound ripples". `bdCurrents`: 66 parallel diagonal lines on a TV
+(96 elsewhere) at 0.62 rad, each drawn twice (a dark edge offset down and
+right, then the light line, the album's lit accent 55% to white) so they
+read as ridges. A chrome ball (radial gradient, a shadow, the trail colour
+caught underneath) wanders slowly about the middle on music time.
+
+- **Parting**: each line's across position is pushed out from the ball by
+  up to 1.35 Rb, the push dying fast ahead (`exp(-al^2 / 1.7 Rb^2)`) and
+  slowly behind (`45 Rb^2`), leaving a groove up the way the ball came, with
+  a trail in the cover's colours fading along 7 Rb of it.
+- **Ripples**: ahead and to the sides only (a weight on `al / r`). A point
+  at distance r from the ball is displaced by `A sin(k (r - c t) + swirl)`,
+  with c = 0.12 h a second, so rings travel outward; A comes from the
+  spectrum at time `t - r / c`, interpolated between frames, the band by
+  angle (bass straight ahead, treble at the sides), plus the hit near the
+  ball. The swirl term (`1.6 sin(lat / 5 sp + t * .4)`) bends the rings
+  into the sleeve's wobbles.
+- **Cost**: only lines within reach of the ball are sampled (every 0.6 line
+  gaps on a TV), and behind the ball only the groove's lines; 5.4 ms median
+  at a 4x throttle (8.6 before the TV line count and step were eased).
+
+### Currents in 3D, Aurora as curtains, a Smoke size guard (19 Oct 2026)
+
+- **Currents** feedback: "the camera needs to revolve a bit around the
+  ripples ... the lines on either side should look like they are flowing
+  like water past the chrome ball ... with the beat the ripples should get
+  more intense". Rebuilt in world units (ball radius 1 at the origin, lines
+  along z) under a perspective camera that always looks at the ball:
+  yaw `1.85 + .7 sin(drift * .05) + .15 sin(dir)`, pitch `.98 +- .14`.
+  Water: a swell runs back along the lines (`sin(kw (al + flow))`, `flow`
+  accumulating with loudness), strongest beside the ball and in its wake;
+  the groove sways; dashed glints (`setLineDash`, offset by flow) stream
+  along. Beat: the hit is kept in a short history (`BD.ckh`), so each ring
+  carries the beat of the moment it left the ball, and the whole field gains
+  `1 + K * .5`. Ripples also lift in height so they read in perspective.
+  The spectrum and beat at each ring distance are tabled once a frame
+  (40 distances x 5 bands). Cost 6.2 ms median at a 4x throttle (TV spacing
+  .38, coarse straight runs); the first 3D cut was 10.
+- **Aurora** feedback: "distinct lines not a blending of the areas". Now
+  curtains of vertical rays, brightest just above a soft lower edge and
+  fading up into the other palette colour, brighter where the curtain folds
+  edge-on, worked out pixel by pixel into a sixth-size ImageData and
+  stretched over the screen (the stretch is the blur). Drawing the rays as
+  ~300 small drawImage/fillRect calls cost 11-14 ms; the pixel loop is 1.2.
+- **Smoke** on the TV sat squeezed into the top-left corner (user report,
+  not reproduced headless). `drawGL` now resizes the buffer if it no longer
+  matches the window and sets the viewport every frame, and the TV beacon
+  also reports while Smoke runs (`win`, and `gl` with viewport, box, scale,
+  tier), so the next report shows the TV's numbers if it recurs.

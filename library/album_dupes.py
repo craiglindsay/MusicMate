@@ -29,7 +29,7 @@ from pathlib import Path
 import musiclib, merge, quality
 
 HERE = Path(__file__).resolve().parent
-JUKE = HERE / 'jukebox' / 'jukebox.db'
+JUKE = HERE.parent / 'jukebox' / 'jukebox.db'
 OP = 'album-dupe'
 MIN_MATCH = 0.6
 MARGIN = 1.0

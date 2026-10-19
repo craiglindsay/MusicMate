@@ -503,7 +503,7 @@ body.tv ::-webkit-scrollbar{display:none}
 .sheet{position:fixed;inset:0;z-index:95;display:none;
   background:rgba(8,7,10,.55);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
 .sheet.on{display:flex;align-items:flex-end;justify-content:center;animation:npin .26s var(--ease)}
-.sheet .sheetin{width:100%;max-width:520px;max-height:82vh;display:flex;flex-direction:column;
+.sheet .sheetin{width:100%;max-width:520px;max-height:82vh;max-height:calc(82vh / var(--uiscale,1));display:flex;flex-direction:column;
   background:linear-gradient(180deg,rgba(38,34,44,.97),rgba(20,18,25,.99));
   border:1px solid rgba(255,255,255,.13);border-bottom:0;
   border-radius:22px 22px 0 0;box-shadow:0 -22px 60px rgba(0,0,0,.6);
@@ -517,6 +517,10 @@ body.tv ::-webkit-scrollbar{display:none}
   border-radius:50%;font-size:15px;line-height:1;cursor:pointer;transition:.18s}
 .sheet .xbtn:hover,.sheet .xbtn:focus-visible{background:rgba(255,255,255,.16);color:var(--ink);outline:none}
 .sheet .outlist{overflow-y:auto;padding:6px 12px 4px;-webkit-overflow-scrolling:touch}
+/* vh is zoomed with html, so at 150% a plain 82vh sheet stood 123% of the
+   screen tall; hence the divide above. The prefs body outgrew 82vh once the backdrop grid grew; without its own
+   scroll the lower rows sat off the bottom of the TV with no way to reach them */
+#prbody{overflow-y:auto;min-height:0;flex:1 1 auto;padding:0 18px 4px;-webkit-overflow-scrolling:touch}
 .outrow{display:flex;align-items:center;gap:13px;padding:15px 14px;border-radius:14px;cursor:pointer;
   transition:background .16s;min-height:56px}
 .outrow:hover,.outrow:focus-visible{background:rgba(255,255,255,.07);outline:none}
@@ -927,6 +931,47 @@ body.remote .splitbtn .spcaret{background:rgba(0,0,0,.14)}
   font-variant-numeric:tabular-nums}
 #karsync span.set{color:var(--acc)}
 
+/* singing along on a phone: the QR code on the TV's karaoke screen, and the
+   phone's own footer (no transport -- the room has it -- but a mix switch and
+   a timing nudge for headphones) */
+#karqr{display:flex;align-items:center;gap:14px;flex:none;color:var(--ink2);text-decoration:none}
+#karqr[hidden]{display:none}
+#karqr img{display:block;width:16vh;height:16vh;min-width:110px;min-height:110px;border-radius:8px;
+  background:#fff}
+#karqr span{font-size:1.6vh;line-height:1.35;max-width:9em;text-align:right}
+#kar.follow #karctl{display:none}
+#kar.follow #karmapwrap{cursor:default}
+#karfollow{display:none;align-items:center;gap:12px;flex-wrap:wrap}
+#kar.follow #karfollow{display:flex}
+#karmix{display:flex;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);
+  border-radius:999px;padding:4px;gap:3px}
+#karmix[hidden]{display:none}
+#karmix button{appearance:none;border:0;background:transparent;color:var(--ink2);cursor:pointer;
+  font-family:'Sora',sans-serif;font-size:14px;font-weight:500;padding:10px 18px;
+  border-radius:999px;transition:.2s var(--ease)}
+#karmix button.sel{background:var(--acc);color:#20170c;font-weight:640}
+#karlat{display:flex;align-items:center;gap:2px;background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.13);border-radius:999px;padding:4px}
+#karlat button{appearance:none;border:0;background:transparent;color:var(--ink2);cursor:pointer;
+  font-family:'Sora',sans-serif;font-size:16px;font-weight:600;width:38px;height:38px;border-radius:999px}
+#karlat span{font-size:12.5px;color:var(--ink3);min-width:112px;text-align:center;
+  font-variant-numeric:tabular-nums}
+#karlat span.set{color:var(--acc)}
+#karfst{font-size:13px;color:var(--acc);appearance:none;border:0;background:transparent;
+  font-family:'Sora',sans-serif;padding:0;cursor:pointer}
+/* the phone's join card: below the karaoke screen, so it shows whenever no song is on */
+#sing{position:fixed;top:0;right:0;bottom:0;left:0;z-index:79;display:flex;align-items:center;
+  justify-content:center;padding:24px;background:#0b0a0e;text-align:center}
+#sing[hidden]{display:none}
+#sing .scard{max-width:420px;display:flex;flex-direction:column;align-items:center;gap:16px}
+#sing h2{font-family:'Fraunces',serif;font-size:34px;font-weight:640;margin:0}
+#sing p{color:var(--ink2);font-size:15px;line-height:1.55;margin:0}
+#sing #singnow{color:var(--ink);font-size:17px}
+#sing button{appearance:none;border:0;background:var(--acc);color:#20170c;font-family:'Sora',sans-serif;
+  font-size:17px;font-weight:640;padding:15px 44px;border-radius:999px;cursor:pointer}
+#sing button[hidden]{display:none}
+#sing .snote{font-size:13px;color:var(--ink3)}
+
 /* the preparing state, shown in place rather than as a separate screen */
 #karprep{position:relative;z-index:2;flex:1;display:none;flex-direction:column;
   align-items:center;justify-content:center;padding:0 6vw;text-align:center;gap:18px}
@@ -991,6 +1036,22 @@ body.remote .splitbtn .spcaret{background:rgba(0,0,0,.14)}
 #bd2d{position:fixed;left:0;top:0;width:100%;height:100%;z-index:-2;pointer-events:none;display:none}
 body.bd2d #bd2d{display:block}
 body.bdstill #glfall{animation:none}
+/* Under Now Playing and the karaoke screen the backdrop RISES above the app
+   (every style paints an opaque frame, so nothing underneath shows through)
+   and those surfaces become a wash over it instead of a near-solid lid. On
+   the television Now Playing was 97% opaque because, without backdrop-filter,
+   the page's tiles showed through the old 55% wash; with the canvas directly
+   beneath there is nothing to leak. */
+body.npon #gl,body.npon #bd2d,body.npon #glfall{z-index:59}
+body.karon #gl,body.karon #bd2d,body.karon #glfall{z-index:79}
+body.npon #np{background:linear-gradient(180deg,rgba(11,10,14,.34) 0%,rgba(11,10,14,.5) 55%,rgba(11,10,14,.74) 100%);
+  backdrop-filter:none;-webkit-backdrop-filter:none}
+body.karon #kar.bdx{background:transparent}
+#kar.bdx .kblob{display:none}
+/* the lyric band keeps its ground whatever is moving behind it */
+#karscrim{position:absolute;top:0;right:0;bottom:0;left:0;display:none;
+  background:linear-gradient(180deg,rgba(11,10,14,.1) 0%,rgba(11,10,14,.58) 34%,rgba(11,10,14,.58) 68%,rgba(11,10,14,.2) 100%)}
+#kar.bdx #karscrim{display:block}
 .bdgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;padding:4px 0 2px}
 .bdopt{appearance:none;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);border-radius:12px;padding:6px;color:var(--ink);font:inherit;cursor:pointer;text-align:left;display:flex;flex-direction:column;gap:5px}
 .bdopt canvas{width:100%;height:54px;border-radius:8px;display:block;background:#111}
@@ -1112,7 +1173,7 @@ body.tv .karart.foc .kname{color:var(--acc)}
   <div id="karbd">
     <div class="kblob" id="kb1"></div><div class="kblob" id="kb2"></div>
     <div class="kblob" id="kb3"></div>
-    <div id="karvig"></div><canvas id="karemb"></canvas>
+    <div id="karvig"></div><div id="karscrim"></div><canvas id="karemb"></canvas>
   </div>
 
   <div id="karhead">
@@ -1120,6 +1181,7 @@ body.tv .karart.foc .kname{color:var(--acc)}
     <div class="kart"><img id="karimg" alt=""></div>
     <div class="kt"><b id="karttl"></b><span id="karsub"></span></div>
     <span class="kspacer"></span>
+    <a id="karqr" target="_blank" rel="noopener" hidden><span id="karqrn">Sing along on your phone</span><img alt="QR code: sing along on your phone"></a>
   </div>
 
   <div id="karprep">
@@ -1154,6 +1216,30 @@ body.tv .karart.foc .kname{color:var(--acc)}
         <button id="karsyncp" aria-label="Lyrics later">+</button>
       </div>
     </div>
+    <div id="karfollow">
+      <div id="karmix">
+        <button data-x="backing">Backing</button>
+        <button data-x="lead">Lead</button>
+        <button class="sel" data-x="full">Full</button>
+      </div>
+      <div id="karlat" title="This phone's timing against the room">
+        <button id="karlatm" aria-label="Phone earlier">&minus;</button>
+        <span id="karlatv">Phone in time</span>
+        <button id="karlatp" aria-label="Phone later">+</button>
+      </div>
+      <button id="karfst"></button>
+    </div>
+  </div>
+</div>
+
+<div id="sing" hidden>
+  <div class="scard">
+    <div class="eyebrow" style="margin:0">MusicMate karaoke</div>
+    <h2>Sing along</h2>
+    <p id="singnow">Looking for the song on the TV…</p>
+    <button id="singgo">Join</button>
+    <p class="snote">The song plays on this phone in time with the TV. Put headphones in,
+      then pick Backing, Lead or Full.</p>
   </div>
 </div>
 
@@ -1402,7 +1488,7 @@ function trackImg(t, size) {
   return '<img ' + lazySrc(trackArt(t, size)) + ' data-seed="tr' + t.id + '" data-t="' + esc(t.title) + '" data-s="' + esc(t.artist || '') + '" alt="" onerror="__artErr(this)">';
 }
 function paletteForTrack(t, extra) {
-  if (usesTrackArt(t)) { paletteFromUrl('tr' + t.id, trackArt(t, 96), t.title, t.artist || ''); return; }
+  if (usesTrackArt(t)) { bdSleeveSrc('tr' + t.id, trackArt(t, 300)); paletteFromUrl('tr' + t.id, trackArt(t, 96), t.title, t.artist || ''); return; }
   if (t.album_id) paletteFromAlbum(t.album_id, t.album || t.title, t.artist, extra);
 }
 function artImg(albumId, size, title, sub, kindKnownNone) {
@@ -1446,7 +1532,7 @@ function initGL() {
   const vs = 'attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}';
   const fs = [
     'precision mediump float;',
-    'uniform vec2 uR;uniform float uT;uniform float uE;uniform float uB;',
+    'uniform vec2 uR;uniform float uT;uniform float uE;uniform float uB;uniform vec2 uD;',
     'uniform vec3 uC0;uniform vec3 uC1;uniform vec3 uC2;',
     'float h21(vec2 p){p=fract(p*vec2(234.34,435.345));p+=dot(p,p+34.23);return fract(p.x*p.y);}',
     'float n2(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);',
@@ -1457,7 +1543,7 @@ function initGL() {
     ' vec2 uv=(gl_FragCoord.xy-.5*uR)/uR.y;',
     ' uv*=1.-uB*.05;',
     ' float t=uT*.045;',
-    ' vec2 q=vec2(fbm(uv*1.35+t),fbm(uv*1.35-t*.7+5.2));',
+    ' vec2 q=vec2(fbm(uv*1.35+t*uD),fbm(uv*1.35-t*.7*uD.yx+5.2));',
     ' vec2 r=vec2(fbm(uv*1.7+q*1.6+vec2(t*1.4,9.2)),fbm(uv*1.7+q*1.6+vec2(8.3,t*.9)));',
     ' float v=fbm(uv*2.1+r*2.3);',
     ' float ca=pow(clamp(1.-abs(v-.5)*2.,0.,1.),7.-4.*uE);',
@@ -1480,7 +1566,7 @@ function initGL() {
   const buf = gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER, buf);
   gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
   const loc = gl.getAttribLocation(pr, 'p'); gl.enableVertexAttribArray(loc); gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
-  for (const n of ['uR', 'uT', 'uE', 'uB', 'uC0', 'uC1', 'uC2']) GL.u[n] = gl.getUniformLocation(pr, n);
+  for (const n of ['uR', 'uT', 'uE', 'uB', 'uD', 'uC0', 'uC1', 'uC2']) GL.u[n] = gl.getUniformLocation(pr, n);
   GL.gl = gl; GL.on = true;
   GL.scale = (IS_TV ? .28 : IS_PHONE ? .34 : .42) * Math.pow(.62, GL.tier);
   sizeGL();
@@ -1495,10 +1581,19 @@ function sizeGL() {
   GL.gl.viewport(0, 0, c.width, c.height);
 }
 function drawGL(t) {
-  const gl = GL.gl, u = GL.u;
+  const gl = GL.gl, u = GL.u, c = gl.canvas;
+  /* the buffer and the viewport follow the window every frame, not only on a
+     resize event (19 Oct 2026: on the TV Smoke sat squeezed into the top-left
+     corner, as if sized for a window that was not the one showing it) */
+  if (c.width !== Math.max(64, innerWidth * GL.scale | 0) || c.height !== Math.max(64, innerHeight * GL.scale | 0)) sizeGL();
+  gl.viewport(0, 0, c.width, c.height);
   for (let i = 0; i < 3; i++) for (let j = 0; j < 3; j++) GL.cur[i][j] += (GL.tgt[i][j] - GL.cur[i][j]) * .03;
   gl.uniform2f(u.uR, gl.canvas.width, gl.canvas.height);
+  /* the smoke flows on music time (MC.drift: tempo, loudness, rest), along
+     the shared heading that turns at a section change; the beat pulses the
+     zoom, the loudness and the climax light the caustics */
   gl.uniform1f(u.uT, t); gl.uniform1f(u.uE, GL.energy); gl.uniform1f(u.uB, GL.bass);
+  gl.uniform2f(u.uD, Math.cos(MC.dir + .785), Math.sin(MC.dir + .785));
   gl.uniform3fv(u.uC0, GL.cur[0]); gl.uniform3fv(u.uC1, GL.cur[1]); gl.uniform3fv(u.uC2, GL.cur[2]);
   gl.drawArrays(gl.TRIANGLES, 0, 3);
 }
@@ -1506,10 +1601,12 @@ let lastFrame = performance.now();
 function loopGL(now) {
   if (!GL.on) return;
   const dt = now - lastFrame; lastFrame = now;
-  updateEnergy();
+  mcUpdate(now);
   if (bdRate() === 0 && GL.lastDraw && now - GL.lastDraw < 500) { requestAnimationFrame(loopGL); return; }   // still: hold the frame
   GL.lastDraw = now;
-  drawGL(bdTime(now));
+  bdTime(now);
+  drawGL(MC.drift + 12);
+  bdBeacon(now);
   /* degrade for weak TV GPUs -- but only on a SUSTAINED slowdown: three slow
      windows in a row (about fifteen seconds), so a grid of covers loading or a
      background job hogging the CPU for a moment does not cost the backdrop */
@@ -1543,8 +1640,40 @@ function setPalette(c0, c1, c2) {
   if (REDUCED && GL.on) { GL.cur = GL.tgt.map(c => c.slice()); drawGL(1); }
 }
 let palKey = null;
+/* Up to four colours the cover is actually made of, for the styles that want
+   more than one accent (Ridges Colour, 18 Oct 2026): pixels binned by hue,
+   weighted by how vivid they are, the strongest bins taken but never two
+   neighbours, each lifted to a lightness that reads on the dark ground and
+   ordered round the colour wheel so they blend. A grey cover gives null and
+   the style uses the palette's accent instead. */
+function artColours(d) {
+  const bins = [];
+  for (let i = 0; i < 12; i++) bins.push({ w: 0, r: 0, g: 0, b: 0, h: 0 });
+  for (let i = 0; i < d.length; i += 4) {
+    const r = d[i] / 255, g = d[i + 1] / 255, b = d[i + 2] / 255;
+    const mx = Math.max(r, g, b), mn = Math.min(r, g, b), c = mx - mn, l = (mx + mn) / 2;
+    if (c < .14 || l < .08 || l > .96) continue;
+    let h = mx === r ? ((g - b) / c) % 6 : mx === g ? (b - r) / c + 2 : (r - g) / c + 4; h /= 6; if (h < 0) h += 1;
+    const k = Math.floor(h * 12) % 12, wt = c * c;
+    bins[k].w += wt; bins[k].r += r * wt; bins[k].g += g * wt; bins[k].b += b * wt;
+  }
+  const order = bins.map((x, k) => k).sort((a, b) => bins[b].w - bins[a].w), top = bins[order[0]].w;
+  if (top < 4) return null;
+  const take = [];
+  for (const k of order) {
+    if (take.length >= 4 || bins[k].w < top * .1) break;
+    if (take.some(j => Math.min((j - k + 12) % 12, (k - j + 12) % 12) < 2)) continue;
+    take.push(k);
+  }
+  return take.sort((a, b) => a - b).map(k => {
+    const x = bins[k], c = [x.r / x.w, x.g / x.w, x.b / x.w];
+    const mx = Math.max(c[0], c[1], c[2], .001), lum = .3 * c[0] + .59 * c[1] + .11 * c[2];
+    const up = Math.min(1 / mx, Math.max(1, .6 / Math.max(lum, .05)));
+    return c.map(v => Math.min(1, v * up));
+  });
+}
 function paletteFromAlbum(albumId, title, sub, kindNone) {
-  bdSleeveSrc(albumId);
+  bdSleeveSrc('al' + albumId, artSrc(albumId, 300));
   const key = 'al' + albumId; if (key === palKey) return; palKey = key;
   if (kindNone) { const s = sleeve(key, title, sub); applyDuo(s.bg, s.fg); return; }
   paletteFromUrl(key, artSrc(albumId, 96), title, sub); return;
@@ -1576,6 +1705,7 @@ function paletteFromUrl(key, url, title, sub) {
       /* accent must stay readable on dark ground */
       const lum = .3 * br + .59 * bg2 + .11 * bb;
       if (lum < .38) { const k = .38 / Math.max(lum, .04); br = Math.min(1, br * k); bg2 = Math.min(1, bg2 * k); bb = Math.min(1, bb * k); }
+      GL.art = artColours(d);
       setPalette([ar * .16 + .02, ag * .16 + .02, ab * .16 + .028],
         [ar * .55, ag * .55, ab * .55],
         [br, bg2, bb]);
@@ -1585,6 +1715,7 @@ function paletteFromUrl(key, url, title, sub) {
 }
 function applyDuo(bg, fg) {
   const b = hexToRgb(bg), f = hexToRgb(fg);
+  GL.art = null;
   setPalette([b[0] * .8 + .02, b[1] * .8 + .02, b[2] * .8 + .03], [b[0] * 2.2, b[1] * 2.2, b[2] * 2.2], f);
 }
 
@@ -1604,41 +1735,289 @@ function ensureAnalyser() {
     bassHi = Math.max(binLo + 1, Math.round(180 / hz));
   } catch (e) { actx = 'failed'; }
 }
-function updateEnergy() {
-  let te = 0, tb = 0;
-  if (analyser && fdata && !audio.paused) {
-    analyser.getByteFrequencyData(fdata);
-    let s = 0, c = 0, sb = 0, cb = 0;
-    for (let i = binLo; i <= binHi; i++) { s += fdata[i]; c++; if (i <= bassHi) { sb += fdata[i]; cb++; } }
-    te = Math.pow(s / (c * 255), 1.4) * 1.5; tb = Math.pow(sb / (cb * 255 || 1), 2) * 1.2;
-  }
-  GL.energy += (Math.min(te, 1) - GL.energy) * .1;
-  GL.bass += (Math.min(tb, 1) - GL.bass) * .25;
+/* ================================================================= music clock
+   One reading of the music for every backdrop, on every output.
+
+   The styles used to read GL.energy from the analyser above, which listens to
+   this device's <audio> element. The television has no such signal: its
+   music goes to a Sonos room, and inside the TV app's WebView the analyser
+   yields nothing even when it plays locally. So on the TV every style sat at
+   its calm level, Pulse fired once and Grain scrolled at one speed whether
+   the music played or not (user, 17 Oct 2026). Karaoke had already solved
+   this for its vocal stem: analyse the file once, offline, and read the
+   numbers by playback position. This is the same for the whole mix
+   (musicfeat.py, /api/track/{id}/feat): loudness, three bands, onset
+   strength, a beat grid with its confidence, sections, the climax window.
+
+   mcPos() is the one place that knows where the song is -- the <audio>
+   clock, the speaker's polled position carried forward between polls, or the
+   karaoke clock -- and mcUpdate() turns the frame at that position into the
+   signals the styles share. Attacks are fast and releases slow, so nothing
+   flickers; paused or stopped, every signal settles to rest over a couple of
+   seconds, which is the difference between a backdrop that listens and one
+   that merely moves. The analyser stays as an extra for a song that has no
+   features yet; nothing depends on it.
+
+   What a style can read:
+     MC.loud / low / mid / high   0..1, smoothed
+     MC.flux                      onset strength, continuous
+     MC.onset                     an impulse on each attack, decaying
+     MC.beat                      a pulse shaped on the beat grid (fast rise,
+                                  decay over a third of a beat), scaled by the
+                                  grid's confidence and the attack under it;
+                                  MC.beatNew is true for one frame on a beat,
+                                  MC.phase is 0..1 within the beat
+     MC.climax                    1 inside the loudest window, eased in and out
+     MC.lift                      1 at a section change, decaying over seconds
+     MC.dir                       a heading in radians that turns at every
+                                  section change (eased over four seconds):
+                                  the shared "direction of travel"
+     MC.mood                      how loud this part is against the song's own
+                                  loudest, from the energy arc: quiet or excited
+     MC.live                      1 while playing, 0 at rest, eased
+     MC.drift                     music time: advances with tempo and loudness,
+                                  slows to a breath at rest. Every style's clock.
+     MC.period / MC.bpm / MC.conf the grid itself */
+const MC = { feat: null, key: null, cache: {}, order: [], pending: {}, last: 0,
+             loud: 0, low: 0, mid: 0, high: 0, flux: 0, onset: 0, beat: 0, phase: 0, period: .5, bpm: 0, conf: 0,
+             bi: -1, beatStr: 0, down: false, kick: 0, lastE: 0, beatNew: false, onsetNew: false, oi: -1,
+             section: -1, secLevel: 0, lift: 0, climax: 0, mood: .5, live: 0, known: 0, quiet: .5,
+             drift: 0, rate: .12, dir: 0, dirTgt: 0, dirFrom: 0, dirAt: -1e9 };
+function mcUnpack(d) {
+  const b = s => { const bin = atob(s || ''), a = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) a[i] = bin.charCodeAt(i); return a; };
+  const arc = b(d.arc); let am = 1;
+  for (let i = 0; i < arc.length; i++) if (arc[i] > am) am = arc[i];
+  const bar = d.bar || {};
+  return { hz: d.hz || 20, dur: d.dur || 0, loud: b(d.loud), low: b(d.low), mid: b(d.mid), high: b(d.high), flux: b(d.flux), arc, arcMax: am,
+           beats: d.beats || [], onsets: d.onsets || [], bpm: d.bpm || 0, conf: d.beatconf || 0,
+           down: bar.down || 0, downconf: bar.downconf || 0, sections: d.sections || [], climax: d.climax || null,
+           spec: b(d.spec), specN: d.specn || 0, specHz: d.spechz || 10 };
 }
+function mcKeep(key, f) {
+  MC.cache[key] = f; MC.order.push(key);
+  while (MC.order.length > 8) delete MC.cache[MC.order.shift()];
+}
+/* the features for a track: cached for a few songs, 202 means the server is
+   still analysing (a second or two the first time a song is ever played) */
+function mcFetch(tid) {
+  const key = 'tr' + tid;
+  if (key in MC.cache) return Promise.resolve(MC.cache[key]);
+  if (MC.pending[key]) return MC.pending[key];
+  const attempt = n => fetch('/api/track/' + tid + '/feat').then(r => {
+    if (r.status === 202) return n < 10 ? new Promise(res => setTimeout(res, 1500)).then(() => attempt(n + 1)) : null;
+    return r.ok ? r.json() : null;
+  });
+  const p = attempt(0).then(d => (d && !d.error && !d.pending) ? mcUnpack(d) : null).catch(() => null)
+    .then(f => { delete MC.pending[key]; mcKeep(key, f); return f; });
+  MC.pending[key] = p;
+  return p;
+}
+/* a song started (every path that starts one calls bdSong, which calls this):
+   load its features, and in a moment the next song's too, so a queue plays
+   through with every first frame already informed */
+function mcSong(key) {
+  if (key === MC.key) return;
+  MC.key = key; MC.feat = null; MC.section = -1; MC.bi = -1; MC.oi = -1; MC.known = 0;
+  const m = /^tr(\d+)$/.exec(key || '');
+  if (!m) return;
+  const tid = +m[1];
+  mcFetch(tid).then(f => { if (MC.key === key) { MC.feat = f; MC.section = -1; MC.bi = -1; MC.oi = -1; } });
+  const n = stepBy(1), nt = n >= 0 ? P.q[n] : null;
+  if (nt && nt.id !== tid) setTimeout(() => { if (MC.key === key) mcFetch(nt.id); }, 5000);
+}
+/* -> [seconds, playing] for whatever owns the sound. A speaker reports whole
+   seconds every poll and a half; between polls the clock runs on from the
+   last report (OUT.posAt), which is what lets a pulse land between two polls. */
+function mcPos() {
+  if (KAR.on && !KAR.follow) return [KAR.el || 0, isPlayingNow()];
+  if (OUT.kind === 'sonos') {
+    if (FGN.on || !trackOf()) return [0, false];
+    const p = remotePaused ? OUT.pos : OUT.pos + (performance.now() - (OUT.posAt || performance.now())) / 1000;
+    return [p, !remotePaused];
+  }
+  /* audio.currentTime moves in uneven steps (measured 19 Oct 2026: from
+     frame to frame it ran at 0.5x to 1.9x), which made everything that
+     scrolls with the song judder, Synthwave worst. So the clock runs on the
+     wall clock at the playback rate and eases toward the audio's time over
+     half a second, snapping only on a seek, a pause or a new song. */
+  const raw = audio.currentTime || 0, on = !audio.paused && !audio.ended && audio.readyState >= 2;
+  const now = performance.now(), C = MC.clk || (MC.clk = { p: raw, at: now });
+  const dt = (now - C.at) / 1000; C.at = now;
+  if (!on || dt > .5 || Math.abs(raw - C.p) > .3) C.p = raw;
+  else { C.p += dt * (audio.playbackRate || 1); C.p += (raw - C.p) * (1 - Math.exp(-dt / .5)); }
+  return [C.p, on];
+}
+function mcIndex(a, v) {            // last index with a[i] <= v, or -1
+  let lo = 0, hi = a.length - 1, r = -1;
+  while (lo <= hi) { const m = (lo + hi) >> 1; if (a[m] <= v) { r = m; lo = m + 1; } else hi = m - 1; }
+  return r;
+}
+function mcUpdate(now) {
+  if (now === MC.last) return;               // two loops in one frame (the shader's and the layer's) read one update
+  const dt = Math.min(.1, (now - (MC.last || now)) / 1000); MC.last = now;
+  const pp = mcPos(), t = pp[0], playing = pp[1] && bdRate() > 0;
+  const f = MC.feat;
+  let loud = 0, low = 0, mid = 0, high = 0, flux = 0, beat = 0, onset = 0, climax = 0, mood = .5, known = 0;
+  MC.beatNew = false; MC.onsetNew = false;
+  if (f && playing) {
+    known = 1;
+    const fi = t * f.hz, i = Math.floor(fi), u = fi - i;
+    const at = a => { const n = a.length; if (!n) return 0; const a0 = a[Math.min(n - 1, Math.max(0, i))], a1 = a[Math.min(n - 1, Math.max(0, i + 1))]; return (a0 + (a1 - a0) * u) / 255; };
+    loud = at(f.loud); low = at(f.low); mid = at(f.mid); high = at(f.high); flux = at(f.flux);
+    /* the beat: where this frame sits in the grid, and a pulse shaped on it */
+    const b = f.beats, tc = t * 100;
+    let bi = MC.bi;
+    if (bi < 0 || bi >= b.length || b[bi] > tc || (bi + 1 < b.length && b[bi + 1] <= tc)) bi = mcIndex(b, tc);
+    if (bi >= 0 && bi + 1 < b.length) {
+      const per = Math.max(.2, (b[bi + 1] - b[bi]) / 100);
+      MC.period = per; MC.phase = Math.min(1, (tc - b[bi]) / 100 / per);
+      if (bi !== MC.bi) {
+        MC.beatNew = bi === MC.bi + 1;        // the next beat, not a seek or the first frame
+        MC.bi = bi;
+        const fb = f.flux[Math.min(f.flux.length - 1, Math.round(b[bi] / 100 * f.hz))] / 255;
+        MC.beatStr = f.conf * (.35 + .65 * fb);
+        MC.down = f.downconf > .4 && (((bi - f.down) % 4) + 4) % 4 === 0;
+      }
+      const since = MC.phase * per;
+      beat = (since < .05 ? since / .05 : Math.exp(-(since - .05) / (per * .3))) * MC.beatStr * (MC.down ? 1.25 : 1);
+    } else { MC.phase = 0; MC.bi = -1; }
+    /* attacks: the last onset, as an impulse that is gone in half a second */
+    const o = f.onsets, oi = mcIndex(o, tc);
+    if (oi >= 0) { const ago = (tc - o[oi]) / 100; onset = Math.exp(-ago / .22); if (oi !== MC.oi) { MC.onsetNew = ago < .3; MC.oi = oi; } }
+    /* sections: a change turns the shared heading and lifts the scene */
+    const s = f.sections, si = Math.max(0, mcIndex(s.map(x => x[0]), t));
+    if (si !== MC.section) {
+      if (MC.section >= 0 && Math.abs(t - s[si][0]) < 2) {
+        MC.lift = 1; MC.dirFrom = MC.dir; MC.dirAt = now;
+        MC.dirTgt += (si % 2 ? 1 : -1) * (1.1 + ((si * 37) % 7) * .15);
+      }
+      MC.section = si; MC.secLevel = s[si] ? s[si][1] : 0;
+    }
+    if (f.climax) {
+      const a = f.climax[0], z = f.climax[1];
+      climax = t < a - 3 ? 0 : t < a ? (t - (a - 3)) / 3 : t < z ? 1 : t < z + 4 ? 1 - (t - z) / 4 : 0;
+    }
+    mood = f.arc.length ? f.arc[Math.min(f.arc.length - 1, Math.max(0, Math.floor(t)))] / f.arcMax : .5;
+  } else if (playing && KAR.on && KAR.env && !KAR.follow) {
+    /* a disc, or a song still being analysed: the voice's envelope, its attack as the beat */
+    known = .6;
+    const e = karEnvAt(t); loud = e * 1.3; low = e; mid = e; onset = Math.max(0, e - MC.lastE) * 6; MC.lastE = e;
+    beat = onset;
+  } else if (playing && analyser && fdata && OUT.kind !== 'sonos') {
+    known = .6;
+    analyser.getByteFrequencyData(fdata);
+    let sm = 0, c = 0, sb = 0, cb = 0;
+    for (let k = binLo; k <= binHi; k++) { sm += fdata[k]; c++; if (k <= bassHi) { sb += fdata[k]; cb++; } }
+    loud = Math.pow(sm / (c * 255), 1.4) * 1.5; low = Math.pow(sb / (cb * 255 || 1), 2) * 1.2; mid = loud; high = loud * .7;
+    beat = Math.max(0, low - MC.lastE) * 5; MC.lastE = low;
+  }
+  const amp = bdRate();                      // Calm halves every accent as well as every speed
+  /* NaN-proof: one bad sample used to stick for good. MC.lastE started
+     undefined, so the first analyser frame of a song not yet analysed made
+     MC.beat NaN, every style's colours threw, and a style that had switched
+     to additive drawing piled its background up to white (18 Oct 2026, the
+     television: "Glow is just a white screen", the rest dark and still) */
+  const sm = (cur, tgt, ta, tr) => {
+    if (!isFinite(cur)) cur = 0; if (!isFinite(tgt)) tgt = 0;
+    return cur + (tgt - cur) * (1 - Math.exp(-dt / (tgt > cur ? ta : tr)));
+  };
+  MC.loud = sm(MC.loud, Math.min(1, loud), .08, .35);
+  MC.low = sm(MC.low, Math.min(1, low), .06, .3);
+  MC.mid = sm(MC.mid, Math.min(1, mid), .06, .3);
+  MC.high = sm(MC.high, Math.min(1, high), .05, .25);
+  MC.flux = sm(MC.flux, Math.min(1, flux), .03, .18);
+  MC.beat = sm(MC.beat, Math.min(1, beat) * amp, .015, .12);
+  MC.onset = sm(MC.onset, Math.min(1, onset) * amp, .015, .25);
+  /* the hit: jumps on each beat of the grid (harder on the downbeat) and on a
+     strong attack, and is gone in a fifth of a second. The one accent every
+     style shows plainly; the smoothed bands above only colour it. Without a
+     grid (a disc, the analyser) the beat estimate stands in. */
+  const hitB = MC.beatNew ? MC.beatStr * (MC.down ? 1.3 : 1) * 1.4 : 0;
+  const hitO = MC.onsetNew ? Math.min(1, flux * 2) * .9 : 0;
+  const hit = f ? Math.max(hitB, hitO) : beat;
+  MC.kick = Math.max(isFinite(MC.kick) ? MC.kick * Math.exp(-dt / .18) : 0, playing && isFinite(hit) ? Math.min(1, hit) * amp : 0);
+  MC.climax = sm(MC.climax, climax, 1.5, 2.5);
+  MC.mood = sm(MC.mood, mood, 2, 2);
+  MC.live = sm(MC.live, playing ? 1 : 0, .6, 1.8);
+  MC.known = sm(MC.known, known, .5, 1);
+  MC.quiet = sm(MC.quiet, 1 - MC.loud, 3, 3);
+  MC.lift *= Math.exp(-dt / 2.5);
+  const du = Math.min(1, (now - MC.dirAt) / 4000), de = du < .5 ? 2 * du * du : 1 - Math.pow(-2 * du + 2, 2) / 2;
+  MC.dir = MC.dirFrom + (MC.dirTgt - MC.dirFrom) * de;
+  /* music time: faster with tempo and loudness, a breath at rest */
+  const tempo = f && f.bpm ? Math.min(1.8, Math.max(.55, f.bpm / 112)) : 1;
+  const want = MC.live * (.3 + .7 * MC.loud) * tempo * (1 + MC.climax * .25) + (1 - MC.live) * .12;
+  MC.rate = sm(MC.rate, want, .8, 1.5);
+  MC.drift += dt * MC.rate * amp;
+  MC.bpm = f ? f.bpm : 0; MC.conf = f ? f.conf : 0;
+  /* the shader reads these two */
+  GL.energy = Math.min(1, MC.loud * .85 + MC.climax * .15);
+  GL.bass = Math.min(1, Math.max(MC.low * .7, MC.beat));
+}
+
 /* ================================================================= backdrops
-   Six ways to light the room, all tinted by the record in focus through the
-   same palette the smoke uses (GL.cur eases toward GL.tgt), and all obeying
-   one motion setting. Smoke is the shader above and needs WebGL; the others
-   draw on a 2D canvas or are plain CSS, so a television that cannot keep the
-   shader smooth can be GIVEN one of them instead of losing the backdrop to a
-   frame test. Chosen per device: jb.backdrop, jb.motion. */
+   Ten ways to light the room, all tinted by the record in focus through the
+   same palette the smoke uses (GL.cur eases toward GL.tgt), all moving on the
+   music clock above, and all obeying one motion setting. Smoke is the shader
+   and needs WebGL; the others draw on a 2D canvas at reduced resolution, so a
+   television that cannot keep the shader smooth can be GIVEN one of them.
+
+   The motion grammar every style shares (17 Oct 2026): the clock is MC.drift,
+   so everything travels at the song's tempo, hurries when it is loud and
+   slows to a breath when it stops; the heading MC.dir turns at section
+   changes, so a verse and a chorus flow differently; the beat is felt as a
+   nudge (MC.beat), never a strobe; the climax lifts the whole scene
+   (MC.climax); and pause brings it all gently to rest (MC.live). Behind the
+   karaoke lyrics the accents are halved (BD.amp): the words come first.
+
+   Cycle is a rule, not a style: a different style for every song, crossfaded. */
 const BD_STYLES = [
   { id: 'smoke', name: 'Smoke', cost: 'GPU shader' },
-  { id: 'gradient', name: 'Gradient', cost: 'lightest' },
+  { id: 'gradient', name: 'Gradient', cost: 'still, lightest' },
   { id: 'sleeve', name: 'Sleeve', cost: 'light' },
   { id: 'aurora', name: 'Aurora', cost: 'light' },
   { id: 'embers', name: 'Embers', cost: 'light' },
-  { id: 'grain', name: 'Grain', cost: 'lightest' }
+  { id: 'grain', name: 'Grooves', cost: 'light' },
+  { id: 'glow', name: 'Glow', cost: 'light' },
+  { id: 'flow', name: 'Streams', cost: 'medium' },
+  { id: 'kaleido', name: 'Kaleidoscope', cost: 'medium' },
+  { id: 'pulse', name: 'Pulse', cost: 'light' },
+  { id: 'ridges', name: 'Ridges', cost: 'medium' },
+  { id: 'ridges3d', name: 'Ridges 3D', cost: 'medium' },
+  { id: 'ridgescolor', name: 'Ridges Colour', cost: 'medium' },
+  { id: 'leds', name: 'Spectrum', cost: 'medium' },
+  { id: 'tunnel', name: 'Tunnel', cost: 'medium' },
+  { id: 'synth', name: 'Synthwave', cost: 'medium' },
+  { id: 'synthart', name: 'Synthwave Cover', cost: 'medium' },
+  { id: 'skyline', name: 'Skyline', cost: 'medium' },
+  { id: 'planet', name: 'Planet', cost: 'medium' },
+  { id: 'helix', name: 'Helix', cost: 'medium' },
+  { id: 'currents', name: 'Currents', cost: 'medium' },
+  { id: 'cycle', name: 'Cycle', cost: 'a new one each song' }
 ];
+/* what Cycle draws from: everything that moves (Gradient is a still wash) */
+const BD_CYCLE = ['smoke', 'sleeve', 'aurora', 'embers', 'grain', 'glow', 'flow', 'kaleido', 'pulse', 'ridges', 'ridges3d', 'ridgescolor', 'leds', 'tunnel', 'synth', 'synthart', 'skyline', 'planet', 'helix', 'currents'];
 const BD = { style: 'smoke', motion: REDUCED ? 'still' : 'full', fellBack: false, ctx: null, raf: 0, t: 0, last: 0,
-             img: null, imgId: null, imgKey: null, motes: null, noise: null, lastDraw: 0 };
+             img: null, imgId: null, imgKey: null, motes: null, noise: null, lastDraw: 0,
+             karbd: 'glow', cycled: null, songKey: null,          // the karaoke choice; Cycle's pick and the song it was made for
+             soft: null, softOf: null, ktile: null, ktileOf: null, // the cover blurred once (Sleeve) and tiled once (Kaleidoscope)
+             flow: null, rings: null, lastE: 0, md: 0, amp: 1,
+             wind: 0, gx: 0, gy: 0, kang: 0, kdir: 1,              // Embers' wind, Grooves' grain offset, Kaleidoscope's angle and turn
+             fade: null, fadeAt: 0 };                               // the frame a Cycle change left behind, crossfaded out
 try {
+  const was = { ridgesheat: 'ridgescolor', ridgesprism: 'ridgescolor', ridgesorbit: 'ridgescolor' }[store['jb.backdrop']];
+  if (was) store['jb.backdrop'] = was;
   if (store['jb.backdrop'] && BD_STYLES.some(x => x.id === store['jb.backdrop'])) BD.style = store['jb.backdrop'];
   if (store['jb.motion']) BD.motion = store['jb.motion'];
+  if (store['jb.karbd'] === 'same') BD.karbd = 'same';
 } catch (e) { }
+/* ?bd=<style>&karbd=same force a choice for this load only, so every style
+   can be rendered headless without touching what the device has saved */
+if (qsp.get('bd') && BD_STYLES.some(x => x.id === qsp.get('bd'))) BD.style = qsp.get('bd');
+if (qsp.get('karbd') === 'same' || qsp.get('karbd') === 'glow') BD.karbd = qsp.get('karbd');
 function bdRate() { return BD.motion === 'calm' ? .5 : BD.motion === 'still' ? 0 : 1; }
-/* one clock for every style: advances at the motion rate, so Calm is half speed
-   and Still is frozen, without any style knowing which */
+/* the ambient clock: wall time at the motion rate. Kept for the thumbnails
+   and the frame-hold; the styles themselves run on MC.drift. */
 function bdTime(now) {
   if (!BD.last) BD.last = now;
   BD.t += Math.min(250, now - BD.last) / 1000 * bdRate(); BD.last = now;
@@ -1648,115 +2027,348 @@ function bdCol(i, a) {
   const c = GL.cur[i];
   return 'rgba(' + Math.round(Math.max(0, Math.min(1, c[0])) * 255) + ',' + Math.round(Math.max(0, Math.min(1, c[1])) * 255) + ',' + Math.round(Math.max(0, Math.min(1, c[2])) * 255) + ',' + (a == null ? 1 : a) + ')';
 }
-function bdSleeveSrc(albumId) {
-  if (!albumId || albumId === BD.imgId) return;
-  BD.imgId = albumId;
+/* The 2D styles draw in light, and the palette is built for the shader's
+   dark smoke: its middle colour is often nearly black, so ribbons and trails
+   drawn in it vanished (18 Oct 2026, "Aurora just dark"). bdLit gives each
+   colour a usable lightness, keeping its hue; a grey middle colour borrows
+   the accent's hue, deeper and turned a little toward red, so there are
+   always two. */
+function bdLitPal() {
+  const hsl = c => {
+    const r = Math.max(0, Math.min(1, c[0])), g = Math.max(0, Math.min(1, c[1])), b = Math.max(0, Math.min(1, c[2]));
+    const mx = Math.max(r, g, b), mn = Math.min(r, g, b), l = (mx + mn) / 2, d = mx - mn;
+    let h = 0, s = 0;
+    if (d > 1e-4) { s = d / (1 - Math.abs(2 * l - 1)); h = mx === r ? ((g - b) / d) % 6 : mx === g ? (b - r) / d + 2 : (r - g) / d + 4; h /= 6; if (h < 0) h += 1; }
+    return [h, Math.min(1, s), l];
+  };
+  const rgb = (h, s, l) => {
+    const a = s * Math.min(l, 1 - l), k = n => (n + h * 12) % 12;
+    return [0, 8, 4].map(n => Math.round((l - a * Math.max(-1, Math.min(k(n) - 3, 9 - k(n), 1))) * 255));
+  };
+  const a = hsl(GL.cur[2]), m = hsl(GL.cur[1]);
+  const acc = [a[0], a[1], Math.max(.56, Math.min(.7, a[2]))];
+  const sec = m[1] > .22 ? [m[0], m[1], Math.max(.46, Math.min(.62, m[2]))]
+                         : [(a[0] + .95) % 1, a[1] < .12 ? a[1] : Math.max(.32, a[1] * .8), .46];
+  BD.lit = [null, rgb(sec[0], sec[1], sec[2]), rgb(acc[0], acc[1], acc[2])];
+}
+function bdLit(i, a) {
+  if (!i || !BD.lit) return bdCol(i, a);
+  const c = BD.lit[i];
+  return 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + (a == null ? 1 : a) + ')';
+}
+function bdSleeveSrc(key, url) {
+  if (!key || key === BD.imgId) return;
+  BD.imgId = key;
   const im = new Image();
-  im.onload = () => { if (BD.imgId === albumId) BD.img = im; };
-  im.src = artSrc(albumId, 300);
+  im.onload = () => { if (BD.imgId === key) BD.img = im; };
+  im.src = url;
 }
 function bdEffective() {
-  /* what is actually drawn: the choice, unless the choice is Smoke and this
-     screen could not run it, in which case Gradient stands in */
-  return (BD.style === 'smoke' && (BD.fellBack || GL.tier >= 9)) ? 'gradient' : BD.style;
+  /* what is actually drawn: the choice (or Cycle's pick for this song),
+     unless that is Smoke and this screen could not run it, in which case
+     Gradient stands in */
+  const s = BD.style === 'cycle' ? (BD.cycled || 'smoke') : BD.style;
+  return (s === 'smoke' && (BD.fellBack || GL.tier >= 9)) ? 'gradient' : s;
+}
+/* Cycle: a new style for every song. Deterministic -- the same song after
+   the same predecessor always lands on the same style, so a replay looks the
+   way it did -- but never the one just shown, so consecutive songs differ. */
+function bdSong(key) {
+  mcSong(key);
+  if (!key || key === BD.songKey) return;
+  BD.songKey = key;
+  if (BD.style !== 'cycle') return;
+  const pool = BD_CYCLE.filter(s => s !== BD.cycled && !(s === 'smoke' && (BD.fellBack || GL.tier >= 9)));
+  let h = 5381;
+  for (let i = 0; i < key.length; i++) h = (Math.imul(h, 33) ^ key.charCodeAt(i)) >>> 0;
+  BD.cycled = pool[h % pool.length];
+  bdApply();
+}
+/* The karaoke screen's backdrop: its own glow (the classic look), or whatever
+   the rest of the app is showing, risen behind the lyrics. A phone following
+   the room keeps the glow: it has two stems to hold in time and no GPU to spare. */
+function bdKarLift() {
+  const on = KAR.on && BD.karbd === 'same' && !KAR.follow;
+  document.body.classList.toggle('karon', on);
+  $('#kar').classList.toggle('bdx', on);
 }
 function bdApply() {
   const eff = bdEffective();
   const body = document.body;
   body.classList.toggle('bdstill', bdRate() === 0);
   cancelAnimationFrame(BD.raf); BD.raf = 0;
-  if (eff === 'smoke') {
-    body.classList.remove('nogl', 'bd2d');
-    $('#gl').style.display = '';
-    if (GL.gl && !GL.on) { GL.on = true; sizeGL(); GL.lastDraw = 0; requestAnimationFrame(loopGL); }
-    else if (!GL.gl) initGL();
+  /* a style change mid-song (Cycle, or the sheet) keeps the last frame of the
+     old style and fades it out over the first second and a half of the new */
+  const cv = $('#bd2d');
+  if (BD.ctx && body.classList.contains('bd2d') && cv.width) {
+    const snap = BD.fade && BD.fade.width === cv.width && BD.fade.height === cv.height ? BD.fade : document.createElement('canvas');
+    snap.width = cv.width; snap.height = cv.height;
+    snap.getContext('2d').drawImage(cv, 0, 0);
+    BD.fade = snap; BD.fadeAt = performance.now();
+  } else BD.fade = null;
+  BD.flow = null; BD.rings = null; BD.lastDraw = 0;     // a style starts from its first frame
+  if (eff === 'smoke' || eff === 'gradient') {
+    if (eff === 'smoke') {
+      body.classList.remove('nogl');
+      $('#gl').style.display = '';
+      if (GL.gl && !GL.on) { GL.on = true; sizeGL(); GL.lastDraw = 0; requestAnimationFrame(loopGL); }
+      else if (!GL.gl) initGL();
+    } else { GL.on = false; $('#gl').style.display = 'none'; body.classList.add('nogl'); }
+    body.classList.remove('bd2d'); BD.fade = null;
     return;
   }
   GL.on = false; $('#gl').style.display = 'none';
-  if (eff === 'gradient') { body.classList.add('nogl'); body.classList.remove('bd2d'); return; }
   body.classList.remove('nogl'); body.classList.add('bd2d');
-  const cv = $('#bd2d');
   BD.ctx = cv.getContext('2d');
   bdSize();
   BD.raf = requestAnimationFrame(bdLoop);
 }
 function bdSize() {
   const cv = $('#bd2d'); if (!cv) return;
-  const sc = IS_TV ? .35 : IS_PHONE ? .5 : .5;
+  /* the soft styles hide a low resolution; the spectrum styles' fine lines
+     and segments do not */
+  const e = bdEffective(), sharp = e.indexOf('ridges') === 0 || ['leds', 'tunnel', 'synth', 'synthart', 'planet', 'helix', 'currents'].indexOf(e) >= 0;     // Skyline is solid shapes: the soft scale, half the pixels to fill
+  const sc = sharp ? (IS_TV ? .5 : .75) : IS_TV ? .35 : IS_PHONE ? .5 : .5;
   const w = Math.max(64, innerWidth * sc | 0), h = Math.max(64, innerHeight * sc | 0);
-  if (cv.width !== w || cv.height !== h) { cv.width = w; cv.height = h; BD.noise = null; BD.motes = null; }
+  if (cv.width !== w || cv.height !== h) { cv.width = w; cv.height = h; BD.noise = null; BD.motes = null; BD.flow = null; BD.rings = null; BD.fade = null; }
 }
 addEventListener('resize', () => { if (document.body.classList.contains('bd2d')) bdSize(); });
 function bdLoop(now) {
   if (!document.body.classList.contains('bd2d')) return;
   BD.raf = requestAnimationFrame(bdLoop);
-  updateEnergy();
+  mcUpdate(now);
   for (let i = 0; i < 3; i++) for (let j = 0; j < 3; j++) GL.cur[i][j] += (GL.tgt[i][j] - GL.cur[i][j]) * .03;
   if (bdRate() === 0 && BD.lastDraw && now - BD.lastDraw < 500) return;     // still: redraw only for the palette
   BD.lastDraw = now;
-  const g = BD.ctx, cv = $('#bd2d'), w = cv.width, h = cv.height, t = bdTime(now), eff = bdEffective();
-  if (eff === 'sleeve') bdSleeve(g, w, h, t);
-  else if (eff === 'aurora') bdAurora(g, w, h, t);
-  else if (eff === 'embers') bdEmbers(g, w, h, t);
-  else if (eff === 'grain') bdGrain(g, w, h, t);
+  BD.dt = Math.min(.1, (now - (BD.lastNow || now)) / 1000); BD.lastNow = now;
+  bdLitPal();
+  const g = BD.ctx, cv = $('#bd2d'), w = cv.width, h = cv.height;
+  bdTime(now);
+  const t = MC.drift + 12, dm = Math.max(0, MC.drift - BD.md); BD.md = MC.drift;
+  BD.amp = document.body.classList.contains('karon') ? .55 : 1;
+  const eff = bdEffective();
+  /* a style that throws mid-frame must not leave additive drawing or a
+     partial alpha switched on for every frame after it */
+  try {
+    if (eff === 'sleeve') bdSleeve(g, w, h, t);
+    else if (eff === 'aurora') bdAurora(g, w, h, t);
+    else if (eff === 'embers') bdEmbers(g, w, h, t, dm);
+    else if (eff === 'grain') bdGrain(g, w, h, t, dm);
+    else if (eff === 'glow') bdGlow(g, w, h, t);
+    else if (eff === 'flow') bdFlow(g, w, h, t, dm);
+    else if (eff === 'kaleido') bdKaleido(g, w, h, t, dm);
+    else if (eff === 'pulse') bdPulse(g, w, h, now);
+    else if (eff.indexOf('ridges') === 0) bdRidges(g, w, h, now, eff);
+    else if (eff === 'leds') bdLeds(g, w, h, now);
+    else if (eff === 'tunnel') bdTunnel(g, w, h, now);
+    else if (eff === 'synth' || eff === 'synthart') bdSynth(g, w, h, now, eff === 'synthart');
+    else if (eff === 'skyline') bdSkyline(g, w, h, now);
+    else if (eff === 'planet') bdPlanet(g, w, h, now);
+    else if (eff === 'helix') bdHelix(g, w, h, now);
+    else if (eff === 'currents') bdCurrents(g, w, h, now);
+    if (BD.fade) {
+      const a = 1 - (now - BD.fadeAt) / 1600;
+      if (a > 0) { g.globalAlpha = a; g.drawImage(BD.fade, 0, 0); g.globalAlpha = 1; } else BD.fade = null;
+    }
+  } finally { g.globalCompositeOperation = 'source-over'; g.globalAlpha = 1; }
+  bdBeacon(now);
+}
+/* What the backdrop actually sees on the television, every 20 s to /api/diag
+   (18 Oct 2026: on the TV the styles sat dark or still while headless runs
+   reacted, so stop guessing). TV only, or ?bdlog=1; stops after an hour. */
+function bdBeacon(now) {
+  if (!(IS_TV || /[?&]bdlog=1/.test(location.search)) || now - (BD.beaconAt || 0) < 20000 || (BD.beacons || 0) >= 180) return;
+  BD.beaconAt = now; BD.beacons = (BD.beacons || 0) + 1;
+  try {
+    const cv = GL.on ? $('#gl') : $('#bd2d'), th = document.createElement('canvas'); th.width = 64; th.height = 36;
+    th.getContext('2d').drawImage(cv, 0, 0, 64, 36);
+    const pp = mcPos(), f = MC.feat, r3 = x => Math.round(x * 1000) / 1000;
+    const rep = { kind: 'bd', ua: navigator.userAgent.slice(0, 120), eff: bdEffective(), style: BD.style, motion: BD.motion,
+      out: OUT.kind, key: MC.key, feat: f ? { n: f.loud.length, hz: f.hz, beats: f.beats.length, bpm: f.bpm, conf: f.conf } : null,
+      pending: Object.keys(MC.pending), pos: r3(pp[0]), playing: pp[1], paused: remotePaused, audioPaused: audio.paused, rs: audio.readyState,
+      mc: { loud: r3(MC.loud), low: r3(MC.low), mid: r3(MC.mid), high: r3(MC.high), beat: r3(MC.beat), onset: r3(MC.onset), live: r3(MC.live), known: r3(MC.known), drift: r3(MC.drift), rate: r3(MC.rate) },
+      pal: GL.cur.map(c => c.map(r3)), cv: [cv.width, cv.height],
+      win: [innerWidth, innerHeight, devicePixelRatio, document.documentElement.clientWidth, document.documentElement.clientHeight, getComputedStyle(document.documentElement).getPropertyValue('--uiscale')],
+      gl: GL.on && GL.gl ? { vp: Array.prototype.slice.call(GL.gl.getParameter(GL.gl.VIEWPORT)), box: (r => [r.left, r.top, r.width, r.height].map(Math.round))(cv.getBoundingClientRect()), scale: r3(GL.scale), tier: GL.tier, css: cv.style.cssText } : null, np: document.body.classList.contains('npon'), kar: !!KAR.on,
+      thumb: th.toDataURL('image/png') };
+    const x = new XMLHttpRequest(); x.open('POST', '/api/diag', true); x.setRequestHeader('Content-Type', 'application/json'); x.send(JSON.stringify(rep));
+  } catch (e) { }
 }
 
-/* Sleeve: the cover itself, blown up and blurred to a haze, drifting slowly */
+/* The cover blurred ONCE into a small tile. Blurring the full cover with a
+   canvas filter every frame was the whole cost of Sleeve on a weak GPU;
+   shrinking it to 24 pixels averages the detail away for nothing, and the
+   one blur on the way back up to 96 happens when the record changes. */
+function bdSoft() {
+  if (BD.softOf === BD.img) return BD.soft;
+  const a = document.createElement('canvas'); a.width = a.height = 24;
+  a.getContext('2d').drawImage(BD.img, 0, 0, 24, 24);
+  const b = document.createElement('canvas'); b.width = b.height = 96;
+  const bg = b.getContext('2d');
+  try { bg.filter = 'blur(3px) saturate(1.15)'; } catch (e) { }
+  bg.drawImage(a, -4, -4, 104, 104);          // past the edges, so the blur has no dark rim
+  BD.soft = b; BD.softOf = BD.img;
+  return b;
+}
+/* Sleeve: the cover as a haze, in two layers sliding against each other --
+   a far one, large and slow, and a near one, turned over, that leans the way
+   the song is heading -- so the picture has depth and the drift changes at a
+   section. It breathes with the loudness, nudges on the beat, and the dark
+   rim pulls back for the chorus. Two draws of a 96 px tile. */
 function bdSleeve(g, w, h, t) {
   g.fillStyle = bdCol(0); g.fillRect(0, 0, w, h);
   if (BD.img) {
-    g.save(); g.filter = 'blur(' + Math.round(w * .05) + 'px) saturate(1.15)';
-    const s = Math.max(w, h) * 1.5, x = (w - s) / 2 + Math.sin(t * .07) * w * .08, y = (h - s) / 2 + Math.cos(t * .05) * h * .08;
-    g.globalAlpha = .85; g.drawImage(BD.img, x, y, s, s); g.restore();
+    const soft = bdSoft(), R = Math.max(w, h), A = BD.amp;
+    const breathe = 1 + MC.loud * .06 * A + MC.kick * .05 * A + MC.climax * .05;
+    const s1 = R * 1.6 * breathe, x1 = (w - s1) / 2 + Math.sin(t * .05) * w * .07, y1 = (h - s1) / 2 + Math.cos(t * .04) * h * .07;
+    g.globalAlpha = .82; g.drawImage(soft, x1, y1, s1, s1);
+    const s2 = R * 1.15 * (1 + MC.mid * .08 * A), dx = Math.cos(MC.dir) * R * .09, dy = Math.sin(MC.dir) * R * .06;
+    g.save(); g.translate(w / 2 + dx + Math.sin(t * .09 + 1) * w * .05, h / 2 + dy + Math.cos(t * .07) * h * .05);
+    g.rotate(Math.PI + Math.sin(t * .03) * .25); g.globalAlpha = Math.min(.8, .34 + MC.high * .12 + MC.kick * A * .3);
+    g.drawImage(soft, -s2 / 2, -s2 / 2, s2, s2); g.restore();
+    g.globalAlpha = 1;
   } else {
     const lg = g.createLinearGradient(0, 0, w, h); lg.addColorStop(0, bdCol(1)); lg.addColorStop(1, bdCol(0)); g.fillStyle = lg; g.fillRect(0, 0, w, h);
   }
-  const v = g.createRadialGradient(w / 2, h / 2, h * .2, w / 2, h / 2, Math.max(w, h) * .75);
-  v.addColorStop(0, 'rgba(11,10,14,.15)'); v.addColorStop(1, 'rgba(11,10,14,.86)'); g.fillStyle = v; g.fillRect(0, 0, w, h);
+  const inner = h * (.18 + MC.loud * .1 + MC.kick * BD.amp * .12 + MC.climax * .1), v = g.createRadialGradient(w / 2, h / 2, inner, w / 2, h / 2, Math.max(w, h) * .75);
+  v.addColorStop(0, 'rgba(11,10,14,.12)'); v.addColorStop(1, 'rgba(11,10,14,' + (.86 - MC.climax * .12).toFixed(3) + ')'); g.fillStyle = v; g.fillRect(0, 0, w, h);
 }
-/* Aurora: three translucent ribbons in the record's colours */
+/* Aurora: three curtains, one to a band -- the lowest on the bass, the
+   middle on the mids, the top on the treble -- each brighter and taller as
+   its band rises. A curtain is a row of vertical rays, brightest at its lower
+   edge and fading upward into the palette's other colour, brighter where the
+   curtain folds edge-on. They are worked out pixel by pixel on a canvas a
+   sixth of the size (one write, not hundreds of small draws) and stretched
+   over the screen, so the rays smear into one glow and the
+   curtains blend where they cross (19 Oct 2026: the ribbons read as
+   "distinct lines, not a blending of the areas like an aurora"). The fold
+   travels at the song's tempo, shivers on the beat, and the curtains glide
+   to new heights at a section change. */
 function bdAurora(g, w, h, t) {
   g.fillStyle = bdCol(0); g.fillRect(0, 0, w, h);
-  g.globalCompositeOperation = 'lighter';
-  const bands = [[1, .9, 0], [2, .35, 2.1], [1, .6, 4.2]];
-  for (let bi = 0; bi < bands.length; bi++) {
-    const ci = bands[bi][0], alpha = bands[bi][1], ph = bands[bi][2];
-    g.beginPath();
-    const base = h * (.35 + bi * .18);
-    for (let x = 0; x <= w; x += 8) {
-      const y = base + Math.sin(x / w * 3.2 + t * .25 + ph) * h * .12 + Math.sin(x / w * 7 - t * .17 + ph) * h * .04;
-      if (x === 0) g.moveTo(x, y); else g.lineTo(x, y);
-    }
-    g.lineWidth = h * .22; g.lineCap = 'round';
-    const lg = g.createLinearGradient(0, 0, w, 0);
-    lg.addColorStop(0, bdCol(ci, 0)); lg.addColorStop(.5, bdCol(ci, alpha * .35 * (.7 + GL.energy * .5))); lg.addColorStop(1, bdCol(ci, 0));
-    g.strokeStyle = lg; g.filter = 'blur(' + Math.round(h * .06) + 'px)'; g.stroke(); g.filter = 'none';
+  const A = BD.amp, K = MC.kick * A, live = .4 + .6 * MC.live;
+  /* a faint sky glow and a few still stars behind */
+  const sky = g.createLinearGradient(0, 0, 0, h);
+  sky.addColorStop(0, bdCol(0)); sky.addColorStop(1, bdLit(1, .1 + MC.loud * .06));
+  g.fillStyle = sky; g.fillRect(0, 0, w, h);
+  g.fillStyle = 'rgba(255,255,255,.5)';
+  for (let i = 0; i < 46; i++) {
+    const hx = Math.sin(i * 12.9898) * 43758.5453, hy = Math.sin(i * 78.233) * 12345.678;
+    const r = (i % 3 === 0 ? 1.4 : .8) * Math.max(1, h / 400);
+    g.fillRect((hx - Math.floor(hx)) * w, (hy - Math.floor(hy)) * h * .7, r, r);
   }
+  const sw = Math.max(32, w / 6 | 0), sh = Math.max(18, h / 6 | 0);
+  let c = BD.aur;
+  if (!c || c.width !== sw || c.height !== sh || !BD.aurAcc || BD.aurAcc.length !== sw * sh * 3) {
+    c = BD.aur = document.createElement('canvas'); c.width = sw; c.height = sh;
+    BD.aurImg = c.getContext('2d').createImageData(sw, sh); BD.aurAcc = new Float32Array(sw * sh * 3);
+  }
+  const acc = BD.aurAcc; acc.fill(0);
+  const lo2 = BD.lit ? BD.lit[2] : [200, 200, 220], lo1 = BD.lit ? BD.lit[1] : [120, 120, 160];
+  const bands = [[lo2, lo1, MC.low], [lo1, lo2, MC.mid], [lo2, lo1, MC.high]];
+  const amp = 1 + MC.loud * .6 * A + MC.climax * .3 + K * .25, shiver = K * .05;
+  for (let bi = 0; bi < bands.length; bi++) {
+    const lo = bands[bi][0], hi = bands[bi][1], ph = bi * 2.1, lv = bands[bi][2];
+    /* the lower edge: each curtain rides higher as its band rises, and jumps on the hit */
+    const base = .8 - bi * .17 + Math.sin(MC.dir * .7 + bi * 2.1) * .06 - lv * .05 * A - K * .03;
+    const tall = (.28 + lv * .18 * A + K * .08 + MC.climax * .06) * sh;
+    const bright = (.25 + lv * 1.1 + K * .7 + MC.climax * .25) * live;
+    const yAt = X => base + Math.sin(X * 3.2 + t * .25 + ph) * .1 * amp + Math.sin(X * 7 - t * .17 + ph) * (.03 + shiver);
+    let yPrev = yAt(-1 / sw);
+    for (let x = 0; x < sw; x++) {
+      const X = x / sw, y = yAt(X), fold = Math.min(2, Math.abs(y - yPrev) * sw * .6); yPrev = y;
+      /* rays drifting slowly along the curtain, dimmer toward the screen's edges */
+      const ray = .5 + .5 * Math.sin(x * .9 + t * .5 + ph + Math.sin(x * .13 - t * .2 + bi) * 3);
+      const edge = Math.sin(Math.PI * Math.min(1, Math.max(0, X * 1.1 - .05)));
+      const al = Math.min(1.2, bright * (.35 + .65 * ray) * (.6 + .5 * fold) * (.3 + .7 * edge) * .55);
+      if (al < .01) continue;
+      /* a ray: its colour, brightest just above a soft lower edge, fading up
+         into the other colour */
+      const ht = tall * (.75 + .35 * ray), top = y * sh - ht * .85;
+      for (let py = Math.max(0, Math.ceil(top)); py < Math.min(sh, top + ht); py++) {
+        const v = (py - top) / ht;
+        let r, gg, b, aa;
+        if (v < .8) { const m = v < .4 ? 0 : (v - .4) / .4; aa = v < .4 ? v / .4 * .35 : .35 + m * .55; r = hi[0] + (lo[0] - hi[0]) * m; gg = hi[1] + (lo[1] - hi[1]) * m; b = hi[2] + (lo[2] - hi[2]) * m; }
+        else { aa = v < .9 ? .9 + (v - .8) : (1 - v) * 10; r = lo[0]; gg = lo[1]; b = lo[2]; }
+        aa *= al; const o = (py * sw + x) * 3;
+        acc[o] += r * aa; acc[o + 1] += gg * aa; acc[o + 2] += b * aa;
+      }
+    }
+  }
+  const d = BD.aurImg.data;
+  for (let i = 0, o = 0; i < d.length; i += 4, o += 3) { d[i] = acc[o]; d[i + 1] = acc[o + 1]; d[i + 2] = acc[o + 2]; d[i + 3] = 255; }
+  c.getContext('2d').putImageData(BD.aurImg, 0, 0);
+  g.globalCompositeOperation = 'lighter';
+  g.drawImage(c, 0, 0, w, h);
   g.globalCompositeOperation = 'source-over';
 }
-/* Embers: motes rising through the dark, brighter as the music gets louder */
-function bdEmbers(g, w, h, t) {
+/* Embers: motes rising through the dark at the song's pace, leaning with
+   the wind (the shared heading), flaring in ones and twos on the attacks and
+   lifting together on the beat. A reserve of motes joins for the climax.
+   At rest they slow to a hover and dim. */
+function bdEmbers(g, w, h, t, dm) {
   if (!BD.motes) {
-    BD.motes = [];
-    for (let i = 0; i < 70; i++) BD.motes.push({ x: Math.random(), y: Math.random(), r: .4 + Math.random() * 1.8, v: .02 + Math.random() * .05, ph: Math.random() * 6 });
+    BD.motes = []; BD.rise = 0;
+    for (let i = 0; i < 76; i++) BD.motes.push({ x: Math.random(), y: Math.random(), r: .5 + Math.random() * 2, v: .02 + Math.random() * .05, ph: Math.random() * 6, fl: 0 });
   }
   g.fillStyle = bdCol(0); g.fillRect(0, 0, w, h);
-  const glow = g.createRadialGradient(w * .5, h * 1.05, 0, w * .5, h * 1.05, h * .9);
-  glow.addColorStop(0, bdCol(1, .55)); glow.addColorStop(1, bdCol(1, 0)); g.fillStyle = glow; g.fillRect(0, 0, w, h);
-  const energy = Math.max(GL.energy, .15);
-  for (let i = 0; i < BD.motes.length; i++) {
-    const m = BD.motes[i];
-    const y = ((m.y - t * m.v * (.6 + energy)) % 1 + 1) % 1, x = m.x + Math.sin(t * .3 + m.ph) * .01;
-    const a = (.25 + .75 * Math.abs(Math.sin(t * 1.3 + m.ph))) * (.4 + energy * .6);
-    g.fillStyle = bdCol(2, a * (1 - y * .6)); g.beginPath(); g.arc(x * w, y * h, m.r * (h / 300) * (1 + energy * .4), 0, 6.283); g.fill();
+  const A = BD.amp, K = MC.kick * A;
+  /* the fire below: breathes with the bass, flares on the hit */
+  const glow = g.createRadialGradient(w * .5, h * 1.05, 0, w * .5, h * 1.05, h * (.7 + MC.low * .35 * A + K * .25));
+  glow.addColorStop(0, bdLit(1, Math.min(.85, .22 + MC.low * .3 + K * .35))); glow.addColorStop(1, bdLit(1, 0)); g.fillStyle = glow; g.fillRect(0, 0, w, h);
+  const live = .3 + .7 * MC.live, n = Math.round(52 + 24 * MC.climax);
+  BD.wind += dm * Math.cos(MC.dir) * .02;
+  /* every mote rises at music pace, and the whole swarm surges on the hit;
+     each beat lights a handful (more on the downbeat), each attack a couple */
+  BD.rise += dm + K * BD.dt * 1.6;
+  if (MC.beatNew) for (let k = 0; k < 4 + (MC.down ? 4 : 0); k++) BD.motes[(Math.random() * n) | 0].fl = .7 + MC.beatStr * .5;
+  if (MC.onsetNew) for (let k = 0; k < 2; k++) BD.motes[(Math.random() * n) | 0].fl = .8;
+  const col = bdLit(2);
+  if (!BD.spark || BD.sparkOf !== col) {
+    const s = document.createElement('canvas'); s.width = s.height = 16;
+    const sg = s.getContext('2d'), rg = sg.createRadialGradient(8, 8, 0, 8, 8, 8);
+    rg.addColorStop(0, '#fff'); rg.addColorStop(.25, col); rg.addColorStop(.55, bdLit(2, .5)); rg.addColorStop(1, bdLit(2, 0));
+    sg.fillStyle = rg; sg.fillRect(0, 0, 16, 16);
+    BD.spark = s; BD.sparkOf = col;
   }
+  const fall = Math.exp(-BD.dt / .35);
+  g.globalCompositeOperation = 'lighter';
+  for (let i = 0; i < n; i++) {
+    const m = BD.motes[i];
+    const y = ((m.y - BD.rise * m.v) % 1 + 1) % 1, x = ((m.x + BD.wind * m.v * 8 + Math.sin(t * .3 + m.ph) * .01) % 1 + 1) % 1;
+    m.fl *= fall;
+    const a = (.3 + .7 * Math.abs(Math.sin(t * 1.3 + m.ph))) * (.25 + MC.loud * .45 + K * .35) * live + m.fl;
+    const r = m.r * (h / 300) * (1.7 + MC.loud * .5 + K * .6 + m.fl * 2.2);
+    g.globalAlpha = Math.min(1, a * (1 - y * .55));
+    g.drawImage(BD.spark, x * w - r, y * h - r, r * 2, r * 2);
+  }
+  g.globalAlpha = 1; g.globalCompositeOperation = 'source-over';
 }
-/* Grain: a tinted vignette, film grain and the faint grooves of a record turning */
-function bdGrain(g, w, h, t) {
-  const v = g.createRadialGradient(w / 2, h / 2, 0, w / 2, h / 2, Math.max(w, h) * .7);
+/* Grooves (was Grain): a record seen from above, off-centre, turning at the
+   song's tempo with a reflection sweeping round its face; every beat sends a
+   ripple of light outward along the grooves, the film grain sparkles with the
+   treble and drifts the way the song is heading, and the vignette breathes.
+   Stopped, the record stops. The old version was a vignette plus a noise
+   tile scrolling to the lower right at one speed whatever played, which the
+   user noticed at once (17 Oct 2026). */
+function bdGrain(g, w, h, t, dm) {
+  const A = BD.amp, cx = w * .78, cy = h * .55;
+  const v = g.createRadialGradient(w / 2, h / 2, 0, w / 2, h / 2, Math.max(w, h) * (.6 + MC.loud * .15 + MC.climax * .1));
   v.addColorStop(0, bdCol(1)); v.addColorStop(1, bdCol(0)); g.fillStyle = v; g.fillRect(0, 0, w, h);
-  g.save(); g.translate(w * .78, h * .55); g.rotate(t * .05); g.strokeStyle = bdCol(2, .07); g.lineWidth = 1;
-  for (let r = h * .12; r < h * .9; r += 9) { g.beginPath(); g.arc(0, 0, r, 0, 6.283); g.stroke(); }
+  g.save(); g.translate(cx, cy);
+  /* the reflection: a soft wedge of the accent, turning with the record */
+  g.rotate(t * .6);
+  const sweep = g.createLinearGradient(0, 0, h * .9, 0);
+  sweep.addColorStop(0, bdLit(2, 0)); sweep.addColorStop(.5, bdLit(2, .07 + MC.mid * .08 + MC.kick * A * .12)); sweep.addColorStop(1, bdLit(2, 0));
+  g.fillStyle = sweep; g.beginPath(); g.moveTo(0, 0); g.arc(0, 0, h * .9, -.5, .5); g.closePath(); g.fill();
+  g.rotate(-t * .6);
+  /* the grooves, with a ring of light leaving the spindle on each beat */
+  const rw = h * .12 + MC.phase * h * .75, rs = h * .07;     // from the spindle to the rim in one beat
+  g.lineWidth = 1;
+  for (let r = h * .12; r < h * .9; r += 9) {
+    const d = (r - rw) / rs, ripple = Math.exp(-d * d) * MC.beatStr * MC.live * A;
+    g.strokeStyle = bdLit(2, .07 + MC.loud * .06 + MC.kick * A * .08 + ripple * .9); g.beginPath(); g.arc(0, 0, r, 0, 6.283); g.stroke();
+  }
   g.restore();
   if (!BD.noise) {
     const n = document.createElement('canvas'); n.width = 160; n.height = 100; const ng = n.getContext('2d');
@@ -1764,28 +2376,1013 @@ function bdGrain(g, w, h, t) {
     for (let i = 0; i < id.data.length; i += 4) { const k = 200 + Math.random() * 55; id.data[i] = id.data[i + 1] = id.data[i + 2] = k; id.data[i + 3] = Math.random() * 38; }
     ng.putImageData(id, 0, 0); BD.noise = n;
   }
-  g.save(); g.globalAlpha = .55; g.translate((t * 37) % 160 - 160, (t * 23) % 100 - 100);
+  BD.gx += dm * Math.cos(MC.dir) * 40; BD.gy += dm * Math.sin(MC.dir) * 25;
+  g.save(); g.globalAlpha = .3 + MC.high * .45 * A; g.translate(((BD.gx % 160) + 160) % 160 - 160, ((BD.gy % 100) + 100) % 100 - 100);
   for (let x = 0; x < w + 320; x += 160) for (let y = 0; y < h + 200; y += 100) g.drawImage(BD.noise, x, y);
   g.restore();
+}
+/* Glow: three pools of the record's colours, one to a band -- the bass pool
+   swells on the beat, the mid and treble pools breathe with theirs -- each on
+   its own slow orbit; at a section change the whole arrangement turns to new
+   corners. Three radial fills a frame; the cheapest thing here that moves. */
+function bdGlow(g, w, h, t) {
+  g.fillStyle = bdCol(0); g.fillRect(0, 0, w, h);
+  const A = BD.amp, K = MC.kick * A, R = Math.max(w, h) * .6, cx = w / 2, cy = h / 2;
+  const turn = MC.dir * .5, cs = Math.cos(turn), sn = Math.sin(turn);
+  const pools = [
+    [-.3, -.3, .6 * (1 + MC.low * .25 * A + K * .3), 2, .3 + MC.low * .4 + K * .35, .11, 0],
+    [.34, .34, .62 * (1 + MC.mid * .2 * A), 1, .3 + MC.mid * .35, .07, 2],
+    [.18, -.16, .36 * (1 + MC.high * .3 * A + K * .15), 1, .2 + MC.high * .45, .13, 4]
+  ];
+  /* screen, not lighter: bright pools added together went to white where
+     they overlapped; screened they mix and never pass the colours */
+  g.globalCompositeOperation = 'screen';
+  for (let i = 0; i < pools.length; i++) {
+    const p = pools[i], ox = p[0] * w + Math.sin(t * p[5] + p[6]) * w * .05, oy = p[1] * h + Math.cos(t * p[5] * .8 + p[6]) * h * .05;
+    const x = cx + ox * cs - oy * sn, y = cy + ox * sn + oy * cs, r = p[2] * R * (1 + MC.climax * .15);
+    const a = Math.min(.8, p[4] * (.45 + .55 * MC.live) * (1 + MC.climax * .2));
+    const rg = g.createRadialGradient(x, y, 0, x, y, r);
+    rg.addColorStop(0, bdLit(p[3], a)); rg.addColorStop(.45, bdLit(p[3], a * .4)); rg.addColorStop(1, bdLit(p[3], 0));
+    g.fillStyle = rg; g.fillRect(x - r, y - r, r * 2, r * 2);
+  }
+  g.globalCompositeOperation = 'source-over';
+}
+/* Streams: particles carried along a slow, curling field, leaving trails that
+   fade because the frame is never cleared, only dimmed. They move at the
+   song's pace (dm is music time: zero when Still, a crawl at rest, so the
+   picture holds and then settles instead of fading to nothing), the field
+   turns with the heading at a section change, the attacks brighten the
+   strokes, and the climax wakes a reserve of particles. */
+function bdFlow(g, w, h, t, dm) {
+  /* the trails live on their own transparent layer (carried with the
+     particles, so the picker's thumbnail keeps its own), laid over the ground
+     each frame. Brightening the main canvas by drawing it over itself lifted
+     the ground too, and that compounded to white in two seconds. */
+  if (!BD.flow || BD.flow.trail.width !== w || BD.flow.trail.height !== h) {
+    BD.flow = [];
+    const n = IS_TV ? 130 : 200;
+    for (let i = 0; i < n; i++) BD.flow.push({ x: Math.random() * w, y: Math.random() * h, c: i % 3 === 0 ? 2 : 1, life: 60 + Math.random() * 300 });
+    BD.flow.trail = document.createElement('canvas'); BD.flow.trail.width = w; BD.flow.trail.height = h;
+    g.fillStyle = bdCol(0); g.fillRect(0, 0, w, h);
+  }
+  if (dm <= 0) return;
+  const tr = BD.flow.trail, tg = tr.getContext('2d');
+  tg.globalCompositeOperation = 'destination-out'; tg.fillStyle = 'rgba(0,0,0,.08)'; tg.fillRect(0, 0, w, h);
+  /* a hit makes the current surge and thicken, and lights every trail on the
+     screen, then settles in a fifth of a second */
+  const A = BD.amp, K = MC.kick * A, sp = 1.3 * (h / 300) * Math.min(3, dm * 60) * (1 + K * 1.6), k = 6.283 / Math.max(w, h);
+  const n = Math.round(BD.flow.length * (.6 + .4 * MC.climax)), cs = Math.cos(MC.dir), sn = Math.sin(MC.dir);
+  tg.globalCompositeOperation = 'lighter';
+  tg.lineWidth = Math.max(1, h / 300 * (1.3 + K * 2.2 + MC.loud * .5)); tg.lineCap = 'round';
+  for (let c = 1; c <= 2; c++) {
+    tg.beginPath();
+    for (let i = 0; i < n; i++) {
+      const p = BD.flow[i]; if (p.c !== c) continue;
+      const a = (Math.sin(p.x * k * 1.6 + t * .21) + Math.cos(p.y * k * 1.9 - t * .17) + Math.sin((p.x + p.y) * k * .9 + t * .1)) * 1.9;
+      const vx = Math.cos(a), vy = Math.sin(a);
+      const nx = p.x + (vx * cs - vy * sn) * sp, ny = p.y + (vx * sn + vy * cs) * sp;
+      tg.moveTo(p.x, p.y); tg.lineTo(nx, ny);
+      p.x = nx; p.y = ny; p.life -= dm * 60;
+      if (p.life <= 0 || nx < -4 || nx > w + 4 || ny < -4 || ny > h + 4) { p.x = Math.random() * w; p.y = Math.random() * h; p.life = 120 + Math.random() * 300; }
+    }
+    tg.strokeStyle = bdLit(c, Math.min(1, (c === 2 ? .3 : .2) + MC.loud * .15 + K * .5)); tg.stroke();
+  }
+  tg.globalCompositeOperation = 'source-over';
+  g.fillStyle = bdCol(0); g.fillRect(0, 0, w, h);
+  g.drawImage(tr, 0, 0);
+  if (K > .03) { g.globalCompositeOperation = 'lighter'; g.globalAlpha = Math.min(1, K * 1.1); g.drawImage(tr, 0, 0); g.globalAlpha = 1; g.globalCompositeOperation = 'source-over'; }
+}
+/* Kaleidoscope: the cover mirrored into six wedges that turn at the song's
+   tempo, reversing at a section change (the heading eases through zero, so
+   the turn slows, stops and comes back), zooming a touch on each beat while
+   the picture under the wedges wanders. The dark pool in the middle lifts
+   for the climax. Six clipped draws of one small tile a frame. Until the
+   cover has loaded, Glow. */
+function bdKaleido(g, w, h, t, dm) {
+  if (!BD.img) { bdGlow(g, w, h, t); return; }
+  if (BD.ktileOf !== BD.img) {
+    /* the cover, softened a touch, mirrored into a 3x3 tile so the wedges can
+       wander over it without ever running off the picture (a wedge reaches
+       150 tile pixels from an apex that roams 70 either side of the centre) */
+    const a = document.createElement('canvas'); a.width = a.height = 160;
+    const ag = a.getContext('2d');
+    try { ag.filter = 'blur(1px)'; } catch (e) { }
+    ag.drawImage(BD.img, 0, 0, 160, 160);
+    const n = document.createElement('canvas'); n.width = n.height = 480;
+    const ng = n.getContext('2d');
+    for (let i = 0; i < 3; i++) for (let j = 0; j < 3; j++) {
+      ng.save(); ng.translate(i * 160 + (i % 2 ? 160 : 0), j * 160 + (j % 2 ? 160 : 0)); ng.scale(i % 2 ? -1 : 1, j % 2 ? -1 : 1);
+      ng.drawImage(a, 0, 0); ng.restore();
+    }
+    BD.ktile = n; BD.ktileOf = BD.img;
+  }
+  g.fillStyle = bdCol(0); g.fillRect(0, 0, w, h);
+  const A = BD.amp, N = 6, cx = w / 2, cy = h / 2, R = Math.sqrt(cx * cx + cy * cy) + 2, wedge = 6.283185 / N;
+  BD.kang += dm * .22 * Math.cos(MC.dir);
+  const sc = R / 150 * (1 + MC.kick * .07 * A + MC.loud * .04 * A), dx = 240 + Math.sin(t * .08) * 70, dy = 240 + Math.cos(t * .06) * 70;
+  for (let i = 0; i < N; i++) {
+    g.save();
+    g.translate(cx, cy); g.rotate(BD.kang + i * wedge);
+    /* each wedge a hair wider than its share, so the seams overdraw instead of
+       showing as a thread; drawn opaque, because translucent overlaps double up
+       into bright spokes, and dimmed afterwards in one fill */
+    g.beginPath(); g.moveTo(0, 0); g.arc(0, 0, R, -wedge / 2 - .012, wedge / 2 + .012); g.closePath(); g.clip();
+    if (i % 2) g.scale(1, -1);                  // every other wedge mirrored, so the seams meet
+    g.scale(sc, sc);
+    g.drawImage(BD.ktile, -dx, -dy);
+    g.restore();
+  }
+  /* a dark pool in the middle gives the art and the words their ground */
+  const v = g.createRadialGradient(cx, cy, h * .08, cx, cy, Math.max(w, h) * .72);
+  v.addColorStop(0, 'rgba(11,10,14,' + (.62 - MC.climax * .14 - MC.kick * A * .3).toFixed(3) + ')'); v.addColorStop(1, 'rgba(11,10,14,' + (.84 - MC.climax * .1).toFixed(3) + ')'); g.fillStyle = v; g.fillRect(0, 0, w, h);
+}
+/* Pulse: a ring leaves the centre on every beat of the grid, stronger on the
+   downbeat and under a real attack, and reaches the edge two beats later, so
+   the rings keep the song's time through the whole song. When the grid is
+   unsure (a ballad, a live take) the rings follow the attacks instead and
+   there are fewer. The halo breathes with the loudness. At rest the last
+   rings dissolve and the halo settles. The old version waited for the bass
+   the analyser heard, which a television never has (17 Oct 2026). */
+function bdPulse(g, w, h, now) {
+  if (!BD.rings) BD.rings = [];
+  g.fillStyle = bdCol(0); g.fillRect(0, 0, w, h);
+  const A = BD.amp, K = MC.kick * A, cx = w / 2, cy = h / 2, R = Math.max(w, h) * .72;
+  const hr = R * (.24 + MC.loud * .14 * A + K * .1 + MC.climax * .06) * (.7 + .3 * MC.live);
+  const halo = g.createRadialGradient(cx, cy, 0, cx, cy, hr);
+  halo.addColorStop(0, bdLit(1, Math.min(.9, .35 + MC.loud * .2 + K * .4))); halo.addColorStop(.55, bdLit(1, .12 + K * .12)); halo.addColorStop(1, bdLit(1, 0));
+  g.fillStyle = halo; g.fillRect(cx - hr, cy - hr, hr * 2, hr * 2);
+  const sure = MC.conf >= .35;
+  if (bdRate() > 0 && MC.live > .3 && BD.rings.length < 12) {
+    if (sure && MC.beatNew) BD.rings.push({ t0: now, a: (.45 + MC.beatStr * .55) * (MC.down ? 1.3 : 1) * A, d: Math.max(.9, Math.min(2.6, MC.period * 2)) });
+    else if (!sure && MC.onsetNew && (!BD.rings.length || now - BD.rings[BD.rings.length - 1].t0 > 350)) BD.rings.push({ t0: now, a: .55 * A, d: 2.2 });
+  }
+  g.globalCompositeOperation = 'lighter';
+  for (let i = BD.rings.length - 1; i >= 0; i--) {
+    const r = BD.rings[i], u = (now - r.t0) / 1000 / r.d;
+    if (u >= 1) { BD.rings.splice(i, 1); continue; }
+    const eo = 1 - (1 - u) * (1 - u), rr = R * (.1 + eo * .95), fade = (1 - u) * (1 - u * .5);
+    /* a wide soft band under a sharp line, so a ring reads from across a room */
+    g.beginPath(); g.arc(cx, cy, rr, 0, 6.283);
+    g.lineWidth = (6 + (1 - u) * 14) * h / 300; g.strokeStyle = bdLit(2, Math.min(1, r.a * fade * .22)); g.stroke();
+    g.lineWidth = (1.5 + (1 - u) * 4) * h / 300; g.strokeStyle = bdLit(2, Math.min(1, r.a * fade * .95)); g.stroke();
+  }
+  g.globalCompositeOperation = 'source-over';
+}
+
+/* Ridges (18 Oct 2026, after the Unknown Pleasures cover the user sent): a
+   stack of lines, each one the song's spectrum at one moment -- the newest
+   at the front, the last five seconds receding behind it -- with peaks where
+   the music has energy. Low notes on the left, high on the right, inside a
+   central plateau so the edges lie flat as on the cover. Each line hides
+   the ones behind it (a strip under it is filled with the ground), which is
+   what makes a pile of graphs read as a landscape. 'ridges' looks straight
+   at it; 'ridges3d' sees the same field in perspective from a camera that
+   swings slowly round it, leaning the other way at each section change.
+   The lines come from the analysis (`spec`, 20 bands ten times a second);
+   while a song is still being analysed they are made from the three bands
+   instead, so nothing waits. */
+const RIDGE_PTS = 64;
+function bdRidgeRow(f, idx) {
+  /* -> RIDGE_PTS heights 0..1 for spectrum frame idx (fixed for that frame,
+     so a line keeps its shape as it travels back) */
+  if (!BD.rcache || BD.rcache.f !== f) BD.rcache = { f: f, rows: {}, n: 0 };
+  const C = BD.rcache;
+  if (C.rows[idx]) return C.rows[idx];
+  const N = RIDGE_PTS, out = new Float32Array(N);
+  let bands = null, nb = 0;
+  if (f && f.spec && f.spec.length) {
+    nb = f.specN;
+    const r = Math.max(0, Math.min(Math.floor(f.spec.length / nb) - 1, idx));
+    bands = [];
+    for (let b = 0; b < nb; b++) { const v = f.spec[r * nb + b] / 255; bands.push(Math.pow(Math.max(0, (v - .3) / .7), 1.5)); }
+  } else {
+    /* not analysed yet: a plausible spectrum from the three bands as they are
+       now, frozen into this frame */
+    nb = 20; bands = [];
+    for (let b = 0; b < nb; b++) {
+      const u = b / (nb - 1), lv = u < .3 ? MC.low : u < .75 ? MC.mid : MC.high;
+      const hsh = Math.sin(idx * 12.9898 + b * 78.233) * 43758.5453;
+      bands.push(Math.max(0, lv * (.45 + .55 * (hsh - Math.floor(hsh))) - .1));
+    }
+  }
+  for (let k = 0; k < N; k++) {
+    const x = k / (N - 1);
+    /* the plateau: flat past a fifth of the way in from each side */
+    const env = Math.exp(-Math.pow((x - .5) / .23, 4));
+    const bx = Math.max(0, Math.min(nb - 1.001, (x - .24) / .52 * (nb - 1)));
+    const b0 = Math.floor(bx), u = bx - b0, s = u * u * (3 - 2 * u);
+    const v = bands[b0] + (bands[Math.min(nb - 1, b0 + 1)] - bands[b0]) * s;
+    /* the cover's jagged texture: fixed per frame and point, larger where it is loud */
+    const hsh = Math.sin(idx * 7.13 + k * 3.71) * 9631.17, nz = hsh - Math.floor(hsh) - .5;
+    out[k] = Math.max(0, env * (v + nz * .16 * (.25 + v)) + (1 - env) * Math.abs(nz) * .025);
+  }
+  C.rows[idx] = out;
+  if (++C.n > 400) { C.rows = {}; C.n = 0; }
+  return out;
+}
+/* The Ridges family (18 Oct 2026). After a round of variations the user kept
+   three: the cover's still white lines, the same turning slowly, and a
+   faster turning one coloured from the album art. (Heat, Prism and a full
+   Orbit were tried the same day; the orbit, shoved round by each hit, was
+   "pretty jumpy".)
+     cam 0 flat, straight on; 1 a slow swing; 2 a swing three times faster.
+     ink 'mono' the cover's white; 'art' the sleeve's own colours laid across
+     the spectrum, bass to treble. */
+const RIDGE_VARS = {
+  ridges: { cam: 0, ink: 'mono' },
+  ridges3d: { cam: 1, ink: 'mono' },
+  ridgescolor: { cam: 2, ink: 'art' }
+};
+function bdRgba(c, a) { return 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + Math.max(0, Math.min(1, a)).toFixed(3) + ')'; }
+function bdMix(a, b, u) { return [Math.round(a[0] + (b[0] - a[0]) * u), Math.round(a[1] + (b[1] - a[1]) * u), Math.round(a[2] + (b[2] - a[2]) * u)]; }
+function bdRidges(g, w, h, now, id) {
+  const V = RIDGE_VARS[id] || RIDGE_VARS.ridges, cam = V.cam, turn = cam > 0;
+  const ground = bdCol(0);
+  g.fillStyle = ground; g.fillRect(0, 0, w, h);
+  const f = MC.feat, A = BD.amp, K = MC.kick * A;
+  const L = IS_TV ? 44 : 56, N = RIDGE_PTS;
+  const hz = f && f.specHz ? f.specHz : 10, fp = mcPos()[0] * hz, top = Math.floor(fp), frac = fp - top;
+  const lit = BD.lit ? BD.lit[2] : [230, 230, 230], sec = BD.lit ? BD.lit[1] : [160, 160, 170];
+  const white = [255, 255, 255], ink = bdMix(lit, white, .65);
+  /* the art's colours, or the accent and second colour when the art has none */
+  const art = GL.art && GL.art.length ? GL.art.map(c => [Math.round(c[0] * 255), Math.round(c[1] * 255), Math.round(c[2] * 255)]) : [sec, lit];
+  if (art.length === 1) art.push(sec);
+  const lw = Math.max(1, h / 420);
+  g.lineJoin = 'round';
+  /* the camera: yaw and pitch on music time, so it hurries when the song is
+     loud and fast and comes to rest when it stops */
+  let yaw = 0, pitch = 0;
+  if (cam === 1) {
+    yaw = Math.sin(MC.drift * .12) * .6 + Math.sin(MC.dir) * .2;
+    pitch = .5 + Math.sin(MC.drift * .07) * .12;
+  } else if (cam === 2) {
+    yaw = Math.sin(MC.drift * .36) * .62 + Math.sin(MC.dir) * .18;
+    pitch = .48 + Math.sin(MC.drift * .21) * .16;
+  }
+  const cy = Math.cos(yaw), sy = Math.sin(yaw), cp = Math.cos(pitch), sp = Math.sin(pitch);
+  const F = w * .7, dist = 2.2;
+  const xs = new Float32Array(N), ys = new Float32Array(N), bxs = new Float32Array(N), bys = new Float32Array(N);
+  for (let i = L; i >= 0; i--) {                       // back to front: each line hides the ones behind
+    const row = bdRidgeRow(f, top - i), d = Math.min(1, (i + frac) / L);    // 0 front .. 1 back
+    /* the newest line fades in at the front, the oldest out at the back */
+    const fadeIn = i === 0 ? frac : 1, fadeOut = Math.max(0, Math.min(1, (1 - d) * 6));
+    const near = 1 - d, boost = 1 + K * .35 * Math.max(0, 1 - i / 6);
+    for (let k = 0; k < N; k++) {
+      const x = k / (N - 1);
+      if (!turn) {
+        const base = h * (.9 - d * .72);
+        xs[k] = x * w; ys[k] = base - row[k] * h * .25 * boost * (.75 + .25 * near) * fadeIn;
+        bxs[k] = xs[k]; bys[k] = base + lw * 1.5;
+      } else {
+        /* world: x across, z into the distance, y up */
+        const wx = (x * 2 - 1) * 1.7, wz = (d - .5) * 2.2, wy = row[k] * .42 * boost * fadeIn;
+        const X = wx * cy - wz * sy, Z = wx * sy + wz * cy;
+        const Yb = Z * sp, Zb = Math.max(.25, Z * cp + dist);   // the baseline point, then the same point raised
+        const Yt = wy * cp + Z * sp, Zt = Math.max(.25, -wy * sp + Z * cp + dist);
+        xs[k] = w / 2 + X * F / Zt; ys[k] = h * .56 - Yt * F / Zt;
+        bxs[k] = w / 2 + X * F / Zb; bys[k] = h * .56 - Yb * F / Zb + lw;
+      }
+    }
+    g.beginPath(); g.moveTo(xs[0], ys[0]);
+    for (let k = 1; k < N; k++) g.lineTo(xs[k], ys[k]);
+    for (let k = N - 1; k >= 0; k--) g.lineTo(bxs[k], bys[k]);
+    g.closePath(); g.fillStyle = ground; g.fill();
+    g.beginPath(); g.moveTo(xs[0], ys[0]);
+    for (let k = 1; k < N; k++) g.lineTo(xs[k], ys[k]);
+    const a = Math.min(1, (.32 + .68 * Math.pow(near, 1.3)) * fadeOut * fadeIn * (.75 + .25 * MC.live) + K * .3 * Math.max(0, 1 - i / 5));
+    g.lineWidth = lw * (turn ? .7 + 1.1 * Math.pow(near, 1.5) : 1.15);
+    if (V.ink === 'mono') g.strokeStyle = bdRgba(ink, a);
+    else {
+      /* the sleeve's colours across the plateau, a little whiter at the front
+         and on the hit */
+      const x0 = xs[0], x1 = xs[N - 1], wt = .12 * near + K * .35 * Math.max(0, 1 - i / 5);
+      if (Math.abs(x1 - x0) < 2) g.strokeStyle = bdRgba(bdMix(art[0], white, wt), a);
+      else {
+        const ag = g.createLinearGradient(x0, 0, x1, 0), n = art.length;
+        ag.addColorStop(0, bdRgba(bdMix(art[0], white, wt), a));
+        for (let j = 0; j < n; j++) ag.addColorStop(.26 + .48 * j / (n - 1), bdRgba(bdMix(art[j], white, wt), a));
+        ag.addColorStop(1, bdRgba(bdMix(art[n - 1], white, wt), a));
+        g.strokeStyle = ag;
+      }
+      g.lineWidth *= 1.2;
+    }
+    g.stroke();
+  }
+}
+
+/* Spectrum (18 Oct 2026): the bar meter off a 90s stereo, green, yellow and
+   red LED segments with a peak that holds and drops, and behind it the last
+   second and a half of readings drifting back and up into the dark, fading,
+   the way the Ridges lines recede. The bars read the analysis's 20 bands,
+   eased between its frames; the meter's own ballistics (instant rise, a
+   steady fall, peaks held half a second) are what make it look like the
+   hardware. History is taken on the wall clock, so on pause the bars fall
+   and the trail carries them away. */
+const LED_COLS = [[70, 235, 95], [250, 214, 50], [255, 62, 48]];
+function bdLedLevels(f, fp) {
+  const nb = f && f.spec && f.spec.length ? f.specN : 20, out = new Float32Array(nb);
+  const top = Math.floor(fp), u = fp - top;
+  if (f && f.spec && f.spec.length) {
+    const rows = Math.floor(f.spec.length / nb), r0 = Math.max(0, Math.min(rows - 1, top)), r1 = Math.min(rows - 1, r0 + 1);
+    for (let b = 0; b < nb; b++) {
+      const v = (f.spec[r0 * nb + b] * (1 - u) + f.spec[r1 * nb + b] * u) / 255;
+      out[b] = Math.max(0, Math.min(1, (v - .6) / .35));       // the median a third up, the loudest tenth into the yellow, peaks red
+    }
+  } else {
+    /* not analysed yet: the three live bands, given a little spread */
+    for (let b = 0; b < nb; b++) {
+      const x = b / (nb - 1), lv = x < .3 ? MC.low : x < .75 ? MC.mid : MC.high;
+      const hsh = Math.sin(top * 12.9898 + b * 78.233) * 43758.5453;
+      out[b] = Math.max(0, Math.min(1, lv * (.6 + .5 * (hsh - Math.floor(hsh)))));
+    }
+  }
+  return out;
+}
+function bdLeds(g, w, h, now) {
+  g.fillStyle = bdCol(0); g.fillRect(0, 0, w, h);
+  const f = MC.feat, A = BD.amp, K = MC.kick * A, dt = BD.dt || 1 / 60;
+  const hz = f && f.specHz ? f.specHz : 10;
+  const tgt = bdLedLevels(f, mcPos()[0] * hz), nb = tgt.length;
+  const M = IS_TV ? 14 : 18, SEG = 16;
+  let S = BD.led;
+  if (!S || S.lv.length !== nb) S = BD.led = { lv: new Float32Array(nb), pk: new Float32Array(nb), hold: new Float32Array(nb), hist: [], acc: 0 };
+  for (let b = 0; b < nb; b++) {
+    /* the beat kicks the bass end, the way a kick drum throws the low bars */
+    const v = Math.min(1, tgt[b] + K * .3 * Math.max(0, 1 - b / (nb * .35))) * (.15 + .85 * MC.live) * (A < 1 ? .85 : 1);
+    S.lv[b] = Math.max(v, S.lv[b] - dt * 2.4);
+    if (S.lv[b] >= S.pk[b]) { S.pk[b] = S.lv[b]; S.hold[b] = .55; }
+    else if ((S.hold[b] -= dt) < 0) S.pk[b] = Math.max(0, S.pk[b] - dt * (.5 - S.hold[b] * 1.5));   // drops, gathering speed
+  }
+  /* a reading for the trail ten times a second */
+  S.acc += dt * 10;
+  while (S.acc >= 1) { S.acc -= 1; S.hist.unshift(Float32Array.from(S.lv)); if (S.hist.length > M) S.hist.pop(); }
+  const frac = S.acc;
+  /* the panel: bars across the middle eight tenths, the meter half the height */
+  const x0 = w * .1, cw = w * .8 / nb, bw = cw * .74, base = h * .9, sh = h * .52 / SEG, seg = sh * .68, vy = h * .2;
+  const cls = k => k < SEG * .6 ? 0 : k < SEG * .85 ? 1 : 2;
+  /* one row of bars at depth t (0 front .. 1 back): smaller, higher, toward
+     the middle, as if the readings were sliding away down a hall. A trail
+     row keeps only the top segment of each bar, so the past reads as
+     a field of glowing tops behind the meter, like the Ridges lines. */
+  const row = (lv, t, alpha, lightK, tops) => {
+    const s = 1 - .35 * t, yb = base + (vy - base) * t;
+    for (let c = 0; c < 3; c++) {
+      g.beginPath();
+      let any = false;
+      for (let b = 0; b < nb; b++) {
+        const n = Math.round(lv[b] * SEG);
+        const bx = w / 2 + (x0 + b * cw + (cw - bw) / 2 - w / 2) * s;
+        for (let k = tops ? Math.max(0, n - 1) : 0; k < n; k++) if (cls(k) === c) { g.rect(bx, yb - (k + 1) * sh * s, bw * s, seg * s); any = true; }
+      }
+      if (!any) continue;
+      const col = lightK ? bdMix(LED_COLS[c], [255, 255, 255], lightK) : LED_COLS[c];
+      g.fillStyle = bdRgba(col, alpha); g.fill();
+    }
+  };
+  /* the trail, back to front, additive so overlapping readings glow */
+  g.globalCompositeOperation = 'lighter';
+  for (let j = S.hist.length - 1; j >= 0; j--) {
+    const t = Math.min(1, (j + 1 + frac) / (M + 1));
+    row(S.hist[j], t, .55 * Math.pow(1 - t, 1.5) * (.6 + .4 * MC.live), 0, true);
+  }
+  g.globalCompositeOperation = 'source-over';
+  /* the front panel: unlit segments faintly there, as on the real thing */
+  for (let c = 0; c < 3; c++) {
+    g.beginPath();
+    for (let b = 0; b < nb; b++) {
+      const bx = x0 + b * cw + (cw - bw) / 2;
+      for (let k = 0; k < SEG; k++) if (cls(k) === c) g.rect(bx, base - (k + 1) * sh, bw, seg);
+    }
+    g.fillStyle = bdRgba(LED_COLS[c], .07); g.fill();
+  }
+  /* lit segments: a soft halo under each, then the segment itself; the hit
+     brightens the halo */
+  g.globalCompositeOperation = 'lighter';
+  const pad = sh * .3;
+  for (let c = 0; c < 3; c++) {
+    g.beginPath();
+    for (let b = 0; b < nb; b++) {
+      const n = Math.round(S.lv[b] * SEG), bx = x0 + b * cw + (cw - bw) / 2;
+      for (let k = 0; k < n; k++) if (cls(k) === c) g.rect(bx - pad, base - (k + 1) * sh - pad, bw + pad * 2, seg + pad * 2);
+    }
+    g.fillStyle = bdRgba(LED_COLS[c], .12 + K * .18); g.fill();
+  }
+  g.globalCompositeOperation = 'source-over';
+  row(S.lv, 0, 1, .12, false);
+  /* the peaks: one segment each, held, then falling */
+  for (let b = 0; b < nb; b++) {
+    const k = Math.min(SEG - 1, Math.round(S.pk[b] * SEG) - 1);
+    if (k < 0 || k < Math.round(S.lv[b] * SEG) - 1) continue;
+    g.fillStyle = bdRgba(bdMix(LED_COLS[cls(k)], [255, 255, 255], .35), .95);
+    g.fillRect(x0 + b * cw + (cw - bw) / 2, base - (k + 1) * sh, bw, seg);
+  }
+}
+
+/* The 3D spectrum family (18 Oct 2026, the user: "lets do them all"):
+   Tunnel, Synthwave, Skyline, Planet and Helix, all drawn from the same 20
+   band spectrum as Ridges and Spectrum. Because the analysis is made ahead of
+   time, three of them (Tunnel, Synthwave, Helix) show the music still to
+   come: it is laid out in the distance and reaches the camera at the moment
+   it plays, so you fly into the song. Skyline and Planet show the last few
+   seconds, as Ridges does. While a song is still being analysed the rows are
+   made from the three live bands. */
+function bdSpecRow(f, idx) {
+  /* -> 0..1 per band for spectrum frame idx, cached per frame */
+  const th = !!BD.thumb;
+  if (!BD.scache || BD.scache.f !== f || BD.scache.th !== th) BD.scache = { f: f, th: th, rows: {}, n: 0 };
+  const C = BD.scache;
+  if (C.rows[idx]) return C.rows[idx];
+  let out;
+  if (f && f.spec && f.spec.length && !th) {
+    const nb = f.specN, rows = Math.floor(f.spec.length / nb);
+    out = new Float32Array(nb);
+    if (idx >= 0 && idx < rows) for (let b = 0; b < nb; b++) out[b] = Math.max(0, Math.min(1, (f.spec[idx * nb + b] / 255 - .5) / .45));
+  } else {
+    out = new Float32Array(20);
+    for (let b = 0; b < 20; b++) {
+      const u = b / 19, lv = u < .3 ? MC.low : u < .75 ? MC.mid : MC.high;
+      const hsh = Math.sin(idx * 12.9898 + b * 78.233) * 43758.5453;
+      out[b] = Math.max(0, Math.min(1, lv * (.4 + .7 * (hsh - Math.floor(hsh)))));
+    }
+  }
+  C.rows[idx] = out;
+  if (++C.n > 600) { C.rows = {}; C.n = 0; }
+  return out;
+}
+function bdBand(row, u) {
+  /* the spectrum read smoothly at u (0 bass .. 1 treble) */
+  const n = row.length, x = Math.max(0, Math.min(n - 1.001, u * (n - 1))), b0 = Math.floor(x), s0 = x - b0, s = s0 * s0 * (3 - 2 * s0);
+  return row[b0] + (row[b0 + 1] - row[b0]) * s;
+}
+function bdArtCols() {
+  /* the cover's colours (0..255), or the lit second colour and accent */
+  const lit = BD.lit ? BD.lit[2] : [230, 230, 230], sec = BD.lit ? BD.lit[1] : [160, 160, 170];
+  const art = GL.art && GL.art.length ? GL.art.map(c => [Math.round(c[0] * 255), Math.round(c[1] * 255), Math.round(c[2] * 255)]) : [sec, lit];
+  if (art.length === 1) art.push(sec);
+  return art;
+}
+function bdColAt(cols, u) {
+  const x = Math.max(0, Math.min(cols.length - 1.001, u * (cols.length - 1))), i = Math.floor(x);
+  return bdMix(cols[i], cols[i + 1], x - i);
+}
+function bdGround() { const c = GL.cur[0]; return [Math.round(c[0] * 255), Math.round(c[1] * 255), Math.round(c[2] * 255)]; }
+function bdSpecPos() {
+  const f = MC.feat, hz = f && f.specHz ? f.specHz : 10, fp = mcPos()[0] * hz;
+  return { f: f, fp: fp, top: Math.floor(fp), frac: fp - Math.floor(fp) };
+}
+
+/* Tunnel: each spectrum reading is a ring, bass along the floor and treble
+   overhead, pinched inward where the music is loud. The rings of the next
+   few seconds stream toward the camera and pass it as they play. The tube
+   bends and turns on music time, and leans at each section change. */
+function bdTunnel(g, w, h, now) {
+  g.fillStyle = bdCol(0); g.fillRect(0, 0, w, h);
+  const P = bdSpecPos(), K = MC.kick * BD.amp, cols = bdArtCols(), white = [255, 255, 255];
+  const R = IS_TV ? 30 : 38, SEG = 48, dz = .3, z0 = .75, zFar = R * dz + z0;
+  const F = w * .5 * (1 + K * .05), lw = Math.max(1, h / 420);
+  const roll = MC.drift * .3 + Math.sin(MC.dir) * .7;
+  const rings = [];
+  g.globalCompositeOperation = 'lighter'; g.lineJoin = 'round';
+  for (let j = R; j >= -3; j--) {
+    const idx = P.top + j, z = (idx - P.fp) * dz + z0;
+    if (z < .3) continue;
+    const row = bdSpecRow(P.f, idx);
+    /* the bend: the tube's centre wanders with distance, so it curves away */
+    const ox = Math.sin(z * .32 + MC.drift * .21) * z * .1, oy = Math.cos(z * .27 + MC.drift * .17) * z * .07 - z * .02;
+    const xs = new Float32Array(SEG), ys = new Float32Array(SEG);
+    let mean = 0;
+    for (let k = 0; k < SEG; k++) {
+      const a = k / SEG * 6.2832, u = (1 - Math.sin(a)) / 2, lv = bdBand(row, u);
+      mean += lv;
+      const r = 1 - .42 * lv, an = a + roll + idx * .015;
+      xs[k] = w / 2 + (ox + Math.cos(an) * r) * F / z; ys[k] = h / 2 + (oy + Math.sin(an) * r) * F / z;
+    }
+    mean /= SEG;
+    const fog = Math.pow(Math.max(0, 1 - z / zFar), 1.3), near = Math.min(1, (z - .3) / .35);
+    const playing = Math.max(0, 1 - Math.abs(idx - P.fp));
+    const a = Math.min(1, .85 * fog * near * (.6 + .4 * MC.live) + playing * K * .5);
+    const c = bdMix(bdColAt(cols, Math.min(1, mean * 1.4)), white, Math.min(.8, mean * .3 + playing * K * .5));
+    g.beginPath(); g.moveTo(xs[0], ys[0]);
+    for (let k = 1; k < SEG; k++) g.lineTo(xs[k], ys[k]);
+    g.closePath();
+    g.strokeStyle = bdRgba(c, a); g.lineWidth = lw * Math.min(4, .5 + .7 / z); g.stroke();
+    rings.push({ xs: xs, ys: ys, a: a });
+  }
+  /* rails along the tube, joining every sixth point ring to ring */
+  g.lineWidth = lw * .8;
+  for (let k = 0; k < SEG; k += 6) {
+    g.beginPath();
+    for (let j = 0; j < rings.length; j++) { const r = rings[j]; if (j) g.lineTo(r.xs[k], r.ys[k]); else g.moveTo(r.xs[k], r.ys[k]); }
+    g.strokeStyle = bdRgba(cols[cols.length - 1], .1 + MC.loud * .08); g.stroke();
+  }
+  g.globalCompositeOperation = 'source-over';
+}
+
+/* Synthwave: the 80s flyover. A wireframe land made of the spectrum, a flat
+   road down the middle and mountains either side (bass nearest the road,
+   treble out on the flanks), skimmed by a low camera toward a striped sun in
+   the cover's colours. The coming music is the land ahead. */
+/* Synthwave Cover (19 Oct 2026, the user: "album art ... making it into the
+   sun"): the cover inside the sun's disc, warmed by a sunset wash in the
+   cover's own colours that is brightest at the top, a hot rim, and the
+   classic bands cut across its lower part. Made once per cover on a small
+   canvas; the bands and the glow are drawn live over it. */
+function bdSunArt(cols) {
+  const key = BD.imgId + '|' + cols.map(c => c.join(',')).join('|');
+  if (BD.sunArt && BD.sunArtKey === key) return BD.sunArt;
+  const N = 256, c = document.createElement('canvas'); c.width = c.height = N;
+  const x = c.getContext('2d'), white = [255, 255, 255];
+  x.beginPath(); x.arc(N / 2, N / 2, N / 2, 0, 6.2832); x.clip();
+  x.drawImage(BD.img, 0, 0, N, N);
+  const wash = x.createLinearGradient(0, 0, 0, N);
+  wash.addColorStop(0, bdRgba(bdMix(cols[0], white, .55), 1)); wash.addColorStop(1, bdRgba(cols[cols.length - 1], 1));
+  x.globalCompositeOperation = 'soft-light'; x.fillStyle = wash; x.fillRect(0, 0, N, N);
+  x.globalCompositeOperation = 'screen'; x.globalAlpha = .28; x.fillRect(0, 0, N, N); x.globalAlpha = 1;
+  const rim = x.createRadialGradient(N / 2, N / 2, N * .3, N / 2, N / 2, N / 2);
+  rim.addColorStop(0, bdRgba(cols[cols.length - 1], 0)); rim.addColorStop(1, bdRgba(bdMix(cols[cols.length - 1], white, .3), .55));
+  x.fillStyle = rim; x.fillRect(0, 0, N, N);
+  BD.sunArt = c; BD.sunArtKey = key;
+  return c;
+}
+function bdSynth(g, w, h, now, cover) {
+  /* a row of land every fifth of a second (19 Oct 2026): at one a tenth the
+     road's alike rows moved half a gap a frame whenever the frame rate dipped,
+     and read as the land running backward */
+  const P0 = bdSpecPos(), P = { f: P0.f, fp: P0.fp / 2, top: Math.floor(P0.fp / 2) };
+  const K = MC.kick * BD.amp, cols = bdArtCols(), ground = bdGround(), white = [255, 255, 255];
+  /* the camera is never quite still: it drifts left and right across the road,
+     rises and sinks a little, and looks a touch up and down and to the side,
+     each on its own slow beat of music time, so the horizon and the sun
+     wander gently while staying the vanishing point */
+  const D_ = MC.drift, pan = w * (.035 * Math.sin(D_ * .043 + .6) + .015 * Math.sin(MC.dir));
+  const hor = h * (.44 + .025 * Math.sin(D_ * .052 + 2)), F = w * .55, cx = w / 2 + pan;
+  /* sky to the horizon, warming toward it */
+  const sky = g.createLinearGradient(0, 0, 0, hor);
+  sky.addColorStop(0, bdRgba(ground, 1)); sky.addColorStop(1, bdRgba(bdMix(ground, cols[cols.length - 1], .35), 1));
+  g.fillStyle = sky; g.fillRect(0, 0, w, hor + 1);
+  g.fillStyle = bdRgba(ground, 1); g.fillRect(0, hor, w, h - hor);
+  /* the sun, sliced by the classic bands, swelling a touch on the hit */
+  /* with the cover the sun stands higher, so most of the picture clears the
+     horizon, and the bands drift slowly down through its lower part */
+  const art = cover && BD.img;
+  const sx = cx, sr = h * (art ? .24 : .21) * (1 + K * .04 + MC.loud * .03), sy0 = hor - sr * (art ? .5 : .15);
+  g.save(); g.beginPath(); g.rect(0, 0, w, hor); g.clip();
+  if (art) {
+    let sun = null;
+    try { sun = bdSunArt(cols); } catch (e) { }
+    if (sun) g.drawImage(sun, sx - sr, sy0 - sr, sr * 2, sr * 2);
+    if (K > .02) { g.globalCompositeOperation = 'lighter'; g.globalAlpha = Math.min(.35, K * .3); if (sun) g.drawImage(sun, sx - sr, sy0 - sr, sr * 2, sr * 2); g.globalAlpha = 1; g.globalCompositeOperation = 'source-over'; }
+  } else {
+    const sg = g.createLinearGradient(0, sy0 - sr, 0, hor);
+    sg.addColorStop(0, bdRgba(bdMix(cols[0], white, .45), 1)); sg.addColorStop(1, bdRgba(bdMix(cols[cols.length - 1], white, .1), 1));
+    g.beginPath(); g.arc(sx, sy0, sr, 0, 6.2832); g.fillStyle = sg; g.fill();
+  }
+  g.fillStyle = bdRgba(bdMix(ground, cols[cols.length - 1], .3), 1);
+  if (art) {
+    const drift = (MC.drift * .06) % 1;
+    for (let i = 0; i < 6; i++) { const u = (i + drift) / 6, y = sy0 + sr * (.05 + u * .9), th = sr * (.01 + u * .07); g.fillRect(sx - sr, y - th, sr * 2, th); }
+  } else for (let i = 0; i < 6; i++) { const y = hor - sr * (.08 + i * .13), th = sr * (.012 + i * .012); g.fillRect(sx - sr, y - th, sr * 2, th); }
+  g.restore();
+  const glow = g.createRadialGradient(sx, sy0, sr * .8, sx, sy0, sr * 2.2);
+  glow.addColorStop(0, bdRgba(cols[cols.length - 1], .18 + MC.loud * .1)); glow.addColorStop(1, bdRgba(cols[cols.length - 1], 0));
+  g.globalCompositeOperation = 'lighter'; g.fillStyle = glow; g.fillRect(0, 0, w, hor); g.globalCompositeOperation = 'source-over';
+  /* the land, far rows first, each hiding what is behind it */
+  const RW = IS_TV ? 34 : 42, NC = 33, dz = .2, z0 = .45, camH = .5 + Math.sin(D_ * .061) * .1, camX = .28 * Math.sin(D_ * .037) + .08 * Math.sin(MC.dir);
+  const lw = Math.max(1, h / 450), line = bdMix(cols[0], white, .2);
+  let pxs = null, pys = null;
+  for (let j = RW; j >= -2; j--) {
+    const idx = P.top + j, z = (idx - P.fp) * dz + z0;
+    if (z < .12) continue;
+    const row = bdSpecRow(P.f, idx * 2), xs = new Float32Array(NC), ys = new Float32Array(NC);
+    /* a new row comes up out of the horizon flat and grows as it nears, so
+       nothing pops in at the back (19 Oct 2026, "it glitches a little": the
+       beat lift was keyed to a row's place in the list, so it jumped from row
+       to row as they moved, and the far row arrived at full height) */
+    const zFar = RW * dz + z0, rise = Math.min(1, Math.max(0, (zFar - z) / (dz * 6)));
+    for (let k = 0; k < NC; k++) {
+      const x = (k / (NC - 1) * 2 - 1) * 3.2, ax = Math.abs(x);
+      let y = 0;
+      if (ax > .35) { const u = Math.min(1, (ax - .35) / 2.6); y = bdBand(row, u) * (.15 + 1.05 * u) * rise * (1 + K * .25 * Math.max(0, 1 - Math.abs(idx - P.fp) / 4)); }
+      xs[k] = cx + (x - camX) * F / z; ys[k] = hor + (camH - y) * F / z;
+    }
+    const fog = Math.pow(Math.max(0, 1 - z / zFar), .7), a = Math.min(1, .9 * fog * rise + .1 * rise), base = hor + camH * F / z;
+    /* the rungs from the row behind to this one */
+    if (pxs) {
+      g.beginPath();
+      for (let k = 0; k < NC; k++) { g.moveTo(pxs[k], pys[k]); g.lineTo(xs[k], ys[k]); }
+      g.strokeStyle = bdRgba(line, a * .7); g.lineWidth = lw; g.stroke();
+    }
+    g.beginPath(); g.moveTo(xs[0], ys[0]);
+    for (let k = 1; k < NC; k++) g.lineTo(xs[k], ys[k]);
+    g.lineTo(xs[NC - 1], base + lw); g.lineTo(xs[0], base + lw); g.closePath();
+    g.fillStyle = bdRgba(ground, 1); g.fill();
+    g.beginPath(); g.moveTo(xs[0], ys[0]);
+    for (let k = 1; k < NC; k++) g.lineTo(xs[k], ys[k]);
+    const playing = Math.max(0, 1 - Math.abs(idx - P.fp));
+    g.strokeStyle = bdRgba(bdMix(line, white, playing * K * .6), a); g.lineWidth = lw * Math.min(3, .6 + .5 / z); g.stroke();
+    pxs = xs; pys = ys;
+  }
+}
+
+/* Skyline: the LED meter grown into a city. 20 bands across and the last
+   two and a half seconds going back, each a tower as tall as that band was
+   loud, coloured from the cover across the bands, the camera circling. */
+function bdSkyline(g, w, h, now) {
+  g.fillStyle = bdCol(0); g.fillRect(0, 0, w, h);
+  const P = bdSpecPos(), K = MC.kick * BD.amp, cols = bdArtCols(), ground = bdGround();
+  const D = IS_TV ? 9 : 13, step = 2;                     // a row every fifth of a second; each row is 20 boxes to sort and fill, the dearest thing here
+  const fq = P.fp / step, top = Math.floor(fq), frac = fq - top;
+  const yaw = MC.drift * .1 + Math.sin(MC.dir) * .35, pitch = .55 + Math.sin(MC.drift * .09) * .12;
+  const cy = Math.cos(yaw), sy = Math.sin(yaw), cp = Math.cos(pitch), sp = Math.sin(pitch);
+  const F = w * .72, dist = 5, mid = h * .54, cx = w / 2;
+  const NB = 20, cs = 3.2 / NB, fw = cs * .78, zs = 2.2 / D, zh = zs * .39;
+  /* where the camera stands in the city, to know which two sides of a tower face it */
+  const camX = -dist * cp * sy, camZ = -dist * cp * cy;
+  /* each band's colour, once a frame */
+  const bc = [];
+  for (let b = 0; b < NB; b++) bc.push(bdColAt(cols, b / (NB - 1)));
+  const boxes = [];
+  for (let j = 0; j <= D; j++) {
+    const row = bdSpecRow(P.f, (top - j) * step), z = -1.1 + (j + frac) * zs;
+    /* the back third sinks into the floor and darkens to it, so a row goes
+       away instead of vanishing (19 Oct 2026, "the blocks drop off
+       dramatically"); the front row grows up out of the floor */
+    const age = (j + frac) / (D + 1), u = Math.max(0, Math.min(1, (age - .45) / .55)), fade = 1 - u * u * (3 - 2 * u);
+    if (fade <= .01) continue;
+    for (let b = 0; b < NB; b++) {
+      const lv = bdBand(row, b / (NB - 1)), x = -1.6 + (b + .5) * cs;
+      const hgt = (.02 + lv * 1.1 * (1 + K * .25 * Math.max(0, 1 - (j + frac) / 2))) * (j === 0 ? Math.min(1, frac * 2.5) : 1) * (.15 + .85 * fade);
+      const Z = x * sy + z * cy;
+      boxes.push({ x: x, z: z, h: hgt, d: -hgt * .5 * sp + Z * cp, b: b, lv: lv, fade: fade, j: j });
+    }
+  }
+  boxes.sort((p, q) => q.d - p.d);
+  const sx = new Float32Array(8), syy = new Float32Array(8);
+  const put = (i, x, y, z) => {
+    const X = x * cy - z * sy, Z = x * sy + z * cy, Zt = Math.max(.3, -y * sp + Z * cp + dist), k = F / Zt;
+    sx[i] = cx + X * k; syy[i] = mid - (y * cp + Z * sp) * k;
+  };
+  const quad = (a, b, c, d, r, gg, bb) => {
+    g.beginPath(); g.moveTo(sx[a], syy[a]); g.lineTo(sx[b], syy[b]); g.lineTo(sx[c], syy[c]); g.lineTo(sx[d], syy[d]); g.closePath();
+    g.fillStyle = 'rgb(' + (r | 0) + ',' + (gg | 0) + ',' + (bb | 0) + ')'; g.fill();
+  };
+  for (let n = 0; n < boxes.length; n++) {
+    const B = boxes[n], x0 = B.x - fw / 2, x1 = B.x + fw / 2, z0 = B.z - zh, z1 = B.z + zh;
+    put(0, x0, 0, z0); put(1, x1, 0, z0); put(2, x1, 0, z1); put(3, x0, 0, z1);
+    put(4, x0, B.h, z0); put(5, x1, B.h, z0); put(6, x1, B.h, z1); put(7, x0, B.h, z1);
+    /* the top in the band's colour, whiter where loud and on the hit, sinking
+       into the ground as the row ages; the sides in two shades of it */
+    const c = bc[B.b], wt = Math.min(.6, B.lv * .35 + (B.j === 0 ? K * .5 : 0)), f = B.fade;
+    const r = ground[0] + (c[0] + (255 - c[0]) * wt - ground[0]) * f, gg = ground[1] + (c[1] + (255 - c[1]) * wt - ground[1]) * f, bb = ground[2] + (c[2] + (255 - c[2]) * wt - ground[2]) * f;
+    if (camZ < z0) quad(0, 1, 5, 4, ground[0] + (r - ground[0]) * .45, ground[1] + (gg - ground[1]) * .45, ground[2] + (bb - ground[2]) * .45);
+    else if (camZ > z1) quad(2, 3, 7, 6, ground[0] + (r - ground[0]) * .45, ground[1] + (gg - ground[1]) * .45, ground[2] + (bb - ground[2]) * .45);
+    if (camX < x0) quad(3, 0, 4, 7, ground[0] + (r - ground[0]) * .62, ground[1] + (gg - ground[1]) * .62, ground[2] + (bb - ground[2]) * .62);
+    else if (camX > x1) quad(1, 2, 6, 5, ground[0] + (r - ground[0]) * .62, ground[1] + (gg - ground[1]) * .62, ground[2] + (bb - ground[2]) * .62);
+    quad(4, 5, 6, 7, r, gg, bb);
+  }
+}
+
+/* Planet: the song written onto a turning globe. Each reading is a meridian,
+   bass at the south pole and treble at the north, raised where it was loud;
+   the newest is laid down at the front left and the globe carries the last
+   six seconds round with it, the oldest disappearing round the back. */
+function bdPlanet(g, w, h, now) {
+  const ground = bdGround(), cols = bdArtCols(), white = [255, 255, 255], K = MC.kick * BD.amp;
+  g.fillStyle = bdRgba(ground, 1); g.fillRect(0, 0, w, h);
+  /* a still field of stars, drifting very slowly */
+  if (!BD.stars) { BD.stars = []; for (let i = 0; i < 90; i++) BD.stars.push([Math.random(), Math.random(), Math.random()]); }
+  for (let i = 0; i < BD.stars.length; i++) {
+    const s = BD.stars[i], x = ((s[0] + MC.drift * .004 * (.5 + s[2])) % 1) * w, y = s[1] * h;
+    g.fillStyle = bdRgba(white, .15 + .35 * s[2]); g.fillRect(x, y, 1 + s[2], 1 + s[2]);
+  }
+  /* a meridian every fifth of a second, so a turn is 12.8 s (19 Oct 2026:
+     "rotate slower"), and the camera rises and sinks slowly over the poles */
+  const P0 = bdSpecPos(), T = 64, LAT = 26, cx = w / 2, cyS = h * .5, F = h * 1.25, D = 4;
+  const P = { f: P0.f, fp: P0.fp / 2, top: Math.floor(P0.fp / 2), frac: P0.fp / 2 - Math.floor(P0.fp / 2) };
+  const tilt = .32 + Math.sin(MC.drift * .045) * .26, ct = Math.cos(tilt), st = Math.sin(tilt);
+  const lon0 = -.55 + Math.sin(MC.dir) * .15;
+  const R0 = F / Math.sqrt(D * D - 1);
+  /* the air: a halo that breathes with the loudness and the hit */
+  const halo = g.createRadialGradient(cx, cyS, R0 * .9, cx, cyS, R0 * 1.6);
+  halo.addColorStop(0, bdRgba(cols[cols.length - 1], .16 + MC.loud * .12 + K * .15)); halo.addColorStop(1, bdRgba(cols[cols.length - 1], 0));
+  g.fillStyle = halo; g.fillRect(0, 0, w, h);
+  const grad = g.createLinearGradient(0, cyS - R0 * 1.3, 0, cyS + R0 * 1.3);
+  for (let i = 0; i < cols.length; i++) grad.addColorStop(i / (cols.length - 1), bdRgba(bdMix(cols[cols.length - 1 - i], white, .15), 1));
+  const lw = Math.max(1, h / 420);
+  const pass = front => {
+    for (let m = T - 1; m >= 0; m--) {
+      const idx = P.top - m, row = bdSpecRow(P.f, idx * 2), age = (m + P.frac) / T;
+      const L = lon0 + (P.fp - idx) * 6.2832 / T, sl = Math.sin(L), cl = Math.cos(L);
+      let open = false;
+      g.beginPath();
+      for (let k = 0; k <= LAT; k++) {
+        const lat = -1.35 + 2.7 * k / LAT, u = k / LAT, cL = Math.cos(lat);
+        const r = 1 + .3 * bdBand(row, u) * Math.pow(cL, .7) * (m === 0 ? P.frac : 1) * (1 + (m < 3 ? K * .3 : 0));
+        const sw = .16 * bdBand(row, u) * cL * (m === 0 ? P.frac : 1), sl2 = Math.sin(L + sw), cl2 = Math.cos(L + sw);
+        const x = r * cL * sl2, y = r * Math.sin(lat), z = r * cL * cl2;
+        const y2 = y * ct - z * st, z2 = y * st + z * ct;
+        const vis = cL * cl * ct + Math.sin(lat) * st > -.02;   // the surface point faces us
+        if (vis !== front) { open = false; continue; }
+        const s = F / (D - z2), px = cx + x * s, py = cyS - y2 * s;
+        if (open) g.lineTo(px, py); else { g.moveTo(px, py); open = true; }
+      }
+      const a = (front ? .25 + .75 * Math.pow(1 - age, 1.2) : .1 * (1 - age)) * (.6 + .4 * MC.live) * (m === 0 ? P.frac : 1);
+      g.globalAlpha = Math.max(0, Math.min(1, a + (front && m < 3 ? K * .3 : 0)));
+      g.lineWidth = lw * (front ? 1.3 : .8); g.stroke();
+    }
+    g.globalAlpha = 1;
+  };
+  g.strokeStyle = grad; g.lineJoin = 'round';
+  pass(false);
+  /* the body of the planet hides its far side */
+  const body = g.createRadialGradient(cx - R0 * .35, cyS - R0 * .35, R0 * .1, cx, cyS, R0);
+  body.addColorStop(0, bdRgba(bdMix(ground, cols[0], .22), .92)); body.addColorStop(1, bdRgba(ground, .92));
+  g.beginPath(); g.arc(cx, cyS, R0 * .995, 0, 6.2832); g.fillStyle = body; g.fill();
+  g.globalCompositeOperation = 'lighter'; g.strokeStyle = grad;
+  pass(true);
+  g.globalCompositeOperation = 'source-over';
+}
+
+/* Helix: the spectrum as a twisting ribbon seen from the side, like a strand
+   of DNA. Each reading is a rung across the ribbon (bass on one edge, treble
+   on the other) raised off it where it was loud; two rails run along the
+   edges. The music still to come enters from the right, crosses the middle
+   as it plays and fades out to the left, the ribbon turning about its own
+   length on music time (a little faster on the hits, eased so it never
+   jerks) while the camera drifts round it. */
+function bdHelix(g, w, h, now) {
+  g.fillStyle = bdCol(0); g.fillRect(0, 0, w, h);
+  const P = bdSpecPos(), K = MC.kick * BD.amp, cols = bdArtCols(), white = [255, 255, 255];
+  const dt = BD.dt || 0;
+  BD.hv = (BD.hv || 0) + ((.3 + .4 * MC.rate) * MC.live + K * .8 - (BD.hv || 0)) * Math.min(1, dt / .6);
+  BD.hroll = (BD.hroll || 0) + BD.hv * dt;
+  const HALF = IS_TV ? 26 : 32, N = 30, dx = .095, W = .62, F = w * .56, D = 3.6, mid = h * .5;
+  /* the camera circles part way round the strand and rises and dips as it
+     goes, slowly, on music time (19 Oct 2026: "revolve around it a little
+     bit and change elevation slightly") */
+  const yaw = .48 * Math.sin(MC.drift * .075) + Math.sin(MC.dir) * .12, cy = Math.cos(yaw), sy = Math.sin(yaw);
+  const tilt = .12 + Math.sin(MC.drift * .053 + 1) * .24, ct = Math.cos(tilt), st = Math.sin(tilt);
+  const proj = (x, y, z) => {
+    const X = x * cy - z * sy, Z = x * sy + z * cy, Y = y * ct - Z * st, Z2 = y * st + Z * ct + D;
+    const s = F / Math.max(.4, Z2); return [w / 2 + X * s, mid - Y * s];
+  };
+  const lw = Math.max(1, h / 420), rails = [[], []];
+  g.globalCompositeOperation = 'lighter'; g.lineJoin = 'round';
+  for (let j = HALF; j >= -HALF; j--) {
+    const idx = P.top + j, x = (idx - P.fp) * dx + .25;
+    const row = bdSpecRow(P.f, idx), th = idx * .16 + BD.hroll;
+    const ny = Math.cos(th), nz = Math.sin(th), by = -nz, bz = ny;
+    const xs = new Float32Array(N), ys = new Float32Array(N);
+    for (let k = 0; k < N; k++) {
+      const u = k / (N - 1), s = u * 2 - 1, env = Math.exp(-Math.pow(s / .85, 4));
+      const lift = bdBand(row, u) * .38 * env * (1 + (Math.abs(idx - P.fp) < 2 ? K * .35 : 0));
+      const q = proj(x, ny * s * W + by * lift, nz * s * W + bz * lift);
+      xs[k] = q[0]; ys[k] = q[1];
+    }
+    /* the coming music is a little dimmer than the played; both fade at the ends */
+    const e = Math.abs(j + P.frac) / HALF, ends = Math.max(0, 1 - Math.pow(e, 2.2));
+    const playing = Math.max(0, 1 - Math.abs(idx - P.fp));
+    const a = Math.min(1, (j > 0 ? .55 : .9) * ends * (.6 + .4 * MC.live) + playing * (.25 + K * .4));
+    const lg = g.createLinearGradient(xs[0], ys[0], xs[N - 1] + .01, ys[N - 1]);
+    for (let i = 0; i < cols.length; i++) lg.addColorStop(i / (cols.length - 1), bdRgba(bdMix(cols[i], white, .1 + playing * (.3 + K * .4)), a));
+    g.beginPath(); g.moveTo(xs[0], ys[0]);
+    for (let k = 1; k < N; k++) g.lineTo(xs[k], ys[k]);
+    g.strokeStyle = lg; g.lineWidth = lw * (1.1 + playing * .8); g.stroke();
+    rails[0].push(xs[0], ys[0]); rails[1].push(xs[N - 1], ys[N - 1]);
+  }
+  for (let r = 0; r < 2; r++) {
+    const q = rails[r]; if (q.length < 4) continue;
+    g.beginPath(); g.moveTo(q[0], q[1]);
+    for (let i = 2; i < q.length; i += 2) g.lineTo(q[i], q[i + 1]);
+    g.strokeStyle = bdRgba(bdMix(cols[r ? cols.length - 1 : 0], white, .35), .45); g.lineWidth = lw * 1.6; g.stroke();
+  }
+  g.globalCompositeOperation = 'source-over';
+}
+
+/* Currents (19 Oct 2026, after the Tame Impala sleeve the user sent: "a
+   ball being dragged through the sound ripples"): a field of close parallel
+   lines and a chrome ball moving through them, seen in perspective by a
+   camera that slowly circles the ball and rises and falls, always looking at
+   it. The lines part around the ball and stay parted in a long groove
+   behind it, where its trail lies; the water streams past, a swell running
+   back along the lines and swaying the groove, with glints carried along.
+   Ahead and to the sides the lines are thrown into ripples, and the ripples
+   are the music: a ring at distance r left the ball r / c seconds ago and
+   carries that moment's spectrum (bass straight ahead, treble out to the
+   sides) and that moment's beat, so a loud bar or a hit travels outward as
+   a bigger wave. World units: the ball's radius is 1, it sits at the
+   origin, the lines run along z (its heading), x across, y up. Only lines
+   near the ball are sampled finely; the rest are straight. */
+function bdCurrents(g, w, h, now) {
+  const ground = bdGround(), cols = bdArtCols(), white = [255, 255, 255], K = MC.kick * BD.amp;
+  g.fillStyle = bdRgba(ground, 1); g.fillRect(0, 0, w, h);
+  const f = MC.feat, hz = f && f.specHz ? f.specHz : 10, tm = mcPos()[0], th = !!BD.thumb;
+  const lit = BD.lit ? BD.lit[2] : [220, 200, 230];
+  const ink = bdMix(lit, white, .55), shade = bdMix(ground, [0, 0, 0], .5);
+  const D_ = MC.drift, live = .4 + .6 * MC.live;
+  const sp = IS_TV ? .38 : .27, Rw = 6.2, c = 1.25, kk = 6.2832 / (sp * 3.4), amp = sp * 1.9;
+  /* the camera circles a little and rises and falls, looking at the ball */
+  const yaw = 1.85 + .7 * Math.sin(D_ * .05) + .15 * Math.sin(MC.dir), pit = .98 + .14 * Math.sin(D_ * .031 + 1);
+  const cyw = Math.cos(yaw), syw = Math.sin(yaw), cpt = Math.cos(pit), spt = Math.sin(pit);
+  const dist = 11, F = h * 1.1, cx = w / 2, cy = h * .5;
+  let px = 0, py = 0, pd = 0;
+  const proj = (x, y, z) => {
+    const x1 = x * cyw - z * syw, z1 = x * syw + z * cyw, y0 = y - .5;
+    const y2 = y0 * cpt - z1 * spt, z2 = y0 * spt + z1 * cpt;
+    pd = dist - z2; if (pd < 2) return false;
+    const s = F / pd; px = cx + x1 * s; py = cy - y2 * s; return true;
+  };
+  /* the water's own run past the ball, faster when the song is louder */
+  BD.cfl = (BD.cfl || 0) + BD.dt * (.7 + .6 * MC.loud) * live;
+  const flow = BD.cfl, kw = 6.2832 / (sp * 7), aw = sp * .55 * (.5 + .5 * MC.mid) * live;
+  /* the beat, remembered for as long as a ring takes to cross the field */
+  if (!th) {
+    const H = BD.ckh || (BD.ckh = []);
+    if (H.length && tm < H[H.length - 1][0] - .05) H.length = 0;
+    H.push([tm, K]);
+    while (H.length > 2 && H[1][0] < tm - Rw / c - .5) H.shift();
+  }
+  /* what each ring carries, by distance (and, for the spectrum, by angle) */
+  const NB = 40, NU = 5, lvT = new Float32Array(NB * NU), kT = new Float32Array(NB), H = th ? null : BD.ckh;
+  let hp = H ? H.length - 1 : 0;
+  for (let j = 0; j < NB; j++) {
+    const rr = j / (NB - 1) * Rw, tb = tm - rr / c, fi = tb * hz, i0 = Math.floor(fi), s = fi - i0;
+    const r0 = bdSpecRow(f, i0), r1 = bdSpecRow(f, i0 + 1);
+    for (let k = 0; k < NU; k++) { const u = k / (NU - 1); lvT[j * NU + k] = bdBand(r0, u) * (1 - s) + bdBand(r1, u) * s; }
+    if (H) { while (hp > 0 && H[hp][0] > tb) hp--; kT[j] = H[hp][0] <= tb ? H[hp][1] : 0; }
+    else kT[j] = j < 6 ? K : 0;
+  }
+  /* a point of the plain field at (along al, across lat) -> its shift across
+     (dO) and its height (dY) */
+  let dO = 0, dY = 0;
+  const sway = al => al < 0 ? .32 * Math.sin(kw * .6 * (al + flow)) * (1 - Math.exp(al / 1.5)) : 0;
+  const disp = (al, lat) => {
+    /* the parting: lines near the ball pushed out to the sides, closing again
+       quickly ahead and slowly behind, the groove swaying in the wake */
+    const R1 = al > 0 ? 1.35 : 1.1, gA = al > 0 ? Math.exp(-(al * al) / 1.7) : Math.exp(-(al * al) / 45);
+    const ex = Math.exp(-(lat * lat) / (R1 * R1));
+    dO = (R1 * (lat / Math.sqrt(lat * lat + .0025)) + sway(al)) * ex * gA;
+    /* the water streaming past: a swell running back along the lines,
+       strongest beside the ball and in its wake */
+    const rr = Math.sqrt(al * al + lat * lat), wk = al < 0 ? Math.exp(al / 9) : Math.exp(-(al * al) / 6);
+    const sw = aw * (Math.exp(-(lat * lat) / 4) * wk + .45 * Math.exp(-rr / 3)) * Math.sin(kw * (al + flow) + lat * .5);
+    dO += sw; dY = sw * .4;
+    /* the ripples, ahead and to the sides, never behind */
+    if (rr > .9 && rr < Rw) {
+      const front = Math.max(0, Math.min(1, (al / rr + .35) / .8));
+      if (front > 0) {
+        const x = rr / Rw * (NB - 1), j = Math.floor(x), s = x - j;
+        const ui = Math.min(1, Math.abs(Math.atan2(lat, al)) / 2.2) * (NU - 1), k = Math.min(NU - 2, Math.floor(ui)), t = ui - k;
+        const b0 = j * NU + k, b1 = b0 + NU;
+        const L = (lvT[b0] * (1 - t) + lvT[b0 + 1] * t) * (1 - s) + (lvT[b1] * (1 - t) + lvT[b1 + 1] * t) * s;
+        const Kh = kT[j] * (1 - s) + kT[j + 1] * s;
+        const env = Math.exp(-rr / (Rw * .38)) * (1 - Math.exp(-Math.pow(rr / 1.3, 4))) * front;
+        const A = amp * (.15 + .85 * L + 1.3 * Kh) * (1 + K * .5) * env * live;
+        /* rings, bent into swirls by a slow wobble across them */
+        const ph = kk * (rr - c * tm) + 1.6 * Math.sin(lat / (sp * 5) + tm * .4) * Math.min(1, rr / Rw * 3);
+        dO += A * Math.sin(ph); dY += A * .7 * Math.cos(ph);
+      }
+    }
+  };
+  /* the field slides slowly across under the ball as it wanders */
+  const ob = 1.6 * Math.sin(D_ * .05) + .5 * Math.sin(D_ * .021 + 2), L = 18, step = sp * (IS_TV ? .6 : .45), coarse = 6;
+  const lines = [];
+  let cur = null;
+  const put = (x, y, z) => {
+    if (!proj(x, y, z)) { if (cur.length) lines.push(cur = []); return; }
+    cur.push(px, py);
+  };
+  for (let i = Math.ceil((ob - L) / sp); i * sp - ob <= L; i++) {
+    const lat = i * sp - ob, al = Math.abs(lat), z0 = -L - (i * .618 % 1) * 6;     // ragged starts, so the glints differ line to line
+    lines.push(cur = []);
+    if (al >= Rw + 1.5) { for (let z = z0; z < L; z += coarse) put(lat, 0, z); put(lat, 0, L); continue; }
+    /* behind the ball only the groove and its wake move */
+    const aS = al < 3.2 ? -L : -Math.min(Rw, al) * .5, aE = Rw + .5;
+    for (let z = z0; z < aS; z += coarse) put(lat, 0, z);
+    for (let a = aS; a <= aE; a += a < -3 ? step * 3 : step) { disp(a, lat); put(lat + dO, dY, a); }
+    for (let z = aE + coarse; z < L; z += coarse) put(lat, 0, z);
+    put(lat, 0, L);
+  }
+  const pass = (ox, oy, col, width) => {
+    g.beginPath();
+    for (let i = 0; i < lines.length; i++) {
+      const q = lines[i]; if (q.length < 4) continue;
+      g.moveTo(q[0] + ox, q[1] + oy);
+      for (let k = 2; k < q.length; k += 2) g.lineTo(q[k] + ox, q[k + 1] + oy);
+    }
+    g.strokeStyle = col; g.lineWidth = width; g.stroke();
+  };
+  const S = F / dist, lw = Math.max(1, S * sp * .42);
+  g.lineJoin = 'round'; g.lineCap = 'round';
+  /* each line as a ridge: a dark edge below, the light line above */
+  pass(lw * .35, lw * .5, bdRgba(shade, .9), lw * 1.15);
+  pass(0, 0, bdRgba(ink, .92), lw);
+  /* glints carried along the lines with the water */
+  if (g.setLineDash) {
+    g.globalCompositeOperation = 'lighter';
+    g.setLineDash([S * .25, S * 2.3, S * .15, S * 3.7]); g.lineDashOffset = flow * S;
+    pass(0, 0, bdRgba(bdMix(ink, white, .5), .28 + K * .25), lw * 1.05);
+    g.setLineDash([]); g.lineDashOffset = 0;
+    g.globalCompositeOperation = 'source-over';
+  }
+  /* the far field fades into the dark, and a shade gathers round the ball */
+  const fg = g.createLinearGradient(0, 0, 0, h * .55);
+  fg.addColorStop(0, bdRgba(ground, .9)); fg.addColorStop(1, bdRgba(ground, 0));
+  g.fillStyle = fg; g.fillRect(0, 0, w, h * .55);
+  const vg = g.createRadialGradient(cx, cy, h * .25, cx, cy, Math.sqrt(w * w + h * h) * .62);
+  vg.addColorStop(0, bdRgba(ground, 0)); vg.addColorStop(1, bdRgba(ground, .6));
+  g.fillStyle = vg; g.fillRect(0, 0, w, h);
+  /* the trail in the groove, back the way the ball came, swaying with it */
+  if (proj(0, .02, 0)) {
+    const x0 = px, y0 = py;
+    g.beginPath(); g.moveTo(x0, y0);
+    let x1 = x0, y1 = y0;
+    for (let z = -.5; z >= -7; z -= .5) if (proj(sway(z) * Math.exp(-(z * z) / 45), .02, z)) { g.lineTo(px, py); x1 = px; y1 = py; }
+    const tg = g.createLinearGradient(x0, y0, x1, y1);
+    tg.addColorStop(0, bdRgba(bdMix(cols[0], white, .1), 1)); tg.addColorStop(.6, bdRgba(cols[cols.length - 1], .8)); tg.addColorStop(1, bdRgba(cols[cols.length - 1], 0));
+    g.strokeStyle = tg; g.lineWidth = S * .32; g.stroke();
+  }
+  /* the ball: its shadow on the field, then chrome */
+  proj(0, .55, 0);
+  const bx = px, by = py, Rb = F / pd * (1 + K * .04);
+  proj(.35, 0, -.25);
+  const shx = px, shy = py;
+  g.save(); g.translate(shx, shy); g.scale(1, Math.max(.3, spt));
+  const sh = g.createRadialGradient(0, 0, Rb * .5, 0, 0, Rb * 1.6);
+  sh.addColorStop(0, 'rgba(0,0,0,.55)'); sh.addColorStop(1, 'rgba(0,0,0,0)');
+  g.fillStyle = sh; g.fillRect(-Rb * 1.7, -Rb * 1.7, Rb * 3.4, Rb * 3.4); g.restore();
+  const ball = g.createRadialGradient(bx - Rb * .38, by - Rb * .42, Rb * .04, bx, by, Rb);
+  ball.addColorStop(0, '#fff'); ball.addColorStop(.12, '#e2e2e6'); ball.addColorStop(.42, '#8a8a92');
+  ball.addColorStop(.78, '#2c2c32'); ball.addColorStop(.93, '#18181c'); ball.addColorStop(1, '#3a3a40');
+  g.beginPath(); g.arc(bx, by, Rb, 0, 6.2832); g.fillStyle = ball; g.fill();
+  /* the trail's colour caught on the underside, and the field's light on the rim */
+  g.globalCompositeOperation = 'lighter';
+  const rim = g.createRadialGradient(bx + Rb * .2, by + Rb * .55, 0, bx + Rb * .2, by + Rb * .55, Rb * .7);
+  rim.addColorStop(0, bdRgba(cols[0], .45 + K * .3)); rim.addColorStop(1, bdRgba(cols[0], 0));
+  g.beginPath(); g.arc(bx, by, Rb, 0, 6.2832); g.fillStyle = rim; g.fill();
+  g.beginPath(); g.arc(bx, by, Rb * .97, 3.6, 5.6); g.strokeStyle = bdRgba(ink, .35); g.lineWidth = Rb * .04; g.stroke();
+  g.globalCompositeOperation = 'source-over';
 }
 
 /* a thumbnail of each style for the picker: one still frame on a small canvas */
 function bdThumb(cv, id) {
   const g = cv.getContext('2d'); cv.width = 160; cv.height = 90;
   const w = 160, h = 90, t = 12;
+  /* posed as if a song were playing at a moderate level, since the sheet
+     usually opens with the clock at rest and the styles would all look asleep */
+  const keep = {};
+  const pose = { live: 1, loud: .55, low: .5, mid: .5, high: .45, beat: .3, kick: .35, beatStr: .8, phase: .4, conf: .8 };
+  bdLitPal(); BD.dt = 1 / 60;
+  for (const k in pose) { keep[k] = MC[k]; MC[k] = pose[k]; }
+  try { bdThumbDraw(g, id, w, h, t); } finally { for (const k in keep) MC[k] = keep[k]; }
+}
+function bdThumbDraw(g, id, w, h, t) {
+  if (id === 'cycle') {
+    /* three slices of three styles: what the rule does, not a style of its own */
+    const parts = ['glow', 'aurora', 'kaleido'];
+    for (let i = 0; i < 3; i++) {
+      g.save(); g.beginPath(); g.rect(i * w / 3, 0, w / 3 + 1, h); g.clip();
+      const sub = document.createElement('canvas'); bdThumb(sub, parts[i]); g.drawImage(sub, 0, 0);
+      g.restore();
+    }
+    return;
+  }
   if (id === 'smoke' || id === 'gradient') {
     const lg = g.createLinearGradient(0, 0, w, h); lg.addColorStop(0, bdCol(0)); lg.addColorStop(.6, bdCol(1)); lg.addColorStop(1, bdCol(2, .7));
     g.fillStyle = lg; g.fillRect(0, 0, w, h);
     if (id === 'smoke') { g.globalAlpha = .35; for (let i = 0; i < 6; i++) { const r = g.createRadialGradient(w * (.2 + i * .13), h * (.3 + (i % 2) * .4), 0, w * (.2 + i * .13), h * (.3 + (i % 2) * .4), 40); r.addColorStop(0, bdCol(2, .8)); r.addColorStop(1, bdCol(2, 0)); g.fillStyle = r; g.fillRect(0, 0, w, h); } g.globalAlpha = 1; }
   } else if (id === 'sleeve') bdSleeve(g, w, h, t);
   else if (id === 'aurora') bdAurora(g, w, h, t);
-  else if (id === 'embers') { const m = BD.motes; BD.motes = null; bdEmbers(g, w, h, t); BD.motes = m; }
-  else if (id === 'grain') { const n = BD.noise; BD.noise = null; bdGrain(g, w, h, t); BD.noise = n; }
+  else if (id === 'embers') { const m = BD.motes; BD.motes = null; bdEmbers(g, w, h, t, 0); BD.motes = m; }
+  else if (id === 'grain') { const n = BD.noise; BD.noise = null; bdGrain(g, w, h, t, 0); BD.noise = n; }
+  else if (id === 'glow') bdGlow(g, w, h, t);
+  else if (id === 'flow') { const f = BD.flow; BD.flow = null; for (let i = 0; i < 70; i++) bdFlow(g, w, h, t + i / 60, 1 / 60); BD.flow = f; }
+  else if (id === 'kaleido') { const k = BD.kang; bdKaleido(g, w, h, t, 0); BD.kang = k; }
+  else if (id.indexOf('ridges') === 0) { const c = BD.rcache; BD.rcache = null; bdRidges(g, w, h, 0, id); BD.rcache = c; }
+  else if (id === 'leds') {
+    /* a made-up reading that looks like music: bass high, a falling slope, a
+       trail of a few earlier ones */
+    const l = BD.led, f = MC.feat, nb = 20, dt = BD.dt; MC.feat = null;
+    const lv = new Float32Array(nb); for (let b = 0; b < nb; b++) lv[b] = Math.max(.1, .85 - b * .03 + Math.sin(b * 2.3) * .12);
+    BD.led = { lv: lv, pk: lv.map(v => Math.min(1, v + .1)), hold: new Float32Array(nb).fill(1), hist: [0, 1, 2, 3, 4, 5].map(j => lv.map((v, b) => v * (.9 + .1 * Math.sin(j + b)))), acc: .5 };
+    BD.dt = 0; bdLeds(g, w, h, 0); BD.led = l; MC.feat = f; BD.dt = dt;
+  }
+  else if (['tunnel', 'synth', 'synthart', 'skyline', 'planet', 'helix', 'currents'].indexOf(id) >= 0) {
+    /* made-up readings (the song may not be analysed), cached apart */
+    const c = BD.scache, hr = BD.hroll, hv = BD.hv; BD.scache = null; BD.thumb = true;
+    try { ({ tunnel: bdTunnel, synth: bdSynth, synthart: (a, b, c, d) => bdSynth(a, b, c, d, true), skyline: bdSkyline, planet: bdPlanet, helix: bdHelix, currents: bdCurrents })[id](g, w, h, 0); }
+    finally { BD.thumb = false; BD.scache = c; BD.hroll = hr; BD.hv = hv; }
+  }
+  else if (id === 'pulse') { const r = BD.rings, now = performance.now(); BD.rings = [{ t0: now - 700, a: .9, d: 2.4 }, { t0: now - 1500, a: .7, d: 2.4 }]; bdPulse(g, w, h, now); BD.rings = r; }
 }
-
 function bdSet(id) {
   BD.style = id; try { store['jb.backdrop'] = id; } catch (e) { }
+  if (id === 'cycle') { BD.cycled = null; const k = BD.songKey; BD.songKey = null; bdSong(k); }   // pick for the song already on
   bdApply();
+}
+function bdSetKar(m) {
+  BD.karbd = m; try { store['jb.karbd'] = m; } catch (e) { }
+  bdKarLift();
 }
 function bdSetMotion(m) {
   BD.motion = m; try { store['jb.motion'] = m; } catch (e) { }
@@ -1819,6 +3416,7 @@ function openPrefsSheet() {
   const note = document.createElement('div'); note.className = 'prefnote'; b.appendChild(note);
   const paintNote = () => {
     if (BD.style === 'smoke' && bdEffective() !== 'smoke') { note.className = 'prefnote warn'; note.textContent = 'This screen could not keep Smoke smooth, so Gradient is shown instead. Pick another style, or it retries tomorrow.'; }
+    else if (BD.style === 'cycle') { note.className = 'prefnote'; note.textContent = 'A different style for every song, never the same one twice in a row. Every style takes its colours from the record playing. Saved on this device only.'; }
     else { note.className = 'prefnote'; note.textContent = 'Every style takes its colours from the record playing. Saved on this device only.'; }
   };
   paintNote();
@@ -1836,6 +3434,7 @@ function openPrefsSheet() {
 
   eyebrow('Motion');
   row('How much the backdrop moves', seg([['full', 'Full'], ['calm', 'Calm'], ['still', 'Still']], BD.motion, bdSetMotion));
+  row('Behind the karaoke lyrics', seg([['glow', 'Classic glow'], ['same', 'Same as music']], BD.karbd, bdSetKar));
 
   eyebrow('When the room goes quiet');
   let idleCur = 3; try { if (store['jb.idle'] != null && store['jb.idle'] !== '') idleCur = +store['jb.idle']; } catch (e) { }
@@ -2071,7 +3670,19 @@ async function pollRemote() {
     OUT.dur = st.duration || 0;
     /* a speaker reports the OLD position for a moment after a seek, so let the
        requested position stand until it has caught up */
-    if (Date.now() > (OUT.seekHold || 0)) OUT.pos = st.position || 0;
+    if (Date.now() > (OUT.seekHold || 0)) {
+      /* The report is whole seconds, a poll and a half apart. The backdrops
+         read the position sixty times a second (mcPos carries it forward from
+         OUT.posAt), so the clock runs on between polls and is only re-anchored
+         when the count turns over and the prediction is off, or has drifted
+         well clear (a seek, a stall) -- the same idea as the karaoke clock. */
+      const p = st.position || 0, now = performance.now();
+      const pred = remotePaused ? OUT.pos : OUT.pos + (now - (OUT.posAt || now)) / 1000;
+      if (p !== OUT.lastP && Math.abs(pred - (p + .15)) > .35) OUT.pos = p + .15;
+      else if (Math.abs(pred - p) > 1.6) OUT.pos = p;
+      else OUT.pos = pred;
+      OUT.lastP = p; OUT.posAt = now;
+    }
     /* don't fight the finger: ignore polled volume right after a local drag */
     if (typeof st.volume === 'number' && Date.now() > OUT.volHold) {
       OUT.muted = !!st.muted; paintVol(st.volume);
@@ -2109,6 +3720,7 @@ function adoptRemoteTrack() {
   P.playId = null;
   paintNow();
   refreshHeart();
+  bdSong('tr' + t.id);
   paletteForTrack(t);
   post('/api/play/start', { track_id: t.id, room: OUT.name })
     .then(r => { P.playId = r.play_id; }).catch(() => {});
@@ -2119,6 +3731,7 @@ function adoptRemoteTrack() {
 async function startCurrent() {
   const t = trackOf(); if (!t) return;
   if (KAR.on) karClose();                    // the stems must not carry on under the new song
+  bdSong('tr' + t.id);                       // Cycle's new backdrop, if that is the setting
   if (OUT.kind === 'sonos') {
     try { audio.pause(); } catch (e) {}
     paintNow();
@@ -2133,7 +3746,7 @@ async function startCurrent() {
         const at = OUT.handoff; OUT.handoff = 0;
         /* pick up where the previous output had got to */
         fanOut(ip => post('/api/sonos/seek', { ip, seconds: at })).catch(() => {});
-        OUT.pos = at;
+        OUT.pos = at; OUT.posAt = performance.now();
       }
       OUT.syncHold = Date.now() + 2500;   // and the transition once it has
     } catch (e) { OUT.syncHold = 0; toast('Could not reach ' + OUT.name); return; }
@@ -2420,7 +4033,7 @@ function seekTo(frac) {
   const at = Math.max(0, Math.min(dur - 1, frac * dur));
   OUT.seekHold = Date.now() + 1200;
   if (OUT.kind === 'sonos') {
-    OUT.pos = at;
+    OUT.pos = at; OUT.posAt = performance.now();
     fanOut(ip => post('/api/sonos/seek', { ip, seconds: Math.round(at) }))
       .catch(() => toast('Could not seek on ' + OUT.name));
   } else {
@@ -2727,11 +4340,12 @@ let paneMode = store['jb.pane'] || 'lyr';
 function openNP() {
   if (!hasNow()) return;
   $('#np').classList.add('open');
+  document.body.classList.add('npon');       // the backdrop rises to sit just under the panel
   showPane(paneMode);
   if (FGN.on) foreignRepaint(); else { refreshHeart(); paintNow(); }
   tvEnter($('#np'));
 }
-function closeNP() { $('#np').classList.remove('open'); if (!tvExit()) tvFocusSection(); }
+function closeNP() { $('#np').classList.remove('open'); document.body.classList.remove('npon'); if (!tvExit()) tvFocusSection(); }
 $('#tab-lyr').onclick = () => showPane('lyr');
 $('#tab-q').onclick = () => showPane('q');
 function showPane(m) {
@@ -3221,6 +4835,58 @@ function tvMove(dir) {
     const k = from.parentNode.querySelector('.krow:not([hidden])');
     if (k) { setTvFocus(k); return; }
   }
+  /* Up/Down inside a track list step to the neighbouring song in the list's
+     own order, never the nearest by geometry: on the TV (Chrome 74, html zoom
+     1.5) the geometric pick skipped every other song once a long list began to
+     scroll (17 Oct 2026). In a two-column list, Down from the foot of the left
+     column carries on at the top of the right one, so a top 100 is walked in
+     order; Left/Right still cross the columns. Off either end of the list,
+     geometry takes over again. */
+  /* Up/Down on the A-Z rail step to the next letter that has anything, in
+     order. The letters are ~20px tall and the row band below is 40px, so two
+     or three counted as equally near and Up could land past one: S to U with
+     no way to T (user, 17 Oct 2026). Moving scrolls the list there, as a
+     finger drag does. */
+  if (!horiz && from.classList.contains('rl') && from.closest('#rail')) {
+    const stepL = el => dir === 'down' ? el.nextElementSibling : el.previousElementSibling;
+    let l = stepL(from);
+    while (l && (!l.classList.contains('rl') || l.classList.contains('dim'))) l = stepL(l);
+    if (l) { setTvFocus(l); bigL(l.textContent); l.click(); setTimeout(() => $('#bigL').classList.remove('on'), 500); }
+    return;
+  }
+  /* Left from the rail: the first thing showing in the list -- the first
+     artist of the letter just picked, since picking one scrolls it to the top.
+     Looking for a tile level with the letter found none whenever the letter
+     sat beside the gap between two rows of tiles (17 Oct 2026). */
+  if (dir === 'left' && from.closest('#rail')) {
+    const shown = tvCandidates().filter(el => {
+      if (el.closest('#rail') || !$('#view').contains(el)) return false;
+      const r = el.getBoundingClientRect(); return r.top >= 0 && r.top < innerHeight - 40;
+    });
+    shown.sort((p1, p2) => { const a1 = p1.getBoundingClientRect(), a2 = p2.getBoundingClientRect();
+      return (Math.round(a1.top / 12) - Math.round(a2.top / 12)) || (a1.left - a2.left); });
+    if (shown.length) { setTvFocus(shown[0]); return; }
+  }
+  /* Left/Right along a shelf step to the neighbouring tile. Tiles past the
+     shelf's edge are clipped by its scroller, so the IntersectionObserver never
+     counted them as on screen and Right stopped at the last one showing: six
+     of twelve on the TV (user, 17 Oct 2026). Past the last tile, the rules
+     below take over ("See all", the rail). */
+  if (horiz && !inRow && from.parentNode && from.parentNode.classList &&
+      (from.parentNode.classList.contains('strip') || from.parentNode.classList.contains('shelfrow'))) {
+    const stepT = el => dir === 'right' ? el.nextElementSibling : el.previousElementSibling;
+    let t = stepT(from);
+    while (t && !(t.classList.contains('f') && tvVisible(t))) t = stepT(t);
+    if (t) { setTvFocus(t); return; }
+  }
+  let leaving = null;
+  if (!horiz && from.classList.contains('tr') && from.parentNode && from.parentNode.classList.contains('trlist')) {
+    const step = el => dir === 'down' ? el.nextElementSibling : el.previousElementSibling;
+    let sib = step(from);
+    while (sib && !(sib.classList.contains('tr') && tvVisible(sib))) sib = step(sib);
+    if (sib) { setTvFocus(sib); return; }
+    leaving = from.parentNode;                 // past the end: out of the list, never back into its other column
+  }
   if (from.id === 'soclose' && (dir === 'left' || dir === 'down')) {
     const k0 = $('#kb .kk'); if (tvVisible(k0)) { setTvFocus(k0); return; }
   }
@@ -3248,6 +4914,7 @@ function tvMove(dir) {
       if (dyc <= 4) continue;
       if (r.top < cy && r.bottom > cy) continue;                      // beside us, not above or below
       if (el.closest('.hgroup')) continue;                           // "See all" is reached with Right from its shelf, not by Up/Down
+      if (leaving && leaving.contains(el)) continue;
       if (from.classList.contains('krow') ? el.classList.contains('karart') : from.classList.contains('karart') && el.classList.contains('krow')) continue;
       /* the A-Z rail is a column of its own: from outside, Up/Down never land on
          it (Right does); from inside, Up/Down move letter to letter and nowhere else */
@@ -3276,8 +4943,10 @@ function tvMove(dir) {
     const grp = from.closest('.kargroup'); best = grp && grp.querySelector('.karart');
   }
   if (!best && horiz && dir === 'right' && !tvScopeEl()) {
-    /* the end of a shelf: Right goes to its "See all" */
-    const strip = from.closest('.strip, .shelfrow');
+    /* the end of a shelf, or of a line in a song list: Right goes to the
+       heading's link ("See all", an artist's "All songs", which no key could
+       reach before, 17 Oct 2026) */
+    const strip = from.closest('.strip, .shelfrow, .trlist');
     const hg = strip && strip.previousElementSibling;
     const more = hg && hg.classList.contains('hgroup') ? hg.querySelector('.more') : null;
     if (more) best = more;
@@ -3833,10 +5502,17 @@ async function route() {
   stampDepth();
   document.body.classList.toggle('canback', !!parentHash(curHash));
   const seg = path.split('/').filter(Boolean);
-  const v = $('#view');
+  /* Each page draws into a fresh #view. They all shared one element, so a page
+     still loading when another was opened kept appending to it: Home's shelves
+     (which take seconds on the TV) turned up above or below the album that
+     replaced it, and took d-pad stops with them (17 Oct 2026). A stale page's
+     late work now lands in the detached old element, unseen. */
+  const old = $('#view');
+  const v = document.createElement('main'); v.id = 'view';
+  old.parentNode.replaceChild(v, old);
   hideRail();
   resetFocusables();
-  v.className = 'fadein'; v.innerHTML = '';
+  v.className = 'fadein';
   /* nav highlight */
   const sect = seg[0] || '';
   const pillSect = sect === 'artist' ? 'artists' : sect === 'album' ? 'albums' : sect === 'genre' ? 'genres' : sect === 'decade' ? 'decades' : sect === 'discs' ? 'karaoke' : sect;
@@ -3871,6 +5547,7 @@ async function route() {
     console.error(err);
     v.innerHTML = '<div class="empty">Could not reach the jukebox server. ' + esc(err.message || '') + '</div>';
   }
+  if (v !== $('#view')) return;             // another page was opened meanwhile: its own route() places the ring
   requestAnimationFrame(() => {
     scrollTo(0, scrollMem[curHash] || 0);
     if (TVMODE) { if (NAV.back) tvFocusBack(curHash); else tvFocusLanding(seg); }
@@ -4374,7 +6051,7 @@ function jumpLetter(prefix, letter, instant) {
 /* ================================================================= views */
 async function vHome(v) {
   const [ax, recent, playlists, genres, decades] = await Promise.all([
-    once('axes', () => api('/api/axes')), api('/api/recent?kind=track&limit=30'),
+    once('axes', () => api('/api/axes')), api('/api/recent?kind=track&limit=100'),
     loadPlaylists(), loadGenres(), loadDecades()
   ]);
 
@@ -4422,14 +6099,14 @@ async function vHome(v) {
       d.dataset.fav = 'album:' + r.album_id;
       d.onclick = () => go('#/album/' + r.album_id + '?t=' + r.id);
       reg(d); strip.appendChild(d);
-      if (seen.size >= 12) break;
+      if (seen.size >= 25) break;
     }
     v.appendChild(strip);
   }
 
   /* -------- recently added: by the newest file each album holds */
   let added = [];
-  try { added = await api('/api/recent-added?limit=12'); } catch (e) { added = []; }
+  try { added = await api('/api/recent-added?limit=25'); } catch (e) { added = []; }
   if (added.length) {
     v.appendChild(hgroup('Recently added', 'the newest records in the library'));
     const strip = document.createElement('div'); strip.className = 'strip';
@@ -5888,7 +7565,7 @@ async function restoreSession() {
       OUT.kind = 'sonos'; OUT.ip = o.ip; OUT.name = o.name || 'Speaker';
       OUT.group = !!o.group;
       OUT.targets = (o.targets && o.targets.length) ? o.targets : [{ ip: o.ip, name: o.name }];
-      OUT.pos = stt.position || 0; OUT.dur = stt.duration || 0;
+      OUT.pos = stt.position || 0; OUT.dur = stt.duration || 0; OUT.posAt = performance.now();
       OUT.muted = !!stt.muted;
       const lbl = $('#outname'); if (lbl) lbl.textContent = OUT.name;
       const tb = $('#toutput');
@@ -5944,6 +7621,7 @@ async function restoreSession() {
         () => { try { audio.currentTime = sv.pos; } catch (e) {} }, { once: true });
     }
     paintNow(); paintPlayState(); refreshHeart();
+    bdSong('tr' + t.id);
     paletteForTrack(t);
   }
 }
@@ -5970,11 +7648,17 @@ addEventListener('visibilitychange', () => { if (!document.hidden) checkBuild();
 audio.addEventListener('error', checkBuild);
 
 /* ================================================================= boot */
-route();
-restoreSession();
-api('/api/axes').then(ax => { C.axes = ax; }).catch(() => toast('MusicMate server unreachable'));
-/* warm the big caches in the background so letter-jumps are instant */
-setTimeout(() => { loadArtists(); loadALetters(); loadGenres(); }, 800);
+/* A phone that scanned the karaoke QR code (?sing=1) only follows the room.
+   It skips the library behind the join card: Home's few dozen covers would
+   hold the browser's six connections and starve the clock polls that keep
+   the phone in time. */
+if (!/[?&]sing=1/.test(location.search)) {
+  route();
+  restoreSession();
+  api('/api/axes').then(ax => { C.axes = ax; }).catch(() => toast('MusicMate server unreachable'));
+  /* warm the big caches in the background so letter-jumps are instant */
+  setTimeout(() => { loadArtists(); loadALetters(); loadGenres(); }, 800);
+}
 setTimeout(() => { loadAlbums(); loadAlLetters(); }, 2500);
 
 /* ?diag=1 -- report what the stylesheet actually RESOLVED to on this device.
@@ -6174,6 +7858,7 @@ function karAdopt(t) {
   buildOrder(true);
   P.playId = null;
   paintNow(); refreshHeart(); paintPlayState(); saveSession();
+  paletteForTrack(t);                        // the room's colours and the backdrop's cover follow the sung song
   post('/api/play/start', { track_id: t.id, room: OUT.kind === 'sonos' ? OUT.name : ROOM })
     .then(r => { P.playId = r.play_id; }).catch(() => { });
 }
@@ -6182,9 +7867,10 @@ async function karOpen(tid, st, track, at) {
   KAR.disc = null;
   KAR.tid = tid; KAR.startAt = at || 0;
   KAR.track = track || trackOf();
-  karAdopt(KAR.track);
+  if (!KAR.follow) karAdopt(KAR.track);       // a phone following the room keeps its own player out of it
   $('#kar').classList.add('open');
   KAR.on = true;
+  bdSong('tr' + tid); bdKarLift();
   setTimeout(() => tvEnter($('#kar')), 60);        // the d-pad lands on the karaoke controls
   const t = KAR.track || {};
   KAR.offset = (st.offset_ms || 0) / 1000;
@@ -6194,7 +7880,7 @@ async function karOpen(tid, st, track, at) {
   const im = $('#karimg');
   if (t.album_id) im.src = trackArt(t, 300);
   if (st.state === 'ready') karLoad();
-  else karPrepare();
+  else if (!KAR.follow) karPrepare();
 }
 
 /* A disc song: no stems, no preparation -- one backing track and text already
@@ -6207,6 +7893,7 @@ async function karOpenDisc(s, at) {
   try { audio.pause(); } catch (e) {}
   $('#kar').classList.add('open');
   KAR.on = true;
+  bdSong('cdg' + s.id); bdKarLift();
   setTimeout(() => tvEnter($('#kar')), 60);
   KAR.offset = (s.offset_ms || 0) / 1000;
   karSyncShow();
@@ -6214,6 +7901,10 @@ async function karOpenDisc(s, at) {
   $('#karsub').textContent = (s.artist || '') + ' · Karaoke disc' + (s.code ? ' ' + s.code : '');
   const im = $('#karimg');
   im.src = s.album_id ? '/api/art/' + s.album_id + '?size=300' : sleeve('cdg' + s.id, s.title, s.artist).url;
+  /* a disc with a matched album lights the room from its cover; one without
+     gets its drawn sleeve's colours and no cover for the backdrop to show */
+  if (s.album_id) paletteFromAlbum(s.album_id, s.title, s.artist);
+  else { const sv = sleeve('cdg' + s.id, s.title, s.artist); applyDuo(sv.bg, sv.fg); BD.imgId = 'cdg' + s.id; BD.img = null; }
   karLoad();
 }
 
@@ -6543,6 +8234,7 @@ async function karLoad() {
   try { audio.pause(); } catch (e) {}
   /* a disc has no vocal to mix and no music to drop: those controls go */
   $('#karseg').hidden = !!KAR.disc; $('#karmus').hidden = !!KAR.disc;
+  if (KAR.follow) { singLoad(base); return; }
 
   /* Wherever the main player is pointed is where the singer hears the song.
      A Sonos room gets one rendered mix and the page keeps time from the
@@ -6566,6 +8258,7 @@ async function karLoad() {
     karPaintPlay();
     cancelAnimationFrame(KAR.raf);
     karFrame();
+    singLeadStart();
     return;
   }
 
@@ -6592,6 +8285,7 @@ async function karLoad() {
   karDrawMap();
   KAR.idx = -1; KAR.waiting = false; KAR.motes = [];
   ['play', 'pause'].forEach(ev => KAR.aB.addEventListener(ev, karPaintPlay));
+  ['playing', 'waiting'].forEach(ev => KAR.aB.addEventListener(ev, () => singReport()));   // a stall starts or ends
   KAR.aB.addEventListener('ended', karEnded);
   try { await Promise.all(KAR.aV ? [KAR.aB.play(), KAR.aV.play()] : [KAR.aB.play()]); }
   catch (e) { if (gen === KAR.gen) toast('Tap the screen to start audio'); }
@@ -6601,6 +8295,7 @@ async function karLoad() {
   karPaintPlay();
   cancelAnimationFrame(KAR.raf);
   karFrame();
+  singLeadStart();
 }
 
 /* ---- the speaker as the clock ------------------------------------------ */
@@ -6710,6 +8405,7 @@ function karPaintPlay() {
                              : !!(KAR.aB && !KAR.aB.paused && !KAR.aB.ended);
   b.innerHTML = playing ? I.pause : I.play;
   b.title = playing ? 'Pause' : 'Play';
+  singReport();                 // phones following the room hear about a play or pause at once
 }
 
 /* ---- lyric timing ---------------------------------------------------- */
@@ -6725,6 +8421,7 @@ function karNudge(d) {
      whole intro */
   KAR.offset = Math.max(-60, Math.min(60, Math.round((KAR.offset + d) * 10) / 10));
   karSyncShow();
+  singReport();
   /* saved per song, after the presses stop: the LRC is off by the same
      amount every time this song is sung. Line ends are re-read from the
      envelope at the same moment, since they depend on where the words sit. */
@@ -6762,6 +8459,7 @@ function karHold(btn, d) {
 /* Both stems jump together; the rate controller in karFrame then trims any
    difference. Ribbons belong to the moment they were drawn, so they go. */
 function karSeekTo(sec) {
+  if (KAR.follow) return;                    // the room has the transport; a phone only follows
   if (!KAR.aB && !KAR.remote) return;
   const dur = KAR.dur || (KAR.aB && KAR.aB.duration) || 0;
   sec = Math.max(0, Math.min(dur ? dur - 0.5 : sec, sec));
@@ -6778,6 +8476,7 @@ function karSeekTo(sec) {
   KAR.ribs.forEach(r => { if (r.el && r.el.parentNode) r.el.parentNode.removeChild(r.el); });
   KAR.ribs = [];
   $('#karhead2').style.left = (dur ? sec / dur * 100 : 0) + '%';
+  setTimeout(singReport, 60);              // once the element has taken the new position
 }
 function karSeekBy(d) {
   if (KAR.remote) karSeekTo(karClock() + d);
@@ -6828,6 +8527,7 @@ function karSetVocals(v) {
 function karFrame() {
   if (!KAR.on) return;
   KAR.raf = requestAnimationFrame(karFrame);
+  if (KAR.follow) singSteer();
   const A = KAR.aB; if (!A && !KAR.remote) return;
   const el = KAR.remote ? karClock() : A.currentTime;
   /* the lyric clock: audio time minus the singer's nudge. Positive offset
@@ -6840,7 +8540,7 @@ function karFrame() {
      lead is audible as the voice arriving early. A seek only lands within a
      frame or so, so it is kept for gross error; the rest is a small playback
      rate nudge that converges silently and holds. */
-  if (KAR.aV && !KAR.aV.seeking && !KAR.aV.paused) {
+  if (KAR.aV && !KAR.follow && !KAR.aV.seeking && !KAR.aV.paused) {
     const err = KAR.aV.currentTime - el;            // +ve: voice ahead
     if (Math.abs(err) > 0.25) {
       try { KAR.aV.currentTime = el; } catch (e) {}
@@ -6851,13 +8551,14 @@ function karFrame() {
   }
 
   const e = karEnvAt(el);
+  KAR.el = el;                               // the backdrop engine reads the envelope at this clock
   KAR.smooth += (e - KAR.smooth) * 0.12;
 
   const inClimax = KAR.climax && el >= KAR.climax[0] && el < KAR.climax[1];
   const build = KAR.climax && el > KAR.climax[0] - 16 && el < KAR.climax[0]
     ? (el - (KAR.climax[0] - 16)) / 16 : (inClimax ? 1 : 0);
   const b1 = $('#kb1'), b2 = $('#kb2'), b3 = $('#kb3');
-  if (b1) {
+  if (b1 && !document.body.classList.contains('karon')) {     // the classic glow; hidden when the app's backdrop is behind the lyrics
     b1.style.transform = 'scale(' + (1 + KAR.smooth * .13 + build * .1).toFixed(3) + ')';
     b1.style.opacity = (.55 + KAR.smooth * .45 + build * .3).toFixed(3);
     b2.style.transform = 'scale(' + (1 + KAR.smooth * .08).toFixed(3) + ')';
@@ -6949,6 +8650,357 @@ function karFrame() {
   });
 }
 
+/* ---- singing along on a phone ------------------------------------------ */
+/* The karaoke screen reports where it is in the song (/api/karaoke/live) and
+   shows a QR code for /?sing=1. A phone that opens it follows: it plays the
+   song itself through two <audio> elements, backing and vocal, and the singer
+   picks Backing, Lead or Full by muting one or the other -- iOS honours `muted`
+   where it ignores `volume`, and nothing has to reload mid-song. The elements
+   are unlocked once by the Join tap (phones play nothing without one) and kept
+   for every song after. As on the TV, the phone's own backing track is its
+   lyric clock; a playback-rate nudge keeps that clock on the room's, and a seek
+   is kept for when it is far out. */
+const SILENT = 'data:audio/wav;base64,UklGRnQAAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YVAAAACAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgA==';
+const SING = {
+  src: Math.random().toString(36).slice(2, 10),   // this page as a karaoke screen
+  ph: Math.random().toString(36).slice(2, 10),    // this page as a phone
+  rep: 0, phones: 0,
+  poll: 0, live: null, key: '', samples: [], skew: null,
+  liveAt: 0, errS: 0, slipT: 0, phase: 'idle', at: 0, alignT: 0, runT: 0, fire: 0, lead: 0.8,
+  latT: 0, debug: /[?&]log=1/.test(location.search), logq: [], logT: 0, lastErr: 0, startLag: 0, learnN: 0, joined: false, el: null, mix: 'full', lat: 0, blocked: false
+};
+try { SING.lat = +store['jb.singlat'] || 0; } catch (e) { }
+try { SING.startLag = Math.max(0, Math.min(0.4, +store['jb.singstart'] || 0)); } catch (e) { }
+try { if (/^(backing|lead|full)$/.test(store['jb.singmix'] || '')) SING.mix = store['jb.singmix']; } catch (e) { }
+
+/* -- the screen's side: report, and show the code -- */
+function singReport(claim) {
+  if (!KAR.on || KAR.follow || !KAR.lines.length || (KAR.tid == null && !KAR.disc)) return;
+  /* buffering after a seek is not playing: reported as playing, the phones
+     ran ahead by however long the screen took to buffer */
+  const playing = KAR.remote ? !!(KAR.rc && KAR.rc.playing)
+                             : !!(KAR.aB && !KAR.aB.paused && !KAR.aB.ended && !KAR.aB.seeking && KAR.aB.readyState >= 3);
+  const pos = KAR.remote ? karClock() : (KAR.aB ? KAR.aB.currentTime : 0);
+  const t = KAR.disc || KAR.track || {};
+  post('/api/karaoke/live', {
+    src: SING.src, kind: KAR.disc ? 'disc' : 'song', id: String(KAR.disc ? KAR.disc.id : KAR.tid),
+    pos: pos, playing: playing, offset_ms: Math.round(KAR.offset * 1000), claim: !!claim,
+    title: t.title || '', artist: t.artist || ''
+  }).then(r => {
+    if (r && r.phones !== SING.phones) { SING.phones = r.phones || 0; singQrPaint(); }
+  }).catch(() => { });
+}
+function singLeadStart() {
+  if (KAR.follow) return;
+  clearInterval(SING.rep);
+  SING.rep = setInterval(singReport, 1000);
+  singReport(true);                          // the screen that opens a song takes the phones
+  singQrPaint();
+}
+function singLeadStop() {
+  if (!SING.rep) return;
+  clearInterval(SING.rep); SING.rep = 0; SING.phones = 0;
+  try { fetch('/api/karaoke/live?src=' + SING.src, { method: 'DELETE', keepalive: true }).catch(() => { }); } catch (e) { }
+  $('#karqr').hidden = true;
+}
+function singQrPaint() {
+  const a = $('#karqr'); if (!a) return;
+  a.hidden = !KAR.on || !!KAR.follow;
+  if (a.hidden) return;
+  const im = a.querySelector('img');
+  if (!im.getAttribute('src')) im.src = '/api/karaoke/join.svg';
+  $('#karqrn').textContent = !SING.phones ? 'Sing along on your phone'
+    : SING.phones === 1 ? '1 phone singing along' : SING.phones + ' phones singing along';
+  /* a computer can click the code to open the phone view; the TV must not
+     navigate away from its own karaoke screen, so it gets no link */
+  if (!TVMODE && !a.getAttribute('href')) api('/api/karaoke/join').then(j => { a.href = j.url; }).catch(() => { });
+}
+
+/* -- the phone's side -- */
+function singOpus() {
+  if (SING.opus == null) { try { SING.opus = !!new Audio().canPlayType('audio/ogg; codecs="opus"'); } catch (e) { SING.opus = false; } }
+  return SING.opus;
+}
+function singStatus(msg, tap) {
+  const s = $('#karfst'); if (s) { s.textContent = msg || ''; s.dataset.tap = tap ? '1' : ''; }
+  const n = $('#singnow'); if (n && msg) n.textContent = msg;
+}
+/* The server's clock against this phone's: of the last dozen polls, the one
+   with the shortest round trip has the least room for error, and the server
+   answered at about its midpoint. */
+function singClock(t0, t1, now) {
+  SING.samples.push({ rtt: t1 - t0, skew: now - (t0 + t1) / 2 });
+  if (SING.samples.length > 12) SING.samples.shift();
+  let b = SING.samples[0];
+  SING.samples.forEach(s => { if (s.rtt < b.rtt) b = s; });
+  SING.skew = b.skew;
+}
+function singRoomPos() {
+  const L = SING.live; if (!L || SING.skew == null) return null;
+  const serverNow = performance.now() / 1000 + SING.skew;
+  return L.playing ? L.pos + Math.max(0, serverNow - L.t) : L.pos;
+}
+async function singPoll() {
+  const t0 = performance.now() / 1000;
+  let r;
+  try { r = await api('/api/karaoke/live?ph=' + SING.ph + (singOpus() ? '' : '&mp3=1')); }
+  catch (e) { singStatus('Cannot reach the jukebox'); return; }
+  singClock(t0, performance.now() / 1000, r.now);
+  const L = r.live;
+  SING.live = L; SING.liveAt = performance.now();
+  if (!SING.joined) {                        // not joined yet: say what is on
+    $('#singnow').textContent = L ? 'On the TV now: ' + (L.title || 'a song') + (L.artist ? ' — ' + L.artist : '')
+                                  : 'Nothing is being sung on the TV yet.';
+    return;
+  }
+  if (!L) {
+    if (KAR.on) karClose();
+    SING.key = '';
+    singStatus('Waiting for a song on the TV…');
+    return;
+  }
+  const key = L.kind + ':' + L.id;
+  if (key !== SING.key) { singOpen(L, key); return; }
+  if (KAR.on && KAR.lines.length && Math.round(KAR.offset * 1000) !== (L.offset_ms || 0)) {
+    KAR.offset = (L.offset_ms || 0) / 1000;    // the room nudged the lyrics: follow
+    karSyncShow(); karRebuildLines();
+  }
+  if (!SING.blocked) singStatus(L.playing ? '' : 'Paused on the TV');
+}
+async function singOpen(L, key) {
+  SING.key = key;
+  singStatus('Opening ' + (L.title || 'the song') + '…');
+  try {
+    if (L.kind === 'disc') {
+      const st = await api('/api/cdg/' + L.id + '/status');
+      if (key === SING.key) karOpenDisc(st);
+    } else {
+      const r = await Promise.all([api('/api/karaoke/status/' + L.id), api('/api/tracks?ids=' + L.id)]);
+      if (key === SING.key) karOpen(+L.id, r[0], r[1][0]);
+    }
+  } catch (e) { SING.key = ''; singStatus('Could not open that song'); }
+}
+/* karLoad hands over here on a phone: the lyrics are built, the audio is ours */
+function singLoad(base) {
+  KAR.remote = false;
+  const b = SING.el.b, v = SING.el.v;
+  /* Opus where the phone plays it; otherwise the server's MP3 renders of the
+     same two stems (backing alone, voice alone), made once per song */
+  const opus = singOpus();
+  clearTimeout(SING.fire); SING.fire = 0; SING.phase = 'idle';
+  [b, v].forEach(a => { try { a.pause(); } catch (e) { } });
+  if (KAR.disc) {
+    b.src = base + '/audio.mp3';             // a disc has no vocal track: backing only
+  } else {
+    b.src = base + (opus ? '/backing.opus' : '/mix/mix-m1-v0.mp3');
+    v.src = base + (opus ? '/vocals.opus' : '/mix/mix-m0-v2.mp3');
+  }
+  KAR.gB = KAR.gV = null;
+  $('#karmix').hidden = !!KAR.disc;
+  singMix(SING.mix);                         // sets KAR.aB (the clock) and KAR.aV
+  karBuildEls();
+  karDrawMap();
+  KAR.idx = -1; KAR.waiting = false; KAR.motes = [];
+  clearTimeout(SING.fire); SING.fire = 0; SING.phase = 'idle'; SING.errS = 0; SING.learnN = 0;
+  singStatus(opus || KAR.disc ? '' : 'Getting the song ready…');
+  cancelAnimationFrame(KAR.raf);
+  karFrame();
+}
+/* Backing, Lead or Full is which stems play, not which are muted: a phone
+   keeps a muted element's clock only loosely, the voice/backing check saw it
+   wander and lined up again, and the singer heard a dropout every few seconds
+   in Backing and Lead (17 Oct 2026). So the stems not wanted are paused, and
+   whichever one plays is the lyric clock (KAR.aB); KAR.aV is the second stem
+   only in Full. Dropping a stem is silent; adding one lines both up once. */
+function singMix(m) {
+  SING.mix = m;
+  try { store['jb.singmix'] = m; } catch (e) { }
+  $$('#karmix button').forEach(x => x.classList.toggle('sel', x.dataset.x === m));
+  if (!SING.el || !KAR.follow || !KAR.on) return;
+  const b = SING.el.b, v = SING.el.v;
+  b.muted = v.muted = false;
+  let play;
+  if (KAR.disc || m === 'backing') play = [b, null];
+  else if (m === 'lead') play = [v, null];
+  else play = [b, v];
+  [b, v].forEach(a => { if (play.indexOf(a) < 0) { try { a.pause(); } catch (e) { } } });
+  KAR.aB = play[0]; KAR.aV = play[1];
+  if (SING.phase === 'run' && (KAR.aB.paused || (KAR.aV && KAR.aV.paused))) singAlign('mix:' + m);
+}
+function singLatShow() {
+  const v = $('#karlatv'); if (!v) return;
+  const ms = Math.round(SING.lat * 1000);
+  v.classList.toggle('set', ms !== 0);
+  v.textContent = ms === 0 ? 'Phone in time'
+    : 'Phone ' + (Math.abs(ms) / 1000).toFixed(2) + ' s ' + (ms > 0 ? 'later' : 'earlier');
+}
+function singLatNudge(d) {
+  SING.lat = Math.max(-2, Math.min(2, Math.round((SING.lat + d) * 100) / 100));
+  try { store['jb.singlat'] = String(SING.lat); } catch (e) { }
+  singLatShow();
+  /* heard at once: line up again after the presses stop */
+  clearTimeout(SING.latT);
+  SING.latT = setTimeout(() => { if (SING.phase === 'run') singAlign('nudge'); }, 600);
+}
+/* Lining up, the way two devices playing the same file stay together: park
+   both stems a little ahead of the room, wait until that stretch is buffered,
+   and press play at the moment the room arrives there. A paused, buffered
+   element starts within milliseconds; a seek while playing does not -- it
+   stalls to buffer and lands late, and chasing that with more seeks (and,
+   before that, with playback-rate nudges) was the choppy, never-in-time sound
+   the user heard on Danceophobia (17 Oct 2026). Once running nothing is
+   adjusted: two clocks drift a few milliseconds a minute. Only a real slip (a
+   network stall) of more than 0.15 s for 1.5 s lines up again, and so does a
+   jump in the room (a seek) or the singer's timing nudge. */
+/* The phone's own account of itself, sent to the server's /api/diag (read it
+   with GET /api/diag, last five posts): a sample a second while running, and
+   every line-up with its reason. Real phones misbehave in ways headless
+   browsers do not. Off unless the page was opened with ?sing=1&log=1. */
+function singEl(a) {
+  if (!a) return null;
+  const bf = a.buffered, n = bf ? bf.length : 0;
+  return { t: +a.currentTime.toFixed(3), rs: a.readyState, ns: a.networkState, p: a.paused, sk: a.seeking,
+    rate: a.playbackRate, buf: n ? +(bf.end(n - 1) - a.currentTime).toFixed(2) : 0, src: (a.src || '').slice(-22) };
+}
+function singLog(ev, why) {
+  if (!SING.debug) return;
+  const room = singRoomPos();
+  SING.logq.push({ ev: ev, why: why || '', ph: SING.phase, mix: SING.mix, ms: Math.round(performance.now()),
+    room: room == null ? null : +room.toFixed(3), lat: SING.lat, lead: SING.lead, lag: +SING.startLag.toFixed(3),
+    errS: +SING.errS.toFixed(3), A: singEl(KAR.aB), V: singEl(KAR.aV),
+    clock: KAR.aB && SING.el ? (KAR.aB === SING.el.v ? 'v' : 'b') : '', ua: SING.logq.length ? undefined : navigator.userAgent });
+  if (SING.logq.length >= 5 || ev !== 'tick') {
+    const q = SING.logq; SING.logq = [];
+    post('/api/diag', { sing: q }).catch(() => { });
+  }
+}
+function singBoth(f) { if (KAR.aB) f(KAR.aB); if (KAR.aV) f(KAR.aV); }
+function singReady(a) { return a.readyState >= 3 && !a.seeking; }
+function singAlign(why) {
+  const room = singRoomPos(); if (!KAR.aB || room == null) return;
+  singLog('align', why);
+  clearTimeout(SING.fire); SING.fire = 0;
+  SING.phase = 'align'; SING.alignT = performance.now();
+  SING.at = Math.max(0, room - SING.lat + SING.lead);
+  singBoth(a => { try { a.pause(); a.playbackRate = 1; a.currentTime = SING.at; } catch (e) { } });
+}
+function singStart() {
+  const A = KAR.aB; if (!A) return;
+  SING.phase = 'run'; SING.runT = performance.now(); SING.errS = 0; SING.slipT = 0;
+  singLog('start');
+  Promise.all(KAR.aV ? [A.play(), KAR.aV.play()] : [A.play()]).then(() => singStatus('')).catch(e => {
+    SING.phase = 'idle';
+    /* only a refusal needs a tap; a play cut short by a pause is retried */
+    if (e && e.name === 'NotAllowedError') { SING.blocked = true; singStatus('Tap here to start the sound', true); }
+    else if (e && e.name === 'NotSupportedError') { SING.blocked = true; singStatus('This phone cannot play the song’s audio'); }
+  });
+}
+/* Every frame, but it only acts on the states above. The target is where the
+   room is, less the singer's nudge (Bluetooth headphones run ~0.2 s late). */
+function singSteer() {
+  const A = KAR.aB, L = SING.live;
+  if (!A || !L || !SING.el || SING.blocked) return;
+  const room = singRoomPos(); if (room == null) return;
+  const now = performance.now();
+  if (now - SING.liveAt > 4000) return;      // no word from the server: leave it be
+  const target = Math.max(0, room - SING.lat);
+  if (!L.playing) {
+    if (SING.phase !== 'paused') { clearTimeout(SING.fire); SING.fire = 0; singBoth(a => a.pause()); SING.phase = 'paused'; }
+    return;
+  }
+  if (SING.phase !== 'align' && SING.phase !== 'run') { singAlign('start:' + SING.phase); return; }
+  if (SING.phase === 'align') {
+    /* seconds until play must be pressed: when the room reaches the parked
+       spot, less the time this device takes to start sounding once told to */
+    const wait = SING.at - target - SING.startLag;
+    const ready = singReady(A) && (!KAR.aV || singReady(KAR.aV));
+    if (wait < -0.03) {                      // the room got there first: buffering outran the lead
+      SING.lead = Math.min(8, SING.lead * 2);
+      singAlign('late:' + (ready ? 'ready' : 'buffering'));
+      return;
+    }
+    if (!ready) {
+      /* a phone that will not buffer while paused: start anyway, and line up
+         properly once data is flowing */
+      if (now - SING.alignT > 5000) singStart();
+      return;
+    }
+    if (wait <= 0.1 && !SING.fire) {
+      SING.fire = setTimeout(() => { SING.fire = 0; if (SING.phase === 'align') singStart(); }, Math.max(0, wait * 1000));
+    }
+    return;
+  }
+  if (A.paused) { singAlign('paused'); return; }   // something stopped it: a stall, the system
+  if (now - SING.runT < 1500) return;         // let it settle before judging
+  const err = A.currentTime - target;         // +ve: this phone is ahead of the room
+  if (now - SING.logT > 1000) { SING.logT = now; SING.lastErr = err; singLog('tick', +err.toFixed(3)); }
+  if (Math.abs(err) > 1) { singAlign('jump'); return; }   // the room jumped: a seek
+  /* currentTime moves in audio-buffer steps on a phone (±25 ms), so judge a
+     smoothed error, and only a sustained one */
+  SING.errS += (err - SING.errS) * 0.05;
+  /* A paused element takes a moment to start sounding (90 ms in headless
+     Chromium; 0.18-0.3 s, and never the same twice, on the user's Android
+     phone), and the phone runs that much behind the room. Measure it once the
+     start has settled, remember it for this device (moving most of the way,
+     not all, since one start is a noisy sample), and line up again pressing
+     play that much earlier -- once a song, and only for a clear miss. */
+  if (now - SING.runT > 3000 && SING.learnN < 1 && Math.abs(SING.errS) > 0.06 && Math.abs(SING.errS) < 0.4) {
+    SING.learnN++;
+    SING.startLag = Math.max(0, Math.min(0.4, SING.startLag - SING.errS * 0.7));
+    try { store['jb.singstart'] = String(SING.startLag); } catch (e) { }
+    singAlign('learn');
+    return;
+  }
+  if (now - SING.runT > 3000) SING.learnN = 1;   // in time, or learned: nothing more this song
+  const voiceOff = KAR.aV && Math.abs(KAR.aV.currentTime - A.currentTime) > 0.1;
+  if (Math.abs(SING.errS) > 0.15 || voiceOff) {
+    if (!SING.slipT) SING.slipT = now;
+    else if (now - SING.slipT > 1500) singAlign(voiceOff ? 'voice' : 'slip');
+  } else SING.slipT = 0;
+}
+function singJoin() {
+  if (!SING.el) {
+    SING.el = { b: new Audio(), v: new Audio() };
+    [SING.el.b, SING.el.v].forEach(a => {
+      a.preload = 'auto';
+      a.src = SILENT;
+      const p = a.play();
+      if (p && p.then) p.then(() => { if (a.getAttribute('src') === SILENT) a.pause(); }).catch(() => { });
+    });
+  }
+  SING.blocked = false;
+  SING.joined = true;
+  KAR.follow = true;
+  $('#kar').classList.add('follow');
+  $('#singgo').hidden = true;
+  $('#singnow').textContent = 'Waiting for a song on the TV…';
+  SING.key = '';
+  clearInterval(SING.poll);
+  SING.poll = setInterval(singPoll, 1000);
+  singPoll();
+}
+function singLeave() {
+  SING.joined = false;                       // the poll carries on, only to say what is on
+  if (KAR.on) karClose();
+  KAR.follow = false;
+  $('#kar').classList.remove('follow');
+  SING.key = '';
+  $('#singgo').hidden = false;
+  $('#singgo').textContent = 'Join again';
+}
+function singUnblock() {
+  if (!SING.blocked || !KAR.aB) return;
+  SING.blocked = false;
+  singStatus('');
+  /* played here, inside the tap, which is what a phone wants; the slip check
+     lines it up with the room a moment later */
+  SING.phase = 'run'; SING.runT = performance.now(); SING.errS = 0; SING.slipT = 0;
+  const ps = [KAR.aB.play()]; if (KAR.aV) ps.push(KAR.aV.play());
+  Promise.all(ps).catch(e => {
+    if (e && e.name === 'NotAllowedError') { SING.blocked = true; singStatus('Tap here to start the sound', true); }
+  });
+}
+
 /* ---- closing --------------------------------------------------------- */
 /* Silence and forget everything the karaoke screen is playing: the two stem
    players, their timers, and a room's rendered mix. Called by karClose, and by
@@ -6957,6 +9009,7 @@ function karFrame() {
    That is how two versions of one song came to play at once on the TV. */
 function karTeardown() {
   KAR.gen++;                                 // any karLoad still in flight gives up
+  if (!KAR.follow) singLeadStop();
   clearInterval(KAR.poll);
   cancelAnimationFrame(KAR.raf);
   [KAR.aB, KAR.aV].forEach(a => { if (a) { try { a.pause(); a.src = ''; a.load(); } catch (e) {} } });
@@ -6977,6 +9030,7 @@ function karClose() {
   KAR.els = []; KAR.motes = []; KAR.ribs = [];
   $('#karlines').innerHTML = '';
   $('#kar').classList.remove('open');
+  bdKarLift();                               // KAR.on is false: the backdrop goes back under the app
   if (!tvExit()) tvFocusSection();
   karMicUpdate();
   if (KAR.tid != null) {
@@ -7046,7 +9100,28 @@ addEventListener('load', function () {
     kb.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" '
       + 'stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">'
       + '<path d="M15 5l-7 7 7 7"/></svg>';
-    kb.onclick = karClose;
+    kb.onclick = function () { if (KAR.follow) singLeave(); else karClose(); };
+  }
+  $$('#karmix button').forEach(function (b) {
+    b.onclick = function () { singMix(b.dataset.x); };
+  });
+  var lm = $('#karlatm'), lp = $('#karlatp'), lv = $('#karlatv');
+  if (lm) lm.onclick = function () { singLatNudge(-0.05); };
+  if (lp) lp.onclick = function () { singLatNudge(0.05); };
+  if (lv) { lv.title = 'Reset'; lv.onclick = function () { SING.lat = 0; singLatNudge(0); }; }
+  singLatShow();
+  var fs = $('#karfst');
+  if (fs) fs.onclick = singUnblock;
+  /* a phone that refused to start the sound gets it from any tap on the screen */
+  var kr = $('#kar');
+  if (kr) kr.addEventListener('pointerdown', function () { if (KAR.follow && SING.blocked) singUnblock(); });
+  var sg = $('#singgo');
+  if (sg) sg.onclick = singJoin;
+  /* ?sing=1 is the QR code's address: this device follows the room's karaoke */
+  if (/[?&]sing=1/.test(location.search)) {
+    $('#sing').hidden = false;
+    SING.poll = setInterval(singPoll, 1000);
+    singPoll();
   }
   $$('#karseg button').forEach(function (b, i) {
     b.onclick = function () { karSetVocals(i); };

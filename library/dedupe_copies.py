@@ -39,7 +39,6 @@ def key_of(r):
 
 def target_folders():
     """The album folders discsplit flagged as duplicate copies rather than discs."""
-    sys.path.insert(0, os.path.join(HERE, 'jukebox'))
     sys.path.insert(0, os.path.join(HERE, "..", "jukebox")); import discsplit
     _n, _t, dups = discsplit.build(db=JUKE)
     j = sqlite3.connect(JUKE)

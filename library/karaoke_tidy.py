@@ -43,8 +43,12 @@ for _s in (sys.stdout, sys.stderr):
         _s.reconfigure(encoding='utf-8', errors='replace')
 
 _MUSIC = os.environ.get('MUSICMATE_ROOT') or r'D:\Music'
-ROOT = os.path.join(_MUSIC, 'Karaoke')
-SUPERSEDED = os.path.join(_MUSIC, '_superseded', 'Karaoke')
+# The store moved to C:\Music\Karaoke on 8 Oct 2026; one inside the music folder
+# still wins. Superseded files go beside the store, on its own drive.
+ROOT = os.environ.get('JUKEBOX_CDG') or os.path.join(_MUSIC, 'Karaoke')
+if not os.environ.get('JUKEBOX_CDG') and not os.path.isdir(ROOT) and os.path.isdir(r'C:\Music\Karaoke'):
+    ROOT = r'C:\Music\Karaoke'
+SUPERSEDED = os.path.join(os.path.dirname(ROOT), '_superseded', 'Karaoke')
 JUKEBOX_DB = os.path.join(HERE, '..', 'jukebox', 'jukebox.db')
 PLAN = os.path.join(HERE, 'karaoke_tidy.json')
 REPORT = os.path.join(HERE, 'karaoke_tidy_report.txt')

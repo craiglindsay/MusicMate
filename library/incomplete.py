@@ -52,7 +52,7 @@ def analyse(conn):
                 verdict, conf = 'duplicate-track-numbers', 0.5
                 detail = f'{dupes} repeated track numbers in one folder'
         if not verdict and n <= 3:
-            is_single = re.search(r'(single|cd-?s|maxi|ep|remixes)', folder, re.I)
+            is_single = re.search(r'\b(single|cd-?s|maxi|ep|remixes)\b', folder, re.I)
             verdict = 'known-single' if is_single else 'stray-or-single'
             conf = 0.3 if is_single else 0.7
             detail = f'only {n} track(s)' + (' (folder says single/EP)' if is_single else '')
