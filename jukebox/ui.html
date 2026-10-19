@@ -3163,9 +3163,12 @@ function bdHelix(g, w, h, now) {
    ball being dragged through the sound ripples"): a field of close parallel
    lines and a chrome ball moving through them, seen in perspective by a
    camera that slowly circles the ball and rises and falls, always looking at
-   it. The lines part around the ball and stay parted in a long groove
-   behind it, where its trail lies; the water streams past, a swell running
-   back along the lines and swaying the groove, with glints carried along.
+   it, like an object in a wind tunnel or a stream (19 Oct 2026: the first
+   cut's groove and trail read as "a sperm swimming"). The lines are
+   streamlines of the flow round a cylinder: they bend out round the ball,
+   crowd at its sides and close up again behind it, where a wake wavers and
+   peels away downstream; the water streams past, a swell running back along
+   the lines, with glints carried along.
    Ahead and to the sides the lines are thrown into ripples, and the ripples
    are the music: a ring at distance r left the ball r / c seconds ago and
    carries that moment's spectrum (bass straight ahead, treble out to the
@@ -3180,7 +3183,7 @@ function bdCurrents(g, w, h, now) {
   const lit = BD.lit ? BD.lit[2] : [220, 200, 230];
   const ink = bdMix(lit, white, .55), shade = bdMix(ground, [0, 0, 0], .5);
   const D_ = MC.drift, live = .4 + .6 * MC.live;
-  const sp = IS_TV ? .38 : .27, Rw = 6.2, c = 1.25, kk = 6.2832 / (sp * 3.4), amp = sp * 1.9;
+  const sp = IS_TV ? .38 : .27, Rw = 6.2, c = 1.25, kk = 6.2832 / (sp * 4.2), amp = sp * 1.9;
   /* the camera circles a little and rises and falls, looking at the ball */
   const yaw = 1.85 + .7 * Math.sin(D_ * .05) + .15 * Math.sin(MC.dir), pit = .98 + .14 * Math.sin(D_ * .031 + 1);
   const cyw = Math.cos(yaw), syw = Math.sin(yaw), cpt = Math.cos(pit), spt = Math.sin(pit);
@@ -3215,13 +3218,21 @@ function bdCurrents(g, w, h, now) {
   /* a point of the plain field at (along al, across lat) -> its shift across
      (dO) and its height (dY) */
   let dO = 0, dY = 0;
-  const sway = al => al < 0 ? .32 * Math.sin(kw * .6 * (al + flow)) * (1 - Math.exp(al / 1.5)) : 0;
+  const Re2 = 1.3 * 1.3;
   const disp = (al, lat) => {
-    /* the parting: lines near the ball pushed out to the sides, closing again
-       quickly ahead and slowly behind, the groove swaying in the wake */
-    const R1 = al > 0 ? 1.35 : 1.1, gA = al > 0 ? Math.exp(-(al * al) / 1.7) : Math.exp(-(al * al) / 45);
-    const ex = Math.exp(-(lat * lat) / (R1 * R1));
-    dO = (R1 * (lat / Math.sqrt(lat * lat + .0025)) + sway(al)) * ex * gA;
+    /* the streamline that runs at lat far away passes (al, y) where
+       y (1 - Re^2 / r^2) = lat: started from the exact answer level with the
+       ball and polished by two Newton steps */
+    const sg = lat < 0 ? -1 : 1, y0 = Math.abs(lat), x2 = al * al;
+    let y = (y0 + Math.sqrt(y0 * y0 + 4 * Re2)) / 2;
+    for (let k = 0; k < 2; k++) {
+      const r2 = x2 + y * y, fy = y - y0 - Re2 * y / r2, d = 1 - Re2 * (x2 - y * y) / (r2 * r2);
+      if (d > .2) y -= fy / d;
+    }
+    dO = sg * (Math.max(y, y0) - y0);
+    /* the wake: the lines just behind waver from side to side, the waver
+       carried off downstream and dying away */
+    if (al < 0) dO += .38 * Math.sin(kw * .5 * (al + flow * 1.3)) * (1 - Math.exp(al / 1.2)) * Math.exp(al / 8) * Math.exp(-(lat * lat) / 3);
     /* the water streaming past: a swell running back along the lines,
        strongest beside the ball and in its wake */
     const rr = Math.sqrt(al * al + lat * lat), wk = al < 0 ? Math.exp(al / 9) : Math.exp(-(al * al) / 6);
@@ -3240,7 +3251,7 @@ function bdCurrents(g, w, h, now) {
         const A = amp * (.15 + .85 * L + 1.3 * Kh) * (1 + K * .5) * env * live;
         /* rings, bent into swirls by a slow wobble across them */
         const ph = kk * (rr - c * tm) + 1.6 * Math.sin(lat / (sp * 5) + tm * .4) * Math.min(1, rr / Rw * 3);
-        dO += A * Math.sin(ph); dY += A * .7 * Math.cos(ph);
+        dO += A * .7 * Math.sin(ph); dY += A * .9 * Math.cos(ph);
       }
     }
   };
@@ -3256,10 +3267,10 @@ function bdCurrents(g, w, h, now) {
     const lat = i * sp - ob, al = Math.abs(lat), z0 = -L - (i * .618 % 1) * 6;     // ragged starts, so the glints differ line to line
     lines.push(cur = []);
     if (al >= Rw + 1.5) { for (let z = z0; z < L; z += coarse) put(lat, 0, z); put(lat, 0, L); continue; }
-    /* behind the ball only the groove and its wake move */
+    /* behind the ball only the wake moves */
     const aS = al < 3.2 ? -L : -Math.min(Rw, al) * .5, aE = Rw + .5;
     for (let z = z0; z < aS; z += coarse) put(lat, 0, z);
-    for (let a = aS; a <= aE; a += a < -3 ? step * 3 : step) { disp(a, lat); put(lat + dO, dY, a); }
+    for (let a = aS; a <= aE; a += a < -3 ? step * 3 : a > 0 ? step * .8 : step) { disp(a, lat); put(lat + dO, dY, a); }
     for (let z = aE + coarse; z < L; z += coarse) put(lat, 0, z);
     put(lat, 0, L);
   }
@@ -3272,7 +3283,7 @@ function bdCurrents(g, w, h, now) {
     }
     g.strokeStyle = col; g.lineWidth = width; g.stroke();
   };
-  const S = F / dist, lw = Math.max(1, S * sp * .42);
+  const S = F / dist, lw = Math.max(1, S * sp * .26);
   g.lineJoin = 'round'; g.lineCap = 'round';
   /* each line as a ridge: a dark edge below, the light line above */
   pass(lw * .35, lw * .5, bdRgba(shade, .9), lw * 1.15);
@@ -3292,16 +3303,6 @@ function bdCurrents(g, w, h, now) {
   const vg = g.createRadialGradient(cx, cy, h * .25, cx, cy, Math.sqrt(w * w + h * h) * .62);
   vg.addColorStop(0, bdRgba(ground, 0)); vg.addColorStop(1, bdRgba(ground, .6));
   g.fillStyle = vg; g.fillRect(0, 0, w, h);
-  /* the trail in the groove, back the way the ball came, swaying with it */
-  if (proj(0, .02, 0)) {
-    const x0 = px, y0 = py;
-    g.beginPath(); g.moveTo(x0, y0);
-    let x1 = x0, y1 = y0;
-    for (let z = -.5; z >= -7; z -= .5) if (proj(sway(z) * Math.exp(-(z * z) / 45), .02, z)) { g.lineTo(px, py); x1 = px; y1 = py; }
-    const tg = g.createLinearGradient(x0, y0, x1, y1);
-    tg.addColorStop(0, bdRgba(bdMix(cols[0], white, .1), 1)); tg.addColorStop(.6, bdRgba(cols[cols.length - 1], .8)); tg.addColorStop(1, bdRgba(cols[cols.length - 1], 0));
-    g.strokeStyle = tg; g.lineWidth = S * .32; g.stroke();
-  }
   /* the ball: its shadow on the field, then chrome */
   proj(0, .55, 0);
   const bx = px, by = py, Rb = F / pd * (1 + K * .04);
@@ -3315,7 +3316,7 @@ function bdCurrents(g, w, h, now) {
   ball.addColorStop(0, '#fff'); ball.addColorStop(.12, '#e2e2e6'); ball.addColorStop(.42, '#8a8a92');
   ball.addColorStop(.78, '#2c2c32'); ball.addColorStop(.93, '#18181c'); ball.addColorStop(1, '#3a3a40');
   g.beginPath(); g.arc(bx, by, Rb, 0, 6.2832); g.fillStyle = ball; g.fill();
-  /* the trail's colour caught on the underside, and the field's light on the rim */
+  /* the cover's colour caught on the underside, and the field's light on the rim */
   g.globalCompositeOperation = 'lighter';
   const rim = g.createRadialGradient(bx + Rb * .2, by + Rb * .55, 0, bx + Rb * .2, by + Rb * .55, Rb * .7);
   rim.addColorStop(0, bdRgba(cols[0], .45 + K * .3)); rim.addColorStop(1, bdRgba(cols[0], 0));

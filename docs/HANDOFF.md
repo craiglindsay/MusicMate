@@ -2137,3 +2137,12 @@ caught underneath) wanders slowly about the middle on music time.
   matches the window and sets the viewport every frame, and the TV beacon
   also reports while Smoke runs (`win`, and `gl` with viewport, box, scale,
   tier), so the next report shows the TV's numbers if it recurs.
+- **Currents, second pass** ("looks like a sperm swimming because of the
+  tail ... an object in a wind tunnel or in a stream"): the trail and the
+  long groove are gone. Lines are now streamlines of potential flow round a
+  cylinder (`y (1 - Re^2 / r^2) = lat`, Re 1.3, solved from the exact
+  level-with-the-ball answer plus two Newton steps), so they bend out, crowd
+  at the sides and close up behind; a wake wavers just behind and is carried
+  off downstream. Lines thinner (`.26` of the spacing, was `.42`). Ripples
+  longer (4.2 spacings), less sideways and more height, sampled finer ahead
+  of the ball, so they no longer fold into zigzags. 8.3 ms median at 4x.
