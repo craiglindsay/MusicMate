@@ -60,11 +60,15 @@ CHARTS = os.path.join(HERE, '..', 'jukebox', 'charts')
 PLAN = os.path.join(HERE, 'ingestplan.json')
 REPORT = os.path.join(HERE, 'ingestreport.txt')
 AUDIO = {'.mp3', '.m4a', '.flac', '.ogg', '.opus', '.wma', '.aac', '.wav', '.aiff'}
+# an album is held in staging rather than filed if it would leave its drive with
+# less than this free (the pools are on two drives since 30 Oct 2026)
+RESERVE = float(os.environ.get('MUSICMATE_RESERVE_GB') or 3) * 2**30
+LOCK = os.path.join(HERE, 'ingest.lock')
 
 FILE_RE = re.compile(r'^(?P<artist>.+?) - (?P<album>.+?) - (?P<track>\d{1,3}) - (?P<title>.+)$')
 NUM_RE = re.compile(r'^(?P<track>\d{1,3})[\s._-]+(?P<title>.+)$')
 FOLDER_RE = re.compile(r'^(?P<album>.+?)\s*\((?P<year>\d{4})\)\s*$')
-CHRISTMAS = re.compile(r'christmas|xmas|holiday|noel|navidad', re.I)
+CHRISTMAS = re.compile(r'christmas|xmas|holiday|no[eë]l|navidad', re.I)
 SOUNDTRACK = re.compile(r'soundtrack|motion picture|music from|inspired by|original score|(?<![a-z])the album(?![a-z])', re.I)
 VARIOUS = 'Various Artists'
 # Spellings the user has settled (8 Sep 2026): keyed by merge.norm_artist of the arrival.
@@ -77,6 +81,13 @@ def nart(s):
     return merge.norm_artist(ALIASES[n]) if n in ALIASES else n
 ACOUSTID_MIN = 0.85
 DISAGREE_MAX = 0.30
+
+
+def nart_loose(s):
+    """nart without a trailing bracketed alias: Lidarr's "Orchestral Manoeuvres
+    in the dark (OMD)" is the library's "Orchestral Manoeuvres in the Dark",
+    and filing it under the longer name made a second OMD (31 Oct 2026)."""
+    return nart(re.sub(r'\s*[\(\[][^\)\]]*[\)\]]\s*$', '', s or '') or s)
 
 
 def sanitize(name):
@@ -100,6 +111,7 @@ class Library:
             parts = folder.split('/')
             if len(parts) >= 2:
                 self.artist_folders.setdefault(merge.norm_artist(parts[1]), parts[1])
+                self.artist_folders.setdefault('~' + nart_loose(parts[1]), parts[1])
         self.by_title = collections.defaultdict(list)
         for r in conn.execute("SELECT path,folder,filename,title,artist,albumartist,album,bitrate,ext,fp,duration "
                               "FROM files WHERE kind='audio' AND fp IS NOT NULL"):
@@ -172,7 +184,8 @@ def settle(info, tracks, lib):
         albumartist = VARIOUS
         dest_artist = None
     else:
-        albumartist = lib.artist_folders.get(nart(folder_artist), folder_artist)
+        albumartist = (lib.artist_folders.get(nart(folder_artist)) or
+                       lib.artist_folders.get('~' + nart_loose(folder_artist)) or folder_artist)
         dest_artist = albumartist
     # album title: the folder's, edition suffixes and all reissue titles dropped
     album = canonize.clean_name(info['album'])
@@ -188,7 +201,9 @@ def settle(info, tracks, lib):
     if pool == MAIN:
         dest_folder = f'{MAIN}/{sanitize(dest_artist)}/{sanitize(album)}'
     else:
-        dest_folder = f'{pool}/{sanitize(album)}' if info['various'] else f'{pool}/{sanitize(dest_artist)} - {sanitize(album)}'
+        # flat folders; one artist's record is Artist-Album, no spaces round the
+        # dash, as the user named the existing Christmas folders (16 Oct 2026)
+        dest_folder = f'{pool}/{sanitize(album)}' if info['various'] else f'{pool}/{sanitize(dest_artist)}-{sanitize(album)}'
     rgid = lib.charts.get((merge.norm_artist(albumartist), merge.norm_album_safe(album)))
     info.update(albumartist=albumartist, album_title=album, year_final=year, pool=pool,
                 dest_folder=dest_folder, rgid=rgid)
@@ -206,6 +221,8 @@ def settle(info, tracks, lib):
             t['inferred_artist'] = True
         elif merge.norm_artist(t['artist']) in ALIASES:
             want['artist'] = ALIASES[merge.norm_artist(t['artist'])]
+        elif not info['various'] and t['artist'] != albumartist and nart_loose(t['artist']) == nart_loose(albumartist):
+            want['artist'] = albumartist      # the same act spelt another way: one artist in the jukebox
         # title
         if not t.get('title'):
             want['title'] = t['fn_title']
@@ -509,6 +526,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--apply', action='store_true')
     ap.add_argument('--artist')
+    ap.add_argument('--album', help='with --artist: only the staging folder of this name')
     ap.add_argument('--limit', type=int)
     ap.add_argument('--skip-acoustid', action='store_true')
     ap.add_argument('--force', action='store_true', help='ingest even when AcoustID disagrees (use with --artist after review)')
@@ -529,6 +547,8 @@ def main():
             conn.commit(); shutil.copy(os.path.join(HERE, 'library.db'), snap); print('snapshot', snap)
 
     todo = album_dirs(a.artist)
+    if a.album:
+        todo = [x for x in todo if x[1] == a.album]
     if a.limit:
         todo = todo[:a.limit]
     print(f'{len(todo)} albums to process ({"APPLY" if a.apply else "DRY RUN"})', flush=True)
@@ -562,7 +582,18 @@ def main():
         for t in tracks:
             if t.get('acoustid_disagree'):
                 report.append(f"     acoustid says {t['acoustid']['artist']} - {t['acoustid']['title']} for {os.path.basename(t['full'])}")
-        if not a.apply or (info.get('blocked') and not a.force):
+        s['outcome'] = 'planned'
+        if info.get('blocked') and not a.force:
+            s['outcome'] = 'blocked'
+        if not a.apply or s['outcome'] == 'blocked':
+            continue
+        need = sum(os.path.getsize(t['full']) for t in tracks)
+        pool_dir = os.path.join(ROOT, info['pool'])
+        free = shutil.disk_usage(pool_dir if os.path.isdir(pool_dir) else ROOT).free
+        if free - need < RESERVE:
+            s['outcome'] = 'held: low space'
+            line = f'     HELD: {info["pool"]} has {free / 2**30:.1f} GB free, the album needs {need / 2**30:.2f} GB and {RESERVE / 2**30:.0f} GB is kept spare'
+            report.append(line); print(line, flush=True)
             continue
 
         # ---- apply: decide each track first
@@ -631,15 +662,35 @@ def main():
             moved += 1
         conn.commit()
         outcome = remove_source(info)
+        s['outcome'] = 'ingested' if (moved or superseded) and 'left behind' not in outcome else 'partial: ' + outcome
         msg = f'     moved {moved}, superseded {superseded}, replaced {len(replace)} library copies, art: {source}; {outcome}'
         report.append(msg); print(msg, flush=True)
 
-    json.dump(plan, open(PLAN, 'w', encoding='utf-8'), indent=1, ensure_ascii=False)
+    with open(PLAN + '.tmp', 'w', encoding='utf-8') as f:     # the intake loop reads it
+        json.dump(plan, f, indent=1, ensure_ascii=False)
+    os.replace(PLAN + '.tmp', PLAN)
     open(REPORT, 'w', encoding='utf-8').write('\n'.join(report) + '\n')
     n_block = sum(1 for p in plan if p['blocked'])
     print(f'\n{len(plan)} albums planned, {n_block} blocked, {time.time()-t0:.0f}s. Plan: {PLAN}, report: {REPORT}')
     conn.close(); acdb.close(); iddb.close()
 
 
+def locked_main():
+    # one run at a time: the intake loop and a person at the keyboard would
+    # otherwise move the same files
+    try:
+        fd = os.open(LOCK, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+        os.write(fd, str(os.getpid()).encode()); os.close(fd)
+    except FileExistsError:
+        if time.time() - os.path.getmtime(LOCK) < 6 * 3600:
+            print('another ingest.py is running (ingest.lock); exiting'); sys.exit(3)
+        os.remove(LOCK); return locked_main()
+    try:
+        main()
+    finally:
+        try: os.remove(LOCK)
+        except OSError: pass
+
+
 if __name__ == '__main__':
-    main()
+    locked_main()

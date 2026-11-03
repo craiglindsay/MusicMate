@@ -14,6 +14,8 @@ Three things here are load-bearing rather than incidental:
     directory-traversal hole. Ids avoid both problems at once.
 """
 import os, io, re, sys, time, json, sqlite3, mimetypes, socket, argparse, collections
+import threading, subprocess, uuid
+from starlette.background import BackgroundTask
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException, Request, Query
@@ -39,16 +41,37 @@ def pool_where(pool, alias='album', lead='WHERE'):
     return f'{lead} {alias}.pool = ?', [pool or MAIN_POOL]
 ARTCACHE.mkdir(parents=True, exist_ok=True)
 
-# Album art is cached by album id and served immutable for a year. A rebuild
-# REASSIGNS ids, so every cached image silently becomes another album's cover --
-# a Madonna sleeve on a Maroon 5 record. This token changes whenever the read
-# model is rebuilt and rides on every art URL, so both this cache and the
-# browser's are invalidated together.
+# Album art is cached by album id and served immutable for a year, and the art
+# of an album can change in a rebuild, so this token changes whenever the read
+# model does and rides on every art URL. It is "<epoch>-<mtime>". Ids are stable
+# across rebuilds within an epoch (idmap.py, 30 Oct 2026); before that a rebuild
+# reassigned them and a cached cover became another album's -- a Madonna sleeve
+# on a Maroon 5 record. Only a change of EPOCH invalidates the ids a page holds.
+_EPOCH = {'mtime': None, 'epoch': '0', 'built': None}
+
+def _epoch(mtime):
+    if _EPOCH['mtime'] != mtime:
+        info = {}                            # empty: a read model from before stable ids
+        try:
+            c = sqlite3.connect(f'file:{DB}?mode=ro', uri=True, timeout=5)
+            try:
+                info = dict(c.execute('SELECT k, v FROM build_info'))
+            finally:
+                c.close()
+        except sqlite3.Error:
+            pass
+        _EPOCH.update(mtime=mtime, epoch=info.get('epoch', '0'), built=info.get('built'))
+    return _EPOCH['epoch']
+
 def _art_gen():
     try:
-        return str(int(DB.stat().st_mtime))
+        m = int(DB.stat().st_mtime)
     except Exception:
-        return '0'
+        return '0-0'
+    return '%s-%d' % (_epoch(m), m)
+
+def same_epoch(g):
+    return bool(g) and g.split('-')[0] == art_gen().split('-')[0] and '-' in g
 
 ART_GEN = _art_gen()
 
@@ -63,6 +86,21 @@ def art_gen():
     return _art_gen()
 
 app = FastAPI(title='MusicMate')
+
+
+@app.middleware('http')
+async def tailnet_only(request, call_next):
+    """Nothing that came through Tailscale Funnel is served.
+
+    Away from home the server is reached through `tailscale serve`, which only
+    devices signed in to the owner's tailnet can use (31 Oct 2026). Funnel is
+    the switch that would publish the same address to the whole internet, and
+    MusicMate has no logins: the admin endpoints and the Get button are open.
+    Funnel marks what it forwards, so a mistaken `tailscale funnel` exposes a
+    403 rather than the library."""
+    if request.headers.get('tailscale-funnel-request'):
+        return Response('MusicMate is not served over Tailscale Funnel', status_code=403)
+    return await call_next(request)
 
 
 @app.middleware('http')
@@ -109,10 +147,23 @@ def one(sql, *args):
     r = rows(sql, *args)
     return r[0] if r else None
 
+# Christmas, Compilations and Soundtracks moved to C:\Music on 30 Oct 2026 to
+# free space on D: and are junctions in ROOT, so a path under one resolves
+# outside ROOT. Each top-level link's target counts as inside the library.
+def _library_roots():
+    out = [ROOT.resolve()]
+    try:
+        out += [d.resolve() for d in ROOT.iterdir() if d.is_junction() or d.is_symlink()]
+    except OSError:
+        pass
+    return [str(r).lower().rstrip(os.sep) + os.sep for r in out]
+
+_LIB_ROOTS = _library_roots()
+
 def safe_path(rel):
     """Resolve a library-relative path, refusing anything that escapes the root."""
     p = (ROOT / rel.replace('/', os.sep)).resolve()
-    if not str(p).lower().startswith(str(ROOT.resolve()).lower()):
+    if not any(str(p).lower().startswith(r) for r in _LIB_ROOTS):
         raise HTTPException(403, 'outside the library')
     return p
 
@@ -462,7 +513,7 @@ def album(alid: int):
     return a
 
 @app.get('/api/tracks')
-def tracks_by_id(ids: str):
+def tracks_by_id(ids: str, request: Request):
     """Rehydrate player queue entries from bare ids.
 
     The queue is persisted (and read back off a speaker) as ids only; this turns
@@ -482,8 +533,18 @@ def tracks_by_id(ids: str):
                'JOIN artist ON artist.id=album.artist_id '
                f'WHERE track.id IN ({ph})', *want)
     by = {r['id']: r for r in got}
+    pods = pod.hydrate([i for i in want if i >= pod.POD_BASE], _who(request))
     out = []
     for i in want:
+        if i >= pod.POD_BASE:
+            if i in pods:
+                out.append(pods[i])
+            continue
+        if i < 0:
+            c = dj.clip_info(i)
+            if c:
+                out.append(c)
+            continue
         r = by.get(i)
         if not r:
             continue
@@ -696,27 +757,40 @@ RANGE_RE = re.compile(r'bytes=(\d*)-(\d*)')
 
 @app.get('/api/stream/{tid}')
 @app.head('/api/stream/{tid}')
-def stream(tid: int, request: Request, g: str = None):
+def stream(tid: int, request: Request, g: str = None, q: int = None):
+    if tid < 0:
+        return dj_clip_file(tid)
+    if tid >= pod.POD_BASE:
+        return pod_stream(tid - pod.POD_BASE, request)
     _check_build(g)
-    t = one('SELECT rel_path, mime, size FROM track WHERE id=?', tid)
+    t = one('SELECT rel_path, mime, size, ext, bitrate FROM track WHERE id=?', tid)
     if not t:
         raise HTTPException(404)
     path = safe_path(t['rel_path'])
     if not path.exists():
         raise HTTPException(404, 'file missing')
+    if q and request.method == 'GET':
+        small = _smaller(tid, t, path, q)
+        if small:
+            return small
+    return _serve_file(path, t['mime'], request)
+
+
+def _serve_file(path, mime, request):
+    """A file with byte ranges, as players seek."""
     total = path.stat().st_size
     hdr = {
         'Accept-Ranges': 'bytes',
-        'Content-Type': t['mime'],
+        'Content-Type': mime,
         'Cache-Control': 'no-cache',
     }
     rng = request.headers.get('range')
     if not rng:
-        return FileResponse(path, media_type=t['mime'], headers=hdr)
+        return FileResponse(path, media_type=mime, headers=hdr)
 
     m = RANGE_RE.match(rng)
     if not m:
-        return FileResponse(path, media_type=t['mime'], headers=hdr)
+        return FileResponse(path, media_type=mime, headers=hdr)
     start = int(m.group(1)) if m.group(1) else 0
     end = int(m.group(2)) if m.group(2) else total - 1
     end = min(end, total - 1)
@@ -739,7 +813,49 @@ def stream(tid: int, request: Request, g: str = None):
     hdr.update({'Content-Range': f'bytes {start}-{end}/{total}',
                 'Content-Length': str(length)})
     return StreamingResponse(chunks(), status_code=206, headers=hdr,
-                             media_type=t['mime'])
+                             media_type=mime)
+
+# Phone downloads at a smaller size (31 Oct 2026): ?q=<kbps> on a stream asks
+# for the song as AAC at that rate, made by ffmpeg into a temporary file that
+# is deleted once sent. Nothing is kept on the server; each download is a fresh
+# encode of a few seconds. A song already at or under the rate in a format
+# phones play is sent as it is. Two encodes at a time across all phones.
+LO_RATES = (96, 128, 192)
+LO_DIR = HERE / 'cache' / 'lo'
+_LO_SEM = threading.Semaphore(2)
+for _f in (LO_DIR.glob('*.m4a') if LO_DIR.exists() else []):   # left by a server that was killed mid-send
+    try: _f.unlink()
+    except OSError: pass
+
+
+def _smaller(tid, t, path, q):
+    q = min(LO_RATES, key=lambda r: abs(r - q))
+    if (t['ext'] or '').lower() in ('.mp3', '.m4a', '.aac') and (t['bitrate'] or 0) and t['bitrate'] <= q * 1000 * 1.1:
+        return None
+    LO_DIR.mkdir(parents=True, exist_ok=True)
+    # a phone that cancelled mid-send can leave its copy behind
+    for f in LO_DIR.glob('*.m4a'):
+        try:
+            if time.time() - f.stat().st_mtime > 3600:
+                f.unlink()
+        except OSError:
+            pass
+    out = LO_DIR / ('%d-%d-%s.m4a' % (tid, q, uuid.uuid4().hex[:8]))
+    with _LO_SEM:
+        try:
+            r = subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', str(path), '-map', '0:a:0',
+                                '-c:a', 'aac', '-b:a', '%dk' % q, '-movflags', '+faststart', str(out)],
+                               capture_output=True, timeout=600)
+        except subprocess.TimeoutExpired:
+            r = None
+    if not r or r.returncode != 0 or not out.exists() or out.stat().st_size == 0:
+        try: out.unlink()
+        except OSError: pass
+        print('transcode failed for %d: %s' % (tid, (r.stderr[-300:] if r else b'timeout').decode('utf-8', 'replace')), flush=True)
+        return None                       # the original still downloads
+    return FileResponse(str(out), media_type='audio/mp4', headers={'Cache-Control': 'no-store'},
+                        background=BackgroundTask(lambda: out.unlink(missing_ok=True)))
+
 
 # ---------------------------------------------------------------- user state
 import state as st
@@ -764,36 +880,38 @@ def _keys_for(kind, ident):
     r = one('SELECT name FROM artist WHERE id=?', ident)
     return (st.artist_key(r['name']), r['name'], None) if r else (None, None, None)
 
+# favourites and plays belong to the person this device listens as (X-MM-Who,
+# see podcasts.py); a device with nobody picked is the household, person 0
 @app.post('/api/favourite')
-def set_favourite(f: FavIn):
+def set_favourite(f: FavIn, request: Request):
     key, label, detail = _keys_for(f.kind, f.id)
     if not key:
         raise HTTPException(404)
     return {'kind': f.kind, 'id': f.id,
-            'favourite': st.favourite(f.kind, key, label, detail, f.on)}
+            'favourite': st.favourite(f.kind, key, label, detail, f.on, _who(request))}
 
 @app.get('/api/favourites')
-def get_favourites(kind: str = None):
-    return st.favourites(kind)
+def get_favourites(request: Request, kind: str = None):
+    return st.favourites(kind, who=_who(request))
 
 @app.get('/api/favourite/check')
-def check_favourite(kind: str, id: int):
+def check_favourite(kind: str, id: int, request: Request):
     key, _, _ = _keys_for(kind, id)
-    return {'favourite': bool(key) and st.is_favourite(kind, key)}
+    return {'favourite': bool(key) and st.is_favourite(kind, key, _who(request))}
 
 class PlayIn(BaseModel):
     track_id: int
     room: str = None
 
 @app.post('/api/play/start')
-def play_start(p: PlayIn):
+def play_start(p: PlayIn, request: Request):
     r = one('SELECT track.skey, track.duration, album.title alb, artist.name art '
             'FROM track JOIN album ON album.id=track.album_id '
             'JOIN artist ON artist.id=track.artist_id WHERE track.id=?', p.track_id)
     if not r:
         raise HTTPException(404)
     pid = st.start_play(r['skey'], st.album_key(r['art'], r['alb']),
-                        st.artist_key(r['art']), p.room)
+                        st.artist_key(r['art']), p.room, _who(request))
     return {'play_id': pid, 'duration': r['duration']}
 
 class TickIn(BaseModel):
@@ -806,10 +924,10 @@ def play_tick(t: TickIn):
     return {'counted': bool(st.update_play(t.play_id, t.seconds, t.duration))}
 
 @app.get('/api/recent')
-def recent(kind: str = 'track', limit: int = Query(60, le=300)):
+def recent(request: Request, kind: str = 'track', limit: int = Query(60, le=300)):
     """Resolve stable keys back to things the UI can show."""
     out = []
-    for r in st.recent(limit, kind):
+    for r in st.recent(limit, kind, _who(request)):
         if kind == 'track':
             row = one('SELECT track.id,track.title,track.duration,album.id album_id,'
                       'album.title album,artist.name artist FROM track '
@@ -928,13 +1046,13 @@ def pl_del(pid: int):
 
 
 @app.get('/api/playlists')
-def playlists():
-    return st.smart_catalogue(str(DB))
+def playlists(request: Request):
+    return st.smart_catalogue(str(DB), _who(request))
 
 @app.get('/api/playlist/{key}')
-def playlist(key: str, limit: int = Query(200, le=1000)):
+def playlist(key: str, request: Request, limit: int = Query(200, le=1000)):
     try:
-        tracks = st.smart_playlist(key, str(DB), limit=limit)
+        tracks = st.smart_playlist(key, str(DB), limit=limit, who=_who(request))
     except ValueError:
         raise HTTPException(404, 'no such playlist')
     for t in tracks:
@@ -1045,14 +1163,14 @@ def _mark_synced(tracks):
 
 
 def _check_build(g):
-    """Refuse to serve audio to a page that predates the current read model.
+    """Refuse to serve audio to a page whose ids come from another epoch.
 
-    Track ids are reassigned by every rebuild -- measured at 14% survival -- so
-    an id from an older build points at a DIFFERENT recording. The page would
-    show the right title, art and lyrics from its own stale copy while the
-    speaker played something else entirely. Better a clear error the client can
-    recover from than confidently wrong audio."""
-    if g and g != art_gen():
+    Before stable ids, a rebuild reassigned track ids -- measured at 14%
+    survival -- so an id from an older build pointed at a DIFFERENT recording:
+    the page showed the right title and art while the speaker played something
+    else. Within an epoch an id always means the same file now, so only a page
+    from another epoch (or from before epochs) is refused."""
+    if g and not same_epoch(g):
         raise HTTPException(409, 'stale build: reload')
 
 
@@ -1065,7 +1183,7 @@ def media(spec: str, request: Request):
     URL ending in a bare id, however correct the Content-Type header is. So speakers
     get /media/14747.m4a while the browser can keep using /api/stream/14747.
     """
-    m = re.match(r'^(\d+)(?:\.([A-Za-z0-9]+))?$', spec)
+    m = re.match(r'^(-?\d+)(?:\.([A-Za-z0-9]+))?$', spec)
     if not m:
         raise HTTPException(404)
     return stream(int(m.group(1)), request)
@@ -1172,12 +1290,8 @@ class SonosPlay(BaseModel):
     track_ids: list[int]
     start: int = 0
 
-@app.post('/api/sonos/play')
-def sonos_play(p: SonosPlay):
-    if not p.track_ids:
-        raise HTTPException(400, 'no tracks')
+def _sonos_tracks(ids):
     host = lan_host()
-    ids = p.track_ids[:80]
     q = ','.join('?' * len(ids))
     meta = {r['id']: r for r in rows(
         f'SELECT track.id,track.title,track.ext,track.mime,track.duration,track.has_art,'
@@ -1186,7 +1300,23 @@ def sonos_play(p: SonosPlay):
         f'JOIN album ON album.id=track.album_id '
         f'JOIN artist ON artist.id=track.artist_id WHERE track.id IN ({q})', *ids)}
     tracks = []
+    pods = pod.hydrate([i for i in ids if i >= pod.POD_BASE])
     for tid in ids:
+        if tid >= pod.POD_BASE:
+            e = pods.get(tid)
+            if e:
+                tracks.append({'url': f"{host}/media/{tid}{pod._ext(e['mime'], '')}", 'title': e['title'],
+                               'artist': e['artist'], 'album': e['album'],
+                               'art': f"{host}/api/pod/art/{e['show_id']}", 'duration': e['duration'],
+                               'mime': e['mime'] or 'audio/mpeg'})
+            continue
+        if tid < 0:
+            c = dj.clip_info(tid)
+            if c:
+                tracks.append({'url': f"{host}/media/{tid}.mp3", 'title': c['title'], 'artist': c['artist'],
+                               'album': 'MusicMate DJ', 'art': f"{host}/icon-512.png",
+                               'duration': c['duration'], 'mime': 'audio/mpeg'})
+            continue
         m = meta.get(tid)
         if not m:
             continue
@@ -1196,16 +1326,44 @@ def sonos_play(p: SonosPlay):
                                if m['has_art'] and (m['is_compilation'] or m['pool'] != MAIN_POOL)
                                else f"{host}/api/art/{m['album_id']}?size=600"),
                        'duration': m['duration'], 'mime': m['mime']})
+    return tracks
+
+
+def _speaker_uuid(ip):
+    for r in speakers():
+        if r['ip'] == ip and r.get('uuid'):
+            return r['uuid']
+    info = sn.describe(ip)
+    return info and info.get('uuid')
+
+
+class SonosAppend(BaseModel):
+    ip: str
+    track_ids: list[int]
+
+@app.post('/api/sonos/append')
+def sonos_append(p: SonosAppend):
+    """Add to the end of the speaker's queue without touching what is playing
+    (the DJ's next set: re-pushing the whole queue restarts the song)."""
+    tracks = _sonos_tracks(p.track_ids[:40])
+    try:
+        for t in tracks:
+            sn.enqueue(p.ip, t['url'], t['title'], t['artist'], t['album'], t['art'],
+                       duration=t['duration'], mime=t['mime'])
+    except Exception as e:
+        raise HTTPException(502, f'sonos refused: {e}')
+    return {'ok': True, 'queued': len(tracks)}
+
+
+@app.post('/api/sonos/play')
+def sonos_play(p: SonosPlay):
+    if not p.track_ids:
+        raise HTTPException(400, 'no tracks')
+    tracks = _sonos_tracks(p.track_ids[:80])
     if not tracks:
         raise HTTPException(404)
     # the speaker's own uuid is what the queue URI is addressed to
-    uuid = None
-    for r in speakers():
-        if r['ip'] == p.ip:
-            uuid = r.get('uuid')
-    if not uuid:
-        info = sn.describe(p.ip)
-        uuid = info and info.get('uuid')
+    uuid = _speaker_uuid(p.ip)
     if not uuid:
         raise HTTPException(502, 'could not identify that speaker')
     try:
@@ -1277,7 +1435,7 @@ def sonos_queue(ip: str):
         raise HTTPException(502, str(e))
     ids = []
     for u in uris:
-        m = re.search(r'/media/(\d+)(?:\.[A-Za-z0-9]+)?(?:\?|$)', u or '')
+        m = re.search(r'/media/(-?\d+)(?:\.[A-Za-z0-9]+)?(?:\?|$)', u or '')
         ids.append(int(m.group(1)) if m else None)
     return {'ids': ids, 'n': len(ids), 'ours': sum(1 for i in ids if i is not None)}
 
@@ -1439,9 +1597,27 @@ def sonos_group(g: SonosGroup):
     _ROOMS['at'] = 0
     return {'ok': True}
 
+# What's new (2 Nov 2026): VERSION.md at the repo root, newest release first;
+# the app's version is its first "## <version>" heading.
+def _whatsnew():
+    try:
+        md = (HERE.parent / 'VERSION.md').read_text(encoding='utf-8')
+    except OSError:
+        return {'version': None, 'markdown': ''}
+    m = re.search(r'^## +(\S+)', md, re.M)
+    return {'version': m.group(1) if m else None, 'markdown': md}
+
+
+@app.get('/api/whatsnew')
+def whatsnew():
+    return _whatsnew()
+
+
 @app.get('/api/build')
 def build_id():
-    return {'build': art_gen()}
+    # build changes with any write to the read model; built only when etl.py
+    # finishes a rebuild, which is what "new music" means to a page
+    return {'build': art_gen(), 'built': _EPOCH['built']}
 
 
 @app.get('/api/recent-added')
@@ -1607,6 +1783,35 @@ def tv_apk():
                         filename='mm.apk', headers={'Cache-Control': 'no-store'})
 
 
+# Offline play on phones (31 Oct 2026). A service worker keeps downloaded
+# songs and covers in the phone's own storage and answers for them when the
+# server cannot be reached. It must be served from the root to control every
+# page, and browsers only run one on a secure page: the Tailscale https
+# address, never the plain LAN one the TV uses.
+@app.get('/sw.js')
+def service_worker():
+    return FileResponse(str(HERE / 'sw.js'), media_type='application/javascript',
+                        headers={'Cache-Control': 'no-cache', 'Service-Worker-Allowed': '/'})
+
+
+@app.get('/manifest.webmanifest')
+def web_manifest():
+    return JSONResponse({
+        'name': 'MusicMate', 'short_name': 'MusicMate', 'start_url': '/', 'scope': '/',
+        'display': 'standalone', 'background_color': '#0b0a0e', 'theme_color': '#0b0a0e',
+        'icons': [{'src': '/icon-%d.png' % n, 'sizes': '%dx%d' % (n, n), 'type': 'image/png',
+                   'purpose': 'any maskable'} for n in (192, 512)],
+    }, media_type='application/manifest+json', headers={'Cache-Control': 'no-cache'})
+
+
+@app.get('/icon-{n}.png')
+def app_icon(n: int):
+    p = HERE / 'icons' / ('icon-%d.png' % n)
+    if not p.exists():
+        raise HTTPException(404)
+    return FileResponse(str(p), media_type='image/png', headers={'Cache-Control': 'max-age=86400'})
+
+
 @app.get('/api/admin/status')
 def admin_status():
     lib = {}
@@ -1659,6 +1864,7 @@ def admin_status():
         'tvapp': ({'size': (DIST / 'mm.apk').stat().st_size, 'built': (DIST / 'mm.apk').stat().st_mtime,
                    'url': lan_host() + '/mm.apk'} if (DIST / 'mm.apk').exists() else None),
         'rescan': rescan,
+        'intake': {k: v for k, v in intake.status().items() if k != 'log'},
     }
 
 
@@ -1704,7 +1910,7 @@ def _rescan_run(roots, fingerprint, covers=True):
         run('rebuild', [py, 'etl.py'], HERE)
         with RESCAN['lock']:
             RESCAN['state'] = 'done'; RESCAN['step'] = ''
-        log('done: the read model has been rebuilt; open pages should be reloaded')
+        log('done: the read model has been rebuilt; ids are kept, so nothing playing is affected')
     except Exception as e:
         with RESCAN['lock']:
             RESCAN['state'] = 'error'; RESCAN['step'] = ''
@@ -1719,6 +1925,8 @@ def admin_rescan(r: RescanReq):
     roots = [x for x in r.roots if (ROOT_MUSIC / x).is_dir() and '/' not in x and '\\' not in x and not x.startswith('_')]
     if not roots:
         raise HTTPException(400, 'no such folder under the music root')
+    if intake.running():
+        raise HTTPException(409, 'new music is being filed; try again when it finishes')
     with RESCAN['lock']:
         if RESCAN['state'] == 'running':
             raise HTTPException(409, 'a rescan is already running')
@@ -1731,6 +1939,8 @@ def admin_rescan(r: RescanReq):
 def admin_covers():
     """Fetch covers for every album that has none, then rebuild. Same job
     runner and progress panel as the rescan, without the scan."""
+    if intake.running():
+        raise HTTPException(409, 'new music is being filed; try again when it finishes')
     with RESCAN['lock']:
         if RESCAN['state'] == 'running':
             raise HTTPException(409, 'a rescan is already running')
@@ -1745,6 +1955,391 @@ def admin_rescan_state():
         d = {k: v for k, v in RESCAN.items() if k != 'lock'}
     d['log'] = d['log'][-60:]
     return d
+
+
+# ---- auto-intake (intake.py): the download pipeline's albums into the library
+# every ten minutes, one CPU-heavy job at a time
+import intake
+
+def _intake_busy():
+    if RESCAN['state'] == 'running':
+        return 'a rescan is running'
+    if any(j.get('state') == 'running' for j in kar.queued()):
+        return 'a karaoke separation is running'
+    return ''
+
+intake.start(_intake_busy)
+
+
+@app.get('/api/admin/intake')
+def admin_intake():
+    return intake.status()
+
+
+@app.post('/api/admin/intake')
+def admin_intake_now():
+    """Check for new music now. Also the hook for the pipeline's own scripts."""
+    intake.kick()
+    return {'ok': True}
+
+
+class IntakeAct(BaseModel):
+    action: str
+    artist: str
+    album: str
+
+
+@app.post('/api/admin/intake/act')
+def admin_intake_act(r: IntakeAct):
+    """Needs attention: file a held album anyway, or set it aside."""
+    if r.action not in ('file', 'aside'):
+        raise HTTPException(400, 'action is file or aside')
+    if (r.artist, r.album) not in intake.staging_albums():
+        raise HTTPException(404, 'that album is not in staging')
+    if intake.running():
+        raise HTTPException(409, 'intake is busy; try again in a minute')
+    _th.Thread(target=intake.act, args=(r.action, r.artist, r.album), daemon=True, name='intake-act').start()
+    return {'ok': True}
+
+
+# ---- the DJ (dj.py): a station from a seed, with a spoken link between sets
+import dj
+dj.init(lambda aid, limit: artist_radio(aid, limit), MAIN_POOL)
+
+
+class DjIn(BaseModel):
+    kind: str
+    id: str
+    voice: str | None = None
+    session: str | None = None
+    played: list[int] = []
+    have: int | None = None
+
+
+def _dj_seed(p):
+    if p.kind not in ('artist', 'song', 'album', 'genre', 'era', 'lib'):
+        raise HTTPException(400, 'unknown seed')
+    if p.kind == 'lib':
+        return p.id
+    try:
+        return int(p.id)
+    except ValueError:
+        raise HTTPException(400, 'bad seed id')
+
+
+@app.post('/api/dj/start')
+def dj_start(p: DjIn):
+    try:
+        return dj.start(p.kind, _dj_seed(p), p.voice)
+    except ValueError as e:
+        raise HTTPException(404, str(e))
+
+
+@app.post('/api/dj/more')
+def dj_more(p: DjIn):
+    """The next set and the talk after it. A session lost to a restart is
+    rebuilt from the seed, minus what the queue has already played."""
+    r = dj.more(p.session, p.voice, p.have) if p.session else None
+    if r is None:
+        try:
+            r = dj.start(p.kind, _dj_seed(p), p.voice, played=p.played or [0])
+        except ValueError as e:
+            raise HTTPException(404, str(e))
+    return r
+
+
+class DjBind(BaseModel):
+    session: str
+    ips: list[str] = []
+
+@app.post('/api/dj/bind')
+def dj_bind(b: DjBind):
+    """The page says where the station plays; on a speaker the server keeps it going."""
+    return {'ok': dj.bind(b.session, b.ips)}
+
+
+def _dj_append(ips, ids):
+    tracks = _sonos_tracks(ids[:40])
+    for ip in ips:
+        for t in tracks:
+            sn.enqueue(ip, t['url'], t['title'], t['artist'], t['album'], t['art'],
+                       duration=t['duration'], mime=t['mime'])
+
+dj.set_appender(_dj_append)
+
+
+def _dj_keeper():
+    """A station on a speaker runs out of queue when the page that was topping
+    it up sleeps (2 Nov 2026: the DJ stopped with the phone in a pocket). So
+    every 20 seconds, for each station bound to a speaker: if the speaker is
+    within two entries of the end of its queue, the next set goes on. A speaker
+    now playing something that is not the station (the Sonos app, another
+    page) lets the station go."""
+    while True:
+        time.sleep(20)
+        for s in list(dj.SESSIONS.values()):
+            ips = s.bound
+            if not ips:
+                continue
+            try:
+                pi = sn.position_info(ips[0])
+                m = re.search(r'/media/(-?\d+)', pi.get('uri') or '')
+                if not m or int(m.group(1)) not in {i['id'] for i in s.log}:
+                    if (pi.get('uri') or '') and not m:
+                        s.bound = None      # the room moved on to another source
+                    continue
+                left = len(sn.queue(ips[0], 600)) - (pi.get('track') or 0)
+                if left <= 2:
+                    dj.more(s.id, None, len(s.log))
+            except Exception as e:
+                print('dj keeper:', type(e).__name__, str(e)[:200], flush=True)
+
+threading.Thread(target=_dj_keeper, daemon=True, name='dj-keeper').start()
+
+
+@app.get('/api/dj/clip/{cid}')
+def dj_clip(cid: int):
+    c = dj.clip_info(cid)
+    if not c:
+        raise HTTPException(404)
+    return c
+
+
+@app.get('/api/dj/voices')
+def dj_voices():
+    return {'voices': dj.VOICES, 'default': dj.VOICE, 'writer': 'claude' if dj._key() else 'plain'}
+
+
+def dj_clip_file(cid):
+    got = dj.clip(cid)
+    if not got:
+        raise HTTPException(404, 'no such clip')
+    return FileResponse(str(got[0]), media_type='audio/mpeg', headers={'Cache-Control': 'no-cache'})
+
+
+# ---- requests (wanted.py): music the household does not have, found on
+# MusicBrainz and asked of the download pipeline; anyone on the LAN may ask
+# ---- podcasts (podcasts.py): per person, everyone's shows visible
+import podcasts as pod
+import urllib.request as _ureq
+pod.start()
+
+
+def _who(request: Request):
+    """the person this device listens as (X-MM-Who), or None"""
+    p = pod.person(request.headers.get('x-mm-who') or request.query_params.get('who'))
+    return p['id'] if p else None
+
+
+class PersonIn(BaseModel):
+    name: str | None = None
+    id: int | None = None
+
+
+@app.get('/api/people')
+def people(request: Request):
+    """everyone, and who this device is if the tailnet says so"""
+    me = pod.by_login(request.headers.get('tailscale-user-login'))
+    return {'people': pod.people(), 'me': me}
+
+
+@app.post('/api/people')
+def people_pick(p: PersonIn, request: Request):
+    """add a person (by name) or pick one (by id); a tailnet device remembers"""
+    try:
+        r = pod.add_person(p.name) if p.name else pod.person(p.id)
+    except ValueError as e:
+        raise HTTPException(400, str(e))
+    if not r:
+        raise HTTPException(404)
+    pod.remember_login(r['id'], request.headers.get('tailscale-user-login'))
+    return r
+
+
+@app.get('/api/pod/search')
+def pod_search(q: str):
+    try:
+        return pod.search(q)
+    except Exception as e:
+        raise HTTPException(502, 'the podcast directory did not answer: %s' % e)
+
+
+class PodSub(BaseModel):
+    feed: str | None = None
+    show_id: int | None = None
+    on: bool = True
+
+
+@app.post('/api/pod/subscribe')
+def pod_subscribe(b: PodSub, request: Request):
+    pid = _who(request)
+    if not pid:
+        raise HTTPException(400, 'choose who is listening first')
+    if not b.on:
+        pod.unsubscribe(pid, b.show_id)
+        return {'show_id': b.show_id, 'mine': False}
+    try:
+        return {'show_id': pod.subscribe(pid, b.feed, b.show_id), 'mine': True}
+    except Exception as e:
+        raise HTTPException(502, 'could not read that feed: %s' % e)
+
+
+@app.get('/api/pod/home')
+def pod_home(request: Request):
+    return pod.home(_who(request))
+
+
+@app.get('/api/pod/show/{sid}')
+def pod_show(sid: int, request: Request):
+    d = pod.show(sid, _who(request))
+    if not d:
+        raise HTTPException(404)
+    return d
+
+
+@app.post('/api/pod/show/{sid}/refresh')
+def pod_show_refresh(sid: int, request: Request):
+    pod.refresh_show(sid)
+    return pod.show(sid, _who(request))
+
+
+@app.get('/api/pod/art/{sid}')
+def pod_art(sid: int):
+    p = pod.art_path(sid)
+    if not p:
+        raise HTTPException(404)
+    return FileResponse(str(p), media_type='image/jpeg', headers={'Cache-Control': 'public, max-age=86400'})
+
+
+@app.get('/api/pod/queue/{eid}')
+def pod_queue(eid: int, request: Request):
+    return pod.queue(eid, _who(request))
+
+
+@app.get('/api/pod/notes/{eid}')
+def pod_notes(eid: int):
+    d = pod.notes(eid)
+    if not d:
+        raise HTTPException(404)
+    return d
+
+
+@app.get('/api/pod/newest')
+def pod_newest(request: Request):
+    pid = _who(request)
+    return pod.newest_for(pid) if pid else []
+
+
+class PodPos(BaseModel):
+    episode_id: int
+    pos: float = 0
+    duration: float | None = None
+    played: bool | None = None
+
+
+@app.post('/api/pod/pos')
+def pod_pos(b: PodPos, request: Request):
+    return pod.save_pos(_who(request), b.episode_id, b.pos, b.duration, b.played) or {}
+
+
+def pod_stream(eid, request):
+    """the server's copy when it has one, else the publisher's file passed through"""
+    e = pod.episode(eid)
+    if not e:
+        raise HTTPException(404)
+    f = pod.file_of(e)
+    if f:
+        return _serve_file(f, e['mime'] or 'audio/mpeg', request)
+    if request.method == 'HEAD':
+        return Response(headers={'Content-Type': e['mime'] or 'audio/mpeg', 'Accept-Ranges': 'bytes'})
+    hdrs = {'User-Agent': pod.UA}
+    if request.headers.get('range'):
+        hdrs['Range'] = request.headers['range']
+    try:
+        up = _ureq.urlopen(_ureq.Request(e['url'], headers=hdrs), timeout=30)
+    except urllib.error.HTTPError as x:
+        return Response(status_code=x.code)
+    except Exception as x:
+        raise HTTPException(502, str(x))
+    out = {'Accept-Ranges': 'bytes', 'Cache-Control': 'no-cache'}
+    for k in ('Content-Length', 'Content-Range'):
+        if up.headers.get(k):
+            out[k] = up.headers[k]
+    ctype = up.headers.get('Content-Type') or ''
+    if not ctype.startswith('audio'):
+        ctype = e['mime'] or 'audio/mpeg'
+
+    def chunks():
+        with up:
+            while True:
+                buf = up.read(65536)
+                if not buf:
+                    break
+                yield buf
+    return StreamingResponse(chunks(), status_code=up.status, headers=out, media_type=ctype)
+
+
+import wanted
+import urllib.error
+intake.ON_ADDED.append(lambda: wanted.refresh(force=True))
+
+
+@app.get('/api/wanted/artist/{aid}')
+def wanted_artist(aid: int):
+    """The artist's studio albums, each marked library / have / requested / missing."""
+    try:
+        r = wanted.for_artist(aid)
+    except Exception as e:
+        raise HTTPException(502, 'MusicBrainz: %s' % e)
+    if r is None:
+        raise HTTPException(404)
+    return r
+
+
+@app.get('/api/wanted/mb/{mbid}')
+def wanted_mb_artist(mbid: str):
+    if not re.match(r'^[0-9a-f-]{36}$', mbid):
+        raise HTTPException(400)
+    try:
+        return wanted.mb_artist(mbid)
+    except urllib.error.HTTPError as e:
+        raise HTTPException(404 if e.code in (400, 404) else 502, 'MusicBrainz: %s' % e)
+    except Exception as e:
+        raise HTTPException(502, 'MusicBrainz: %s' % e)
+
+
+@app.get('/api/wanted/search')
+def wanted_search(q: str):
+    if len(q.strip()) < 2:
+        return {'artists': [], 'albums': [], 'songs': []}
+    try:
+        return wanted.search(q)
+    except Exception as e:
+        raise HTTPException(502, 'MusicBrainz: %s' % e)
+
+
+class WantIn(BaseModel):
+    rgid: str
+    artist: str
+    album: str
+    year: str = ''
+
+
+@app.post('/api/requests')
+def request_album(r: WantIn, request: Request):
+    try:
+        started = wanted.ask(r.rgid, r.artist, r.album, r.year, request.client.host if request.client else '')
+    except ValueError as e:
+        raise HTTPException(400, str(e))
+    return {'ok': True, 'started': started}
+
+
+@app.get('/api/requests')
+def requests_list():
+    """Every request, newest first. Open ones are re-checked in the background
+    at most every 30 seconds, so a page polling this sees them move."""
+    _th.Thread(target=wanted.refresh, daemon=True, name='requests').start()
+    return wanted.listing()
 
 
 @app.post('/api/admin/backup')
@@ -2771,6 +3366,57 @@ def index(request: Request):
         return html.replace('<head>', '<head><script>window.__ARTGEN=%r;</script>'
                             % art_gen(), 1)
     return '<h1>MusicMate API</h1><p>UI not built yet. Try /api/health</p>'
+
+# ---- Wrapped (wrapped.py, wrapped.html): a person's year, with the DJ's voice
+import wrapped as wr
+wr.start()
+
+
+@app.get('/wrapped', response_class=HTMLResponse)
+def wrapped_page(request: Request):
+    """the show; read on every request like ui.html. ?year=&who= pick the year and person"""
+    p = HERE / 'wrapped.html'
+    if not p.exists():
+        raise HTTPException(404)
+    html = p.read_text(encoding='utf-8')
+    if 'MusicMateTV' in (request.headers.get('user-agent') or ''):
+        html = html.replace('content="width=device-width, initial-scale=1, viewport-fit=cover"', 'content="width=1280"', 1)
+    return html
+
+
+def _wr_who(request: Request, who):
+    if who is not None:
+        p = pod.person(who)
+        return p['id'] if p else 0
+    return _who(request) or 0
+
+
+@app.get('/api/wrapped/years')
+def wrapped_years(request: Request, who: int = None):
+    w = _wr_who(request, who)
+    return {'who': w, 'name': wr._person_name(w), 'years': wr.years(w),
+            'people': [dict(p, years=wr.years(p['id'])) for p in pod.people()],
+            'household_years': wr.years(0)}
+
+
+@app.get('/api/wrapped/{year}')
+def wrapped_stats(year: int, request: Request, who: int = None):
+    return wr.snapshot(year, _wr_who(request, who))
+
+
+@app.get('/api/wrapped/{year}/narration')
+def wrapped_narration(year: int, request: Request, who: int = None):
+    """{'state': 'ready', lines: {slide: {text, url}}}, or 'running' (ask again in a few seconds)"""
+    return wr.narration(year, _wr_who(request, who))
+
+
+@app.get('/api/wrapped/voice/{key}/{slide}.mp3')
+def wrapped_voice(key: str, slide: str):
+    p = wr.voice_path(key, slide)
+    if not p:
+        raise HTTPException(404)
+    return FileResponse(str(p), media_type='audio/mpeg', headers={'Cache-Control': 'public, max-age=31536000, immutable'})
+
 
 @app.get('/{rest:path}', include_in_schema=False)
 def any_page(rest: str, request: Request):

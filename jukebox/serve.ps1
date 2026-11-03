@@ -56,7 +56,12 @@ while (-not (Test-Path $Stop)) {
     $t0 = Get-Date
     "$(Get-Date -Format s) starting server.py on port $Port (attempt $attempt)" | Add-Content (Join-Path $Logs 'launcher.log')
     $p = Start-Process -FilePath 'python' -ArgumentList 'server.py', '--port', "$Port" -WorkingDirectory $Here `
-        -RedirectStandardOutput $log -RedirectStandardError (Join-Path $Logs 'server.err.log') -PassThru -WindowStyle Hidden -Wait
+        -RedirectStandardOutput $log -RedirectStandardError (Join-Path $Logs 'server.err.log') -PassThru -WindowStyle Hidden
+    # Wait for the server alone. Start-Process -Wait also waits for everything the
+    # server started, so an album request (request_album.py, which runs for many
+    # minutes) left running by a killed server kept the launcher from restarting
+    # it for as long as the request ran (31 Oct 2026).
+    $p.WaitForExit()
     $ran = ((Get-Date) - $t0).TotalSeconds
     "$(Get-Date -Format s) server exited with code $($p.ExitCode) after $([int]$ran)s" | Add-Content (Join-Path $Logs 'launcher.log')
     if (Test-Path $Stop) { break }

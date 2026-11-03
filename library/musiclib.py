@@ -9,7 +9,7 @@ Everything is keyed on the path relative to ROOT, so VariousArtists/... and
 the other top-level libraries (Compilations/..., Soundtracks/...) live in one
 namespace. ROOT is the MUSICMATE_ROOT environment variable, default D:\\Music.
 """
-import os, sys, sqlite3, json, subprocess, argparse, time
+import os, sys, sqlite3, json, subprocess, argparse, time, shutil
 from concurrent.futures import ThreadPoolExecutor
 
 ROOT = os.environ.get('MUSICMATE_ROOT') or r'D:\Music'
@@ -359,6 +359,18 @@ def cmd_fingerprint(args):
 QUARANTINE = '_quarantine'   # under ROOT, sibling of the libraries
 SUPERSEDED = '_superseded'
 
+def _replace(src, dst):
+    """os.replace that also works across drives. Christmas, Compilations and
+    Soundtracks live on C:/Music behind junctions in ROOT (30 Oct 2026), so a
+    move between them and the rest of ROOT changes volume."""
+    try:
+        os.replace(src, dst)
+    except OSError as e:
+        if getattr(e, 'winerror', None) != 17 and e.errno != 18:   # not same device
+            raise
+        shutil.copy2(src, dst)
+        os.remove(src)
+
 def _move(conn, rel, destroot, op, reason, dry):
     """Move ROOT/rel -> ROOT/destroot/rel, logging it so it can be undone."""
     src = os.path.join(ROOT, rel.replace('/', os.sep))
@@ -376,7 +388,7 @@ def _move(conn, rel, destroot, op, reason, dry):
         size = os.path.getsize(src)
     except OSError:
         size = None
-    os.replace(src, dst)
+    _replace(src, dst)
     conn.execute('INSERT INTO moves (ts,op,reason,src,dst,size) VALUES (?,?,?,?,?,?)',
                  (time.time(), op, reason, rel, dst_rel, size))
     conn.execute('DELETE FROM files WHERE path=?', (rel,))
@@ -402,7 +414,7 @@ def _move_to(conn, rel, dst_rel, op, reason, dry=False):
         size = os.path.getsize(src)
     except OSError:
         size = None
-    os.replace(src, dst)
+    _replace(src, dst)
     conn.execute('INSERT INTO moves (ts,op,reason,src,dst,size) VALUES (?,?,?,?,?,?)',
                  (time.time(), op, reason, rel, dst_rel, size))
     conn.execute('UPDATE files SET path=?, folder=?, filename=? WHERE path=?',
@@ -486,7 +498,7 @@ def cmd_undo(args):
         dst = os.path.join(ROOT, s.replace('/', os.sep))
         if not os.path.exists(src): continue
         os.makedirs(os.path.dirname(dst), exist_ok=True)
-        os.replace(src, dst)
+        _replace(src, dst)
         conn.execute('DELETE FROM moves WHERE id=?', (mid,)); n += 1
     conn.commit()
     print(f'restored {n} files -- re-run "scan" to put them back in the index')

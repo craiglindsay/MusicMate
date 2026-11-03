@@ -5,7 +5,8 @@
 #
 # Runs serve.ps1 hidden when this user logs on, restarts it if it fails, never
 # times out (the default for a scheduled task is three days), and starts it on
-# battery too. This account is not an administrator, so the trigger is logon
+# battery too. Registered from an unelevated shell (the account is an
+# administrator behind UAC), so the trigger is logon
 # rather than boot: the server comes back when you sign in. From an elevated
 # PowerShell the same task can be made to start at boot instead:
 #

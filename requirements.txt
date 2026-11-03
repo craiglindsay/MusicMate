@@ -6,3 +6,6 @@ pydantic==2.13.5
 mutagen==1.48.1
 pillow==12.3.0
 numpy==2.5.2
+# the DJ (jukebox/dj.py): Claude writes the links, edge-tts speaks them
+anthropic==2.3.0
+edge-tts==7.3.1

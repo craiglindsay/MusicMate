@@ -29,6 +29,7 @@ or more siblings under one parent (-> box set). Anything else is left alone.
 Idempotent: safe to re-run, and re-run at the end of every ETL.
 """
 import re, sqlite3, collections as _c, posixpath
+import idmap
 from pathlib import Path
 
 DB = Path(__file__).resolve().parent / 'jukebox.db'
@@ -186,9 +187,10 @@ def build(db=DB, verbose=False):
         years = [p[0]['year'] for p in prepared if p[0]['year']]
         art = sorted(prepared, key=lambda p: -((p[0]['art_w'] or 0) if p[0]['art_kind'] else 0))
         cid = c.execute(
-            'INSERT INTO collection (artist_id,name,sort_name,folder,n_discs,n_tracks,'
-            'duration,year_min,year_max,art_album_id,kind) VALUES (?,?,?,?,?,?,?,?,?,?,?)',
-            (_c.Counter(m['artist_id'] for m in members).most_common(1)[0][0],
+            'INSERT INTO collection (id,artist_id,name,sort_name,folder,n_discs,n_tracks,'
+            'duration,year_min,year_max,art_album_id,kind) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)',
+            (idmap.active().collection(folder),
+             _c.Counter(m['artist_id'] for m in members).most_common(1)[0][0],
              name, sort_name(name), folder, len(prepared),
              sum(p[0]['n_tracks'] or 0 for p in prepared),
              sum(p[0]['duration'] or 0 for p in prepared),

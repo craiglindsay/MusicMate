@@ -61,14 +61,50 @@ CREATE TABLE IF NOT EXISTS kar_sync (
 # A play counts once it has run past this much of the track. Without a threshold,
 # skipping through an album to find one song poisons the recents list with the
 # eleven tracks you rejected on the way.
-MIN_SECONDS = 30
+# A play counts (Last.fm's rule, 2 Nov 2026): half the song, or four minutes,
+# whichever comes first; four minutes when the length is unknown.
+MAX_SECONDS = 240
 MIN_FRACTION = 0.5
+
+def counts_after(duration):
+    return min(duration * MIN_FRACTION, MAX_SECONDS) if duration else MAX_SECONDS
 
 def db():
     c = sqlite3.connect(STATE_DB, timeout=30, check_same_thread=False)
     c.row_factory = sqlite3.Row
     c.executescript(SCHEMA)
+    if not _MIGRATED:
+        _migrate(c)
     return c
+
+# Per person (2 Nov 2026). A person is picked on each device (podcasts.py keeps
+# the list); favourites and plays carry their person_id. 0 is the household:
+# a device where nobody has been picked, and everything from before people
+# existed. A person sees their own favourites and plays; the household sees
+# its own favourites and everybody's plays.
+_MIGRATED = []
+
+def _migrate(c):
+    cols = [r[1] for r in c.execute('PRAGMA table_info(play)')]
+    if 'person_id' not in cols:
+        c.execute('ALTER TABLE play ADD COLUMN person_id INTEGER DEFAULT 0')
+        c.execute('CREATE INDEX IF NOT EXISTS ix_play_person ON play(person_id, started)')
+    cols = [r[1] for r in c.execute('PRAGMA table_info(favourite)')]
+    if 'person_id' not in cols:
+        c.executescript("""
+            CREATE TABLE favourite_p (
+              person_id INTEGER NOT NULL DEFAULT 0, kind TEXT NOT NULL, key TEXT NOT NULL,
+              label TEXT, detail TEXT, created REAL, PRIMARY KEY (person_id, kind, key));
+            INSERT INTO favourite_p (person_id, kind, key, label, detail, created)
+              SELECT 0, kind, key, label, detail, created FROM favourite;
+            DROP TABLE favourite;
+            ALTER TABLE favourite_p RENAME TO favourite;""")
+    c.commit()
+    _MIGRATED.append(1)
+
+def _pw(who, col='person_id'):
+    """the WHERE fragment for a person's plays: theirs, or everyone's for the household"""
+    return (f' AND {col}=%d' % int(who)) if who else ''
 
 def _norm(s):
     return re.sub(r'[^a-z0-9]', '', (s or '').lower())
@@ -84,24 +120,24 @@ def artist_key(artist):
     return hashlib.sha1(_norm(artist).encode()).hexdigest()[:16]
 
 # ---------------------------------------------------------------- favourites
-def favourite(kind, key, label=None, detail=None, on=True):
+def favourite(kind, key, label=None, detail=None, on=True, who=0):
     c = db()
     try:
         if on:
-            c.execute('INSERT OR REPLACE INTO favourite (kind,key,label,detail,created) '
-                      'VALUES (?,?,?,?,?)', (kind, key, label, detail, time.time()))
+            c.execute('INSERT OR REPLACE INTO favourite (person_id,kind,key,label,detail,created) '
+                      'VALUES (?,?,?,?,?,?)', (who or 0, kind, key, label, detail, time.time()))
         else:
-            c.execute('DELETE FROM favourite WHERE kind=? AND key=?', (kind, key))
+            c.execute('DELETE FROM favourite WHERE person_id=? AND kind=? AND key=?', (who or 0, kind, key))
         c.commit()
-        return is_favourite(kind, key)
+        return is_favourite(kind, key, who)
     finally:
         c.close()
 
-def is_favourite(kind, key):
+def is_favourite(kind, key, who=0):
     c = db()
     try:
-        return c.execute('SELECT 1 FROM favourite WHERE kind=? AND key=?',
-                         (kind, key)).fetchone() is not None
+        return c.execute('SELECT 1 FROM favourite WHERE person_id=? AND kind=? AND key=?',
+                         (who or 0, kind, key)).fetchone() is not None
     finally:
         c.close()
 
@@ -128,25 +164,26 @@ def set_kar_offset(skey, ms):
     finally:
         c.close()
 
-def favourites(kind=None, limit=500):
+def favourites(kind=None, limit=500, who=0):
     c = db()
     try:
         if kind:
-            rs = c.execute('SELECT * FROM favourite WHERE kind=? ORDER BY created DESC '
-                           'LIMIT ?', (kind, limit))
+            rs = c.execute('SELECT * FROM favourite WHERE person_id=? AND kind=? ORDER BY created DESC '
+                           'LIMIT ?', (who or 0, kind, limit))
         else:
-            rs = c.execute('SELECT * FROM favourite ORDER BY created DESC LIMIT ?', (limit,))
+            rs = c.execute('SELECT * FROM favourite WHERE person_id=? ORDER BY created DESC LIMIT ?',
+                           (who or 0, limit))
         return [dict(r) for r in rs]
     finally:
         c.close()
 
 # ---------------------------------------------------------------- plays
-def start_play(skey, album_key_=None, artist_key_=None, room=None):
+def start_play(skey, album_key_=None, artist_key_=None, room=None, who=0):
     c = db()
     try:
         cur = c.execute('INSERT INTO play (skey,album_key,artist_key,started,seconds,'
-                        'completed,room) VALUES (?,?,?,?,0,0,?)',
-                        (skey, album_key_, artist_key_, time.time(), room))
+                        'completed,room,person_id) VALUES (?,?,?,?,0,0,?,?)',
+                        (skey, album_key_, artist_key_, time.time(), room, who or 0))
         c.commit()
         return cur.lastrowid
     finally:
@@ -155,7 +192,7 @@ def start_play(skey, album_key_=None, artist_key_=None, room=None):
 def update_play(play_id, seconds, duration=None):
     """Called as Sonos reports position. Marks completed once it genuinely counts."""
     done = 0
-    if seconds >= MIN_SECONDS or (duration and seconds >= duration * MIN_FRACTION):
+    if seconds >= counts_after(duration):
         done = 1
     c = db()
     try:
@@ -166,24 +203,24 @@ def update_play(play_id, seconds, duration=None):
     finally:
         c.close()
 
-def recent(limit=60, kind='track'):
+def recent(limit=60, kind='track', who=0):
     """Most recently played, de-duplicated so one album does not fill the list."""
     c = db()
     try:
         col = {'track': 'skey', 'album': 'album_key', 'artist': 'artist_key'}[kind]
         rs = c.execute(
             f'SELECT {col} AS key, MAX(started) AS last_played, COUNT(*) AS plays, '
-            f'MAX(room) AS room FROM play WHERE completed=1 AND {col} IS NOT NULL '
+            f'MAX(room) AS room FROM play WHERE completed=1 AND {col} IS NOT NULL{_pw(who)} '
             f'GROUP BY {col} ORDER BY last_played DESC LIMIT ?', (limit,))
         return [dict(r) for r in rs]
     finally:
         c.close()
 
-def most_played(limit=60, kind='track', since_days=None):
+def most_played(limit=60, kind='track', since_days=None, who=0):
     c = db()
     try:
         col = {'track': 'skey', 'album': 'album_key', 'artist': 'artist_key'}[kind]
-        where = 'WHERE completed=1'
+        where = 'WHERE completed=1' + _pw(who)
         args = []
         if since_days:
             where += ' AND started > ?'
@@ -196,12 +233,12 @@ def most_played(limit=60, kind='track', since_days=None):
     finally:
         c.close()
 
-def never_played_albums(jukebox_db, limit=200):
+def never_played_albums(jukebox_db, limit=200, who=0):
     """Albums with no completed play -- the 'you own this and have not heard it' shelf."""
     c = db()
     try:
         played = {r[0] for r in c.execute(
-            'SELECT DISTINCT album_key FROM play WHERE completed=1 AND album_key IS NOT NULL')}
+            'SELECT DISTINCT album_key FROM play WHERE completed=1 AND album_key IS NOT NULL' + _pw(who))}
     finally:
         c.close()
     j = sqlite3.connect(f'file:{jukebox_db}?mode=ro', uri=True)
@@ -252,7 +289,7 @@ SMART = [
     ('forgotten',    'Not Played Lately','loved once, untouched for a year'),
 ]
 
-def smart_playlist(kind, jukebox_db, limit=100, **kw):
+def smart_playlist(kind, jukebox_db, limit=100, who=0, **kw):
     """Resolve a smart playlist to concrete tracks from the read-model."""
     j = sqlite3.connect(f'file:{jukebox_db}?mode=ro', uri=True)
     j.row_factory = sqlite3.Row
@@ -262,20 +299,20 @@ def smart_playlist(kind, jukebox_db, limit=100, **kw):
            'JOIN artist ON artist.id=album.artist_id ')
     try:
         if kind == 'recent':
-            keys = [r['key'] for r in recent(limit, 'track')]
+            keys = [r['key'] for r in recent(limit, 'track', who)]
             return _by_keys(j, sel, keys)
 
         if kind == 'most':
-            keys = [r['key'] for r in most_played(limit, 'track')]
+            keys = [r['key'] for r in most_played(limit, 'track', who=who)]
             return _by_keys(j, sel, keys)
 
         if kind == 'favourites':
-            out = _by_keys(j, sel, [f['key'] for f in favourites('track', limit)])
+            out = _by_keys(j, sel, [f['key'] for f in favourites('track', limit, who)])
             seen = {t['skey'] for t in out}
             # a favourited ALBUM or ARTIST contributes its tracks too, so the list is
             # not empty just because someone stars albums rather than individual songs
-            fav_albums = {f['key'] for f in favourites('album', 200)}
-            fav_artists = {f['key'] for f in favourites('artist', 200)}
+            fav_albums = {f['key'] for f in favourites('album', 200, who)}
+            fav_artists = {f['key'] for f in favourites('artist', 200, who)}
             if fav_albums or fav_artists:
                 for r in j.execute(sel):
                     if len(out) >= limit:
@@ -291,7 +328,7 @@ def smart_playlist(kind, jukebox_db, limit=100, **kw):
             c = db()
             try:
                 played = {r[0] for r in c.execute(
-                    'SELECT DISTINCT skey FROM play WHERE completed=1')}
+                    'SELECT DISTINCT skey FROM play WHERE completed=1' + _pw(who))}
             finally:
                 c.close()
             out = []
@@ -311,7 +348,7 @@ def smart_playlist(kind, jukebox_db, limit=100, **kw):
             try:
                 cutoff = time.time() - 365 * 86400
                 keys = [r[0] for r in c.execute(
-                    'SELECT skey FROM play WHERE completed=1 GROUP BY skey '
+                    'SELECT skey FROM play WHERE completed=1' + _pw(who) + ' GROUP BY skey '
                     'HAVING MAX(started) < ? ORDER BY COUNT(*) DESC LIMIT ?',
                     (cutoff, limit))]
             finally:
@@ -471,12 +508,12 @@ def pl_tracks(pid, jukebox_db):
     return meta
 
 
-def smart_catalogue(jukebox_db):
+def smart_catalogue(jukebox_db, who=0):
     """The smart playlists with their current sizes, for the browse screen."""
     out = []
     for key, name, blurb in SMART:
         try:
-            n = len(smart_playlist(key, jukebox_db, limit=400))
+            n = len(smart_playlist(key, jukebox_db, limit=400, who=who))
             err = None
         except Exception as e:
             # never report an empty playlist when the truth is that the query broke:

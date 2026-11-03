@@ -2,6 +2,7 @@
 .genius_client
 .genius_key
 .acoustid_key
+.anthropic_key
 **/.acoustid_key
 
 # machine-learning venv (recreate from requirements-karaoke.txt)
@@ -83,3 +84,10 @@ library/karaoke_tidy.log.jsonl
 library/karaoke_tidy_report.txt
 jukebox/chosen_ids.txt
 jukebox/pass_start.txt
+
+# the read-model build swaps this in when done; ingest.py work products, rewritten by every intake pass
+*.db.new
+library/ingest.lock
+library/ingestplan.json.tmp
+library/ingestplan.json
+library/ingestreport.txt

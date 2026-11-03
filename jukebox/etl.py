@@ -14,6 +14,8 @@ than the file extension.
 import os, re, sys, json, sqlite3, time, collections, argparse, hashlib
 from pathlib import Path
 import genremap
+import idmap
+import origyear
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 # The library-organising toolchain and its databases live in ../library
@@ -329,13 +331,18 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--out', default=OUT_DB)
     a = ap.parse_args()
+    # Build beside the live read model and swap it in at the end. Deleting it
+    # first left the running server with no database for the whole build.
+    final = a.out
+    a.out = final + '.new'
 
-    if os.path.exists(a.out):
-        os.remove(a.out)
-    for suffix in ('-wal', '-shm'):
+    for suffix in ('', '-wal', '-shm', '-journal'):
         p = a.out + suffix
         if os.path.exists(p):
             os.remove(p)
+
+    ids = idmap.IdMap(seed_from=final)
+    idmap.ACTIVE = ids
 
     src = sqlite3.connect(f'file:{SRC_DB}?mode=ro', uri=True, timeout=60)
     src.row_factory = sqlite3.Row
@@ -352,6 +359,7 @@ def main():
 
     out = sqlite3.connect(a.out)
     out.executescript(SCHEMA)
+    ORIG_YEARS = origyear.years()
 
     t0 = time.time()
     rows = src.execute(
@@ -412,8 +420,8 @@ def main():
         pass
 
     aid = {}
-    for i, (norm, a_) in enumerate(sorted(artists.items(), key=lambda kv: kv[1]['name'].lower()), 1):
-        aid[norm] = i
+    for norm, a_ in sorted(artists.items(), key=lambda kv: kv[1]['name'].lower()):
+        aid[norm] = i = ids.artist(norm)
         canon, sortn = mb.get(norm, (a_['name'], None))
         out.execute('INSERT INTO artist (id,name,sort_name,norm,n_albums,n_tracks,duration) '
                     'VALUES (?,?,?,?,0,0,0)',
@@ -426,19 +434,40 @@ def main():
         out.execute('INSERT INTO genre (id,shelf,n_albums,n_tracks) VALUES (?,?,0,0)',
                     (i, shelf))
 
+    # ---- ids: every track first, so a moved file keeps its id and a renamed
+    # album folder is recognised by the tracks it came with (idmap.py)
+    def folder_names(folder, tracks):
+        names = collections.Counter((t['albumartist'] or t['artist']) for t in tracks
+                                    if (t['albumartist'] or t['artist']))
+        if not names:
+            parts = folder.split('/')
+            fa = parts[1] if len(parts) >= 2 else None
+            if fa:
+                names = collections.Counter({fa: 1})
+        return names
+
+    def track_title(t):
+        return t['title'] or os.path.splitext(t['filename'])[0]
+
+    ids.begin((r['path'] for r in rows), byfolder.keys())
+    tid, skeys = {}, {}
+    for folder in sorted(byfolder):
+        names = folder_names(folder, byfolder[folder])
+        if not names:
+            continue
+        for t in byfolder[folder]:
+            skeys[t['path']] = stable_key(names.most_common(1)[0][0], track_title(t), t['duration'])
+            tid[t['path']] = ids.track(t['path'], skeys[t['path']], t['size'], folder)
+    tid.update(ids.resolve())
+
     # ---- albums and tracks
-    album_id = track_id = 0
     subcount = collections.Counter()
     for folder in sorted(byfolder):
         tracks = byfolder[folder]
-        names = collections.Counter((t['albumartist'] or t['artist']) for t in tracks
-                                    if (t['albumartist'] or t['artist']))
+        names = folder_names(folder, tracks)
         parts = folder.split('/')
         if not names:
-            fa = parts[1] if len(parts) >= 2 else None
-            if not fa:
-                continue
-            names = collections.Counter({fa: 1})
+            continue
         credit, is_comp = album_credit(folder, tracks, names, parts[0])
         artist_norm = mergemod.norm_artist(credit)
         if artist_norm not in aid:
@@ -452,6 +481,10 @@ def main():
         years = [parse_year(t['year']) for t in tracks]
         years = [y for y in years if y]
         year = collections.Counter(years).most_common(1)[0][0] if years else None
+        # the tags date the copy (a 2020 remaster); origyear.py has the original
+        oy = ORIG_YEARS.get(folder)
+        if oy and (not year or oy < year):
+            year = oy
 
         graw = collections.Counter(t['genre'] for t in tracks if t['genre'])
         shelf, sub = genremap.shelf_of(graw.most_common(1)[0][0] if graw else None)
@@ -474,8 +507,8 @@ def main():
             if img:
                 art_path, art_w, art_kind = img[0], img[1], 'folder'
 
-        album_id += 1
-        discs = {t['disc'] for t in tracks if t['disc']}
+        album_id = ids.album(folder)
+        discs ={t['disc'] for t in tracks if t['disc']}
         out.execute(
             'INSERT INTO album (id,artist_id,folder,title,sort_title,year,decade,'
             'genre_id,subgenre,n_tracks,duration,disc_count,art_w,art_path,art_kind,added,pool,is_compilation) '
@@ -486,7 +519,7 @@ def main():
              art_w, art_path, art_kind, album_added(tracks), pool, 1 if is_comp else 0))
 
         for t in tracks:
-            track_id += 1
+            track_id = tid[t['path']]
             # 227 folders repeat a (disc,track) pair and 709 tracks have no number,
             # so the filename is the tiebreaker that makes the order deterministic
             sk = (f"{t['disc'] or 1:02d}."
@@ -497,12 +530,10 @@ def main():
                 'track_artist,duration,bitrate,ext,mime,size,rel_path,sort_key,skey,has_art) '
                 'VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)',
                 (track_id, album_id, aid[artist_norm], t['disc'], t['track'],
-                 t['title'] or os.path.splitext(t['filename'])[0],
+                 track_title(t),
                  t['artist'], t['duration'], t['bitrate'], t['ext'],
                  mime_for(t['codec'], t['ext']), t['size'], t['path'], sk,
-                 stable_key(names.most_common(1)[0][0],
-                            t['title'] or os.path.splitext(t['filename'])[0],
-                            t['duration']),
+                 skeys[t['path']],
                  1 if t['has_art'] else 0))
 
     for (shelf, sub), n in subcount.items():
@@ -565,8 +596,9 @@ def main():
         print(f'      {d if d else "unknown":>8} {na:5} albums {nt:6} tracks')
     out.close(); src.close(); art.close()
 
-    # Album ids are reassigned by a rebuild, and the art cache is keyed by id,
-    # so anything left behind would be served as the wrong album's cover.
+    # The server's resized covers are named by build token, so the old ones are
+    # dead weight once the new read model is live; an album's art may also
+    # have changed in this build.
     try:
         cache = Path(HERE) / 'cache' / 'art'
         n_art = 0
@@ -575,23 +607,23 @@ def main():
                 if f.is_file():
                     f.unlink(); n_art += 1
         print('')
-        print(f'   art cache: cleared {n_art} files (album ids have been reassigned)')
+        print(f'   art cache: cleared {n_art} resized covers')
     except Exception as e:
         print(f'   art cache: could not clear ({e})')
 
     if CARRIED:
-        n = restore_carried(str(OUT_DB), CARRIED)
+        n = restore_carried(a.out, CARRIED)
         print('')
         print(f'   carried over: {n} artist photo/bio records re-keyed onto the new ids')
     if EXTRA:
-        n = restore_extra(str(OUT_DB), EXTRA)
+        n = restore_extra(a.out, EXTRA)
         print(f'   carried over: {n} artist radio rows (top tracks, related artists) re-keyed')
 
     # Box sets are derived from the folder tree, not the tags -- see
     # collections_build for why. Re-derived here so a rebuild never loses them.
     try:
         import discsplit
-        n_sp, n_tr, n_dup = discsplit.build()
+        n_sp, n_tr, n_dup = discsplit.build(a.out)
         print('')
         print(f'   disc split: {n_sp} merged multi-disc albums recovered '
               f'({n_tr} tracks); {len(n_dup)} duplicate-copy albums left alone')
@@ -601,7 +633,7 @@ def main():
 
     try:
         import collections_build
-        r = collections_build.build()
+        r = collections_build.build(a.out)
         n_sets, n_albums = r[0], r[1]
         print('')
         print(f'   collections: {n_sets} sets covering {n_albums} albums')
@@ -612,7 +644,7 @@ def main():
     # must run AFTER collections: a box-set disc is not a compilation part
     try:
         import compilations
-        n_c, n_p = compilations.build()
+        n_c, n_p = compilations.build(a.out)
         print('')
         print(f'   compilations: {n_c} reunited from {n_c + n_p} split album entries')
     except Exception as e:
@@ -622,12 +654,52 @@ def main():
     # last: fold leftover fragments and settle contested titles
     try:
         import album_tidy
-        n_f, n_t = album_tidy.build()
+        n_f, n_t = album_tidy.build(a.out)
         print('')
         print(f'   tidy: {n_f} fragments folded in, {n_t} contested titles taken from the folder')
     except Exception as e:
         print('')
         print(f'   tidy: SKIPPED ({e})')
+
+    # the epoch travels inside the read model, so a page can never be told one
+    # epoch while it is served the ids of another
+    ids.save(a.out)
+    c = sqlite3.connect(a.out)
+    c.execute('CREATE TABLE IF NOT EXISTS build_info (k TEXT PRIMARY KEY, v TEXT)')
+    c.executemany('INSERT OR REPLACE INTO build_info VALUES (?, ?)',
+                  [('epoch', ids.epoch), ('built', str(int(time.time())))])
+    c.commit()
+    # rollback mode: the server's read-only connections cannot remove a WAL
+    # when they close, so a WAL-mode read model collects stale ones
+    c.execute('PRAGMA journal_mode=DELETE')
+    c.close()
+    ids.close()
+    swap_in(a.out, final)
+    print('')
+    print(f'   ids: epoch {ids.epoch}; the new read model is live')
+
+
+def swap_in(new, final, wait=120):
+    """Replace the live read model with the new one.
+
+    A -wal left by the OLD file beside the new one is replayed onto it, even
+    when the new file is in rollback mode (tested 30 Oct 2026), so the old
+    file's -wal and -shm go first, in the same attempt as the replace. Windows
+    refuses all three while any connection has the old file open; the server
+    opens one per request, so retry until a gap comes, which on a quiet server
+    is milliseconds."""
+    t0 = time.time()
+    while True:
+        try:
+            for suffix in ('-wal', '-shm'):
+                if os.path.exists(final + suffix):
+                    os.remove(final + suffix)
+            os.replace(new, final)
+            return
+        except PermissionError:
+            if time.time() - t0 > wait:
+                raise
+            time.sleep(0.05)
 
 if __name__ == '__main__':
     main()

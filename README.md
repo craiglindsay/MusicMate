@@ -32,6 +32,34 @@ turned into the thing the household actually uses to play music.
   graphics and shows them as clean timed text.
 - **Start an artist radio.** It builds a mix from an artist and the artists
   around them.
+- **Put on the DJ.** A station from an artist, song, album, genre or era:
+  sets of well-known songs with a short spoken link between them, written by
+  Claude from what the library knows and voiced by a neural voice. On a Sonos
+  room the server keeps the station going by itself.
+- **Listen to podcasts.** Search Apple's podcast directory, follow shows, and
+  resume where you left off. The newest episode of each followed show is kept
+  on the server, and the rest stream.
+- **Give everyone a profile.** A profile button keeps each person's
+  favourites, recently played, smart playlists and podcasts apart. A shared
+  "Everyone" view covers the whole house.
+- **Watch your Wrapped.** Your year in music as an animated show with a
+  narrator: top artists, songs and albums, minutes, genres, decades, listening
+  hours and more, for any year with history.
+- **Take it with you.** Over [Tailscale](https://tailscale.com) a phone reaches
+  the server from anywhere, privately, and can download albums, playlists and
+  episodes to play offline.
+- **Put a panel on the wall.** A tablet in kiosk mode becomes a remote for its
+  room: Now Playing or a clock when left alone, black at night, and it keeps
+  itself up to date.
+- **Watch backdrops that follow the music.** Behind Now Playing and karaoke
+  there are a couple of dozen animated scenes driven by each song's measured
+  rhythm and spectrum, plus seasonal scenes for Christmas music.
+- **Sing along on a phone.** Scan the code on the karaoke screen to hear the
+  backing track or the lead vocal in time on your phone.
+- **See the right decade.** Albums are dated by their first release on
+  MusicBrainz, not by a remaster's tags.
+- **Read what's new.** `VERSION.md` is the release history, and the app shows
+  it from the version link in Preferences.
 
 <table>
 <tr>
@@ -207,10 +235,43 @@ Downloader app. The server addresses the app tries are listed at the top of
 `tvapp/app/src/main/java/com/musicmate/tv/MainActivity.java`. Change them to
 your server's address before building.
 
+### 7. Optional: the DJ and Wrapped narration
+
+The DJ's links and Wrapped's narration are written by Claude and spoken by
+[edge-tts](https://github.com/rany2/edge-tts) (both in `requirements.txt`).
+Put an [Anthropic API key](https://console.anthropic.com) in a file called
+`.anthropic_key` at the top of the repo, or set `ANTHROPIC_API_KEY`. Without a
+key the DJ still talks, from plainer templates. The voice needs an internet
+connection.
+
+### 8. Optional: phones away from home
+
+Install Tailscale on the server and on your phones, then run
+`tailscale serve --bg 80` on the server. The app is then at
+`https://<your-pc>.<your-tailnet>.ts.net`, reachable only by your own devices.
+That https address is also what lets a phone keep downloads for offline play.
+The server refuses anything that arrives through Tailscale Funnel, the public
+version of `serve`.
+
+### 9. Optional: a wall panel
+
+On a tablet running a kiosk browser such as Fully Kiosk Browser, set the start
+page to `http://<server>/?wall=<Sonos room name>`. Add `&night=22-6.5` to
+change the night hours. Turn on Fully's JavaScript interface so the page can
+dim the backlight at night.
+
+### Podcasts
+
+Podcasts need no setup. Downloaded episodes go to `D:\Podcasts`, or to the
+folder in `JUKEBOX_PODCASTS`.
+
 ## Security
 
 **MusicMate has no logins and trusts everyone on your network.** That's fine
-for a home LAN. Do not expose it to the internet.
+for a home LAN. Do not expose it to the internet. For access away from home,
+use Tailscale `serve` as above, never `funnel` and never a port forward.
+Profiles keep people's music apart, but they are not accounts and anyone can
+pick any profile.
 
 ## Some notes on the design
 

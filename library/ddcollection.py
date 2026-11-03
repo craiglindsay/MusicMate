@@ -1,5 +1,5 @@
 """Fold the remnant of "Duran Duran - The Album Collection 1981-2007" into the
-Duran Duran folder, and retire the "For Luna" folder.
+Duran Duran folder, and retire the "For User1" folder.
 
 Disc 19 (Beautiful Colours, the Astronaut demos) becomes its own album. Disc
 18's new mix joins Mastermixes. Disc 21 (Arcadia 12" mixes) folds into the
@@ -18,7 +18,7 @@ ROOT = musiclib.ROOT
 OP = 'dd-collection'
 COLL = 'VariousArtists/Duran Duran - The Album Collection 1981-2007 (MP3-EAC-320kBs)'
 DD = 'VariousArtists/Duran Duran'
-LUNA = 'VariousArtists/For Luna'
+USER1 = 'VariousArtists/For User1'
 DEST = {'18.': DD + '/Mastermixes', '19.': DD + '/Beautiful Colours', '21.': DD + '/Arcadia'}
 
 
@@ -75,8 +75,8 @@ def main():
             d['filename'][:40], (d['bitrate'] or 0) / 1000, d['ext'], 'incoming' if w is c else 'existing', why))
     for c in fresh:
         print('  %s | %s -> %s' % (c['folder'].split('/')[-1][:3], clean_name(c['filename']), DEST[c['folder'].split('/')[-1][:3]]))
-    luna = [r[0] for r in conn.execute("SELECT path FROM files WHERE path LIKE ?", (LUNA + '/%',))]
-    print(len(luna), 'files under For Luna to retire')
+    user1 = [r[0] for r in conn.execute("SELECT path FROM files WHERE path LIKE ?", (USER1 + '/%',))]
+    print(len(user1), 'files under For User1 to retire')
     if not a.apply:
         print('dry run'); return
 
@@ -106,10 +106,10 @@ def main():
     for c in fresh:
         dest = DEST[c['folder'].split('/')[-1][:3]]
         musiclib._move_to(conn, c['path'], dest + '/' + clean_name(c['filename']), OP, 'new to the library')
-    for rel in luna:
-        musiclib._move(conn, rel, musiclib.SUPERSEDED, 'retire', 'For Luna: no longer needed', False)
+    for rel in user1:
+        musiclib._move(conn, rel, musiclib.SUPERSEDED, 'retire', 'For User1: no longer needed', False)
     conn.commit()
-    for top in (COLL, LUNA):
+    for top in (COLL, USER1):
         p = os.path.join(ROOT, top.replace('/', os.sep))
         for dp, dn, fn in os.walk(p, topdown=False):
             if not os.listdir(dp):

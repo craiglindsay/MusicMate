@@ -83,7 +83,7 @@ def describe(ip, timeout=4):
         return None
     def tag(t):
         m = re.search(rf'<{t}>(.*?)</{t}>', xml, re.S)
-        # room names arrive XML-escaped: "Luna&apos;s Room"
+        # room names arrive XML-escaped: "User1&apos;s Room"
         return html.unescape(m.group(1).strip()) if m else None
     name = tag('roomName') or tag('friendlyName') or ip
     return {'ip': ip, 'name': name, 'model': tag('modelName'),

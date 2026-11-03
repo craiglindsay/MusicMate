@@ -226,7 +226,7 @@ complete albums and the other top-level folders hold collections. Done today:
 
 Later the same day: `library/ddcollection.py` folded the remnant of the
 Duran Duran fan-club box (30 tracks: 13 new, 17 settled by quality) and
-retired the "For Luna" folder; `library/foldcredit.py MAIN VARIANT` folds
+retired the "For User1" folder; `library/foldcredit.py MAIN VARIANT` folds
 one artist folder into another (whole albums move, shared albums are settled
 track by track by fingerprint and cutoff, albumartist is set to the main
 name) and was run for Joe Strummer & The Mescaleros, Johnny Clegg & Savuka,
@@ -2146,3 +2146,187 @@ caught underneath) wanders slowly about the middle on music time.
   off downstream. Lines thinner (`.26` of the spacing, was `.42`). Ripples
   longer (4.2 spacings), less sideways and more height, sampled finer ahead
   of the ball, so they no longer fold into zigzags. 8.3 ms median at 4x.
+
+## Stable ids, auto-intake and requests (30 Oct 2026)
+
+Built from `docs/PLAN-requests-and-auto-intake.md`, after the collection folders
+moved to C: (see CLAUDE.md, "Outside the repo"). Owner's decisions: the intake
+loop files into every pool; requests are free for all; new music goes in as
+soon as it lands; Christmas folders stay `Artist-Album`.
+
+**Stable ids (`jukebox/idmap.py`, `ids.db`).** `etl.py` used to number
+artists, albums and tracks from 1, so a rebuild changed six ids in seven and
+every page had to reload. Now path -> track id, folder -> album id, norm ->
+artist id and folder -> collection id are remembered. A moved file keeps its
+id when its skey and size match a vanished path; a renamed album folder keeps
+its id when most of its tracks came from one vanished album. Retired ids are
+never reused. `ids.db` was seeded from the live read model, so the switch-over
+changed nothing (64,174 of 64,174 ids identical). The epoch lives in
+`jukebox.db`'s `build_info` table; the build token is `<epoch>-<mtime>`;
+`/api/stream` refuses only another epoch, the page reloads only on another
+epoch, and an ordinary rebuild shows "New music added" and drops the cached
+lists. A saved queue survives a rebuild. `compilations.va_artist` and
+`collections_build` take their ids from `idmap.active()` too.
+
+**The rebuild no longer deletes the live database.** `etl.py` builds
+`jukebox.db.new` and swaps it in with retries (Windows refuses while a request
+has the file open). The old file's `-wal`/`-shm` are removed in the same
+attempt: a stale WAL beside a new file is replayed onto it EVEN when the new
+file is in rollback mode (tested; my first guess was wrong). The read model is
+now in rollback mode. A rebuild under load (three threads streaming) served
+every request.
+
+**Auto-intake (`jukebox/intake.py`).** A thread in the server, every 10 min:
+UNPoller's `batch_convert.py` and `release_completed.py` (skipped while
+`pipeline_driver.py` runs; its pid file goes stale, so the check is "process
+alive AND log written in the last two hours"; never `os.kill(pid, 0)` on
+Windows, it kills), then `ingest.py --apply` when staging changed, then
+`etl.py` when anything was filed. Deferred while a rescan or a demucs job
+runs; the Rescan button refuses while intake runs. `ingest.py` gained a
+per-album `outcome` in `ingestplan.json`, a free-space guard on the album's
+own drive (3 GB, `MUSICMATE_RESERVE_GB`), `--album`, a lock (`ingest.lock`,
+exit 3), `Artist-Album` Christmas folders and `noël`. ingest registers files
+in library.db itself, so no scan is needed: an album is playable about 90 s
+after it lands. System page: "New music" card with Check now, recently
+added, Needs attention (File anyway = ingest --force for that album; Set
+aside = move to `~/ToBeProcessed_holding/needs_attention`), and the log
+(also `jukebox/logs/intake.log`). Tested end to end with a generated
+two-track album, then removed (files, library.db rows, rebuild).
+
+**Requests (`jukebox/wanted.py`, UNPoller `request_album.py`).** Artist pages
+have "Not in your library" (MusicBrainz studio albums: primary type Album, no
+secondary types; library.db's `mb_artist` gives most artist MBIDs). The
+search overlay ends with "Search beyond your library": free text cannot say
+which words are the artist, so a query containing a known artist's name is
+searched within that artist (that is what finds Rumours for "dreams
+fleetwood mac"); songs resolve to the earliest studio album carrying them and
+rank by how many releases carry the recording, albums by the release count
+of their group (MusicBrainz has no popularity). `#/mb/<mbid>` is an artist
+outside the library; `#/requests` and a Home shelf follow each request.
+Selecting an album POSTs `/api/requests`, which runs `request_album.py <rgid>`
+(ledger check, add/re-monitor in Lidarr with "All Types"/"M4A", keep it
+monitored through the post-add refresh, search, and if nothing is approved,
+list Prowlarr candidates WITHOUT grabbing). States are re-derived at most
+every 30 s from `request_album.py --status`, staging, the intake's attention
+list and the read model; intake triggers a refresh after it adds albums.
+MusicBrainz: 1 request/s, a User-Agent naming the repo, 503 retried, every
+response cached in `requests.db` (7 days, searches 1 day). Covers load from
+the Cover Art Archive with a sleeve fallback.
+
+Not yet done: a real request through Lidarr (only the ledger path was run,
+to avoid starting a download unasked); grabbing a Prowlarr candidate from the
+UI; the phone clients (stable ids were the prerequisite for offline copies).
+
+## Remote access and offline downloads (31 Oct 2026)
+
+**Remote:** Tailscale on the server PC (node `your-pc`, the owner's
+tailnet); `tailscale serve --bg 80` gives
+`https://your-pc.your-tailnet.ts.net`, tailnet only, with a real
+certificate. Phones need the Tailscale app signed in to the same account.
+A middleware refuses anything carrying `Tailscale-Funnel-Request`, so turning
+on Funnel by mistake publishes a 403, not the library (MusicMate has no
+logins). No basic auth: Sonos and the TV fetch plain LAN URLs and cannot send
+one, and the tailnet already is the lock.
+
+**Offline:** `sw.js` plus the `OFF` block in `ui.html`.
+- A **Download** button on albums, Favourites and user playlists asks for a
+  *set* (`al:<id>`, `fav`, `pl:<id>`) of track ids. A song is kept while any
+  set wants it; removing a set deletes only songs nothing else wants.
+  Opening Favourites or a playlist online re-syncs its set.
+- Songs live in Cache Storage `mm-dl` under their real stream path
+  (`/api/stream/<id>`), covers in `mm-art` under `/api/art/<id>` (600 px), the
+  index at `/dl/index.json` in `mm-dl`. The service worker answers a stream
+  request from `mm-dl` whenever it has the song (online too: saves data),
+  slicing byte ranges into 206 replies, which iOS insists on.
+- Two downloads at a time. A lost connection pauses the queue and retries in
+  a minute; it resumes on the next visit too.
+- **Download quality** (chips on the Downloads page, kept in the index,
+  default Standard 128k): the phone asks for `/api/stream/<id>?q=<kbps>`
+  (96/128/192; 0 = the original file). The server encodes AAC with ffmpeg into
+  `jukebox/cache/lo/` and deletes the file once sent; nothing is kept. Songs
+  already at or under the rate as mp3/m4a go out as they are. Two encodes at
+  a time across all phones (`_LO_SEM`); about 4-8 s a song, so a big
+  playlist takes a while. Measured: a 256k m4a went 8.1 MB -> 4.1 MB; an
+  album 23 MB -> 12 MB. Library-wide: 443 GB original, ~251 GB at 128k,
+  ~189 GB at 96k. Changing the quality affects new downloads only.
+- Offline detection: a 5 s probe of `/api/build` at start (Tailscale can hang
+  rather than fail), the browser's offline event, and a network error in any
+  page. Offline, every route draws `#/offline` (Downloads), with Try again.
+- Stable ids (idmap) are what make kept songs survive a rebuild. A new epoch
+  would orphan them: the page would still play them offline, but online the
+  ids would point at other songs. If `ids.db` is ever reset, phones should
+  clear their downloads.
+- Tested headless (Playwright, phone viewport) on the https address:
+  download, cut network, reload, page opens on Downloads, song plays from the
+  store. **Not yet tried on a real iPhone**: the known risk is iOS suspending
+  a home-screen web app at the end of a song with the screen locked. If that
+  bites, the plan is a Subsonic-compatible API for Amperfy/play:Sub.
+
+## The DJ (31 Oct 2026)
+
+Owner's ask: "plays about 3-5 popular songs from my library, makes some
+commentary to summarize what it played and then plays more songs ... similar
+to Pandora where either a genre, era, artist or song are selected first".
+Chosen delivery (asked): a natural voice and a Claude-written script.
+
+- Seeds: a DJ button on artist, album, genre, era and library pages, and
+  "Start a DJ station" in a single song's add sheet. `POST /api/dj/start
+  {kind, id, voice}` returns the queue: an opening link (waited for, about
+  7 s), the first set, the link after it.
+- Choosing (`dj.Session`): the artist graph is `artist_similar` matched to
+  the library, a ring at a time; each set grows the ring from what played,
+  and the weights move outward as the station runs (Pandora's drift). The
+  seed artist opens and keeps returning, less often. A genre or era station
+  draws its artists from that shelf or decade, weighted by how many chart
+  songs the library holds for them (otherwise the 80s station played
+  obscure album tracks), mostly from inside the seed, now and then a similar
+  artist outside it. Songs come from `artist_radio`'s ranking; a song on
+  the artist's chart list is about eight times likelier than one that is not.
+  A library seed (Christmas) stays in that library.
+- Talking: each link is written when its set is chosen, so it is ready long
+  before it plays. The prompt carries the facts for the songs just played
+  and the first two coming (title, artist, album, year, shelf, chart rank,
+  three bio sentences), the time of day, and the last three links so it
+  varies. `fallbacks: "default"` (server-side refusal fallback) is on; a
+  refusal or any failure falls back to the template script, and a voice
+  failure drops the link from the queue (the music carries on).
+- The client appends the next set when two entries are left; on a Sonos room
+  through `POST /api/sonos/append`, which enqueues without re-pushing the queue.
+  `/api/dj/more` rebuilds a session lost to a restart from the seed, minus
+  the queue's songs. Playing anything else, or Clear, ends the station; the
+  queue pane has Stop DJ (the current set finishes). Shuffle is turned off
+  at the start. A link has no heart or play count, and its script shows in
+  the Lyrics pane.
+- Voice: the preferences sheet (Andrew, Ava, Ryan UK, Natasha AU); it is
+  sent with each request, so a change applies from the next link.
+- Cost: one Opus 5.5 call at low effort per link, a link every 15-20 minutes
+  of music; about a cent or two each.
+
+Launcher fix the same night: `serve.ps1` used `Start-Process -Wait`, which
+waits for the whole process tree, so a server killed while an album request
+was running stayed down until the request finished. It now waits on the
+server process alone.
+
+
+## Christmas backdrops (1 Nov 2026)
+
+When the song playing is from the Christmas library (`album.pool ===
+'Christmas'`), the backdrop becomes one of nine Christmas styles instead of the
+device's usual choice. Each song gets a different one, picked the way Cycle
+picks (hashed from the song, never the one just shown). A DJ link between two
+Christmas songs keeps the style that is showing. A track that arrives without
+its `pool` (some lists leave it off) is looked up through `/api/tracks?ids=`
+and switches once that answers. Preferences > Christmas turns it off for the
+device (`store['jb.xmasbd']`).
+
+The styles are Snowdrift, Starfield, Fairy Lights, Candles, Baubles, Frost,
+Village, Crystals and Tree. A Fable agent designed ten as standalone prototypes
+on 31 Oct 2026; the owner chose all but Peppermint (a bright candy spiral,
+judged too busy behind text). They live in the "Christmas backdrops" block
+before `bdThumb`. Each is `draw(g, w, h, t, S, dm, now)`, with `S` its own
+state in `BD.xs`, cleared by `bdApply`. They use the same music clock as every
+other style, but paint in their own fixed seasonal palette (`XC`), not the
+album's colours. They are not in the backdrop picker. `?xmas=<id>` forces one
+for a single load, for screenshots. Frost and Tree draw fine lines, so they use
+the sharp canvas scale. None of them has been seen on the TV yet; the costliest
+are Starfield (about 430 sprite draws a frame) and Tree (about 300).

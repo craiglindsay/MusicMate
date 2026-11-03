@@ -96,8 +96,10 @@ def va_artist(c):
     r = c.execute('SELECT id FROM artist WHERE name=?', (VA_NAME,)).fetchone()
     if r:
         return r['id']
-    cur = c.execute('INSERT INTO artist (name, sort_name, norm, n_albums, n_tracks, duration) '
-                    'VALUES (?,?,?,0,0,0)', (VA_NAME, sort_name(VA_NAME), norm(VA_NAME)))
+    import idmap                    # a stable id, like every other artist's
+    cur = c.execute('INSERT INTO artist (id, name, sort_name, norm, n_albums, n_tracks, duration) '
+                    'VALUES (?,?,?,?,0,0,0)', (idmap.active().artist(norm(VA_NAME)),
+                                               VA_NAME, sort_name(VA_NAME), norm(VA_NAME)))
     return cur.lastrowid
 
 
