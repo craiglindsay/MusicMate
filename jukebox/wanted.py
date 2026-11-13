@@ -414,6 +414,13 @@ def _ask_run(rgid):
             res = _script([rgid], timeout=900)
         except Exception as e:
             res = {'status': 'error', 'message': str(e)}
+        if rgid in _cancelled:
+            # cancelled while the script was still minding Lidarr's monitoring,
+            # which may have put it back: cancel once more now it has finished
+            _cancelled.discard(rgid)
+            try: _script(['--cancel', rgid], timeout=120)
+            except Exception: pass
+            return
         if res is None:
             res = {'status': 'error', 'message': 'the download pipeline (request_album.py) is not installed'}
         _update(rgid, state=res.get('status') or 'error', message=res.get('message'),
@@ -439,6 +446,66 @@ def ask(rgid, artist, album, year='', who=''):
     intake.log(f'request from {who or "?"}: {artist} - {album} ({rgid})')
     threading.Thread(target=_ask_run, args=(rgid,), daemon=True, name='request').start()
     return True
+
+
+# Cancel (3 Nov 2026): Lidarr stops monitoring the album and its downloads
+# leave the queue (request_album.py --cancel); the request is forgotten, so the
+# album shows as missing again and can be asked for later. Too late once it
+# has downloaded (converting, filing): it is coming either way.
+CANCELLABLE = ('asking', 'searching', 'not_found', 'found', 'downloading', 'error')
+_cancelled = set()
+
+
+def cancel(rgid):
+    c = db()
+    try:
+        r = c.execute('SELECT state, artist, album FROM request WHERE rgid=?', (rgid,)).fetchone()
+    finally:
+        c.close()
+    if not r:
+        return {'ok': True}
+    if r['state'] not in CANCELLABLE:
+        raise ValueError('it has already downloaded; it files itself into the library shortly')
+    if r['state'] == 'asking':
+        _cancelled.add(rgid)
+    res = _script(['--cancel', rgid], timeout=120) or {}
+    if res.get('status') == 'error':
+        raise RuntimeError(res.get('message') or 'Lidarr did not answer')
+    c = db()
+    try:
+        c.execute('DELETE FROM request WHERE rgid=?', (rgid,))
+        c.commit()
+    finally:
+        c.close()
+    intake.log(f"request cancelled: {r['artist']} - {r['album']} ({rgid})")
+    return {'ok': True, 'removed': res.get('removed', 0)}
+
+
+# Is the pipeline able to download at all (3 Nov 2026)? SABnzbd pauses itself
+# when the download drive is short of space, and Lidarr then shows every grab
+# as queued at 0% for as long as that lasts. Asked at most once a minute.
+_health = {'at': 0.0, 'data': None, 'busy': False}
+
+
+def health(force=False):
+    if _health['busy'] or (not force and _health['data'] is not None and time.time() - _health['at'] < 60):
+        return dict(_health['data'] or {}, checked=_health['at'])
+    _health['busy'] = True
+    try:
+        try:
+            d = _script(['--health'], timeout=90)
+        except Exception as e:
+            d = {'lidarr': f'the download pipeline did not answer ({e})'}
+        _health.update(data=d or {'lidarr': 'the download pipeline (request_album.py) is not installed'}, at=time.time())
+    finally:
+        _health['busy'] = False
+    return dict(_health['data'], checked=_health['at'])
+
+
+def resume():
+    res = _script(['--resume'], timeout=60) or {}
+    intake.log(f"downloads resumed by hand: {', '.join(res.get('clients') or []) or 'nothing to resume'}")
+    return health(force=True)
 
 
 _refresh = {'at': 0.0, 'busy': False}

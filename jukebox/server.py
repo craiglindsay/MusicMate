@@ -86,6 +86,8 @@ def art_gen():
     return _art_gen()
 
 app = FastAPI(title='MusicMate')
+import playlog
+app.add_middleware(playlog.StreamLog)       # every song request, logged as it ends (playlog.py)
 
 
 @app.middleware('http')
@@ -770,7 +772,7 @@ def stream(tid: int, request: Request, g: str = None, q: int = None):
     if not path.exists():
         raise HTTPException(404, 'file missing')
     if q and request.method == 'GET':
-        small = _smaller(tid, t, path, q)
+        small = _smaller(tid, t, path, q, request)
         if small:
             return small
     return _serve_file(path, t['mime'], request)
@@ -823,38 +825,108 @@ def _serve_file(path, mime, request):
 LO_RATES = (96, 128, 192)
 LO_DIR = HERE / 'cache' / 'lo'
 _LO_SEM = threading.Semaphore(2)
-for _f in (LO_DIR.glob('*.m4a') if LO_DIR.exists() else []):   # left by a server that was killed mid-send
+for _f in (list(LO_DIR.glob('*.m4a')) + list(LO_DIR.glob('*.part')) if LO_DIR.exists() else []):   # left by a server that was killed
     try: _f.unlink()
     except OSError: pass
 
 
-def _smaller(tid, t, path, q):
+# Since 3 Nov 2026 phones also STREAM at this size (on plane Wi-Fi a song's
+# first 0.7 MB, mostly its embedded cover, took so long that it never
+# started), so each copy is kept for an hour as <tid>-<q>.m4a and served with
+# byte ranges like any file: a player's follow-up requests and a seek no
+# longer encode the song again. Made into a temporary name, then renamed.
+_LO_LOCKS = {}
+
+
+def _smaller(tid, t, path, q, request):
+    out = _lo_make(tid, t, path, q)
+    return _serve_file(out, 'audio/mp4', request) if out else None
+
+
+def _lo_make(tid, t, path, q):
+    """the kept small copy of a song (made now if need be), or None when the
+    file is already small enough or the encode failed: the original plays"""
     q = min(LO_RATES, key=lambda r: abs(r - q))
     if (t['ext'] or '').lower() in ('.mp3', '.m4a', '.aac') and (t['bitrate'] or 0) and t['bitrate'] <= q * 1000 * 1.1:
         return None
     LO_DIR.mkdir(parents=True, exist_ok=True)
-    # a phone that cancelled mid-send can leave its copy behind
-    for f in LO_DIR.glob('*.m4a'):
+    out = LO_DIR / ('%d-%d.m4a' % (tid, q))
+    with _lock_for(out.name):
+        if not (out.exists() and out.stat().st_size > 0):
+            for f in LO_DIR.glob('*.m4a'):          # an hour unused is long enough
+                try:
+                    if time.time() - f.stat().st_mtime > 3600:
+                        f.unlink()
+                except OSError:
+                    pass
+            tmp = LO_DIR / ('%d-%d.%s.part' % (tid, q, uuid.uuid4().hex[:8]))
+            with _LO_SEM:
+                try:
+                    r = subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', str(path), '-map', '0:a:0',
+                                        '-c:a', 'aac', '-b:a', '%dk' % q, '-movflags', '+faststart', '-f', 'mp4', str(tmp)],
+                                       capture_output=True, timeout=600)
+                except subprocess.TimeoutExpired:
+                    r = None
+            if not r or r.returncode != 0 or not tmp.exists() or tmp.stat().st_size == 0:
+                try: tmp.unlink()
+                except OSError: pass
+                print('transcode failed for %d: %s' % (tid, (r.stderr[-300:] if r else b'timeout').decode('utf-8', 'replace')), flush=True)
+                return None                       # the original still plays
+            os.replace(tmp, out)
         try:
-            if time.time() - f.stat().st_mtime > 3600:
-                f.unlink()
+            os.utime(out)                          # in use: keep it another hour
         except OSError:
             pass
-    out = LO_DIR / ('%d-%d-%s.m4a' % (tid, q, uuid.uuid4().hex[:8]))
-    with _LO_SEM:
-        try:
-            r = subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', str(path), '-map', '0:a:0',
-                                '-c:a', 'aac', '-b:a', '%dk' % q, '-movflags', '+faststart', str(out)],
-                               capture_output=True, timeout=600)
-        except subprocess.TimeoutExpired:
-            r = None
-    if not r or r.returncode != 0 or not out.exists() or out.stat().st_size == 0:
-        try: out.unlink()
-        except OSError: pass
-        print('transcode failed for %d: %s' % (tid, (r.stderr[-300:] if r else b'timeout').decode('utf-8', 'replace')), flush=True)
-        return None                       # the original still downloads
-    return FileResponse(str(out), media_type='audio/mp4', headers={'Cache-Control': 'no-store'},
-                        background=BackgroundTask(lambda: out.unlink(missing_ok=True)))
+    return out
+
+
+# 4 Nov 2026: the first request for a song waited ~6 s for its encode, which
+# is what a skip past the songs fetched ahead cost. A phone now names the next
+# few songs when one starts, and they are encoded here one at a time, in the
+# background, so any of them answers at once.
+from pydantic import BaseModel
+
+
+class PrepareIn(BaseModel):
+    ids: list[int]
+    q: int = 128
+
+_PREP_Q = collections.deque()
+_PREP_EV = threading.Event()
+
+
+def _prep_loop():
+    while True:
+        _PREP_EV.wait()
+        while _PREP_Q:
+            tid, q = _PREP_Q.popleft()
+            try:
+                t = one('SELECT rel_path, mime, size, ext, bitrate FROM track WHERE id=?', tid)
+                path = safe_path(t['rel_path']) if t else None
+                if path and path.exists():
+                    _lo_make(tid, t, path, q)
+            except Exception as e:
+                print('prepare %d failed: %s' % (tid, e), flush=True)
+        _PREP_EV.clear()
+
+
+threading.Thread(target=_prep_loop, daemon=True, name='lo-prepare').start()
+
+
+@app.post('/api/stream/prepare')
+def stream_prepare(body: PrepareIn):
+    ids = [i for i in body.ids[:6] if 0 < i < pod.POD_BASE]
+    have = set(_PREP_Q)
+    for i in ids:
+        if (i, body.q) not in have:
+            _PREP_Q.append((i, body.q))
+    _PREP_EV.set()
+    return {'ok': True, 'queued': len(ids)}
+
+
+def _lock_for(name):
+    with _LO_LOCKS.setdefault('', threading.Lock()):
+        return _LO_LOCKS.setdefault(name, threading.Lock())
 
 
 # ---------------------------------------------------------------- user state
@@ -1397,6 +1469,33 @@ def sonos_state(ip: str, group: bool = False):
     except Exception as e:
         raise HTTPException(502, str(e))
 
+@app.get('/api/sonos/house')
+def sonos_house():
+    """Every room in one call (2 Nov 2026, whole-home control from a wall
+    panel): what its group is playing, its own volume, and who it is grouped
+    with. Rooms are asked in parallel; one that does not answer is marked."""
+    import concurrent.futures as cf
+    rooms = [r for r in sonos_rooms().get('rooms', []) if not r.get('unavailable')]
+    names = {r['ip']: r['name'] for r in rooms}
+
+    def ask(r):
+        out = {'name': r['name'], 'ip': r['ip'], 'coordinator_ip': r.get('coordinator_ip') or r['ip'],
+               'model': r.get('model'), 'group': r.get('group'), 'members': r.get('members', 1)}
+        try:
+            out['volume'] = sn.volume(r['ip'])
+            out['muted'] = sn.mute(r['ip'])
+            c = out['coordinator_ip']
+            out.update(sn.transport_info(c))
+            pi = sn.position_info(c)
+            out['meta'] = pi.get('meta'); out['uri'] = pi.get('uri')
+            out['led_by'] = names.get(c) if c != r['ip'] else None
+        except Exception as e:
+            out['error'] = str(e)[:120]
+        return out
+    with cf.ThreadPoolExecutor(8) as ex:
+        return {'rooms': list(ex.map(ask, rooms))}
+
+
 @app.get('/api/sonos/art')
 def sonos_art(ip: str, u: str):
     """Proxy cover art for whatever a speaker is playing.
@@ -1617,7 +1716,11 @@ def whatsnew():
 def build_id():
     # build changes with any write to the read model; built only when etl.py
     # finishes a rebuild, which is what "new music" means to a page
-    return {'build': art_gen(), 'built': _EPOCH['built']}
+    try:
+        ui = int((HERE / 'ui.html').stat().st_mtime)     # the page's own version: it updates itself
+    except OSError:
+        ui = None
+    return {'build': art_gen(), 'built': _EPOCH['built'], 'ui': ui}
 
 
 @app.get('/api/recent-added')
@@ -1669,6 +1772,26 @@ async def api_diag(request: Request):
 @app.get('/api/diag')
 def api_diag_read():
     return DIAG[-5:]
+
+
+# ---- playback diagnostics (playlog.py, 3 Nov 2026)
+@app.post('/api/clientlog')
+async def api_clientlog(request: Request):
+    body = await request.json()
+    ip = request.headers.get('x-forwarded-for') or (request.client.host if request.client else '-')
+    return {'ok': True, 'n': playlog.client_events(body, request.headers, ip)}
+
+
+@app.get('/api/playback/log')
+def api_playback_log(dev: str = None, limit: int = 200):
+    return playlog.recent(dev or None, max(1, min(1000, limit)))
+
+
+@app.get('/api/speedtest')
+def api_speedtest(kb: int = 256):
+    """random bytes (incompressible), for a device to time its own connection"""
+    return Response(os.urandom(max(1, min(4096, kb)) * 1024), media_type='application/octet-stream',
+                    headers={'Cache-Control': 'no-store'})
 
 
 
@@ -2097,6 +2220,180 @@ def _dj_keeper():
 threading.Thread(target=_dj_keeper, daemon=True, name='dj-keeper').start()
 
 
+# ---------------------------------------------------------------- remote
+# One call for things outside the app (Home Assistant buttons and automations,
+# 2 Nov 2026) to start music in a room by NAME: rooms, artists, albums,
+# playlists, genres and libraries are matched without regard to case.
+#   {"room": "Kitchen", "action": "dj", "artist": "Mark Knopfler"}
+#   {"room": "Living Room", "action": "play", "playlist": "Favourites"}
+#   {"room": "Kitchen", "action": "volume", "volume": 25}
+# action: play | dj | pause | resume | next | previous | stop | volume
+class RemoteIn(BaseModel):
+    room: str                  # a room, "Kitchen, Office", or "everywhere"
+    action: str = 'play'
+    artist: str | None = None
+    album: str | None = None
+    song: str | None = None
+    playlist: str | None = None
+    genre: str | None = None
+    era: int | None = None
+    library: str | None = None
+    volume: int | None = None
+    shuffle: bool | None = None
+
+
+def _room_ip(name):
+    want = (name or '').strip().lower()
+    for r in sonos_rooms().get('rooms', []):
+        if r['name'].lower() == want and not r.get('unavailable'):
+            return r.get('coordinator_ip') or r['ip'], r['name']
+    raise HTTPException(404, f'no speaker called {name!r}')
+
+
+def _named(sql_exact, sql_like, name):
+    r = one(sql_exact, name) or one(sql_like, '%' + name + '%')
+    if not r:
+        raise HTTPException(404, f'nothing called {name!r}')
+    return r
+
+
+def _remote_seed(r):
+    """(kind, seed id) for the DJ, from whichever name was given"""
+    if r.song:
+        t = _named('SELECT id FROM track WHERE title=? COLLATE NOCASE', 'SELECT id FROM track WHERE title LIKE ?', r.song)
+        return 'song', t['id']
+    if r.album:
+        a = _named('SELECT id FROM album WHERE title=? COLLATE NOCASE', 'SELECT id FROM album WHERE title LIKE ?', r.album)
+        return 'album', a['id']
+    if r.artist:
+        a = _named('SELECT id FROM artist WHERE name=? COLLATE NOCASE', 'SELECT id FROM artist WHERE name LIKE ?', r.artist)
+        return 'artist', a['id']
+    if r.genre:
+        g = _named('SELECT id FROM genre WHERE shelf=? COLLATE NOCASE', 'SELECT id FROM genre WHERE shelf LIKE ?', r.genre)
+        return 'genre', g['id']
+    if r.era:
+        return 'era', int(r.era)
+    if r.library:
+        return 'lib', _named('SELECT DISTINCT pool FROM album WHERE pool=? COLLATE NOCASE',
+                             'SELECT DISTINCT pool FROM album WHERE pool LIKE ?', r.library)['pool']
+    return 'lib', MAIN_POOL
+
+
+def _remote_tracks(r):
+    """track ids to play, from whichever name was given"""
+    shuffle = r.shuffle
+    if r.playlist:
+        want = r.playlist.strip().lower()
+        for pl in st.pl_list():
+            if pl['name'].lower() == want:
+                return [t['id'] for t in st.pl_tracks(pl['id'], str(DB))['tracks']], bool(shuffle)
+        for key, title, _ in st.SMART:
+            if want in (key, title.lower()):
+                return [t['id'] for t in st.smart_playlist(key, str(DB), limit=200)], bool(shuffle)
+        raise HTTPException(404, f'no playlist called {r.playlist!r}')
+    if r.song:
+        t = _named('SELECT id FROM track WHERE title=? COLLATE NOCASE', 'SELECT id FROM track WHERE title LIKE ?', r.song)
+        return [t['id']], False
+    if r.album:
+        a = _named('SELECT id FROM album WHERE title=? COLLATE NOCASE', 'SELECT id FROM album WHERE title LIKE ?', r.album)
+        return [x['id'] for x in rows('SELECT id FROM track WHERE album_id=? ORDER BY disc, track', a['id'])], bool(shuffle)
+    kind, sid = _remote_seed(r)
+    where = {'artist': ('album.artist_id=?', sid), 'genre': ('album.genre_id=?', sid),
+             'era': ('album.decade=?', int(sid) // 10 * 10), 'lib': ('album.pool=?', sid)}[kind]
+    ids = [x['id'] for x in rows('SELECT track.id FROM track JOIN album ON album.id=track.album_id '
+                                 f'WHERE {where[0]} ORDER BY RANDOM() LIMIT 80', where[1])]
+    return ids, False          # already shuffled
+
+
+def _remote_rooms(spec):
+    """[(ip, name)] for one room, a comma-separated list, or everywhere/all"""
+    if (spec or '').strip().lower() in ('everywhere', 'all', 'whole house', 'house'):
+        rs = [r for r in sonos_rooms().get('rooms', []) if not r.get('unavailable')]
+        return [(r['ip'], r['name']) for r in rs]
+    return [_room_ip(n) for n in spec.split(',') if n.strip()]
+
+
+@app.post('/api/remote')
+def remote(r: RemoteIn):
+    act = r.action.lower()
+    targets = _remote_rooms(r.room)
+    if not targets:
+        raise HTTPException(404, 'no rooms named')
+    if len(targets) > 1:
+        if act in ('pause', 'resume', 'play_pause', 'next', 'previous', 'stop', 'volume'):
+            # each room, or each group once
+            done, out = set(), []
+            for ip, name in targets:
+                key = ip if act == 'volume' else next((x.get('coordinator_ip') or x['ip'] for x in
+                       sonos_rooms().get('rooms', []) if x['ip'] == ip), ip)
+                if key in done:
+                    continue
+                done.add(key)
+                try:
+                    if act == 'volume':
+                        sn.volume(ip, max(0, min(100, r.volume or 0)))
+                    else:
+                        sn.simple(key, {'pause': 'Pause', 'resume': 'Play', 'next': 'Next', 'previous': 'Previous',
+                                        'stop': 'Stop'}.get(act) or ('Pause' if sn.transport_info(key).get('state') == 'PLAYING' else 'Play'))
+                    out.append(name)
+                except Exception:
+                    pass
+            return {'ok': True, 'rooms': out, 'action': act}
+        # music: group the rooms under the first, then play there
+        sonos_group_set(SonosGroupSet(ips=[ip for ip, _ in targets]))
+        ip, room = targets[0][0], ' + '.join(n for _, n in targets)
+    else:
+        ip, room = targets[0]
+        if act in ('play', 'dj'):
+            # a single room plays on its own, leaving any group it was in
+            try:
+                gs = [x for x in sonos_rooms().get('rooms', []) if x['ip'] == ip]
+                if gs and gs[0].get('coordinator_ip') not in (None, ip):
+                    sn.unjoin(ip); _ROOMS['at'] = 0
+                elif gs and gs[0].get('members', 1) > 1:
+                    sonos_group_set(SonosGroupSet(ips=[ip]))      # it led others: they go
+            except Exception:
+                pass
+            ip = next((x.get('coordinator_ip') or x['ip'] for x in sonos_rooms().get('rooms', [])
+                       if x['name'] == room), ip)
+    simple = {'pause': 'Pause', 'resume': 'Play', 'play_pause': None, 'next': 'Next',
+              'previous': 'Previous', 'stop': 'Stop'}
+    try:
+        if act in simple:
+            if act == 'play_pause':
+                state = sn.transport_info(ip).get('state')
+                sn.simple(ip, 'Pause' if state == 'PLAYING' else 'Play')
+            else:
+                sn.simple(ip, simple[act])
+            return {'ok': True, 'room': room, 'action': act}
+        if act == 'volume':
+            if r.volume is None:
+                raise HTTPException(400, 'volume needs a level')
+            return {'ok': True, 'room': room, 'volume': sn.group_volume(ip, max(0, min(100, r.volume)))}
+    except HTTPException:
+        raise
+    except Exception as e:
+        raise HTTPException(502, f'sonos refused: {e}')
+    if act == 'dj':
+        kind, sid = _remote_seed(r)
+        try:
+            d = dj.start(kind, sid)
+        except ValueError as e:
+            raise HTTPException(404, str(e))
+        res = sonos_play(SonosPlay(ip=ip, track_ids=[i['id'] for i in d['items']]))
+        dj.bind(d['session'], [ip])            # the keeper takes it from here
+        return {**res, 'room': room, 'station': d['label']}
+    if act == 'play':
+        ids, shuffle = _remote_tracks(r)
+        if not ids:
+            raise HTTPException(404, 'nothing to play')
+        if shuffle:
+            import random
+            random.shuffle(ids)
+        return {**sonos_play(SonosPlay(ip=ip, track_ids=ids[:80])), 'room': room}
+    raise HTTPException(400, f'unknown action {r.action!r}')
+
+
 @app.get('/api/dj/clip/{cid}')
 def dj_clip(cid: int):
     c = dj.clip_info(cid)
@@ -2332,6 +2629,31 @@ def request_album(r: WantIn, request: Request):
     except ValueError as e:
         raise HTTPException(400, str(e))
     return {'ok': True, 'started': started}
+
+
+class CancelIn(BaseModel):
+    rgid: str
+
+
+@app.post('/api/requests/cancel')
+def request_cancel(r: CancelIn):
+    try:
+        return wanted.cancel(r.rgid)
+    except ValueError as e:
+        raise HTTPException(409, str(e))
+    except Exception as e:
+        raise HTTPException(502, str(e))
+
+
+@app.get('/api/requests/health')
+def requests_health():
+    """Lidarr and its downloader: running, paused and why (cached a minute)"""
+    return wanted.health()
+
+
+@app.post('/api/requests/resume')
+def requests_resume():
+    return wanted.resume()
 
 
 @app.get('/api/requests')
@@ -3363,8 +3685,8 @@ def index(request: Request):
             html = html.replace('content="width=device-width, initial-scale=1, viewport-fit=cover"',
                                 'content="width=1280"', 1)
         # hand the page the art generation so its URLs bust on a rebuild
-        return html.replace('<head>', '<head><script>window.__ARTGEN=%r;</script>'
-                            % art_gen(), 1)
+        return html.replace('<head>', '<head><script>window.__ARTGEN=%r;window.__UIV=%d;</script>'
+                            % (art_gen(), int(p.stat().st_mtime)), 1)
     return '<h1>MusicMate API</h1><p>UI not built yet. Try /api/health</p>'
 
 # ---- Wrapped (wrapped.py, wrapped.html): a person's year, with the DJ's voice

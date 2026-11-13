@@ -8,12 +8,14 @@
      mm-dl     downloaded songs, keyed by their stream path (/api/stream/<id>),
                and the page's download index (/dl/index.json); written by ui.html
      mm-art    covers of downloaded albums, keyed by /api/art/<id>
+     mm-ahead  the song playing and the next few, fetched whole by ui.html so a
+               weak signal does not stop them (3 Nov 2026)
 
    A downloaded song is answered from mm-dl even when the server is reachable:
    it saves mobile data, and the file is the same one. Everything else goes to
    the network as before. */
 
-const SHELL = 'mm-shell', DL = 'mm-dl', ART = 'mm-art';
+const SHELL = 'mm-shell', DL = 'mm-dl', ART = 'mm-art', AHEAD = 'mm-ahead';
 
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(SHELL).then(c => c.add(new Request('/', { cache: 'reload' }))).catch(() => {}));
@@ -74,9 +76,10 @@ self.addEventListener('fetch', e => {
 
   if (url.origin === location.origin) {
     if (req.mode === 'navigate' && url.pathname === '/') { e.respondWith(page(req)); return; }
-    let m = /^\/api\/stream\/(\d+)$/.exec(url.pathname);
+    let m = /^\/api\/stream\/(-?\d+)$/.exec(url.pathname);
     if (m) {
-      e.respondWith(kept(DL, url.pathname).then(r => r ? ranged(req, r) : fetch(req)));
+      e.respondWith(kept(DL, url.pathname).then(r => r || kept(AHEAD, url.pathname))
+        .then(r => r ? ranged(req, r) : fetch(req)));
       return;
     }
     m = /^\/api\/art\/(\d+)$/.exec(url.pathname);

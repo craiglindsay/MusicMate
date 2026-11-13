@@ -26,7 +26,7 @@ things a clip has no use for (hearts, play counts, lyrics).
 
 Key: ANTHROPIC_API_KEY, or the repo-root file .anthropic_key (gitignored).
 """
-import os, re, json, time, random, sqlite3, asyncio, threading, collections, datetime
+import os, re, json, time, random, sqlite3, asyncio, hashlib, threading, collections, datetime
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -58,6 +58,88 @@ def init(radio, main_pool):
                 p.unlink()
         except OSError:
             pass
+    threading.Thread(target=_greet_prepare, daemon=True, name='dj-greet').start()
+
+
+# The opening hello (3 Nov 2026). Writing and voicing a personal opening took
+# 20-25 seconds before the first song, which looked broken (and when it took
+# longer the station started with no hello at all). So a station opens with a
+# short generic hello, voiced once per voice and kept for good in
+# cache/dj/greet (the day-old sweep above only looks in cache/dj itself), and
+# the personal opening (what the station is about, who just played) is the
+# talk after the first set, written while those songs play.
+GREETINGS = [
+    "Hey there, your MusicMate DJ here. Let's get things started.",
+    "Hi, it's your MusicMate DJ. Settle in, let's get the music going.",
+    "Hello and welcome in. Your DJ here. Let's kick things off.",
+    "Hey, good to have you. MusicMate DJ here, and we're starting right now.",
+    "Welcome to the station, it's your DJ. Let's get into it.",
+]
+GREET = CLIPS / 'greet'
+
+
+def _greet_file(voice, n):
+    tag = hashlib.md5(GREETINGS[n].encode()).hexdigest()[:6]     # a reworded line is voiced afresh
+    return GREET / ('%s-%d-%s.mp3' % (voice, n, tag))
+
+
+def _greet_cid(voice, n):
+    return -(10 ** 11 + VOICES.index(voice) * 100 + n)          # clear of the talks' own ids
+
+
+def _greet_register(voice, n):
+    cid = _greet_cid(voice, n)
+    if cid in CLIPMETA:
+        return cid
+    p = _greet_file(voice, n)
+    if not p.exists():
+        return None
+    dur = _duration(p)
+    if not dur or dur < 1:                     # a broken recording: voice it again
+        try: p.unlink()
+        except OSError: pass
+        return None
+    ev = threading.Event()
+    ev.set()
+    CLIPMETA[cid] = {'path': p, 'text': GREETINGS[n], 'duration': dur, 'label': 'MusicMate DJ',
+                     'ready': ev, 'ok': True}
+    return cid
+
+
+def _greet_make(voice, n):
+    if _greet_register(voice, n) is None:
+        GREET.mkdir(parents=True, exist_ok=True)
+        f = _greet_file(voice, n)
+        tmp = f.with_name(f.stem + '.%x.part' % random.getrandbits(24))   # never seen half-written
+        try:
+            _speak(GREETINGS[n], voice, tmp)
+            if (_duration(tmp) or 0) < 1:
+                raise RuntimeError('no usable audio')
+            os.replace(tmp, f)
+        except Exception as e:
+            try: tmp.unlink()
+            except OSError: pass
+            print('dj: greeting failed:', type(e).__name__, str(e)[:200], flush=True)
+            return None
+    return _greet_register(voice, n)
+
+
+def _greet_prepare():
+    for v in VOICES:
+        for n in range(len(GREETINGS)):
+            _greet_make(v, n)
+
+
+def _greeting(voice):
+    """(clip id, text) of a hello in this voice: a kept one at once, else one
+    voiced now (a few seconds, only until the prepare pass has reached it)"""
+    ready = [n for n in range(len(GREETINGS)) if _greet_register(voice, n) is not None]
+    if ready:
+        n = random.choice(ready)
+        return _greet_register(voice, n), GREETINGS[n]
+    n = random.randrange(len(GREETINGS))
+    cid = _greet_make(voice, n)
+    return (cid, GREETINGS[n]) if cid is not None else (None, None)
 
 
 def _db():
@@ -365,8 +447,9 @@ def _prompt(sess, played, coming, intro):
          'just_played': _facts(played), 'coming_up': _facts(coming[:3])}
     if sess.talks:
         d['what_you_said_before'] = sess.talks[-3:]
-    head = ('This is the opening of the station: a quick hello, what the station is built around, '
-            'and who we start with.' if intro else
+    head = ('The station has started: you said a quick hello before the songs in just_played, which have '
+            'now finished. Now open it properly, without greeting again: what the station is built around, '
+            'a word on who just played, and who is coming up.' if intro else
             'The songs in just_played have finished. Talk now.')
     return head + '\n\n' + json.dumps(d, ensure_ascii=False, indent=1)
 
@@ -426,8 +509,8 @@ def _write_plain(sess, played, coming, intro):
     when = 'this morning' if 5 <= hour < 12 else 'this afternoon' if 12 <= hour < 17 else 'tonight'
     nxt = coming[0]['artist'] if coming else None
     if intro:
-        s = random.choice(['Hey, welcome in.', "Hi there, it's your MusicMate DJ.", 'Pull up a chair.']) + \
-            " %s, it's all about %s." % (when[0].upper() + when[1:], sess.label)
+        s = (random.choice(['That was %s.', 'You just heard %s.']) % names(played) + ' ' if played else '') + \
+            "%s, it's all about %s." % (when[0].upper() + when[1:], sess.label)
         if nxt:
             s += random.choice([' We start with %s.', ' Kicking off with %s.']) % nxt
         return s
@@ -524,8 +607,8 @@ def _prune():
 
 
 def start(kind, sid, voice=None, played=()):
-    """A new station: an opening clip (waited for, briefly), the first set, and
-    the talk after it, which is written while the first songs play."""
+    """A new station: a kept hello, the first set, and the personal opening
+    after it, which is written while the first songs play."""
     _prune()
     sess = Session(kind, sid, voice)
     sess.played.update(int(x) for x in played if int(x) > 0)
@@ -536,21 +619,19 @@ def start(kind, sid, voice=None, played=()):
     sess.pending = sess.next_set()
     items = []
     if not played:
-        cid = _new_clip(sess.label)
-        th = threading.Thread(target=_make_clip, args=(cid, sess, [], first, True), daemon=True)
-        th.start()
-        CLIPMETA[cid]['ready'].wait(25)
-        if CLIPMETA[cid]['ok']:
+        cid, text = _greeting(sess.voice)
+        if cid is not None:
+            sess.talks.append(text)
             items.append(_clip_item(cid, sess))
     items += [_track_item(t) for t in first]
-    items += _talk_after(sess, first)
+    items += _talk_after(sess, first, intro=not played)
     sess.log = list(items)
     return {'session': sess.id, 'label': sess.label, 'items': items}
 
 
-def _talk_after(sess, played):
+def _talk_after(sess, played, intro=False):
     cid = _new_clip(sess.label)
-    threading.Thread(target=_make_clip, args=(cid, sess, played, sess.pending or [], False), daemon=True).start()
+    threading.Thread(target=_make_clip, args=(cid, sess, played, sess.pending or [], intro), daemon=True).start()
     # the clip is listed now and generated by the time the set has played; its
     # duration is filled in when the player asks for it
     return [{'id': cid, 'dj': 1, 'title': 'MusicMate DJ', 'artist': 'Inspired by ' + sess.label, 'duration': None}]
