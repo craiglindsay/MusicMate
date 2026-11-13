@@ -6234,7 +6234,11 @@ function xGlobe(g, w, h, t, S, dm, now) {
   /* what the music does to the water */
   let big = false;
   const cl = MC.climax > .5 ? 1 : 0;
-  if ((MC.section !== S.sec && S.sec >= 0 && MC.section >= 0) || (cl && !S.cl)) { big = true; S.shake = 1; S.sgn = -S.sgn; }
+  if ((MC.section !== S.sec && S.sec >= 0 && MC.section >= 0) || (cl && !S.cl)) {
+    /* every other big moment shakes the globe (13 Nov 2026: "could happen about 1/2 as often") */
+    S.skip = !S.skip;
+    if (S.skip) { big = true; S.shake = 1; S.sgn = -S.sgn; }
+  }
   S.sec = MC.section; S.cl = cl; S.shake *= Math.exp(-dt / .5);
   const on = MC.live, ease = (cur, tgt, up, down) => cur + (tgt - cur) * (1 - Math.exp(-dt / (Math.abs(tgt) > Math.abs(cur) ? up : down)));
   S.wy = ease(S.wy, S.sgn * (.25 + .6 * MC.loud) * on * A, 3, 14);           // the turn about the upright axis, rad/s
